@@ -17,23 +17,11 @@ main:
   - name: Prácticos
     url: /example/
     weight: 4
-  - name: Tareas <i class="fab fa-github"></i>
-    identifier: assignment
-    url: /assignment/
-    weight: 4
-  - name: Tareas
-    parent: assignment
-    url: /assignment/
-    weight: 4
-  - name: 'Github Classroom<i class="fab fa-github"></i>'
-    parent: assignment
-    url: "https://classroom.github.com/classrooms/86887318-learn-r-uah-2021"
-    weight: 8
   - name: Recursos
     url: /resource/
     weight: 6
   - name: '<i class="fab fa-slack"></i>'
-    url: "https://join.slack.com/t/learn-r-uah/shared_invite/zt-sh9uysuu-IzEG8~u5k2YYGWgpAFTRFA"
+    url: "https://join.slack.com/t/learn-r-udp/shared_invite/zt-t5wu1kxe-ng~ne54VCRbv011lCKMTJg"
     weight: 7
   - name: '<i class="fab fa-r-project"></i>'
     url: https://rstudio.cloud/
