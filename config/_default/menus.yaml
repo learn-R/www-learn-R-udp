@@ -1,0 +1,69 @@
+main:
+  - name: Organización
+    identifier: schedule
+    url: /schedule/
+    weight: 1
+  - name: Planificación
+    parent: schedule
+    url: /schedule/
+    weight: 1
+  - name: Syllabus
+    parent: schedule
+    url: /syllabus/
+    weight: 2
+  - name: Clases
+    url: /content/
+    weight: 3
+  - name: Prácticos
+    url: /example/
+    weight: 4
+  - name: Tareas <i class="fab fa-github"></i>
+    identifier: assignment
+    url: /assignment/
+    weight: 4
+  - name: Tareas
+    parent: assignment
+    url: /assignment/
+    weight: 4
+  - name: 'Github Classroom<i class="fab fa-github"></i>'
+    parent: assignment
+    url: "https://classroom.github.com/classrooms/86887318-learn-r-uah-2021"
+    weight: 8
+  - name: Recursos
+    url: /resource/
+    weight: 6
+  - name: '<i class="fab fa-slack"></i>'
+    url: "https://join.slack.com/t/learn-r-uah/shared_invite/zt-sh9uysuu-IzEG8~u5k2YYGWgpAFTRFA"
+    weight: 7
+  - name: '<i class="fab fa-r-project"></i>'
+    url: https://rstudio.cloud/
+    weight: 9
+
+content:
+  - name: Información general
+    weight: 1
+  - name: Contenido
+    weight: 2
+example:
+  - name: Información general
+    weight: 1
+  - name: Datos
+    weight: 2
+  - name: Ejemplos
+    weight: 3
+assignment:
+  - name: Información general
+    weight: 1
+  - name: Other projects
+    weight: 2
+  - name: Tareas
+    weight: 3
+  - name: Evaluation
+    weight: 4
+resource:
+  - name: Resources
+    weight: 1
+  - name: Study guides
+    weight: 2
+  - name: Guides
+    weight: 3
