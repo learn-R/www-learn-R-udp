@@ -8,7 +8,11 @@ slug: schedule
 - [**Prácticos**](/example/) (<i class="fas fa-laptop-code"></i>): Esta página contiene los ejercicios prácticos asociados a cada sesión de clase. Podrás encontrar tanto el código de R cómo, en algunos casos, los videos grabados del *live coding*. Esta página será **muy importante** para la entrega de las tareas. 
 
 <div class="ical">
-Puedes suscribir la **planificación** del curso con la URL del calendario en Outlook, Google Calendar o Apple Calendar:<br><a class="btn btn-primary" href="https://bit.ly/3AYfLhR" role="button"><i class="far fa-calendar-alt"></i></a> <input id="ics_url" type="text" value="https://bit.ly/3AYfLhR" onclick="this.select()" readonly="readonly" size="60" />
+Puedes suscribir la **planificación** del curso con la URL del calendario en Outlook, Google Calendar o Apple Calendar:<br><a class="btn btn-primary" href="https://bit.ly/3iU6AGZ" role="button"><i class="far fa-calendar-alt"></i></a> <input id="ics_url" type="text" value="https://bit.ly/3iU6AGZ" onclick="this.select()" readonly="readonly" size="60" />
 </div>
 
 `r blogdown::shortcode("schedule")`
+
+Puedes descargar el programa apretando el siguiente botón: 
+<a Puedes descargar el programa apretando el siguiente botón class="btn btn-primary" href="../files/programa-R-udp.pdf/" role="button"><i class="far fa-file-pdf"></i></a>
+

@@ -1,7 +1,7 @@
 ---
-title: "Bienvenido/a a R, RStudio y Github"
-linktitle: "1: R, RStudio y Github"
-date: "2021-08-09"
+title: "Bienvenido/a a R, RStudio y tidyverse"
+linktitle: "1: R, RStudio y tidyverse"
+date: "2021-08-13"
 menu:
   example:
     parent: Ejemplos
