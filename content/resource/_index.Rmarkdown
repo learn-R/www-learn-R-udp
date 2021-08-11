@@ -2,7 +2,7 @@
 title: Recursos
 menu:
   resource:
-    parent: Resources
+    parent: Recursos
 type: docs
 weight: -1
 ---

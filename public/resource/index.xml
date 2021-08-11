@@ -5,7 +5,7 @@
     <link>/resource/</link>
       <atom:link href="/resource/index.xml" rel="self" type="application/rss+xml" />
     <description>Recursos</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator>
+    <generator>Wowchemy (https://wowchemy.com)</generator><lastBuildDate>Fri, 13 Aug 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png</url>
       <title>Recursos</title>
@@ -13,15 +13,117 @@
     </image>
     
     <item>
-      <title>Citations and bibliography</title>
-      <link>/resource/citations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/resource/citations/</guid>
-      <description>&lt;p&gt;You can &lt;a href=&#34;/bib/references.bib&#34;&gt;download a BibTeX file&lt;/a&gt; of all the non-web-based readings in the course:&lt;/p&gt;
+      <title>Instalación de R, RStudio y Slack</title>
+      <link>/resource/install/</link>
+      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>/resource/install/</guid>
+      <description>&lt;h1 id=&#34;contenido&#34;&gt;Contenido&lt;/h1&gt;
+&lt;h2 id=&#34;1-r&#34;&gt;1. R&lt;/h2&gt;
+&lt;p&gt;R es un lenguaje de programación y software de código abierto, empleado en procesamiento, análisis y visualización de datos estadísticos, altamente extendibles.&lt;/p&gt;
+&lt;h3 id=&#34;ventajas&#34;&gt;Ventajas:&lt;/h3&gt;
+&lt;p&gt;Las principales ventajas son:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/bib/references.bib&#34;&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;code&gt;references.bib&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Es un lenguaje de programación destacado en lo que respecta al análisis estadístico&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Es de acceso y código abierto&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Permite graficar el análisis y los datos estadísticos de forma eficiente y llamativa&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Se encuentra en constante actualización y desarrollo&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You can open the file in &lt;a href=&#34;http://bibdesk.sourceforge.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BibDesk on macOS&lt;/a&gt;, &lt;a href=&#34;http://www.jabref.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;JabRef on Windows&lt;/a&gt;, or &lt;a href=&#34;https://www.zotero.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Zotero&lt;/a&gt; or &lt;a href=&#34;https://www.mendeley.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mendeley&lt;/a&gt; online.&lt;/p&gt;
+&lt;p&gt;Para descargar &lt;strong&gt;R&lt;/strong&gt;, deben dirigirse al siguiente &lt;a href=&#34;https://cran.dcc.uchile.cl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt;, y seguir los pasos de instalación según su sistema operativo. Para el caso de &lt;em&gt;Windows&lt;/em&gt; y &lt;em&gt;macOS&lt;/em&gt;, se debe descargar el instalador de R, ejecutarlo, y proseguir con la instalación. Lo recomendado es instalarlo en español, y mantener las opciones de instalación que vienen por defecto.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/r-versions-os.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;A continuación, se presentan imágenes del proceso de instalación de R en &lt;em&gt;Windows&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Se aceptan las condiciones de uso&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/r-windows3.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Se define la carpeta de instalación. Pueden escoger donde deseen realizar la instalación clickeando en &lt;em&gt;examinar&lt;/em&gt;; no obstante, se recomienda mantener la ruta predeterminada, en &lt;em&gt;Archivos de programa&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/r-windows4.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Se recomienda seleccionar la &lt;em&gt;Instalación de usuario&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/r-windows5.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Asimismo, también es recomendable no especificar las opciones de configuración&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/r-windows6.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Si se desea, se pueden crear &lt;em&gt;accesos directos&lt;/em&gt;. Lo que sí es importante, es &lt;em&gt;guardar el número de versión en el registro&lt;/em&gt;, y &lt;em&gt;asociar archivos .RData con R&lt;/em&gt; (lo análogo a asociar archivos .sav con SPSS, o archivos .dta con STATA)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/r-windows7.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Particularmente para el caso de &lt;em&gt;macOS&lt;/em&gt;, es indispensable la instalación de &lt;strong&gt;XQuartz&lt;/strong&gt;, pues este software nos permitirá visualizar, por ejemplo, los gráficos que elaboremos en R. Para ello, debemos dirigirnos al siguiente &lt;a href=&#34;https://www.xquartz.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;enlace&lt;/a&gt;, descargar la última versión disponible del software, y seguir el proceso de instalación. Tal como en el caso de R, lo recomendado es mantener la configuración predeterminada.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/xquartz.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Para el caso de &lt;em&gt;Ubuntu&lt;/em&gt;, la versión 4.1 de R (que es la actual) viene incluida para gran parte de las versiones de Ubuntu. Para poder ejecutarlas, deben abrir el &lt;strong&gt;terminal&lt;/strong&gt; y ejecutar los siguientes códigos (disponibles en el mirror de Ubuntu):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/r-ubuntu.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Siguiendo los pasos anteriores, la instalación de R está &lt;em&gt;finalizada&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Sin embargo, para laborar y aprender de manera más cómoda y eficiente, este curso trabajará principalmente con &lt;strong&gt;RStudio&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;2-rstudio&#34;&gt;2. RStudio&lt;/h2&gt;
+&lt;p&gt;Es un ambiente integrado de desarrollo para R (y Python, otro lenguaje de programación, que no se abordará en este curso), que permite visualizar el trabajo llevado a cabo, de manera más cómoda, sencilla y eficiente.&lt;/p&gt;
+&lt;p&gt;Para instalarlo, deben dirigirse a la &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/#download&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;siguiente página web&lt;/a&gt;. Allí, en la sección &lt;strong&gt;All Installers&lt;/strong&gt;, seleccionar el instalador correspondiente a su sistema operativo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/rstudio-installers.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;El proceso de instalación es el mismo que para &lt;em&gt;R&lt;/em&gt;. Simplemente, se recomienda mantener todo en predeterminado.&lt;/p&gt;
+&lt;h2 id=&#34;21-rstudio-cloud&#34;&gt;2.1. RStudio Cloud&lt;/h2&gt;
+&lt;p&gt;Sin embargo, también está la opción de trabajar en &lt;strong&gt;RStudio Cloud&lt;/strong&gt;, en caso que sus computadores no presenten los &lt;em&gt;requerimientos mínimimos&lt;/em&gt; para trabajar con RStudio de manera local. Para poder trabajar en RStudio Cloud, debemos &lt;em&gt;crear un usuario&lt;/em&gt;. Sin embargo, primero crearemos un &lt;strong&gt;usuario en GitHub&lt;/strong&gt;, para luego conectarse a RStudio Cloud desde allí.&lt;/p&gt;
+&lt;p&gt;Entonces, debemos dirigirnos a la página de &lt;a href=&#34;https://github.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub&lt;/a&gt;. Allí, debemos hacer click en &lt;strong&gt;Sign up&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/github-signup1.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Una vez allí, debemos ingresar nuestro correo electrónico, y luego seguir los pasos que se encuentran en el correo de confirmación. Es recomendable que creen la cuenta con la dirección de correo electrónico &lt;strong&gt;que usen cotidianamente&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Posteriormente, nos dirigimos a la página de &lt;a href=&#34;https://rstudio.cloud&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RStudio Cloud&lt;/a&gt;, y hacemos click en &lt;strong&gt;Sign Up&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud-signup1.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Volvemos a hacer click en &lt;strong&gt;Sign Up&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud-signup2.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Luego, hacemos click en &lt;strong&gt;Sign Up with GitHub&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud-signup3.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Se nos redirigirá a la página de &lt;strong&gt;GitHub&lt;/strong&gt;, donde debemos ingresar los datos del usuario de GitHub que creamos en pasos anteriores.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud-signup4.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Una vez realizado todo lo anterior, ingresaremos a &lt;strong&gt;RStudio Cloud&lt;/strong&gt;. Allí, encontraremos nuestro espacio de trabajo (&lt;em&gt;Your Workspace&lt;/em&gt;), donde podremos encontrar nuestros &lt;strong&gt;proyectos&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud1.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Haciendo click en la pestaña &lt;em&gt;Projects&lt;/em&gt;, situada en la pestaña superior, aparecerá el botón &lt;strong&gt;New Project&lt;/strong&gt;. Al pulsarlo, podremos crear un nuevo proyecto.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud2.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Luego, se generará el nuevo proyecto. Es importante que &lt;strong&gt;renombremos el nuevo proyecto&lt;/strong&gt;, haciendo click en el recuadro que se encuentra en la sección superior (en este caso, el proyecto se nombró como &lt;em&gt;Proyecto 1&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud4.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Para cargar archivos (como bases de datos, o archivos .R), debemos hacer click en el botón &lt;strong&gt;Upload&lt;/strong&gt;, situado en la sección &lt;em&gt;Files&lt;/em&gt; situada en la esquina inferior derecha. Aparecerá una ventana emergente, y debemos hacer click en &lt;strong&gt;Seleccionar archivo&lt;/strong&gt;, para explorar en nuestra computadora los archivos que necesitemos para trabajar.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud5.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;También podemos exportar el proyecto (con todos sus archivos asociados), haciendo click en el botón &lt;strong&gt;More&lt;/strong&gt; (al lado del &lt;em&gt;engranaje&lt;/em&gt;). Es importante que hagamos click en las casillas situadas a la izquierda de todos los archivos que deseemos descargar.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud6.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;En la sección superior derecha, encontraremos un &lt;em&gt;engranaje&lt;/em&gt;. En la pestaña &lt;em&gt;Info&lt;/em&gt; encontraremos la información general del proyecto; además, podremos agregar una descripción general de este.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud7.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;A la derecha de &lt;em&gt;Info&lt;/em&gt;, encontraremos la pestaña &lt;em&gt;Access&lt;/em&gt;. Allí, podremos cambiar quiénes pueden ver el proyecto. Por defecto, solamente quien creó el proyecto puede verlo; sin embargo, podemos permitir que cualquiera (Everyone) pueda hacerlo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud8.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Para poder compartir nuestros proyectos, debemos hacer click en los &lt;em&gt;tres puntos&lt;/em&gt; situados a la derecha del engranaje, y luego hacer click en &lt;strong&gt;Share Project Link&lt;/strong&gt;. Aparecerá una ventana emergente, donde podemos agregar las direcciones de correo electrónico de todas las personas que queramos invitar al proyecto. También podemos agregar un mensaje a la invitación.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/cloud9.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3-slack&#34;&gt;3. Slack&lt;/h2&gt;
+&lt;p&gt;Este software será el principal medio de comunicación en el marco del curso. Allí, las y los estudiantes podrán plantear todas sus dudas, para que estas puedan ser respondidas de forma colectiva, tanto por parte del equipo docente, como de otras y otros estudiantes.&lt;/p&gt;
+&lt;p&gt;Primero, debemos descargar el instalador de &lt;strong&gt;Slack&lt;/strong&gt;, dependiendo de nuestro sistema operativo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://slack.com/intl/es-cl/downloads/windows&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slack.com/intl/es-cl/downloads/mac&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;macOS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slack.com/intl/es-cl/downloads/linux&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En la siguiente imagen, está el ejemplo de &lt;em&gt;Windows&lt;/em&gt; (64 bits)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/slack1.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Una vez descargado el archivo, debemos ejecutarlo, y seguir el proceso de instalación. Tal como en el resto de los software instalados, recomendamos mantener todas las opciones de instalación &lt;em&gt;por defecto&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Luego, debemos crear una &lt;em&gt;cuenta de Slack&lt;/em&gt;, dirigiéndose a la &lt;a href=&#34;https://slack.com/get-started#/create&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;siguiente página web&lt;/a&gt;. Se recomienda usar la &lt;em&gt;dirección de correo que usen de forma cotidiana&lt;/em&gt;, a modo de estar al tanto de la actividad en el canal de Slack.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/slack2.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Posteriormente, deben confirmar su correo electrónico y, por último, han de hacer click en el link &lt;strong&gt;Unirse a slack de curso&lt;/strong&gt;, presente en el apartado &lt;em&gt;Syllabus&lt;/em&gt; de la página web. Ello redireccionará a la aplicación, abriendo allí el espacio de trabajo del curso.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/slack3.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Una vez realizado aquello, debemos permitir que la página web abra la aplicación de Slack, y se nos redirigirá al &lt;strong&gt;espacio de trabajo&lt;/strong&gt; del curso.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/slack4.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;A la izquierda, encontraremos los diversos &lt;em&gt;canales&lt;/em&gt; asignados para distintas actividades. Aquellos que tengan a la izquierda un &lt;strong&gt;#&lt;/strong&gt;, son canales abiertos a todas y todos quienes integren el espacio de trabajo; mientras que aquellos que tengan un &lt;strong&gt;candado&lt;/strong&gt; a su izquierda son canales privados. Haciendo click en &lt;strong&gt;añadir canales&lt;/strong&gt;, podemos crear &lt;em&gt;nuevos canales&lt;/em&gt; (lo cual pueden hacer cuando, en el futuro, utilicen Slack para sus trabajos personales).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/slack5.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Bajo los canales encontraremos la sección de &lt;strong&gt;mensajes directos&lt;/strong&gt;, donde podremos enviar mensajes privados a cualquier persona que integre el espacio de trabajo. No olviden que pueden comunicarnos todas sus dudas, inquietudes y sugerencias respecto del curso.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/slack6.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;En la sección superior derecha encontraremos nuestro usuario.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/slack7.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Si hacemos click, se abrirá una pestaña emergente, donde podremos acceder a diversas configuraciones.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/slack8.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;En &lt;strong&gt;Modificar tu perfil&lt;/strong&gt;, podemos cambiar nuestro nombre, describir a qué nos dedicamos, definir nuestros pronombres, entre otros elementos. También, podemos seleccionar una foto de perfil, para que el resto de las personas que integren el espacio de trabajo puedan (re)conocernos.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/slack9.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;En la sección de &lt;strong&gt;Preferencias&lt;/strong&gt;, podremos establecer diferentes configuraciones referentes, por ejemplo, a las &lt;em&gt;notificaciones&lt;/em&gt;, la &lt;em&gt;barra lateral&lt;/em&gt;, o seleccionar distintos &lt;em&gt;temas&lt;/em&gt;, para personalizar la apariencia de nuestro espacio de trabajo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/tutorial/install/slack10.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;una-vez-realizado-todo-lo-anterior-ya-estamos-listas-y-listos-para-empezar-a-trabajar-en-el-curso&#34;&gt;Una vez realizado todo lo anterior ¡Ya estamos listas y listos para empezar a trabajar en el curso!&lt;/h3&gt;
+&lt;h2 id=&#34;4-video-tutorial-en-youtube&#34;&gt;4. Video tutorial en Youtube&lt;/h2&gt;
+&lt;p&gt;Recuerden que el &lt;a href=&#34;https://www.youtube.com/watch?v=9YD-F6-ktes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;video de asociado a este práctico&lt;/a&gt; y muchos más podrán encontrarlos en el &lt;a href=&#34;https://www.youtube.com/channel/UCqBUeqBttVjS6h8fawK8sWg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;canal de youtube del curso&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;https://www.youtube.com/embed/9YD-F6-ktes&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 </description>
     </item>
     

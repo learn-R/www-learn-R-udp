@@ -49,9 +49,9 @@ assignment:
   - name: Evaluation
     weight: 4
 resource:
-  - name: Resources
+  - name: Recursos
     weight: 1
-  - name: Study guides
-    weight: 2
-  - name: Guides
+  - name: Otros materiales
     weight: 3
+  - name: Tutoriales
+    weight: 2

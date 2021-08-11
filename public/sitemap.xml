@@ -4,6 +4,12 @@
   
   <url>
     <loc>/resource/</loc>
+    <lastmod>2021-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/resource/install/</loc>
+    <lastmod>2021-08-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -18,10 +24,6 @@
   
   <url>
     <loc>/content/</loc>
-  </url>
-  
-  <url>
-    <loc>/resource/citations/</loc>
   </url>
   
   <url>
