@@ -1,7 +1,7 @@
 ---
-title: "Tranformar y seleccionar variables"
-linktitle: "4: Tranformar y seleccionar variables"
-date: "2021-08-30"
+title: "Transformar y seleccionar variables"
+linktitle: "4: Transformar y seleccionar variables"
+date: "2021-08-13"
 menu:
   example:
     parent: Ejemplos
@@ -12,335 +12,492 @@ editor_options:
   chunk_output_type: console
 ---
 
-## DAGs with dagitty.net
+## 0. Objetivo de la práctica
 
-The easiest way to quickly build DAGs and find adjustment sets and testable implications is to use [dagitty.net](http://dagitty.net/). 
-
-This video shows how to use it:
-
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3euqrnD9w7c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio.
 
 
-## DAGs with R, ggdag, and dagitty
+## 1. Recursos de la práctica
 
-You can use the [**ggdag**](https://ggdag.malco.io/) and [**dagitty**](http://dagitty.net/primer/) packages in R to build and work with DAGs too. I typically draw an initial DAG in my browser with dagitty.net and then I rewrite it in code in R so that it's more official and formal and reproducible.
+En este práctico utilizaremos la base de datos de la [**Encuesta de Caracterización Socioeconómica (CASEN)**](http://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-en-pandemia-2020), la cual fue procesada en el [Práctico anterior]().Recuerden siempre consultar el [**manual/libro de códigos**](http://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2020/Libro_de_codigos_Base_de_Datos_Casen_en_Pandemia_2020.pdf) antes de trabajar una base de datos.
 
-### Live coding example
 
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uoAjyyToUTE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+## 2. Librerias a utilizar
 
-### Basic DAGs
+En este práctico utilizaremos cuatro paquetes
 
-*(This is a heavily cleaned up and annotated version of the code from the video.)*
+1. `pacman`: este facilita y agiliza la lectura de los paquetes a utilizar en R
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.width = 6, fig.asp = 0.618, fig.align = "center",
-                      fig.retina = 3, out.width = "75%", collapse = TRUE)
-set.seed(1234)
-options("digits" = 2, "width" = 150)
+2. `sjmisc`: explorar datos
+
+3. `car()`: recodificar manteniendo las etiquetas
+
+4. `tidyverse`: colección de paquetes, del cuál utilizaremos `dplyr`  `forcast`
+
+5. `magrittr`: nos permitirá ocupar dos operadores que en R son **muy** utilizados
+
+
+# Pasos del procesamiento
+
+## 1. Cargar librerías
+
+Primero instalamos `pacman` por única vez
+
+```{r eval=FALSE, include=TRUE}
+install.packages("pacman")
+library (pacman)
 ```
 
-```{r libraries, warning=FALSE, message=FALSE}
-# Load packages
-library(tidyverse)  # For dplyr, ggplot, and friends
-library(ggdag)      # For plotting DAGs
-library(dagitty)    # For working with DAG logic
-```
+Luego cargaremos así los paquetes. Les recordamos que cuando luego de un paquete ponemos `::` esto se refiere a que se *"fuerza"* que esa función provenga de *ese paquete*
 
-The general process for making and working with DAGs in R is to create a DAG object with `dagify()` and then plot it with `ggdag()`. The documentation for **ggdag** is really good and helpful and full of examples. Check these pages for all sorts of additional details:
-
-- ["An introduction to ggdag"](https://ggdag.malco.io/articles/intro-to-ggdag.html)
-- ["An introduction to directed acyclic graphs"](https://ggdag.malco.io/articles/intro-to-dags.html)
-- [List of all ggdag-related functions](https://ggdag.malco.io/reference/index.html)
-
-The syntax for `dagify()` is similar to the formula syntax you've been using for building regression models with `lm()`. The formulas you use in `dagify()` indicate the relationships between nodes.
-
-For instance, in this DAG, `y` is caused by `x`, `a`, and `b` (`y ~ x + a + b`), and `x` is caused by `a` and `b` (`x ~ a + b`). This means that `a` and `b` are confounders. Use the `exposure` and `outcome` arguments to specify which nodes are the exposure (or treatment/intervention/program) and the outcome.
-
-```{r super-basic-dag}
-# Create super basic DAG
-simple_dag <- dagify(
-  y ~ x + a + b,
-  x ~ a + b,
-  exposure = "x",
-  outcome = "y"
-)
-
-# Adding a theme_dag() layer to the plot makes it have a white background with no axis labels
-ggdag(simple_dag) +
-  theme_dag()
-```
-
-If you want to plot which nodes are the exposure and outcome, use `ggdag_status()` instead:
-
-```{r simple-status}
-ggdag_status(simple_dag) +
-  theme_dag()
-```
-
-### Layouts and manual coordinates
-
-Notice how the layout is different in both of those graphs. By default, `ggdag()` positions the nodes randomly every time using a network algorithm. You can change the algorithm by using the `layout` argument: `ggdag(simple_dag, layout = "nicely")`. You can see a full list of possible algorithms by running `?layout_tbl_graph_igraph` in the console.
-
-Alternatively, you can specify your own coordinates so that the nodes are positioned in the same place every time. Do this with the `coords` argument in `dagify()`. 
-
-The best way to figure out what these numbers should be is to draw the DAG on paper or on a whiteboard and add a grid to it and then figure out the coordinates. For instance, in this DAG there are three rows and three columns: `x` and `y` go in the middle row (row 2) while `a` and `b` go in the middle column (column 2). It can also be helpful to not include `theme_dag()` at first so you can see the numbers for the underlying grid. Once you have everything positioned correctly, add `theme_dag()` to clean it up.
-
-```{r dag-with-coords}
-simple_dag_with_coords <- dagify(
-  y ~ x + a + b,
-  x ~ a + b,
-  exposure = "x",
-  outcome = "y",
-  coords = list(x = c(x = 1, a = 2, b = 2, y = 3),
-                y = c(x = 2, a = 1, b = 3, y = 2))
-)
-
-ggdag_status(simple_dag_with_coords) +
-  theme_dag()
-```
-
-### Node names and labels
-
-The variable names you use do not have to be limited to just `x`, `y`, and other lowercase letters. You can any names you want, as long as there are no spaces.
-
-```{r dag-with-names}
-dag_with_var_names <- dagify(
-  outcome ~ treatment + confounder1 + confounder2,
-  treatment ~ confounder1 + confounder2,
-  exposure = "treatment",
-  outcome = "outcome"
-)
-
-ggdag_status(dag_with_var_names) +
-  theme_dag()
-```
-
-However, unless you use very short names, it is likely that the text will not fit inside the nodes. To get around this, you can add labels to the nodes using the `labels` argument in `dagify()`. Plot the labels by setting `use_labels = "label"` in `ggdag()`. You can turn off the text in the nodes with `text = FALSE` in `ggdag()`.
-
-```{r dag-with-labels}
-simple_dag_with_coords_and_labels <- dagify(
-  y ~ x + a + b,
-  x ~ a + b,
-  exposure = "x",
-  outcome = "y",
-  labels = c(y = "Outcome", x = "Treatment",
-             a = "Confounder 1", b = "Confounder 2"),
-  coords = list(x = c(x = 1, a = 2, b = 2, y = 3),
-                y = c(x = 2, a = 1, b = 3, y = 2))
-)
-
-ggdag_status(simple_dag_with_coords_and_labels,
-             use_labels = "label", text = FALSE) +
-  guides(fill = FALSE, color = FALSE) +  # Disable the legend
-  theme_dag()
+```{r, include=TRUE}
+pacman::p_load(tidyverse,
+               magrittr,
+               car,
+               sjmisc)
 ```
 
 
-### Paths and adjustment sets
+## 2. Cargar base de datos
 
-R can also perform analysis on DAG objects. For example, we can find all the testable implications from the DAG using the `impliedConditionalIndependencies()` function from the **dagitty** package. For this simple DAG, there is only one: `a` should be independent of `b`. If we had a dataset with columns for each of these variables, we could check if this is true by running `cor(a, b)` to see if the two are related.
-
-```{r find-independencies}
-impliedConditionalIndependencies(simple_dag)
+```{r include=FALSE, warning= FALSE , message = F}
+temp <- tempfile()
+download.file("http://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2020/Casen_en_Pandemia_2020_STATA.dta.zip",temp)
+datos <- haven::read_dta(unz(temp, "Casen en Pandemia 2020 STATA.dta"))
+unlink(temp); remove(temp)
 ```
 
-We can also find all the paths between `x` and `y` using the `paths()` function from the **dagitty** package. We can see that there are three open paths between `x` and `y`:
-
-```{r find-paths}
-paths(simple_dag)
+```{r eval=FALSE, include=TRUE}
+datos <- read_dta("../Rproject/input/Casen en Pandemia 2020 STATA.dta") 
 ```
 
-The first open path is fine—we want a single *d*-connected relationship between treatment and outcome—but the other two indicate that there is confounding from `a` and `b`. We can see what each of these paths are with the `ggdag_paths()` function from the **ggdag** package:
+En el panel **Environment**, visualizamos el nuevo objeto, que posee `r format( nrow(datos), decimal.mark="," , big.mark = ".")` observaciones (o filas), y `r format(ncol(datos), decimal.mark="," , big.mark = ".")` variables (columnas)
 
-```{r plot-dag-paths, fig.width=8}
-ggdag_paths(simple_dag_with_coords) +
-  theme_dag()
+Recordemos que también podemos explorar la base de datos con las siguientes funciones.
+
+```{r eval=FALSE, include=TRUE}
+# De paquete base
+dim(datos) # nos entrega las dimensiones, es decir el numero de observaciones y el número de variables
+View(datos) # se usa para visualizar la base de datos
+names(datos) # entrega los nombres de las variables que componen el dataset
+head(datos) # muestra las primeras filas presentes en el marco de datos
+
+# De sjmisc
+
+find_var(datos, "concepto") # se utiliza para encontrar variables
+
 ```
 
-Instead of listing out all the possible paths and identifying backdoors by hand, you can use the `adjustmentSets()` function in the **dagitty** package to programmatically find all the nodes that need to be adjusted. Here we see that both `a` and `b` need to be controlled for to isolate the `x -> y` relationship.
+## 4. Un aspecto clave antes de comenzar: los operadoresAspectos claves antes de comenzar 
 
-```{r find-adjustment-sets}
-adjustmentSets(simple_dag)
+Previo a trabajar con la base de datos, debemos repasemos el concepto de **operadores**. Estos símbolos no son de uso exclusivo en R ¡probablemente los conoces desde tus cursos de matemática! Ahora bien, no todos tienen el mismo significado que en otros softwares.
+
+Los **operadores** serán símbolos que permitirán, en los distintos procedimientos de procesamiento, simplificar procesos. Por ejemplo, serán útilizados cuando filtremos nuestros datos para personas de ciertas categorías, cuando calculemos variables nuevas (de manera aritmética o condicional) o, simplemente, cuando queramos hacer procesos "concatenados".
+
+
+#### Operadores relacionales 
+
+Se usan para hacer comparaciones. Cuando en la *Tabla 1* nos referimos a `un valor`, esto refiere tambien a `variables`
+
+| Símbolo  | Función |
+|---------:|:--------|
+| `<`      |  Un valor es menor que otro |
+| `>`      |  Un valor es mayor que otro |
+| `==`     |  Un valor es igual que otro [^1] |
+| `<=`     |  Un valor es menor o igual que otro |
+| `>=`     |  Un valor es mayor o igual que otro |
+| `!=`     |  Un valor es distinto o diferente que otro|
+| `%in%`   |  Un valor pertenece al conjunto designado [^2] |
+| `is.na()`|  El valor es perdido o `NA` |
+| `!is.na()`| El valor es distinto de  `NA` |
+
+[^1]: ¡Atención! Fíjate bien que `==` y `=` son distintos. En R `==` es indicar *"igual a"*, mientras que  `=` es *asignar* (sinónimo de `<-`)
+
+[^2]: Este operador es **muy utilizado**, sirve para indicar que algo está dentro de una cadena de valores. 
+
+#### Operadores aritméticos
+
+Realizan operaciones, como la suma, resta, división, entre otros.
+
+| Símbolo  | Función |
+|---------:|:--------|
+| `+`      |  Suma |
+| `-`      |  Resta|
+| `*`     |  Multiplicación |
+| `/`     |  División |
+| `^`     |  Elevado |
+
+#### Operadores de asignación
+
+Hay dos formas de asignar `objetoA <- objetoB` o `objetoA = objetoB`. Ambas implican que lo que se este realizando en el *objetoB* implica que eso va a producir o generar al *objetoA*
+
+#### Operadores booleanos
+
+Describen relaciones **lógicas** o **condicionales**
+
+| Símbolo  | Función |
+|---------:|:--------|
+| `&`      |  Indica un *y* lógico |
+| `|`      |  Indica un *o* lógico |
+| `xor()`  |  Excluye la condición  |
+| `!`      |  Distinto de ... |
+| `any`    |  Ninguna de las condiciones serán utilizadas |
+| `all`    |  Todas las condiciones serán ocupadas |
+
+
+```{r, echo=FALSE, out.width="60%"}
+knitr::include_graphics("/img/example/operad.png", error = FALSE)
 ```
+Figura 1: Resumen de operadores
 
-You can also visualize the adjustment sets with `ggdag_adjustment_set()` in the **ggdag** package. Make sure you set `shadow = TRUE` to draw the arrows coming out of the adjusted nodes—by default, those are not included.
+### Operador pipeline %>% 
 
-```{r plot-adjustment-sets}
-ggdag_adjustment_set(simple_dag_with_coords, shadow = TRUE) +
-  theme_dag()
-```
+¡Aquí mucha atención! Este operador `%>%` (llamado `pipe`) no es un operador que este contenido en las funciones base del lenguaje R. Este operador proviene de la función `magrittr` de `tidyverse`, y es de los operadores más útiles y utilizados en R.
 
-R will find minimally sufficient adjustment sets, which includes the fewest number of adjustments needed to close all backdoors between `x` and `y`. In this example DAG there was only one set of variables (`a` and `b`), but in other situations there could be many possible sets, or none if the causal effect is not identifiable.
+¿Para qué sirve? Para concatenar múltiples funciones y procesos. *Imagina que quieres filtrar una base de datos a partir de tramos etarios. Pero no tienes esa variable creada. ¿Que hacer? La respuesta: concatenar el proceso de creación de variables y luego filtrar.* Eso se puede hacer gracias a ` %>% ` (ya mostraremos como utilizar esta herramienta), que por lo demás es muy fácil de ejecutar.
 
-### Plot DAG from dagitty.net with `ggdag()`
-
-If you use [dagitty.net](http://dagitty.net/) to draw a DAG, you'll notice that it generates some code for you in the model code section:
-
-```{r dagitty-model-code-example, echo=FALSE}
-knitr::include_graphics("/img/example/dagitty-code.png", error = FALSE)
-```
-
-You can copy that `dag{ ... }` code and paste it into R to define a DAG object rather than use the `dagify()` function. To do this, use the `dagitty()` function from the **dagitty** library and include the whole generated model code in single quotes (`''`):
-
-```{r code-from-dagitty}
-model_from_dagitty <- dagitty('dag {
-bb="0,0,1,1"
-"A confounder" [pos="0.809,0.306"]
-"Another confounder" [pos="0.810,0.529"]
-"Some outcome" [outcome,pos="0.918,0.432"]
-"Some treatment" [exposure,pos="0.681,0.426"]
-"A confounder" -> "Some outcome"
-"A confounder" -> "Some treatment"
-"Another confounder" -> "Some outcome"
-"Another confounder" -> "Some treatment"
-"Some treatment" -> "Some outcome"
-}
-')
-
-ggdag(model_from_dagitty) +
-  theme_dag()
-```
-
-By default it's going to look ugly because (1) the node labels don't fit, and (2) slight differences in the coordinates make it so the nodes don't perfectly align with each other. To fix coordinate alignment, you can modify the numbers in the generated DAG code. Here I rounded the numbers so that they're all 0.3, 0.8, etc.
-
-To fix the label issue, you can add the `use_labels` argument like normally. Only here, you can't specify `use_labels = "label"`. Instead, when you specify a DAG using dagitty's code like this, the column in the underlying dataset that contains the labels is named `name`, so you need to use `use_labels = "name"`.
-
-Other `ggdag()` variations like `ggdag_status()` will still work fine.
-
-```{r code-from-dagitty-better}
-model_from_dagitty_rounded <- dagitty('dag {
-bb="0,0,1,1"
-"A confounder" [pos="0.8,0.3"]
-"Another confounder" [pos="0.8,0.5"]
-"Some outcome" [outcome,pos="0.9,0.4"]
-"Some treatment" [exposure,pos="0.7,0.4"]
-"A confounder" -> "Some outcome"
-"A confounder" -> "Some treatment"
-"Another confounder" -> "Some outcome"
-"Another confounder" -> "Some treatment"
-"Some treatment" -> "Some outcome"
-}
-')
-
-ggdag_status(model_from_dagitty_rounded, text = FALSE, use_labels = "name") +
-  guides(color = FALSE) +  # Turn off legend
-  theme_dag()
-```
+- `Ctrl + shift + M` Para Windows
+- `⌘ + shift + M` Para Mac
 
 
-## Mosquito net example
+## 5. Transformación y selección de variables con `dplyr()`
 
-### Conditional independencies
+`dplyr()`es un paquete de `tidyverse` que proporciona una base para la manipulación de datos, principalmente a partir de funciones que permiten operar las columnas (o variables)
 
-You can test if your stated relationships are correct by looking at the conditional independencies that are implied by the DAG. In dagitty.net, these appear in the sidebar in the "Testable implications" section. To show how this works, we'll use a simulated dataset that I generated about a fictional mosquito net program. Download the data here if you want to follow along:
+### 5.1 `select()` para manipular variables
 
-- [<i class="fas fa-table"></i> `mosquito_nets.csv`](/data/mosquito_nets.csv)
+Para **seleccionar variables** ocuparemos `select()`. Existen diversos enfoques para realizarlo. Primero, debemos conocer su estructura
 
-Researchers are interested in whether using mosquito nets decreases an individual's risk of contracting malaria. They have collected data from 1,752 households in an unnamed country and have variables related to environmental factors, individual health, and household characteristics. Additionally, this country has a special government program that provides free mosquito nets to households that meet specific requirements: to qualify for the program, there must be more than 4 members of the household, and the household's monthly income must be lower than \$700 a month. Households are not automatically enrolled in the program, and many do not use it. The data is not experimental—researchers have no control over who uses mosquito nets, and individual households make their own choices over whether to apply for free nets or buy their own nets, as well as whether they use the nets if they have them.
+Si queremos incluir las variables `variable1`, `variable2` y `variable3`
+{{< div "note" >}}
+select(datos, variable1, variable2, variable3)
+{{< /div >}}
 
-```{r build-mosquito-dag, fig.width=8}
-mosquito_dag <- dagify(
-  malaria_risk ~ net + income + health + temperature + resistance,
-  net ~ income + health + temperature + eligible + household,
-  eligible ~ income + household,
-  health ~ income,
-  exposure = "net",
-  outcome = "malaria_risk",
-  coords = list(x = c(malaria_risk = 7, net = 3, income = 4, health = 5,
-                      temperature = 6, resistance = 8.5, eligible = 2, household = 1),
-                y = c(malaria_risk = 2, net = 2, income = 3, health = 1,
-                      temperature = 3, resistance = 2, eligible = 3, household = 2)),
-  labels = c(malaria_risk = "Risk of malaria", net = "Mosquito net", income = "Income",
-             health = "Health", temperature = "Nighttime temperatures",
-             resistance = "Insecticide resistance",
-             eligible = "Eligible for program", household = "Number in household")
-)
+Si queremos excluir anteponemos un menos `-variable1`
+{{< div "note" >}}
+select(datos, -variable1)
+{{< /div >}}
 
-ggdag_status(mosquito_dag, use_labels = "label", text = FALSE) +
-  guides(fill = FALSE, color = FALSE) +  # Disable the legend
-  theme_dag()
-```
 
-The causal graph above  outlines the complete relationship between mosquito net use and risk of malaria. Each node in the DAG is a column in the dataset collected by the researchers, and includes the following:
+#### `select()` por indexación
 
-- Malaria risk (`malaria_risk`): The likelihood that someone in the household will be infected with malaria. Measured on a scale of 0–100, with higher values indicating higher risk.
-- Mosquito net (`net` and `net_num`): A binary variable indicating if the household used mosquito nets.
-- Eligible for program (`eligible`): A binary variable indicating if the household is eligible for the free net program.
-- Income (`income`): The household's monthly income, in US dollars.
-- Nighttime temperatures (`temperature`): The average temperature at night, in Celsius.
-- Health (`health`): Self-reported healthiness in the household. Measured on a scale of 0–100, with higher values indicating better health.
-- Number in household (`household`): Number of people living in the household.
-- Insecticide resistance (`resistance`): Some strains of mosquitoes are more resistant to insecticide and thus pose a higher risk of infecting people with malaria. This is measured on a scale of 0–100, with higher values indicating higher resistance.
-
-According to the DAG, malaria risk is caused by income, temperatures, health, insecticide resistance, and mosquito net use. People who live in hotter regions, have lower incomes, have worse health, are surrounded by mosquitoes with high resistance to insecticide, and who do not use mosquito nets are at higher risk of contracting malaria than those who do not. Mosquito net use is caused by income, nighttime temperatures, health, the number of people living in the house, and eligibility for the free net program. People who live in areas that are cooler at night, have higher incomes, have better health, have more people in the home, and are eligible for free government nets are more likely to regularly use nets than those who do not. The DAG also shows that eligibility for the free net program is caused by income and household size, since households must meet specific thresholds to qualify.
-
-First, let's download the dataset, put in a folder named `data`, and load it:
-
-- [<i class="fas fa-table"></i> `mosquito_nets.csv`](/data/mosquito_nets.csv)
-
-```{r load-data-fake, eval=FALSE}
-# Load the data.
-# It'd be a good idea to click on the "mosquito_nets.csv" object in the
-# Environment panel in RStudio to see what the data looks like after you load it
-mosquito_nets <- read_csv("data/mosquito_nets.csv")
-```
-
-```{r load-data-real, include=FALSE}
-mosquito_nets <- read_csv(here::here("static", "data", "mosquito_nets.csv"))
-```
-
-We can use this data to check if the relationships defined by our DAG reflect reality. Recall that *d*-separation implies that nodes are statistically independent of each other and do not transfer associational information. If you draw the mosquito net DAG with dagitty.net, or if you run `impliedConditionalIndependencies()` in R, you can see a list of all the implied conditional independencies. 
+La indexación refiere al orden que tiene la columna o variable dentro de los datos. Imaginemos que queremos seleccionar:
 
 ```{r}
-impliedConditionalIndependencies(mosquito_dag)
+select(datos, 1, 2) # la primera y la segunda columna
+
+select(datos, 1:4) # la primera hasta la cuarta columna
+
+select(datos, c(1,4)) # la primera y la cuarta columna
 ```
 
-The `_||_` symbol in the output here is the $\perp$ symbol, which means "independent of". The `|` in the output means "given".
+#### `select()` por nombre de columna
 
-In the interest of space, we will not verify all these implied independencies, but we can test a few of them:
-
-- $\text{Health} \perp \text{Household members}$: (Read as *"Health is independent of household member count"*.) Health should be independent of the number of people in each household. In the data, the two variables should not be correlated. This is indeed the case:
-
-```{r indent="    "}
-cor(mosquito_nets$health, mosquito_nets$household)
-```
-
-- $\text{Income} \perp \text{Insecticide resistance}$: (Read as *"Income is independent of insecticide resistance"*.) Income should be independent of insecticide resistance. This is again true:
-
-```{r indent="    "}
-cor(mosquito_nets$income, mosquito_nets$resistance)
-```
-
-- $\text{Malaria risk} \perp \text{Household members}\ |\ \text{Health, Income, Bed net use, Temperature}$: (Read as *"Malaria risk is independent of house member count given health, income, bed net use, and temperature"*.) Malaria risk should be independent of the number of household members given similar levels of health, income, mosquito net use, and nighttime temperatures. We cannot use `cor()` to test this implication, since there are many variables involved, but we can use a regression model to check if the number of household members is significantly related to malaria risk. It is not significant ($t = -0.17$, $p = 0.863$), which means the two are independent, as expected.
-
-```{r indent="    "}
-lm(malaria_risk ~ household + health + income + net + temperature,
-   data = mosquito_nets) %>%
-  broom::tidy()
-```
-
-We can check all the other conditional independencies to see if the DAG captures the reality of the full system of factors that influence mosquito net use and malaria risk. If there are substantial and significant correlations between nodes that should be independent, there is likely an issue with the specification of the DAG. Return to the theory of how the phenomena are generated and refine the DAG more.
-
-
-### Mosquito net adjustment sets
-
-There is a direct path between mosquito net use and the risk of malaria, but the effect is not causally identified due to several other open paths. We can either list out all the paths and find which open paths have arrows pointing backwards into the mosquito net node (run `paths(mosquito_dag)` to see these results), or we can let R find the appropriate adjustment sets automatically:
+Si conocemos el nombre de la variable simplemente lo podemos poner y se seleccionará.
 
 ```{r}
-adjustmentSets(mosquito_dag)
+select(datos, edad, sexo, o1)
 ```
 
-Based on the relationships between all the nodes in the DAG, adjusting for health, income, and temperature is enough to close all backdoors and identify the relationship between net use and malaria risk. Importantly, we do not need to worry about any of the nodes related to the government program for free nets, since those nodes are not *d*-connected to malaria risk. We only need to worry about confounding relationships.
+También puedo renombrar en el mismo proceso de selección indicando `nuevo_nombre = nombre_original` en el proceso de selección
 
-We can confirm this graphically with `ggdag_adjustment_set()`:
-
-```{r plot-mosquito-adjustment-fake}
-ggdag_adjustment_set(mosquito_dag, shadow = TRUE,
-                     use_labels = "label", text = FALSE) +
-  theme_dag()
+```{r}
+select(datos, edad, sexo, ocupacion = o1)
 ```
+
+#### `select()` para reordenar variables
+
+Podemos seleccionar variables y luego indicar que queremos todo el resto de las variables (`everythin()`). Solo por una cosa de orden. Esto será útil sobre todo cuando tengamos identificadores
+
+```{r}
+select(datos, id_persona, sexo, edad, everything())
+```
+
+#### `select()` con patrones de texto
+
+Podemos seleccionar variables considerando los prefijos, sufijos o partes de *cómo están nombradas las variables*. Independiente de qué tipo de patrón estes buscando, como todo texto y expresión regular en R (y gran parte de los carácteres) este texto debe venir entre **comillas**. Algunas de las funciones que posibilitan este proceso son:
+
+- `starts_with()`: prefijo 
+- `ends_with() `:  sufijo
+- `contains()` : contiene una cadena de texto literal
+- `matches()` : coincide con una expresión regular
+
+```{r}
+select(datos, starts_with("a"), ends_with("preg"))
+
+# También se pueden combinar con operadores logicos
+
+select(datos, starts_with("y1")&ends_with("preg")) 
+select(datos, contains("pobre")|contains("vivienda"))
+select(datos, matches("pobreza_|vivienda"))
+```
+
+
+#### `select()` y condiciones lógicas
+
+Si combinamos `select()` con `where()` obtendremos algo así como una frase *"seleciona donde"*, ese *donde* responde a una condición que cumple cierta variable. Por ejemplo, queremos seleccionar todas las variables que son carácteres (`is.character`):
+
+```{r}
+select(datos, where(is.character))
+```
+
+Luego de la revisión del libro de códigos y la exploración de datos mediante a funciones como `find_var()` de `sjmisc` decidimos trabajar con las siguientes variables.
+
+- `edad`
+- `sexo`
+- `s13`: previsión de salud
+- `tot_per`: número de personas en el hogar
+- `ytoth`: ingresos totales del hogar
+- `o1`: ocupación
+- `y26d_total`: Monto del IFE
+- `y26d_hog`: ¿Alguien recibió el IFE?
+
+¡Apliquémos conocimientos!
+
+```{r}
+select(datos, edad, sexo, prev =592, ocupacion = o1, tot_per, ytoth, starts_with("y26d_")&matches("total|hog"))
+```
+
+Es una buena práctica trabajar solo con las columnas que utilizaremos para el análisis, principalmente pues disminuye el *uso de memoria*
+
+```{r}
+datos_proc <- select(datos, edad, sexo, prev = 592, ocupacion = o1, tot_per, ytoth, starts_with("y26d_")&matches("total|hog"))
+```
+
+El nuevo objeto posee`r format(ncol(datos), decimal.mark="," , big.mark = ".")` variables (columnas), pero conserva las filas `r format( nrow(datos), decimal.mark="," , big.mark = ".")` (u observaciones) ¿Qué pasa si quiero trabajar con un *subset* de casos? La respuesta es `filter()`
+
+### 5.2 `filter()` para manipular observaciones
+
+La función `filter()` de `dplyr` escoge o extrae filas basados en sus valores, subdivide un data frame (*subset*), reteniendo todas las filas que satisfacen sus condiciones.
+
+Con `filter()` será esencial el uso de los **operadores** que ya vimos, dado que las observaciones que preservarán en nuestros datos (y aquellas que no), están definidas por condiciones lógicas (relacionales o booleanas)
+
+{{< div "note" >}}
+filter(datos, condicion_para filtrar)
+Esta condición para filtrar podría ser, por ejemplo
+variable1 >= 3
+{{< /div >}}
+
+#### `filter` con números
+
+Imaginémos que queremos una base con las personas mayores de 15 años. Pero también que pertenezcan a hogares con menos de 7 personas. 
+```{r}
+filter(datos_proc, edad >= 15)
+filter(datos_proc, edad >= 15 & tot_per <7)
+```
+
+¿Y si quiero filtrar para saber el valor máximo de ingresos (`ytoth`)?
+
+```{r}
+filter(datos_proc, ytoth == max(ytoth))
+```
+
+¡Gana \$225.200.000, es Hombre y tiene 41 años! (y vive solo...)
+
+
+#### `filter()` con carácteres
+
+Si queremos filtrar por la variable `sexo` solo a las mujeres, tengo dos opciones: o solo selecciono a las mujeres (`==`) o excluyo a los hombres (`!=`).
+
+Ahora bien, antes hay que hacer una precisión importante: en los datos `sexo` es una variable que está como `dbl` y `lbl` (número etiquetado), por lo que no es que en la base aparezcan "Mujeres" y "Hombres", sino que 2 y 1.
+
+Por ello, con el siguiente código aparecerá un error.
+```{r}
+filter(datos_proc, sexo == "Mujer")
+```
+
+Una función **muy muy útil** (sobre todo cuando trabajemos con regresiones) es `as_factor()` que permite conservar los niveles pero definiendo sus categorías de respuesta en base a la etiqueta que traen (el `lbl`)
+
+```{r}
+datos_proc$sexo <- as_factor(datos_proc$sexo)
+```
+
+¡Ahora si funcionará!
+```{r}
+filter(datos_proc, sexo == "Mujer")
+filter(datos_proc, sexo != "Hombre")
+```
+
+{{< div "note" >}}
+**Ojo**. R es *sensible* a cómo está escrito el texto. Si pones el mismo código pero sin respetar mayúsuculas y minúsculas el código no funcionará
+{{< /div >}}
+
+¡Por último! ¿Cómo se seleccionan dos condiciones en carácter? Con el operador `%in%`
+
+```{r}
+datos_proc$prev <- as_factor(datos_proc$prev)
+
+filter(datos_proc, prev %in% c("Sistema Público FONASA", "ISAPRE"))
+```
+
+Antes de definir que observaciones vamos a conservar en una base procesada `datos_proc` ¡Creemos transformemos variables con `mutate()`!
+
+### 5.3 `mutate()` para transformación de  variables
+
+La función de `mutate()` permite hacer operaciones para crear nuevas variables o transformar las ya existentes. 
+
+{{< div "note" >}}
+mutate(datos, nueva_variable = cálculo o condición)
+{{< /div >}}
+
+#### `mutate()` en base a cálculo
+
+Calcularemos una nueva variable llamada `nueva_variable` que proviene de la suma de 2+3. También una variable `ingreso_percapita` que proviene de la división del ingreso total del hogar y el número de personas que residen en el hogar 
+
+```{r echo=TRUE}
+mutate(datos_proc, nueva_variable = 3+2)
+mutate(datos_proc, nueva_variable = 3+2,
+       ingreso_percapita = ytoth/tot_per)
+```
+
+¿Qué pasa si queremos, luego de calcular nuestras nuevas variables, filtrar un ingreso per cápita menor o igual a $1.000.000
+
+**¡Ahora entra en escena nuestro operador estrella ` %>% `!**
+
+{{< div "note" >}}
+datos %>% 
+  mutate(., nueva_variable = calculo ) %>% 
+  filter(., nueva_variable <= valor)
+{{< /div >}}
+
+Básicamente, el ` %>% ` permite "ingresar" nuestra base de datos como argumento para cada función e ir operándola en proceso
+
+```{r}
+datos_proc %>%
+  mutate(ingreso_percapita = ytoth/tot_per) %>% 
+  filter(ingreso_percapita <= 1000000)
+```
+
+#### `recode()``
+
+La función denominada *recode* puede reemplazar valores numéricos en base a su posición o su nombre, y valores de carácteres o factores sólo por su nombre. 
+
+En el siguiente ejemplo recodificamos las categorías de respuesta de Mujer a Femenino y de Hombre a Masculino
+
+```{r}
+datos_proc %>% 
+  mutate(sexo = recode(sexo, "Mujer" = "Femenino", "Hombre" = "Masculino"))
+```
+
+El problema de `recode()` que se utiliza dentro de `dplyr` es que si recodifico se pierde la etiqueta anterior. Esto es un problema a si por ejemplo, solo quiero recodificar casos perdidos. 
+
+Frente a ello, con el tiempo nos hemos convencido de que la mejor solución hasta ahora es ocupar `recode()` del paquete `car`. Si recuerdan, dos funciones con el mismo nombre podrían producir *conflictos*, y por ello, especificaremos con `car::recode()` que la función `recode()` que ocupamos proviene de `car`
+
+{{< div "note" >}}
+datos %$% 
+ car::recode(.$variable, c('valor_orig1=nuevo_valor1;valor_org2=nuevo_valor2'))
+ 
+*Ojo: %$% es el primo hermano de %>% (básicamente funcionan igual, pero este es necesario para car)*
+{{< /div >}}
+
+```{r}
+datos_proc %$% 
+  car::recode(.$y26d_hog, c('9=NA'))
+```
+
+Aquí una versión de si la recodificación es hacia carácteres (mismo ejemplo que con `recode()` de `dplyr`)
+
+```{r}
+datos_proc %$% 
+  car::recode(.$sexo, c('"Mujer"="Femenino";"Hombre"= "Masculino"'), as.factor = T)
+```
+
+
+### 5.3.2 `if_else()` para construir variables condicionales
+
+La función `if_else()` permite construir variables en base a condiciones lógicas. Su estructura es la siguiente
+
+{{< div "note" >}}
+if_else(condición,TRUE,FALSE)
+Donde dice `TRUE` es el valor que se obtiene si la condición es verdadera, mientras que `FALSE` es todo el resto de las opciones (o cuando es FALSA)
+{{< /div >}}
+
+Crearemos una variable que *dummy* que indica si el respondente es *FONASA* o no lo es. 
+
+```{r eval=FALSE, include=TRUE}
+datos_proc %>% 
+ 		 mutate(fonasa = if_else(prev == "Sistema Público FONASA", 1, 0))
+```
+
+También podemos ocupar esta función como validador, por ejemplo, rellenando con valores lógicos como `FALSE` cuando no hay valores en `ytoth`. Luego esos `FALSE` podrían ser contados en otros procesos estadísticos
+
+```{r echo=TRUE}
+datos_proc %>% 
+  mutate(validador_ingreso = if_else(is.na(ytoth), FALSE, TRUE))
+```
+
+### 5.3.2 `case_when()` para construir variable en base a múltiples condiciones
+
+Una función que se utiliza frecuentemente para *colapsar* categorías o construir categorías en base a varias condiciones es `case_when()` por lo lógico y *fácil* que es de entender
+
+{{< div "note" >}}
+case_when(variable == condicion ~ valor1,
+          variable == condicion ~ valor2,
+          TRUE ~ NA_real)
+- Donde, TRUE indica "todo el resto", y el NA dependerá de la clase del valor de recodificación
+{{< /div >}}
+
+Un ejemplo claro es cuando queremos construir *categorías de edad*
+
+```{r}
+datos_proc %>% 
+  mutate(edad_tramo = case_when(edad <=39 ~  "Joven",
+                                edad > 39 & edad <=59 ~ "Adulto",
+                                edad > 59 ~ "Adulto mayor",
+                                TRUE ~ NA_character_)) %>% 
+  select(edad, edad_tramo)
+```
+
+Como se puede ver, no solamente indicamos tramos de la variable edad, sino que utilizamos operadores lógicos (`&`). Podríamos ocupar el que necesitemos, y sobre todo, también combinar variables (por ejemplo, crear una variable `sexo-edad`)
+
+## 6. Resumen con procesamiento de las variables
+
+Hasta ahora, solo hemos creado una base de datos que selecciona variables. Ahora nos resta incorporar en un nuevo objeto los cambios que nos parezcan relevantes para la base de datos procesada que utilizaremos en nuestros análisis. 
+
+Como ya conocemos operadores que permiten concatenar procesos ( `%>%`  y `%$%`) este procedimiento será mucho más fácil. 
+
+```{r}
+datos_proc %>% 
+ filter(edad >= 15 & tot_per <7) %>%
+    mutate(ingreso_percapita = ytoth/tot_per,
+           edad_tramo = case_when(edad <=39 ~  "Joven",
+                                edad > 39 & edad <=59 ~ "Adulto",
+                                edad > 59 ~ "Adulto mayor",
+                                TRUE ~ NA_character_),
+           fonasa = if_else(prev == "Sistema Público FONASA", 1, 0),
+           ocupacion = as_factor(ocupacion)) %>%
+  select(sexo, edad_tramo, ocupacion, ingreso_percapita, ife = y26d_hog)
+```
+
+¡Ahora que estamos seguras/os sobre-escribimos la base!
+```{r}
+datos_proc <- datos_proc %>% 
+ filter(edad >= 15 & tot_per <7) %>%
+    mutate(ingreso_percapita = ytoth/tot_per,
+           edad_tramo = case_when(edad <=39 ~  "Joven",
+                                edad > 39 & edad <=59 ~ "Adulto",
+                                edad > 59 ~ "Adulto mayor",
+                                TRUE ~ NA_character_),
+           fonasa = if_else(prev == "Sistema Público FONASA", 1, 0),
+           ocupacion = as_factor(ocupacion)) %>%
+  select(sexo, edad_tramo, ocupacion, ingreso_percapita, ife = y26d_hog)
+```
+
+Podemos visualizar la base resultante a partir de `view_df()` de `sjPlot`
+```{r}
+sjPlot::view_df(datos_proc)
+```
+
+## 7. Guardar base procesada
+
+Para guardar la base de datos procesada, debes dirigir la ruta hacia tu Rproject
+
+```{r eval=FALSE, include=TRUE}
+saveRDS(datos_proc, file = "../nombre_project/output/datos_proc.rds")
+```
+
+## 8. Reporte de progreso
+  
+¡Recuerda rellenar tu [reporte de progreso](https://learn-r.formr.org/). En tu correo electrónico está disponible el código mediante al cuál debes acceder para actualizar tu estado de avance del curso.
+
+
