@@ -29,7 +29,7 @@
   
     
   
-  <meta name="description" content="0. Objetivo de la práctica El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio." />
+  <meta name="description" content="0. Objetivo del práctico Este práctico tiene por objeto introducir a las y los estudiantes del curso en herramientas que les permitan a) importar bases de datos en diversos formatos; b)seleccionar variables de las bases de datos importadas; c) limpiar los datos, eliminando las filas con casos perdidos; y d) exportar bases de datos procesadas." />
 
   
   <link rel="alternate" hreflang="en-us" href="/example/02-practico/" />
@@ -287,8 +287,8 @@
   
   <meta property="og:site_name" content="Análisis Estadístico en R" />
   <meta property="og:url" content="/example/02-practico/" />
-  <meta property="og:title" content="Transformar y seleccionar variables | Análisis Estadístico en R" />
-  <meta property="og:description" content="0. Objetivo de la práctica El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio." /><meta property="og:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" />
+  <meta property="og:title" content="Importar, explorar y limpiar datos | Análisis Estadístico en R" />
+  <meta property="og:description" content="0. Objetivo del práctico Este práctico tiene por objeto introducir a las y los estudiantes del curso en herramientas que les permitan a) importar bases de datos en diversos formatos; b)seleccionar variables de las bases de datos importadas; c) limpiar los datos, eliminando las filas con casos perdidos; y d) exportar bases de datos procesadas." /><meta property="og:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" />
     <meta property="twitter:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -324,7 +324,7 @@
   <meta name="msapplication-TileImage" content="/img/mstile-144x144.png" />
 
 
-  <title>Transformar y seleccionar variables | Análisis Estadístico en R</title>
+  <title>Importar, explorar y limpiar datos | Análisis Estadístico en R</title>
 </head>
 
 
@@ -649,7 +649,7 @@
 
       
       <li class="active">
-        <a href="/example/02-practico/">2: Transformar y seleccionar variables</a>
+        <a href="/example/02-practico/">2: Importar, explorar y limpiar datos</a>
       </li>
 
       
@@ -676,57 +676,56 @@
 
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#0-objetivo-de-la-práctica">0. Objetivo de la práctica</a></li>
+    <li><a href="#0-objetivo-del-práctico">0. Objetivo del práctico</a></li>
     <li><a href="#1-recursos-de-la-práctica">1. Recursos de la práctica</a></li>
     <li><a href="#2-librerias-a-utilizar">2. Librerias a utilizar</a></li>
   </ul>
 
   <ul>
     <li><a href="#1-cargar-librerías">1. Cargar librerías</a></li>
-    <li><a href="#2-cargar-base-de-datos">2. Cargar base de datos</a></li>
-    <li><a href="#4-un-aspecto-clave-antes-de-comenzar-los-operadores">4. Un aspecto clave antes de comenzar: los operadores</a>
+    <li><a href="#2-importar-datos">2. Importar datos</a>
+      <ul>
+        <li><a href="#21-cargar-set-de-datos">2.1. Cargar set de datos</a></li>
+        <li><a href="#211-cargar-set-de-datos-en-otros-formatos">2.1.1 Cargar set de datos en otros formatos.</a>
+          <ul>
+            <li><a href="#a-dta">a) <code>.dta</code></a></li>
+            <li><a href="#b-rdata-y-rds">b) .RData y .rds</a></li>
+            <li><a href="#c-csv">c) <code>.csv</code></a></li>
+            <li><a href="#d-xlsx">d) <code>.xlsx</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#3-explorar-datos">3. Explorar datos</a>
       <ul>
         <li>
           <ul>
-            <li><a href="#operadores-relacionales">Operadores relacionales</a></li>
-            <li><a href="#operadores-aritméticos">Operadores aritméticos</a></li>
-            <li><a href="#operadores-de-asignación">Operadores de asignación</a></li>
-            <li><a href="#operadores-booleanos">Operadores booleanos</a></li>
+            <li><a href="#sobre-las-clases-de-las-variables">Sobre las clases de las variables</a></li>
           </ul>
         </li>
-        <li><a href="#operador-pipeline-">Operador pipeline %&gt;%</a></li>
+        <li><a href="#a-numeric">a) <code>numeric</code></a></li>
+        <li><a href="#b-character">b) <code>character</code></a></li>
+        <li><a href="#c-logic">c) <code>Logic</code></a></li>
+        <li><a href="#d-factor">d) <code>factor</code></a>
+          <ul>
+            <li><a href="#en-resumen">En resumen:</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#5-transformación-y-selección-de-variables-con-dplyr">5. Transformación y selección de variables con <code>dplyr()</code></a>
+    <li><a href="#31-selección-de-variables">3.1. Selección de variables</a></li>
+    <li><a href="#4-limpieza-de-datos">4. Limpieza de datos</a></li>
+    <li><a href="#5-guardar-y-exportar-datos">5. Guardar y exportar datos</a>
       <ul>
-        <li><a href="#51-select-para-manipular-variables">5.1 <code>select()</code> para manipular variables</a>
-          <ul>
-            <li><a href="#select-por-indexación"><code>select()</code> por indexación</a></li>
-            <li><a href="#select-por-nombre-de-columna"><code>select()</code> por nombre de columna</a></li>
-            <li><a href="#select-para-reordenar-variables"><code>select()</code> para reordenar variables</a></li>
-            <li><a href="#select-con-patrones-de-texto"><code>select()</code> con patrones de texto</a></li>
-            <li><a href="#select-y-condiciones-lógicas"><code>select()</code> y condiciones lógicas</a></li>
-          </ul>
-        </li>
-        <li><a href="#52-filter-para-manipular-observaciones">5.2 <code>filter()</code> para manipular observaciones</a>
-          <ul>
-            <li><a href="#filter-con-números"><code>filter</code> con números</a></li>
-            <li><a href="#filter-con-carácteres"><code>filter()</code> con carácteres</a></li>
-          </ul>
-        </li>
-        <li><a href="#53-mutate-para-transformación-de--variables">5.3 <code>mutate()</code> para transformación de  variables</a>
-          <ul>
-            <li><a href="#mutate-en-base-a-cálculo"><code>mutate()</code> en base a cálculo</a></li>
-            <li><a href="#recode"><code>recode()</code></a></li>
-          </ul>
-        </li>
-        <li><a href="#532-if_else-para-construir-variables-condicionales">5.3.2 <code>if_else()</code> para construir variables condicionales</a></li>
-        <li><a href="#532-case_when-para-construir-variable-en-base-a-múltiples-condiciones">5.3.2 <code>case_when()</code> para construir variable en base a múltiples condiciones</a></li>
+        <li><a href="#a-rdata-y-rds">a) .RData y .rds</a></li>
+        <li><a href="#b-sav-haven">b) .sav (<code>haven</code>)</a></li>
+        <li><a href="#b-dta-haven">b) .dta (<code>haven</code>)</a></li>
+        <li><a href="#b-csv">b) .csv</a></li>
+        <li><a href="#b-xlsx">b) .xlsx</a></li>
       </ul>
     </li>
-    <li><a href="#6-resumen-con-procesamiento-de-las-variables">6. Resumen con procesamiento de las variables</a></li>
-    <li><a href="#7-guardar-base-procesada">7. Guardar base procesada</a></li>
-    <li><a href="#8-reporte-de-progreso">8. Reporte de progreso</a></li>
+    <li><a href="#resumen">Resumen</a></li>
+    <li><a href="#reporte-de-progreso">Reporte de progreso</a></li>
   </ul>
 </nav>
 
@@ -739,7 +738,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Transformar y seleccionar variables</h1>
+                    <h1>Importar, explorar y limpiar datos</h1>
 
                     
 
@@ -748,10 +747,11 @@
                     
 
                     <div class="article-style">
-                        <h2 id="0-objetivo-de-la-práctica">0. Objetivo de la práctica</h2>
-<p>El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio.</p>
+                        <h2 id="0-objetivo-del-práctico">0. Objetivo del práctico</h2>
+<p>Este práctico tiene por objeto introducir a las y los estudiantes del curso en herramientas que les permitan a) <strong>importar bases de datos en diversos formatos</strong>; b)<strong>seleccionar variables</strong> de las bases de datos importadas; c) limpiar los datos, eliminando las filas con casos perdidos; y d) <strong>exportar bases de datos</strong> procesadas. Para ello, se trabajará con los paquetes <code>haven</code> (que forma parte, a su vez, del mundo de paquetes <code>tidyverse</code>), y <code>dplyr</code>, para poder importar  y exportar los datos, y manipular estos datos, respectivamente.</p>
 <h2 id="1-recursos-de-la-práctica">1. Recursos de la práctica</h2>
-<p>En este práctico utilizaremos la base de datos de la <a href="http://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-en-pandemia-2020" target="_blank" rel="noopener"><strong>Encuesta de Caracterización Socioeconómica (CASEN)</strong></a>, la cual fue procesada en el <a href="">Práctico anterior</a>.Recuerden siempre consultar el <a href="http://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2020/Libro_de_codigos_Base_de_Datos_Casen_en_Pandemia_2020.pdf" target="_blank" rel="noopener"><strong>manual/libro de códigos</strong></a> antes de trabajar una base de datos.</p>
+<p>Para el correcto trabajo de estos materiales, deben descargar los datos de la <em>Encuesta de Caracterización Socioeconómica (CASEN)</em> en su versión 2020. Para ello, deben dirigirse al <a href="https://drive.google.com/drive/folders/1Orgb3Qb9LcjTfjYMdIdy7SWd3xDMrTbG?usp=sharing" target="_blank" rel="noopener">siguiente enlace</a>, descargar el archivo en .zip y luego <em>input/data</em> de su repositorio. Para descomprimir los <a href="">archivos revisen</a>. Cuando lo hayan logrado verán la base en formato SPPS <code>Casen en Pandemia 2020 SPSS.sav</code> o en STATA <code>Casen en Pandemia 2020 SPSS.dta</code></p>
+<p>Recuerden siempre consultar el <a href="http://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2020/Libro_de_codigos_Base_de_Datos_Casen_en_Pandemia_2020.pdf" target="_blank" rel="noopener"><strong>manual/libro de códigos</strong></a> antes de trabajar una base de datos.</p>
 <h2 id="2-librerias-a-utilizar">2. Librerias a utilizar</h2>
 <p>En este práctico utilizaremos cuatro paquetes</p>
 <ol>
@@ -762,818 +762,1443 @@
 <p><code>sjmisc</code>: explorar datos</p>
 </li>
 <li>
-<p><code>car()</code>: recodificar manteniendo las etiquetas</p>
+<p><code>tidyverse</code>: colección de paquetes, del cuál utilizaremos <code>dplyr</code> y <code>haven</code></p>
 </li>
 <li>
-<p><code>tidyverse</code>: colección de paquetes, del cuál utilizaremos <code>dplyr</code>  <code>forcast</code></p>
+<p><code>haven</code>: cargar y exportar bases de datos en formatos .sav y .dta</p>
 </li>
 <li>
-<p><code>magrittr</code>: nos permitirá ocupar dos operadores que en R son <strong>muy</strong> utilizados</p>
+<p><code>readxl</code> y <code>writexl</code>: para cargar y exportar bases de datos en formato .xlsx y .xls</p>
+</li>
+<li>
+<p><code>dplyr</code>: nos permite seleccionar variables de un set de datos</p>
 </li>
 </ol>
 <h1 id="pasos-del-procesamiento">Pasos del procesamiento</h1>
 <h2 id="1-cargar-librerías">1. Cargar librerías</h2>
-<p>Primero instalamos <code>pacman</code> por única vez</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;pacman&#34;</span>)
-<span style="color:#a6e22e">library </span>(pacman)
-</code></pre></div><p>Luego cargaremos así los paquetes. Les recordamos que cuando luego de un paquete ponemos <code>::</code> esto se refiere a que se <em>&ldquo;fuerza&rdquo;</em> que esa función provenga de <em>ese paquete</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pacman<span style="color:#f92672">::</span><span style="color:#a6e22e">p_load</span>(tidyverse,
-               magrittr,
-               car,
-               sjmisc)
-</code></pre></div><h2 id="2-cargar-base-de-datos">2. Cargar base de datos</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_dta</span>(<span style="color:#e6db74">&#34;../Rproject/input/Casen en Pandemia 2020 STATA.dta&#34;</span>) 
-</code></pre></div><p>En el panel <strong>Environment</strong>, visualizamos el nuevo objeto, que posee 185.437 observaciones (o filas), y 650 variables (columnas)</p>
-<p>Recordemos que también podemos explorar la base de datos con las siguientes funciones.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># De paquete base</span>
-<span style="color:#a6e22e">dim</span>(datos) <span style="color:#75715e"># nos entrega las dimensiones, es decir el numero de observaciones y el número de variables</span>
-<span style="color:#a6e22e">View</span>(datos) <span style="color:#75715e"># se usa para visualizar la base de datos</span>
-<span style="color:#a6e22e">names</span>(datos) <span style="color:#75715e"># entrega los nombres de las variables que componen el dataset</span>
-<span style="color:#a6e22e">head</span>(datos) <span style="color:#75715e"># muestra las primeras filas presentes en el marco de datos</span>
-
-<span style="color:#75715e"># De sjmisc</span>
-
-<span style="color:#a6e22e">find_var</span>(datos, <span style="color:#e6db74">&#34;concepto&#34;</span>) <span style="color:#75715e"># se utiliza para encontrar variables</span>
-</code></pre></div><h2 id="4-un-aspecto-clave-antes-de-comenzar-los-operadores">4. Un aspecto clave antes de comenzar: los operadores</h2>
-<p>Previo a trabajar con la base de datos, debemos repasemos el concepto de <strong>operadores</strong>. Estos símbolos no son de uso exclusivo en R ¡probablemente los conoces desde tus cursos de matemática! Ahora bien, no todos tienen el mismo significado que en otros softwares.</p>
-<p>Los <strong>operadores</strong> serán símbolos que permitirán, en los distintos procedimientos de procesamiento, simplificar procesos. Por ejemplo, serán útilizados cuando filtremos nuestros datos para personas de ciertas categorías, cuando calculemos variables nuevas (de manera aritmética o condicional) o, simplemente, cuando queramos hacer procesos &ldquo;concatenados&rdquo;.</p>
-<h4 id="operadores-relacionales">Operadores relacionales</h4>
-<p>Se usan para hacer comparaciones. Cuando en la <em>Tabla 1</em> nos referimos a <code>un valor</code>, esto refiere tambien a <code>variables</code></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:right">Símbolo</th>
-<th style="text-align:left">Función</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right"><code>&lt;</code></td>
-<td style="text-align:left">Un valor es menor que otro</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>&gt;</code></td>
-<td style="text-align:left">Un valor es mayor que otro</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>==</code></td>
-<td style="text-align:left">Un valor es igual que otro <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></td>
-</tr>
-<tr>
-<td style="text-align:right"><code>&lt;=</code></td>
-<td style="text-align:left">Un valor es menor o igual que otro</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>&gt;=</code></td>
-<td style="text-align:left">Un valor es mayor o igual que otro</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>!=</code></td>
-<td style="text-align:left">Un valor es distinto o diferente que otro</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>%in%</code></td>
-<td style="text-align:left">Un valor pertenece al conjunto designado <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></td>
-</tr>
-<tr>
-<td style="text-align:right"><code>is.na()</code></td>
-<td style="text-align:left">El valor es perdido o <code>NA</code></td>
-</tr>
-<tr>
-<td style="text-align:right"><code>!is.na()</code></td>
-<td style="text-align:left">El valor es distinto de  <code>NA</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="operadores-aritméticos">Operadores aritméticos</h4>
-<p>Realizan operaciones, como la suma, resta, división, entre otros.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:right">Símbolo</th>
-<th style="text-align:left">Función</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right"><code>+</code></td>
-<td style="text-align:left">Suma</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>-</code></td>
-<td style="text-align:left">Resta</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>*</code></td>
-<td style="text-align:left">Multiplicación</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>/</code></td>
-<td style="text-align:left">División</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>^</code></td>
-<td style="text-align:left">Elevado</td>
-</tr>
-</tbody>
-</table>
-<h4 id="operadores-de-asignación">Operadores de asignación</h4>
-<p>Hay dos formas de asignar <code>objetoA &lt;- objetoB</code> o <code>objetoA = objetoB</code>. Ambas implican que lo que se este realizando en el <em>objetoB</em> implica que eso va a producir o generar al <em>objetoA</em></p>
-<h4 id="operadores-booleanos">Operadores booleanos</h4>
-<p>Describen relaciones <strong>lógicas</strong> o <strong>condicionales</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:right">Símbolo</th>
-<th style="text-align:left">Función</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right"><code>&amp;</code></td>
-<td style="text-align:left">Indica un <em>y</em> lógico</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>|</code></td>
-<td style="text-align:left">Indica un <em>o</em> lógico</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>xor()</code></td>
-<td style="text-align:left">Excluye la condición</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>!</code></td>
-<td style="text-align:left">Distinto de &hellip;</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>any</code></td>
-<td style="text-align:left">Ninguna de las condiciones serán utilizadas</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>all</code></td>
-<td style="text-align:left">Todas las condiciones serán ocupadas</td>
-</tr>
-</tbody>
-</table>
-<p><img src="/img/example/02-practico/01operad.png" width="60%" />
-Figura 1: Resumen de operadores</p>
-<h3 id="operador-pipeline-">Operador pipeline %&gt;%</h3>
-<p>¡Aquí mucha atención! Este operador <code>%&gt;%</code> (llamado <code>pipe</code>) no es un operador que este contenido en las funciones base del lenguaje R. Este operador proviene de la función <code>magrittr</code> de <code>tidyverse</code>, y es de los operadores más útiles y utilizados en R.</p>
-<p>¿Para qué sirve? Para concatenar múltiples funciones y procesos. <em>Imagina que quieres filtrar una base de datos a partir de tramos etarios. Pero no tienes esa variable creada. ¿Que hacer? La respuesta: concatenar el proceso de creación de variables y luego filtrar.</em> Eso se puede hacer gracias a <code>%&gt;%</code> (ya mostraremos como utilizar esta herramienta), que por lo demás es muy fácil de ejecutar.</p>
-<ul>
-<li><code>Ctrl + shift + M</code> Para Windows</li>
-<li><code>⌘ + shift + M</code> Para Mac</li>
-</ul>
-<h2 id="5-transformación-y-selección-de-variables-con-dplyr">5. Transformación y selección de variables con <code>dplyr()</code></h2>
-<p><code>dplyr()</code>es un paquete de <code>tidyverse</code> que proporciona una base para la manipulación de datos, principalmente a partir de funciones que permiten operar las columnas (o variables)</p>
-<h3 id="51-select-para-manipular-variables">5.1 <code>select()</code> para manipular variables</h3>
-<p>Para <strong>seleccionar variables</strong> ocuparemos <code>select()</code>. Existen diversos enfoques para realizarlo. Primero, debemos conocer su estructura</p>
-<p>Si queremos incluir las variables <code>variable1</code>, <code>variable2</code> y <code>variable3</code>
+<p>Dado que ya cargamos <code>pacman</code> en el práctico anterior, no lo debemos volver a instalar. Ahora bien, si  cargaremos los nuevos paquetes. Les recordamos que cuando luego de un paquete ponemos <code>::</code> esto se refiere a que se <em>&ldquo;fuerza&rdquo;</em> que esa función provenga de <em>ese paquete</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pacman<span style="color:#f92672">::</span><span style="color:#a6e22e">p_load</span>(sjmisc,
+               sjPlot,
+               tidyverse,
+               haven,
+               readxl,
+               writexl)
+</code></pre></div><h2 id="2-importar-datos">2. Importar datos</h2>
+<p>Para poder realizar análisis estadístico de cualquier tipo, el primer paso - sin considerar, por supuesto, la formulación de un problema de investigación, y la búsqueda de datos que permitan resolverlo - es <strong>importar una base de datos</strong>. Por razones obvias, si no hemos cargados los datos en el <em>entorno</em>, no seremos capaces de realizar ningún otro procedimiento, ni de preparación de los datos - por ejemplo, seleccionar variables, recodificarlas, construir variables sumativas, entre otros -, ni de análisis de estos - ya sean descriptivos, relacionales, explicativos, y así.</p>
+<p>Una de las bondades de <strong>R</strong> es que es posible importar fácilmente datos que se encuentren en <em>cualquier formato</em>: ya sea .csv, .dta, .sav, .xlsx y, por supuesto, .RData. Para poder hacerlo, sin embargo, lo primero es <em>instalar</em> y <em>cargar</em> las <strong>librerías</strong> que contienen las <strong>funciones</strong> necesarias para la importación de distintos tipos de archivos.</p>
+<h3 id="21-cargar-set-de-datos">2.1. Cargar set de datos</h3>
+<p>Una vez cargado el paquete <code>haven</code>, procedemos a <em>importar</em> los datos anteriormente mencionados. Para ello, en nuestro script, dejamos indicado que a partir de la lectura de los datos con <code>read_sav()</code>, crearemos un objeto llamado <code>datos</code>. Si este procedimiento se logra, esto aparecerá en el <em>Enviroment</em>.</p>
+<p>Antes ¿dónde están nuestros datos? Por lo general, nuestros datos los dejaremos en la carpeta <code>input/data</code>. En el <a href="https://drive.google.com/drive/folders/1Orgb3Qb9LcjTfjYMdIdy7SWd3xDMrTbG?usp=sharing" target="_blank" rel="noopener">siguiente enlace</a> podrán descargar el archivo .zip que contiene la base de CASEN. Si aún no sabes como descomprimir datos, por favor revisa <a href="https://learn-r-udp.netlify.app/resource/unzipping/" target="_blank" rel="noopener">aquí</a>.</p>
+<p>Luego de que hayas <strong>descargado y descomprimido los datos</strong> asegurate de dejar el archivo <code>.sav</code> y <code>.dta</code> en la carpeta de tu proyecto <code>input/data</code>. Los datos se llamarán en formato SPPS <code>Casen en Pandemia 2020 SPSS.sav</code> o en STATA <code>Casen en Pandemia 2020 SPSS.dta</code>.</p>
 <div class="note">
-select(datos, variable1, variable2, variable3)
-</div>
-</p>
-<p>Si queremos excluir anteponemos un menos <code>-variable1</code>
-<div class="note">
-select(datos, -variable1)
-</div>
-</p>
-<h4 id="select-por-indexación"><code>select()</code> por indexación</h4>
-<p>La indexación refiere al orden que tiene la columna o variable dentro de los datos. Imaginemos que queremos seleccionar:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>) <span style="color:#75715e"># la primera y la segunda columna</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 2
-##           folio     o
-##           &lt;dbl&gt; &lt;dbl&gt;
-##  1 110110010101     1
-##  2 110110010101     2
-##  3 110110010201     2
-##  4 110110010201     1
-##  5 110110010201     3
-##  6 110110010301     2
-##  7 110110010301     3
-##  8 110110010301     1
-##  9 110110010401     1
-## 10 110110010401     2
-## # ... with 185,427 more rows
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">4</span>) <span style="color:#75715e"># la primera hasta la cuarta columna</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 4
-##           folio     o id_persona id_vivienda
-##           &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;
-##  1 110110010101     1          5  1101100101
-##  2 110110010101     2          6  1101100101
-##  3 110110010201     2         31  1101100102
-##  4 110110010201     1         32  1101100102
-##  5 110110010201     3         30  1101100102
-##  6 110110010301     2        117  1101100103
-##  7 110110010301     3        118  1101100103
-##  8 110110010301     1        116  1101100103
-##  9 110110010401     1       2209  1101100104
-## 10 110110010401     2       2210  1101100104
-## # ... with 185,427 more rows
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>)) <span style="color:#75715e"># la primera y la cuarta columna</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 2
-##           folio id_vivienda
-##           &lt;dbl&gt;       &lt;dbl&gt;
-##  1 110110010101  1101100101
-##  2 110110010101  1101100101
-##  3 110110010201  1101100102
-##  4 110110010201  1101100102
-##  5 110110010201  1101100102
-##  6 110110010301  1101100103
-##  7 110110010301  1101100103
-##  8 110110010301  1101100103
-##  9 110110010401  1101100104
-## 10 110110010401  1101100104
-## # ... with 185,427 more rows
-</code></pre></div><h4 id="select-por-nombre-de-columna"><code>select()</code> por nombre de columna</h4>
-<p>Si conocemos el nombre de la variable simplemente lo podemos poner y se seleccionará.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, edad, sexo, o1)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 3
-##     edad       sexo        o1
-##    &lt;dbl&gt;  &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;
-##  1    34 2 [Mujer]     2 [No]
-##  2     4 2 [Mujer]    NA     
-##  3     5 2 [Mujer]    NA     
-##  4    45 1 [Hombre]    1 [Sí]
-##  5    19 2 [Mujer]     2 [No]
-##  6    57 1 [Hombre]    1 [Sí]
-##  7    20 1 [Hombre]    2 [No]
-##  8    56 2 [Mujer]     2 [No]
-##  9    77 1 [Hombre]    2 [No]
-## 10    60 2 [Mujer]     2 [No]
-## # ... with 185,427 more rows
-</code></pre></div><p>También puedo renombrar en el mismo proceso de selección indicando <code>nuevo_nombre = nombre_original</code> en el proceso de selección</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, edad, sexo, ocupacion <span style="color:#f92672">=</span> o1)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 3
-##     edad       sexo ocupacion
-##    &lt;dbl&gt;  &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;
-##  1    34 2 [Mujer]     2 [No]
-##  2     4 2 [Mujer]    NA     
-##  3     5 2 [Mujer]    NA     
-##  4    45 1 [Hombre]    1 [Sí]
-##  5    19 2 [Mujer]     2 [No]
-##  6    57 1 [Hombre]    1 [Sí]
-##  7    20 1 [Hombre]    2 [No]
-##  8    56 2 [Mujer]     2 [No]
-##  9    77 1 [Hombre]    2 [No]
-## 10    60 2 [Mujer]     2 [No]
-## # ... with 185,427 more rows
-</code></pre></div><h4 id="select-para-reordenar-variables"><code>select()</code> para reordenar variables</h4>
-<p>Podemos seleccionar variables y luego indicar que queremos todo el resto de las variables (<code>everythin()</code>). Solo por una cosa de orden. Esto será útil sobre todo cuando tengamos identificadores</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, id_persona, sexo, edad, <span style="color:#a6e22e">everything</span>())
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 650
-##    id_persona      sexo  edad    folio     o id_vivienda       region  provincia
-##         &lt;dbl&gt; &lt;dbl+lbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl+lbl&gt;  &lt;dbl+lbl&gt;
-##  1          5 2 [Mujer]    34  1.10e11     1  1101100101 1 [Región d~ 11 [Iquiq~
-##  2          6 2 [Mujer]     4  1.10e11     2  1101100101 1 [Región d~ 11 [Iquiq~
-##  3         31 2 [Mujer]     5  1.10e11     2  1101100102 1 [Región d~ 11 [Iquiq~
-##  4         32 1 [Hombr~    45  1.10e11     1  1101100102 1 [Región d~ 11 [Iquiq~
-##  5         30 2 [Mujer]    19  1.10e11     3  1101100102 1 [Región d~ 11 [Iquiq~
-##  6        117 1 [Hombr~    57  1.10e11     2  1101100103 1 [Región d~ 11 [Iquiq~
-##  7        118 1 [Hombr~    20  1.10e11     3  1101100103 1 [Región d~ 11 [Iquiq~
-##  8        116 2 [Mujer]    56  1.10e11     1  1101100103 1 [Región d~ 11 [Iquiq~
-##  9       2209 1 [Hombr~    77  1.10e11     1  1101100104 1 [Región d~ 11 [Iquiq~
-## 10       2210 2 [Mujer]    60  1.10e11     2  1101100104 1 [Región d~ 11 [Iquiq~
-## # ... with 185,427 more rows, and 642 more variables: comuna &lt;dbl+lbl&gt;,
-## #   zona &lt;dbl+lbl&gt;, area &lt;dbl+lbl&gt;, segmento &lt;dbl&gt;, estrato &lt;dbl&gt;,
-## #   cod_upm &lt;dbl&gt;, hogar &lt;dbl&gt;, p6_p_con &lt;dbl+lbl&gt;, expr &lt;dbl&gt;, expp &lt;dbl&gt;,
-## #   expc &lt;dbl&gt;, varstrat &lt;dbl&gt;, varunit &lt;dbl&gt;, fecha_entrev &lt;date&gt;,
-## #   metodologia_entrev &lt;dbl+lbl&gt;, tot_hog &lt;dbl&gt;, numviv &lt;dbl&gt;,
-## #   informante_idoneo &lt;dbl+lbl&gt;, tel1 &lt;dbl+lbl&gt;, tel2 &lt;dbl+lbl&gt;,
-## #   tel3 &lt;dbl+lbl&gt;, tel4 &lt;dbl+lbl&gt;, tel5 &lt;dbl+lbl&gt;, tel6 &lt;dbl+lbl&gt;,
-## #   tel7 &lt;dbl+lbl&gt;, tel8 &lt;dbl+lbl&gt;, p0a &lt;dbl+lbl&gt;, p0b &lt;dbl+lbl&gt;, p1 &lt;dbl+lbl&gt;,
-## #   p2 &lt;dbl+lbl&gt;, p3 &lt;dbl+lbl&gt;, p4 &lt;dbl+lbl&gt;, p5 &lt;dbl+lbl&gt;, p6 &lt;dbl&gt;,
-## #   p7 &lt;dbl+lbl&gt;, p8 &lt;dbl&gt;, id_persona_e &lt;dbl+lbl&gt;, pco1 &lt;dbl+lbl&gt;,
-## #   tot_per &lt;dbl&gt;, h5 &lt;dbl&gt;, ecivil &lt;dbl+lbl&gt;, h5_1 &lt;chr&gt;, h5_2 &lt;dbl&gt;,
-## #   nucleo &lt;dbl&gt;, pco2 &lt;dbl+lbl&gt;, numper &lt;dbl&gt;, n_ocupados &lt;dbl&gt;,
-## #   n_desocupados &lt;dbl&gt;, n_inactivos &lt;dbl&gt;, conyuge_jh &lt;dbl+lbl&gt;, numnuc &lt;dbl&gt;,
-## #   men18c &lt;dbl+lbl&gt;, may60c &lt;dbl+lbl&gt;, tipohogar &lt;dbl+lbl&gt;, e2 &lt;dbl+lbl&gt;,
-## #   e5b &lt;dbl+lbl&gt;, e6a &lt;dbl+lbl&gt;, e6b &lt;dbl+lbl&gt;, asiste2 &lt;dbl+lbl&gt;, esc &lt;dbl&gt;,
-## #   esc2 &lt;dbl&gt;, educ &lt;dbl+lbl&gt;, o1 &lt;dbl+lbl&gt;, o2 &lt;dbl+lbl&gt;, o3 &lt;dbl+lbl&gt;,
-## #   o3b &lt;dbl+lbl&gt;, o4 &lt;dbl+lbl&gt;, o6 &lt;dbl+lbl&gt;, o7 &lt;dbl+lbl&gt;, o7_esp &lt;chr&gt;,
-## #   o9a &lt;chr&gt;, o9b &lt;chr&gt;, oficio4_08 &lt;dbl+lbl&gt;, oficio1_08 &lt;dbl+lbl&gt;,
-## #   oficio4_88 &lt;dbl+lbl&gt;, oficio1_88 &lt;dbl+lbl&gt;, o15 &lt;dbl+lbl&gt;, o16 &lt;dbl+lbl&gt;,
-## #   o17 &lt;dbl+lbl&gt;, o24 &lt;chr&gt;, rama4 &lt;dbl+lbl&gt;, rama1 &lt;dbl+lbl&gt;,
-## #   rama4_rev3 &lt;dbl+lbl&gt;, rama1_rev3 &lt;dbl+lbl&gt;, o29 &lt;dbl+lbl&gt;, o30 &lt;dbl+lbl&gt;,
-## #   o31 &lt;dbl+lbl&gt;, o32 &lt;dbl+lbl&gt;, o32_esp &lt;chr&gt;, o32b &lt;dbl+lbl&gt;,
-## #   o33a &lt;dbl+lbl&gt;, o33b &lt;dbl+lbl&gt;, o34 &lt;dbl+lbl&gt;, o35 &lt;dbl+lbl&gt;,
-## #   o36 &lt;dbl+lbl&gt;, activ &lt;dbl+lbl&gt;, activ2 &lt;dbl+lbl&gt;, ocup_inf &lt;dbl+lbl&gt;,
-## #   y1_preg &lt;dbl+lbl&gt;, y1 &lt;dbl&gt;, ...
-</code></pre></div><h4 id="select-con-patrones-de-texto"><code>select()</code> con patrones de texto</h4>
-<p>Podemos seleccionar variables considerando los prefijos, sufijos o partes de <em>cómo están nombradas las variables</em>. Independiente de qué tipo de patrón estes buscando, como todo texto y expresión regular en R (y gran parte de los carácteres) este texto debe venir entre <strong>comillas</strong>. Algunas de las funciones que posibilitan este proceso son:</p>
-<ul>
-<li><code>starts_with()</code>: prefijo</li>
-<li><code>ends_with() </code>:  sufijo</li>
-<li><code>contains()</code> : contiene una cadena de texto literal</li>
-<li><code>matches()</code> : coincide con una expresión regular</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">starts_with</span>(<span style="color:#e6db74">&#34;a&#34;</span>), <span style="color:#a6e22e">ends_with</span>(<span style="color:#e6db74">&#34;preg&#34;</span>))
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 63
-##       area asiste2    activ   activ2 y1_preg y2a_preg y2b_preg y3a_preg y3b_preg
-##    &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+l&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt;
-##  1 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~ NA      NA       NA        NA       NA     
-##  2 1 [Urb~ 1 [Asi~ NA       NA       NA      NA       NA        NA       NA     
-##  3 1 [Urb~ 1 [Asi~ NA       NA       NA      NA       NA        NA       NA     
-##  4 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~  1 [Sí]  1 [Día~  1 [Hor~   1 [Sí]   1 [Sí]
-##  5 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~ NA      NA       NA        NA       NA     
-##  6 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~  1 [Sí]  1 [Día~  1 [Hor~   2 [No]   2 [No]
-##  7 1 [Urb~ 1 [Asi~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
-##  8 1 [Urb~ 2 [No ~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
-##  9 1 [Urb~ 2 [No ~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
-## 10 1 [Urb~ 2 [No ~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
-## # ... with 185,427 more rows, and 54 more variables: y3c_preg &lt;dbl+lbl&gt;,
-## #   y3d_preg &lt;dbl+lbl&gt;, y3e_preg &lt;dbl+lbl&gt;, y3f_preg &lt;dbl+lbl&gt;,
-## #   y4a_preg &lt;dbl+lbl&gt;, y4b_preg &lt;dbl+lbl&gt;, y4c_preg &lt;dbl+lbl&gt;,
-## #   y4d_preg &lt;dbl+lbl&gt;, y5a_preg &lt;dbl+lbl&gt;, y5b_preg &lt;dbl+lbl&gt;,
-## #   y5c_preg &lt;dbl+lbl&gt;, y5d_preg &lt;dbl+lbl&gt;, y5e_preg &lt;dbl+lbl&gt;,
-## #   y5f_preg &lt;dbl+lbl&gt;, y5g_preg &lt;dbl+lbl&gt;, y5h_preg &lt;dbl+lbl&gt;,
-## #   y5i_preg &lt;dbl+lbl&gt;, y5j_preg &lt;dbl+lbl&gt;, y5k_preg &lt;dbl+lbl&gt;,
-## #   y5l_preg &lt;dbl+lbl&gt;, y6_preg &lt;dbl+lbl&gt;, y7_preg &lt;dbl+lbl&gt;,
-## #   y8_preg &lt;dbl+lbl&gt;, y9_preg &lt;dbl+lbl&gt;, y10_preg &lt;dbl+lbl&gt;,
-## #   y11_preg &lt;dbl+lbl&gt;, y12a_preg &lt;dbl+lbl&gt;, y12b_preg &lt;dbl+lbl&gt;,
-## #   y13a_preg &lt;dbl+lbl&gt;, y13b_preg &lt;dbl+lbl&gt;, y13c_preg &lt;dbl+lbl&gt;,
-## #   y14a_preg &lt;dbl+lbl&gt;, y14b_preg &lt;dbl+lbl&gt;, y14c_preg &lt;dbl+lbl&gt;,
-## #   y15a_preg &lt;dbl+lbl&gt;, y15b_preg &lt;dbl+lbl&gt;, y15c_preg &lt;dbl+lbl&gt;,
-## #   y16a_preg &lt;dbl+lbl&gt;, y16b_preg &lt;dbl+lbl&gt;, y17_preg &lt;dbl+lbl&gt;,
-## #   y18a_preg &lt;dbl+lbl&gt;, y18b_preg &lt;dbl+lbl&gt;, y18c_preg &lt;dbl+lbl&gt;,
-## #   y18d_preg &lt;dbl+lbl&gt;, y22_preg &lt;dbl+lbl&gt;, y23a_preg &lt;dbl+lbl&gt;,
-## #   y24_preg &lt;dbl+lbl&gt;, y25a_preg &lt;dbl+lbl&gt;, y25g_preg &lt;dbl+lbl&gt;,
-## #   y26a_preg &lt;dbl+lbl&gt;, y26b_preg &lt;dbl+lbl&gt;, y26d_preg &lt;dbl+lbl&gt;,
-## #   y27_preg &lt;dbl+lbl&gt;, v19_preg &lt;dbl+lbl&gt;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># También se pueden combinar con operadores logicos</span>
-
-<span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">starts_with</span>(<span style="color:#e6db74">&#34;y1&#34;</span>)<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ends_with</span>(<span style="color:#e6db74">&#34;preg&#34;</span>)) 
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 21
-##     y1_preg y10_preg  y11_preg y12a_preg y12b_preg y13a_preg y13b_preg y13c_preg
-##    &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;
-##  1  NA            NA NA           2 [No]    2 [No]    2 [No]    2 [No]    1 [Sí]
-##  2  NA            NA NA          NA        NA         2 [No]    1 [Sí]    2 [No]
-##  3  NA            NA NA          NA        NA         2 [No]    2 [No]    1 [Sí]
-##  4   1 [Sí]       NA NA           2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
-##  5  NA            NA NA           2 [No]    2 [No]    2 [No]    2 [No]    1 [Sí]
-##  6   1 [Sí]       NA NA           2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
-##  7  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
-##  8  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
-##  9  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
-## 10  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
-## # ... with 185,427 more rows, and 13 more variables: y14a_preg &lt;dbl+lbl&gt;,
-## #   y14b_preg &lt;dbl+lbl&gt;, y14c_preg &lt;dbl+lbl&gt;, y15a_preg &lt;dbl+lbl&gt;,
-## #   y15b_preg &lt;dbl+lbl&gt;, y15c_preg &lt;dbl+lbl&gt;, y16a_preg &lt;dbl+lbl&gt;,
-## #   y16b_preg &lt;dbl+lbl&gt;, y17_preg &lt;dbl+lbl&gt;, y18a_preg &lt;dbl+lbl&gt;,
-## #   y18b_preg &lt;dbl+lbl&gt;, y18c_preg &lt;dbl+lbl&gt;, y18d_preg &lt;dbl+lbl&gt;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">contains</span>(<span style="color:#e6db74">&#34;pobre&#34;</span>)<span style="color:#f92672">|</span><span style="color:#a6e22e">contains</span>(<span style="color:#e6db74">&#34;vivienda&#34;</span>))
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 3
-##          pobreza                          pobreza_sinte id_vivienda
-##        &lt;dbl+lbl&gt;                              &lt;dbl+lbl&gt;       &lt;dbl&gt;
-##  1 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100101
-##  2 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100101
-##  3 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100102
-##  4 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100102
-##  5 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100102
-##  6 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100103
-##  7 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100103
-##  8 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100103
-##  9 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100104
-## 10 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100104
-## # ... with 185,427 more rows
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">matches</span>(<span style="color:#e6db74">&#34;pobreza_|vivienda&#34;</span>))
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 2
-##    id_vivienda                          pobreza_sinte
-##          &lt;dbl&gt;                              &lt;dbl+lbl&gt;
-##  1  1101100101 3 [No pobres sin transferencia Covid ]
-##  2  1101100101 3 [No pobres sin transferencia Covid ]
-##  3  1101100102 3 [No pobres sin transferencia Covid ]
-##  4  1101100102 3 [No pobres sin transferencia Covid ]
-##  5  1101100102 3 [No pobres sin transferencia Covid ]
-##  6  1101100103 3 [No pobres sin transferencia Covid ]
-##  7  1101100103 3 [No pobres sin transferencia Covid ]
-##  8  1101100103 3 [No pobres sin transferencia Covid ]
-##  9  1101100104 3 [No pobres sin transferencia Covid ]
-## 10  1101100104 3 [No pobres sin transferencia Covid ]
-## # ... with 185,427 more rows
-</code></pre></div><h4 id="select-y-condiciones-lógicas"><code>select()</code> y condiciones lógicas</h4>
-<p>Si combinamos <code>select()</code> con <code>where()</code> obtendremos algo así como una frase <em>&ldquo;seleciona donde&rdquo;</em>, ese <em>donde</em> responde a una condición que cumple cierta variable. Por ejemplo, queremos seleccionar todas las variables que son carácteres (<code>is.character</code>):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">where</span>(is.character))
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 19
-##    h5_1   o7_esp o9a     o9b    o24     o32_esp y3f_esp y4d_esp y18d_esp y27_esp
-##    &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;  
-##  1 0      &#34;&#34;     &#34;VENDE~ &#34;VEND~ &#34;VENDE~ &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
-##  2 5      &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
-##  3 32     &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
-##  4 0      &#34;&#34;     &#34;GASTR~ &#34;BARM~ &#34;HOTEL~ &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
-##  5 32     &#34;&#34;     &#34;ARTES~ &#34;QUEQ~ &#34;HACE ~ &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
-##  6 0      &#34;&#34;     &#34;DGAC&#34;  &#34;CONT~ &#34;AEROP~ &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
-##  7 116|1~ &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
-##  8 0      &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
-##  9 0      &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
-## 10 0      &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
-## # ... with 185,427 more rows, and 9 more variables: y28_1j_esp &lt;chr&gt;,
-## #   s18_esp &lt;chr&gt;, s28_esp &lt;chr&gt;, s30_esp &lt;chr&gt;, r1b_comuna_esp &lt;chr&gt;,
-## #   r1b_pais_esp &lt;chr&gt;, r2_comuna_esp &lt;chr&gt;, r2_pais_esp &lt;chr&gt;, v20_esp &lt;chr&gt;
-</code></pre></div><p>Luego de la revisión del libro de códigos y la exploración de datos mediante a funciones como <code>find_var()</code> de <code>sjmisc</code> decidimos trabajar con las siguientes variables.</p>
-<ul>
-<li><code>edad</code></li>
-<li><code>sexo</code></li>
-<li><code>s13</code>: previsión de salud</li>
-<li><code>tot_per</code>: número de personas en el hogar</li>
-<li><code>ytoth</code>: ingresos totales del hogar</li>
-<li><code>o1</code>: ocupación</li>
-<li><code>y26d_total</code>: Monto del IFE</li>
-<li><code>y26d_hog</code>: ¿Alguien recibió el IFE?</li>
-</ul>
-<p>¡Apliquémos conocimientos!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, edad, sexo, prev <span style="color:#f92672">=</span><span style="color:#ae81ff">592</span>, ocupacion <span style="color:#f92672">=</span> o1, tot_per, ytoth, <span style="color:#a6e22e">starts_with</span>(<span style="color:#e6db74">&#34;y26d_&#34;</span>)<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">matches</span>(<span style="color:#e6db74">&#34;total|hog&#34;</span>))
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 8
-##     edad      sexo             prev ocupacion tot_per  ytoth y26d_hog y26d_total
-##    &lt;dbl&gt; &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
-##  1    34 2 [Mujer] 3 [ISAPRE]          2 [No]       2 3.91e5   1 [Sí]         NA
-##  2     4 2 [Mujer] 3 [ISAPRE]         NA            2 3.91e5   1 [Sí]         NA
-##  3     5 2 [Mujer] 4 [Ninguno (par~   NA            3 9.48e5   2 [No]         NA
-##  4    45 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       3 9.48e5   2 [No]         NA
-##  5    19 2 [Mujer] 4 [Ninguno (par~    2 [No]       3 9.48e5   2 [No]         NA
-##  6    57 1 [Hombr~ 5 [Otro sistema]    1 [Sí]       3 3.00e6   2 [No]         NA
-##  7    20 1 [Hombr~ 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
-##  8    56 2 [Mujer] 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
-##  9    77 1 [Hombr~ 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
-## 10    60 2 [Mujer] 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
-## # ... with 185,427 more rows
-</code></pre></div><p>Es una buena práctica trabajar solo con las columnas que utilizaremos para el análisis, principalmente pues disminuye el <em>uso de memoria</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">select</span>(datos, edad, sexo, prev <span style="color:#f92672">=</span> <span style="color:#ae81ff">592</span>, ocupacion <span style="color:#f92672">=</span> o1, tot_per, ytoth, <span style="color:#a6e22e">starts_with</span>(<span style="color:#e6db74">&#34;y26d_&#34;</span>)<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">matches</span>(<span style="color:#e6db74">&#34;total|hog&#34;</span>))
-</code></pre></div><p>El nuevo objeto posee650 variables (columnas), pero conserva las filas 185.437 (u observaciones) ¿Qué pasa si quiero trabajar con un <em>subset</em> de casos? La respuesta es <code>filter()</code></p>
-<h3 id="52-filter-para-manipular-observaciones">5.2 <code>filter()</code> para manipular observaciones</h3>
-<p>La función <code>filter()</code> de <code>dplyr</code> escoge o extrae filas basados en sus valores, subdivide un data frame (<em>subset</em>), reteniendo todas las filas que satisfacen sus condiciones.</p>
-<p>Con <code>filter()</code> será esencial el uso de los <strong>operadores</strong> que ya vimos, dado que las observaciones que preservarán en nuestros datos (y aquellas que no), están definidas por condiciones lógicas (relacionales o booleanas)</p>
-<div class="note">
-filter(datos, condicion_para filtrar)
-Esta condición para filtrar podría ser, por ejemplo
-variable1 &gt;= 3
-</div>
-
-<h4 id="filter-con-números"><code>filter</code> con números</h4>
-<p>Imaginémos que queremos una base con las personas mayores de 15 años. Pero también que pertenezcan a hogares con menos de 7 personas.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, edad <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">15</span>)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 151,315 x 8
-##     edad      sexo             prev ocupacion tot_per  ytoth y26d_hog y26d_total
-##    &lt;dbl&gt; &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
-##  1    34 2 [Mujer] 3 [ISAPRE]          2 [No]       2 3.91e5   1 [Sí]         NA
-##  2    45 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       3 9.48e5   2 [No]         NA
-##  3    19 2 [Mujer] 4 [Ninguno (par~    2 [No]       3 9.48e5   2 [No]         NA
-##  4    57 1 [Hombr~ 5 [Otro sistema]    1 [Sí]       3 3.00e6   2 [No]         NA
-##  5    20 1 [Hombr~ 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
-##  6    56 2 [Mujer] 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
-##  7    77 1 [Hombr~ 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
-##  8    60 2 [Mujer] 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
-##  9    54 2 [Mujer] 1 [Sistema Públ~    1 [Sí]       4 1.32e6   1 [Sí]         NA
-## 10    18 1 [Hombr~ 4 [Ninguno (par~    2 [No]       4 1.32e6   1 [Sí]         NA
-## # ... with 151,305 more rows
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, edad <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">&amp;</span> tot_per <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">7</span>)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 144,418 x 8
-##     edad      sexo             prev ocupacion tot_per  ytoth y26d_hog y26d_total
-##    &lt;dbl&gt; &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
-##  1    34 2 [Mujer] 3 [ISAPRE]          2 [No]       2 3.91e5   1 [Sí]         NA
-##  2    45 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       3 9.48e5   2 [No]         NA
-##  3    19 2 [Mujer] 4 [Ninguno (par~    2 [No]       3 9.48e5   2 [No]         NA
-##  4    57 1 [Hombr~ 5 [Otro sistema]    1 [Sí]       3 3.00e6   2 [No]         NA
-##  5    20 1 [Hombr~ 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
-##  6    56 2 [Mujer] 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
-##  7    77 1 [Hombr~ 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
-##  8    60 2 [Mujer] 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
-##  9    54 2 [Mujer] 1 [Sistema Públ~    1 [Sí]       4 1.32e6   1 [Sí]         NA
-## 10    18 1 [Hombr~ 4 [Ninguno (par~    2 [No]       4 1.32e6   1 [Sí]         NA
-## # ... with 144,408 more rows
-</code></pre></div><p>¿Y si quiero filtrar para saber el valor máximo de ingresos (<code>ytoth</code>)?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, ytoth <span style="color:#f92672">==</span> <span style="color:#a6e22e">max</span>(ytoth))
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 1 x 8
-##    edad      sexo             prev ocupacion tot_per   ytoth y26d_hog y26d_total
-##   &lt;dbl&gt; &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
-## 1    41 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       1  2.25e8   2 [No]         NA
-</code></pre></div><p>¡Gana $225.200.000, es Hombre y tiene 41 años! (y vive solo&hellip;)</p>
-<h4 id="filter-con-carácteres"><code>filter()</code> con carácteres</h4>
-<p>Si queremos filtrar por la variable <code>sexo</code> solo a las mujeres, tengo dos opciones: o solo selecciono a las mujeres (<code>==</code>) o excluyo a los hombres (<code>!=</code>).</p>
-<p>Ahora bien, antes hay que hacer una precisión importante: en los datos <code>sexo</code> es una variable que está como <code>dbl</code> y <code>lbl</code> (número etiquetado), por lo que no es que en la base aparezcan &ldquo;Mujeres&rdquo; y &ldquo;Hombres&rdquo;, sino que 2 y 1.</p>
-<p>Por ello, con el siguiente código aparecerá un error en sus consolas.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, sexo <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Mujer&#34;</span>)
-</code></pre></div><p>Una función <strong>muy muy útil</strong> (sobre todo cuando trabajemos con regresiones) es <code>as_factor()</code> que permite conservar los niveles pero definiendo sus categorías de respuesta en base a la etiqueta que traen (el <code>lbl</code>)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc<span style="color:#f92672">$</span>sexo <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as_factor</span>(datos_proc<span style="color:#f92672">$</span>sexo)
-</code></pre></div><p>¡Ahora si funcionará!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, sexo <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Mujer&#34;</span>)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 99,341 x 8
-##     edad sexo                 prev ocupacion tot_per   ytoth y26d_hog y26d_total
-##    &lt;dbl&gt; &lt;fct&gt;           &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
-##  1    34 Mujer 3 [ISAPRE]             2 [No]       2  390833   1 [Sí]         NA
-##  2     4 Mujer 3 [ISAPRE]            NA            2  390833   1 [Sí]         NA
-##  3     5 Mujer 4 [Ninguno (partic~   NA            3  947583   2 [No]         NA
-##  4    19 Mujer 4 [Ninguno (partic~    2 [No]       3  947583   2 [No]         NA
-##  5    56 Mujer 5 [Otro sistema]       2 [No]       3 3004167   2 [No]         NA
-##  6    60 Mujer 1 [Sistema Público~    2 [No]       2  610250   2 [No]         NA
-##  7    54 Mujer 1 [Sistema Público~    1 [Sí]       4 1321481   1 [Sí]         NA
-##  8    31 Mujer 1 [Sistema Público~    1 [Sí]       4 1110000   2 [No]         NA
-##  9     9 Mujer 1 [Sistema Público~   NA            4 1110000   2 [No]         NA
-## 10    77 Mujer 1 [Sistema Público~    2 [No]       1  739833   2 [No]         NA
-## # ... with 99,331 more rows
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, sexo <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;Hombre&#34;</span>)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 99,341 x 8
-##     edad sexo                 prev ocupacion tot_per   ytoth y26d_hog y26d_total
-##    &lt;dbl&gt; &lt;fct&gt;           &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
-##  1    34 Mujer 3 [ISAPRE]             2 [No]       2  390833   1 [Sí]         NA
-##  2     4 Mujer 3 [ISAPRE]            NA            2  390833   1 [Sí]         NA
-##  3     5 Mujer 4 [Ninguno (partic~   NA            3  947583   2 [No]         NA
-##  4    19 Mujer 4 [Ninguno (partic~    2 [No]       3  947583   2 [No]         NA
-##  5    56 Mujer 5 [Otro sistema]       2 [No]       3 3004167   2 [No]         NA
-##  6    60 Mujer 1 [Sistema Público~    2 [No]       2  610250   2 [No]         NA
-##  7    54 Mujer 1 [Sistema Público~    1 [Sí]       4 1321481   1 [Sí]         NA
-##  8    31 Mujer 1 [Sistema Público~    1 [Sí]       4 1110000   2 [No]         NA
-##  9     9 Mujer 1 [Sistema Público~   NA            4 1110000   2 [No]         NA
-## 10    77 Mujer 1 [Sistema Público~    2 [No]       1  739833   2 [No]         NA
-## # ... with 99,331 more rows
-</code></pre></div><div class="note">
-<strong>Ojo</strong>. R es <em>sensible</em> a cómo está escrito el texto. Si pones el mismo código pero sin respetar mayúsuculas y minúsculas el código no funcionará
-</div>
-
-<p>¡Por último! ¿Cómo se seleccionan dos condiciones en carácter? Con el operador <code>%in%</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc<span style="color:#f92672">$</span>prev <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as_factor</span>(datos_proc<span style="color:#f92672">$</span>prev)
-
-<span style="color:#a6e22e">filter</span>(datos_proc, prev <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Sistema Público FONASA&#34;</span>, <span style="color:#e6db74">&#34;ISAPRE&#34;</span>))
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 169,503 x 8
-##     edad sexo   prev               ocupacion tot_per   ytoth y26d_hog y26d_total
-##    &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;              &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
-##  1    34 Mujer  ISAPRE                2 [No]       2  390833   1 [Sí]         NA
-##  2     4 Mujer  ISAPRE               NA            2  390833   1 [Sí]         NA
-##  3    45 Hombre Sistema Público F~    1 [Sí]       3  947583   2 [No]         NA
-##  4    77 Hombre Sistema Público F~    2 [No]       2  610250   2 [No]         NA
-##  5    60 Mujer  Sistema Público F~    2 [No]       2  610250   2 [No]         NA
-##  6    11 Hombre Sistema Público F~   NA            4 1321481   1 [Sí]         NA
-##  7    54 Mujer  Sistema Público F~    1 [Sí]       4 1321481   1 [Sí]         NA
-##  8    57 Hombre Sistema Público F~    1 [Sí]       4 1321481   1 [Sí]         NA
-##  9    55 Hombre Sistema Público F~    1 [Sí]       4 1110000   2 [No]         NA
-## 10    31 Mujer  Sistema Público F~    1 [Sí]       4 1110000   2 [No]         NA
-## # ... with 169,493 more rows
-</code></pre></div><p>Antes de definir que observaciones vamos a conservar en una base procesada <code>datos_proc</code> ¡Creemos transformemos variables con <code>mutate()</code>!</p>
-<h3 id="53-mutate-para-transformación-de--variables">5.3 <code>mutate()</code> para transformación de  variables</h3>
-<p>La función de <code>mutate()</code> permite hacer operaciones para crear nuevas variables o transformar las ya existentes.</p>
-<div class="note">
-mutate(datos, nueva_variable = cálculo o condición)
-</div>
-
-<h4 id="mutate-en-base-a-cálculo"><code>mutate()</code> en base a cálculo</h4>
-<p>Calcularemos una nueva variable llamada <code>nueva_variable</code> que proviene de la suma de 2+3. También una variable <code>ingreso_percapita</code> que proviene de la división del ingreso total del hogar y el número de personas que residen en el hogar</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">mutate</span>(datos_proc, nueva_variable <span style="color:#f92672">=</span> <span style="color:#ae81ff">3+2</span>)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 9
-##     edad sexo  prev  ocupacion tot_per  ytoth y26d_hog y26d_total nueva_variable
-##    &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;          &lt;dbl&gt;
-##  1    34 Mujer ISAP~    2 [No]       2 3.91e5   1 [Sí]         NA              5
-##  2     4 Mujer ISAP~   NA            2 3.91e5   1 [Sí]         NA              5
-##  3     5 Mujer Ning~   NA            3 9.48e5   2 [No]         NA              5
-##  4    45 Homb~ Sist~    1 [Sí]       3 9.48e5   2 [No]         NA              5
-##  5    19 Mujer Ning~    2 [No]       3 9.48e5   2 [No]         NA              5
-##  6    57 Homb~ Otro~    1 [Sí]       3 3.00e6   2 [No]         NA              5
-##  7    20 Homb~ Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
-##  8    56 Mujer Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
-##  9    77 Homb~ Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
-## 10    60 Mujer Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
-## # ... with 185,427 more rows
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">mutate</span>(datos_proc, nueva_variable <span style="color:#f92672">=</span> <span style="color:#ae81ff">3+2</span>,
-       ingreso_percapita <span style="color:#f92672">=</span> ytoth<span style="color:#f92672">/</span>tot_per)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 10
-##     edad sexo  prev  ocupacion tot_per  ytoth y26d_hog y26d_total nueva_variable
-##    &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;          &lt;dbl&gt;
-##  1    34 Mujer ISAP~    2 [No]       2 3.91e5   1 [Sí]         NA              5
-##  2     4 Mujer ISAP~   NA            2 3.91e5   1 [Sí]         NA              5
-##  3     5 Mujer Ning~   NA            3 9.48e5   2 [No]         NA              5
-##  4    45 Homb~ Sist~    1 [Sí]       3 9.48e5   2 [No]         NA              5
-##  5    19 Mujer Ning~    2 [No]       3 9.48e5   2 [No]         NA              5
-##  6    57 Homb~ Otro~    1 [Sí]       3 3.00e6   2 [No]         NA              5
-##  7    20 Homb~ Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
-##  8    56 Mujer Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
-##  9    77 Homb~ Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
-## 10    60 Mujer Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
-## # ... with 185,427 more rows, and 1 more variable: ingreso_percapita &lt;dbl&gt;
-</code></pre></div><p>¿Qué pasa si queremos, luego de calcular nuestras nuevas variables, filtrar un ingreso per cápita menor o igual a $1.000.000</p>
-<p><strong>¡Ahora entra en escena nuestro operador estrella <code>%&gt;%</code>!</strong></p>
-<div class="note">
-datos %&gt;% 
-mutate(., nueva_variable = calculo ) %&gt;% 
-filter(., nueva_variable &lt;= valor)
-</div>
-
-<p>Básicamente, el <code>%&gt;%</code> permite &ldquo;ingresar&rdquo; nuestra base de datos como argumento para cada función e ir operándola en proceso</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span>
-  <span style="color:#a6e22e">mutate</span>(ingreso_percapita <span style="color:#f92672">=</span> ytoth<span style="color:#f92672">/</span>tot_per) <span style="color:#f92672">%&gt;%</span> 
-  <span style="color:#a6e22e">filter</span>(ingreso_percapita <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1000000</span>)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 176,094 x 9
-##     edad sexo   prev               ocupacion tot_per   ytoth y26d_hog y26d_total
-##    &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;              &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
-##  1    34 Mujer  ISAPRE                2 [No]       2  390833   1 [Sí]         NA
-##  2     4 Mujer  ISAPRE               NA            2  390833   1 [Sí]         NA
-##  3     5 Mujer  Ninguno (particul~   NA            3  947583   2 [No]         NA
-##  4    45 Hombre Sistema Público F~    1 [Sí]       3  947583   2 [No]         NA
-##  5    19 Mujer  Ninguno (particul~    2 [No]       3  947583   2 [No]         NA
-##  6    77 Hombre Sistema Público F~    2 [No]       2  610250   2 [No]         NA
-##  7    60 Mujer  Sistema Público F~    2 [No]       2  610250   2 [No]         NA
-##  8    11 Hombre Sistema Público F~   NA            4 1321481   1 [Sí]         NA
-##  9    54 Mujer  Sistema Público F~    1 [Sí]       4 1321481   1 [Sí]         NA
-## 10    18 Hombre Ninguno (particul~    2 [No]       4 1321481   1 [Sí]         NA
-## # ... with 176,084 more rows, and 1 more variable: ingreso_percapita &lt;dbl&gt;
-</code></pre></div><h4 id="recode"><code>recode()</code></h4>
-<p>La función denominada <em>recode</em> puede reemplazar valores numéricos en base a su posición o su nombre, y valores de carácteres o factores sólo por su nombre.</p>
-<p>En el siguiente ejemplo recodificamos las categorías de respuesta de Mujer a Femenino y de Hombre a Masculino</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
-  <span style="color:#a6e22e">mutate</span>(sexo <span style="color:#f92672">=</span> dplyr<span style="color:#f92672">::</span><span style="color:#a6e22e">recode</span>(sexo, <span style="color:#e6db74">&#34;Mujer&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Femenino&#34;</span>, <span style="color:#e6db74">&#34;Hombre&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Masculino&#34;</span>))
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 8
-##     edad sexo     prev              ocupacion tot_per  ytoth y26d_hog y26d_total
-##    &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;             &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
-##  1    34 Femenino ISAPRE               2 [No]       2 3.91e5   1 [Sí]         NA
-##  2     4 Femenino ISAPRE              NA            2 3.91e5   1 [Sí]         NA
-##  3     5 Femenino Ninguno (particu~   NA            3 9.48e5   2 [No]         NA
-##  4    45 Masculi~ Sistema Público ~    1 [Sí]       3 9.48e5   2 [No]         NA
-##  5    19 Femenino Ninguno (particu~    2 [No]       3 9.48e5   2 [No]         NA
-##  6    57 Masculi~ Otro sistema         1 [Sí]       3 3.00e6   2 [No]         NA
-##  7    20 Masculi~ Otro sistema         2 [No]       3 3.00e6   2 [No]         NA
-##  8    56 Femenino Otro sistema         2 [No]       3 3.00e6   2 [No]         NA
-##  9    77 Masculi~ Sistema Público ~    2 [No]       2 6.10e5   2 [No]         NA
-## 10    60 Femenino Sistema Público ~    2 [No]       2 6.10e5   2 [No]         NA
-## # ... with 185,427 more rows
-</code></pre></div><p>El problema de <code>recode()</code> que se utiliza dentro de <code>dplyr</code> es que si recodifico se pierde la etiqueta anterior. Esto es un problema a si por ejemplo, solo quiero recodificar casos perdidos.</p>
-<p>Frente a ello, con el tiempo nos hemos convencido de que la mejor solución hasta ahora es ocupar <code>recode()</code> del paquete <code>car</code>. Si recuerdan, dos funciones con el mismo nombre podrían producir <em>conflictos</em>, y por ello, especificaremos con <code>car::recode()</code> que la función <code>recode()</code> que ocupamos proviene de <code>car</code></p>
-<div class="note">
-<p>datos %$% 
-car::recode(.$variable, c(&lsquo;valor_orig1=nuevo_valor1;valor_org2=nuevo_valor2&rsquo;))</p>
-<p><em>Ojo: %$% es el primo hermano de %&gt;% (básicamente funcionan igual, pero este es necesario para car)</em></p>
-
-</div>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%$%</span> 
-  car<span style="color:#f92672">::</span><span style="color:#a6e22e">recode</span>(.$y26d_hog, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;9=NA&#39;</span>)) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">head</span>(.)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## &lt;labelled&lt;double&gt;[6]&gt;: y26d_hog. Últimos 12 meses, ¿alguien recibió Ingreso Familiar de Emergencia?
-## [1] 1 1 2 2 2 2
-## 
-## Labels:
-##  value   label
-##      1      Sí
-##      2      No
-##      9 No sabe
-</code></pre></div><p>Aquí una versión de si la recodificación es hacia carácteres (mismo ejemplo que con <code>recode()</code> de <code>dplyr</code>)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%$%</span> 
-  car<span style="color:#f92672">::</span><span style="color:#a6e22e">recode</span>(.$sexo, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;&#34;Mujer&#34;=&#34;Femenino&#34;;&#34;Hombre&#34;= &#34;Masculino&#34;&#39;</span>), as.factor <span style="color:#f92672">=</span> T) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">head</span>(.)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] Femenino  Femenino  Femenino  Masculino Femenino  Masculino
-## Levels: Femenino Masculino
-</code></pre></div><h3 id="532-if_else-para-construir-variables-condicionales">5.3.2 <code>if_else()</code> para construir variables condicionales</h3>
-<p>La función <code>if_else()</code> permite construir variables en base a condiciones lógicas. Su estructura es la siguiente</p>
-<div class="note">
-if_else(condición,TRUE,FALSE)
-Donde dice <code>TRUE</code> es el valor que se obtiene si la condición es verdadera, mientras que <code>FALSE</code> es todo el resto de las opciones (o cuando es FALSA)
-</div>
-
-<p>Crearemos una variable que <em>dummy</em> que indica si el respondente es <em>FONASA</em> o no lo es.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
- 		 <span style="color:#a6e22e">mutate</span>(fonasa <span style="color:#f92672">=</span> <span style="color:#a6e22e">if_else</span>(prev <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Sistema Público FONASA&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>))
-</code></pre></div><p>También podemos ocupar esta función como validador, por ejemplo, rellenando con valores lógicos como <code>FALSE</code> cuando no hay valores en <code>ytoth</code>. Luego esos <code>FALSE</code> podrían ser contados en otros procesos estadísticos</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
-  <span style="color:#a6e22e">mutate</span>(validador_ingreso <span style="color:#f92672">=</span> <span style="color:#a6e22e">if_else</span>(<span style="color:#a6e22e">is.na</span>(ytoth), <span style="color:#66d9ef">FALSE</span>, <span style="color:#66d9ef">TRUE</span>))
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 9
-##     edad sexo   prev               ocupacion tot_per   ytoth y26d_hog y26d_total
-##    &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;              &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
-##  1    34 Mujer  ISAPRE                2 [No]       2  390833   1 [Sí]         NA
-##  2     4 Mujer  ISAPRE               NA            2  390833   1 [Sí]         NA
-##  3     5 Mujer  Ninguno (particul~   NA            3  947583   2 [No]         NA
-##  4    45 Hombre Sistema Público F~    1 [Sí]       3  947583   2 [No]         NA
-##  5    19 Mujer  Ninguno (particul~    2 [No]       3  947583   2 [No]         NA
-##  6    57 Hombre Otro sistema          1 [Sí]       3 3004167   2 [No]         NA
-##  7    20 Hombre Otro sistema          2 [No]       3 3004167   2 [No]         NA
-##  8    56 Mujer  Otro sistema          2 [No]       3 3004167   2 [No]         NA
-##  9    77 Hombre Sistema Público F~    2 [No]       2  610250   2 [No]         NA
-## 10    60 Mujer  Sistema Público F~    2 [No]       2  610250   2 [No]         NA
-## # ... with 185,427 more rows, and 1 more variable: validador_ingreso &lt;lgl&gt;
-</code></pre></div><h3 id="532-case_when-para-construir-variable-en-base-a-múltiples-condiciones">5.3.2 <code>case_when()</code> para construir variable en base a múltiples condiciones</h3>
-<p>Una función que se utiliza frecuentemente para <em>colapsar</em> categorías o construir categorías en base a varias condiciones es <code>case_when()</code> por lo lógico y <em>fácil</em> que es de entender</p>
-<div class="note">
-<p>case_when(variable == condicion ~ valor1,
-variable == condicion ~ valor2,
-TRUE ~ NA_real)</p>
-<ul>
-<li>Donde, TRUE indica &ldquo;todo el resto&rdquo;, y el NA dependerá de la clase del valor de recodificación</li>
-</ul>
-
-</div>
-
-<p>Un ejemplo claro es cuando queremos construir <em>categorías de edad</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
-  <span style="color:#a6e22e">mutate</span>(edad_tramo <span style="color:#f92672">=</span> <span style="color:#a6e22e">case_when</span>(edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">39</span> <span style="color:#f92672">~</span>  <span style="color:#e6db74">&#34;Joven&#34;</span>,
-                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">39</span> <span style="color:#f92672">&amp;</span> edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto&#34;</span>,
-                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto mayor&#34;</span>,
-                                <span style="color:#66d9ef">TRUE</span> <span style="color:#f92672">~</span> <span style="color:#66d9ef">NA_character_</span>)) <span style="color:#f92672">%&gt;%</span> 
-  <span style="color:#a6e22e">select</span>(edad, edad_tramo)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 2
-##     edad edad_tramo  
-##    &lt;dbl&gt; &lt;chr&gt;       
-##  1    34 Joven       
-##  2     4 Joven       
-##  3     5 Joven       
-##  4    45 Adulto      
-##  5    19 Joven       
-##  6    57 Adulto      
-##  7    20 Joven       
-##  8    56 Adulto      
-##  9    77 Adulto mayor
-## 10    60 Adulto mayor
-## # ... with 185,427 more rows
-</code></pre></div><p>Como se puede ver, no solamente indicamos tramos de la variable edad, sino que utilizamos operadores lógicos (<code>&amp;</code>). Podríamos ocupar el que necesitemos, y sobre todo, también combinar variables (por ejemplo, crear una variable <code>sexo-edad</code>)</p>
-<h2 id="6-resumen-con-procesamiento-de-las-variables">6. Resumen con procesamiento de las variables</h2>
-<p>Hasta ahora, solo hemos creado una base de datos que selecciona variables. Ahora nos resta incorporar en un nuevo objeto los cambios que nos parezcan relevantes para la base de datos procesada que utilizaremos en nuestros análisis.</p>
-<p>Como ya conocemos operadores que permiten concatenar procesos ( <code>%&gt;%</code>  y <code>%$%</code>) este procedimiento será mucho más fácil.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
- <span style="color:#a6e22e">filter</span>(edad <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">&amp;</span> tot_per <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">7</span>) <span style="color:#f92672">%&gt;%</span>
-    <span style="color:#a6e22e">mutate</span>(ingreso_percapita <span style="color:#f92672">=</span> ytoth<span style="color:#f92672">/</span>tot_per,
-           edad_tramo <span style="color:#f92672">=</span> <span style="color:#a6e22e">case_when</span>(edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">39</span> <span style="color:#f92672">~</span>  <span style="color:#e6db74">&#34;Joven&#34;</span>,
-                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">39</span> <span style="color:#f92672">&amp;</span> edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto&#34;</span>,
-                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto mayor&#34;</span>,
-                                <span style="color:#66d9ef">TRUE</span> <span style="color:#f92672">~</span> <span style="color:#66d9ef">NA_character_</span>),
-           fonasa <span style="color:#f92672">=</span> <span style="color:#a6e22e">if_else</span>(prev <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Sistema Público FONASA&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
-           ocupacion <span style="color:#f92672">=</span> <span style="color:#a6e22e">as_factor</span>(ocupacion)) <span style="color:#f92672">%&gt;%</span>
-  <span style="color:#a6e22e">select</span>(sexo, edad_tramo, ocupacion, ingreso_percapita, ife <span style="color:#f92672">=</span> y26d_hog)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 144,418 x 5
-##    sexo   edad_tramo   ocupacion ingreso_percapita       ife
-##    &lt;fct&gt;  &lt;chr&gt;        &lt;fct&gt;                 &lt;dbl&gt; &lt;dbl+lbl&gt;
-##  1 Mujer  Joven        No                  195416.    1 [Sí]
-##  2 Hombre Adulto       Sí                  315861     2 [No]
-##  3 Mujer  Joven        No                  315861     2 [No]
-##  4 Hombre Adulto       Sí                 1001389     2 [No]
-##  5 Hombre Joven        No                 1001389     2 [No]
-##  6 Mujer  Adulto       No                 1001389     2 [No]
-##  7 Hombre Adulto mayor No                  305125     2 [No]
-##  8 Mujer  Adulto mayor No                  305125     2 [No]
-##  9 Mujer  Adulto       Sí                  330370.    1 [Sí]
-## 10 Hombre Joven        No                  330370.    1 [Sí]
-## # ... with 144,408 more rows
-</code></pre></div><p>¡Ahora que estamos seguras/os sobre-escribimos la base!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">&lt;-</span> datos_proc <span style="color:#f92672">%&gt;%</span> 
- <span style="color:#a6e22e">filter</span>(edad <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">&amp;</span> tot_per <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">7</span>) <span style="color:#f92672">%&gt;%</span>
-    <span style="color:#a6e22e">mutate</span>(ingreso_percapita <span style="color:#f92672">=</span> ytoth<span style="color:#f92672">/</span>tot_per,
-           edad_tramo <span style="color:#f92672">=</span> <span style="color:#a6e22e">case_when</span>(edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">39</span> <span style="color:#f92672">~</span>  <span style="color:#e6db74">&#34;Joven&#34;</span>,
-                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">39</span> <span style="color:#f92672">&amp;</span> edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto&#34;</span>,
-                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto mayor&#34;</span>,
-                                <span style="color:#66d9ef">TRUE</span> <span style="color:#f92672">~</span> <span style="color:#66d9ef">NA_character_</span>),
-           fonasa <span style="color:#f92672">=</span> <span style="color:#a6e22e">if_else</span>(prev <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Sistema Público FONASA&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
-           ocupacion <span style="color:#f92672">=</span> <span style="color:#a6e22e">as_factor</span>(ocupacion)) <span style="color:#f92672">%&gt;%</span>
-  <span style="color:#a6e22e">select</span>(sexo, edad_tramo, ocupacion, ingreso_percapita, ife <span style="color:#f92672">=</span> y26d_hog)
-</code></pre></div><p>Podemos visualizar la base resultante a partir de <code>view_df()</code> de <code>sjPlot</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sjPlot<span style="color:#f92672">::</span><span style="color:#a6e22e">view_df</span>(datos_proc)
-</code></pre></div><table style="border-collapse:collapse; border:none;">
-<caption>Data frame: datos_proc</caption>
-<tr>
-<th style="border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;">ID</th><th style="border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;">Name</th><th style="border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;">Label</th><th style="border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;">Values</th><th style="border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;">Value Labels</th>
-</tr>
-<tr>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">1</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">sexo</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">Sexo</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;"></td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">Hombre<br>Mujer</td>
-</tr>
-<tr>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">2</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">edad_tramo</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee"></td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee"></td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">&lt;output omitted&gt;</td>
-</tr>
-<tr>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">3</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">ocupacion</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">o1. La semana pasada, Â¿trabajÃ³ al menos una hora?</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;"></td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">SÃ­<br>No</td>
-</tr>
-<tr>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">4</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">ingreso_percapita</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">Ingreso total del hogar</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee" colspan="2"><em>range: 0.0-225200000.0</em></td>
-</tr>
-<tr>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">5</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">ife</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">y26d_hog. Ãšltimos 12 meses, Â¿alguien recibiÃ³<br>Ingreso Familiar de Emergencia?</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">1<br>2<br>9</td>
-<td style="padding:0.2cm; text-align:left; vertical-align:top;">SÃ­<br>No<br>No sabe</td>
-</tr>
-</table>
-<h2 id="7-guardar-base-procesada">7. Guardar base procesada</h2>
-<p>Para guardar la base de datos procesada, debes dirigir la ruta hacia tu Rproject</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">saveRDS</span>(datos_proc, file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;../nombre_project/output/datos_proc.rds&#34;</span>)
-</code></pre></div><h2 id="8-reporte-de-progreso">8. Reporte de progreso</h2>
-<p>¡Recuerda rellenar tu <a href="https://learn-r.formr.org/" target="_blank" rel="noopener">reporte de progreso</a>. En tu correo electrónico está disponible el código mediante al cuál debes acceder para actualizar tu estado de avance del curso.</p>
-<section class="footnotes" role="doc-endnotes">
-<hr>
+<p>Para <strong>importar</strong> los datos en R debemos tener en consideración tres cosas:</p>
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>¡Atención! Fíjate bien que <code>==</code> y <code>=</code> son distintos. En R <code>==</code> es indicar <em>&ldquo;igual a&rdquo;</em>, mientras que  <code>=</code> es <em>asignar</em> (sinónimo de <code>&lt;-</code>) <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li>
+<p>Cómo se llaman los datos (en nuestro caso Casen en Pandemia 2020 SPSS)</p>
 </li>
-<li id="fn:2" role="doc-endnote">
-<p>Este operador es <strong>muy utilizado</strong>, sirve para indicar que algo está dentro de una cadena de valores. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li>
+<p>El formato de nuestros datos (en nuestro caso .sav)</p>
+</li>
+<li>
+<p>El lugar de donde están alojados nuestros datos.</p>
 </li>
 </ol>
-</section>
+
+</div>
+
+<p>El <a href="https://haven.tidyverse.org/" target="_blank" rel="noopener">paquete <code>haven</code></a> tiene una serie de funciones para cargar datos llamadas <code>read_*</code> (el asterisco indica el formato). Para oculparlo solo debes tener en claro los puntos anteriores</p>
+<p>`read_*(&ldquo;ruta_hacia_archivo/nombre_archivo.*&quot;``. En nuestro caso:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_sav</span>(<span style="color:#e6db74">&#34;Casen en Pandemia 2020 SPSS.sav&#34;</span>)  <span style="color:#75715e"># No funciona</span>
+datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_sav</span>(<span style="color:#e6db74">&#34;input/data/casen en pandemia 2020 SPSS.sav&#34;</span>) <span style="color:#75715e"># No funciona</span>
+datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_sav</span>(<span style="color:#e6db74">&#34;input/data/Casen en Pandemia 2020 SPSS.sav&#34;</span>) 
+</code></pre></div><p>Los dos primeros comandos no funcionan porque</p>
+<ol>
+<li>
+<p>La ruta no está bien definida</p>
+</li>
+<li>
+<p>El nombre de la base no es exacto</p>
+</li>
+</ol>
+<p>¡Dos errores muy frecuentes cuando uno se inicia! Ahora, ¿cómo se si está bien mi base? Primero, notarás que en tu <strong>Enviroment</strong> se ha creado un objeto. En nuestro caso objeto posee650 variables (columnas), pero conserva las filas 185.437 (u observaciones)</p>
+<p>¡Ahora es tu turno! Intenta hacer este procedimiento con los datos en <code>.dta</code>. También puedes encontrar este archivo en el enlace.</p>
+<h3 id="211-cargar-set-de-datos-en-otros-formatos">2.1.1 Cargar set de datos en otros formatos.</h3>
+<p>Ahora bien, no siempre este procedimiento será tan fácil sobre todo pues no siempre vendrán en formatos &ldquo;limpios&rdquo;. La gran forma de lidiar con eso es con la <strong>manipulación de datos</strong> (algo que nos tomará tiempo en este curso), pero de todas formas es de gran ayuda utilizar de manera correcta la importación de datos. Nos puede solucionar varios problemas de codificación y lectura.</p>
+<p>Para poder abordar esto de la mejor manera es necesario utilizar funciones <em>ad hoc</em> al formato de nuestros datos. Como se mencionó anteriormente, con R es muy flexible en esto. En los siguientes pasos les mostraremos como cargar en otros formatos y reconociendo algunos de los <em>problemas comunes con los cuáles te encontrarás</em> (de seguro&hellip;)</p>
+<h4 id="a-dta">a) <code>.dta</code></h4>
+<p>Este es el formato específico de base de datos para STATA. Por ello, utilizaremos la función <code>read_dta()</code> (también está como <code>read_stata()</code>), incluida en el paquete <code>haven</code>.</p>
+<h4 id="b-rdata-y-rds">b) .RData y .rds</h4>
+<p>¿Y R tiene formato de datos? ¡Sí! Como son propios del programa <strong>no es necesario cargar paquetes</strong> pues sus funciones provienen del paquete  <code>base</code>. La diferencia básica entre <code>.RData</code> y <code>.rds</code> es que <code>.rds</code> puede contener solo un objeto del <em>Enviroment</em> de R, mientras que <code>.RData</code> puede contener múltiples objetos que han sido guardados en <code>.rds</code>.</p>
+<div class="note">
+<p><em>Leer un objeto proveniente de un archivo</em></p>
+<p>readRDS(file = &ldquo;datos.rds&rdquo;)</p>
+<p><em>Leer múltiples objetos a un archivo</em>
+load(file = &ldquo;datos.RData&rdquo;)</p>
+
+</div>
+
+<p>Además de <strong>nunca olvidar la ruta</strong>, no debes olvidar una diferencia de codificación entre ambas funciones: con <code>load()</code> los objetos se cargan <em>automáticamente</em> en el ambiente, mientras que en <code>readRDS()</code> no. Solamente &ldquo;llama&rdquo; a los archivos, pero no los deja como un objeto dentro del <em>Enviroment</em>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">load</span>(file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;input/data/CASEN.RData&#34;</span>)
+<span style="color:#a6e22e">readRDS</span>(file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;input/data/CASEN.rds&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 100 x 5
+##       id                     region      sexo      pobreza ocupacion            
+##    &lt;dbl&gt;                  &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;    &lt;dbl+lbl&gt; &lt;chr&gt;                
+##  1   502 16 [Región de Ñuble]       2 [Mujer] 3 [No pobre~ &lt;NA&gt;                 
+##  2   184  6 [Región del Libertador~ 2 [Mujer] 3 [No pobre~ &lt;NA&gt;                 
+##  3   308  8 [Región del Biobío]     2 [Mujer] 3 [No pobre~ &lt;NA&gt;                 
+##  4   531  6 [Región del Libertador~ 1 [Hombr~ 3 [No pobre~ COSECHA DE GUINDAS   
+##  5   115  3 [Región de Atacama]     2 [Mujer] 3 [No pobre~ &lt;NA&gt;                 
+##  6   261  5 [Región de Valparaíso]  2 [Mujer] 3 [No pobre~ &lt;NA&gt;                 
+##  7   171  3 [Región de Atacama]     1 [Hombr~ 3 [No pobre~ ATENCIÓN PARADERO CO~
+##  8   333  7 [Región del Maule]      1 [Hombr~ 1 [Pobres e~ RECOLECTOR DE HORTAL~
+##  9    69 14 [Región de Los Ríos]    1 [Hombr~ 3 [No pobre~ EMPRESARIO DISTRIBUC~
+## 10   440  4 [Región de Coquimbo]    1 [Hombr~ 2 [Pobres n~ &lt;NA&gt;                 
+## # ... with 90 more rows
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">readRDS</span>(file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;input/data/CASEN.rds&#34;</span>)
+</code></pre></div><p>¿Solo contiene datos? ¡No! Además de que puede contener múltiples datos, puede guardar otros <em>objetos</em> que se creen en su proceso estadístico. Por ejemplo, <em>modelos</em> ¡Lo veremos más adelante!</p>
+<h4 id="c-csv">c) <code>.csv</code></h4>
+<p>Los archivos en <code>.csv</code> o <code>.txt</code> son de frecuente uso dado que son más livianos que un archivo en <code>.dta</code> o <code>.sav</code> por el <em>meta-data</em> que contienen (información adicional, además de columnas-filas). El paquete <code>utils</code> de <code>R base</code> tiene una función de muy buena calidad llamada <code>read.table</code> (<code>read.csv()</code> para archivos en <code>.csv</code> y <code>read.delim()</code> para archivos en <code>.txt</code>)</p>
+<p>Su estructura es muy simple <code>read.*(file = &quot;datos.*&quot;)</code>. Ahora bien tiene una serie de argumentos que permiten leer de mejor manera los archivos <strong>y de seguro los ocuparás</strong>:</p>
+<ul>
+<li>
+<p>[<code>sep</code>]: indica con qué están separadas las columnas (<em>; , -</em>)</p>
+</li>
+<li>
+<p>[<code>dec</code>]: indica como están separados los decimales (<em>. ,</em>)</p>
+</li>
+<li>
+<p>[<code>na-strings</code>]: indica como están codificados los <code>NA</code> (¡podría ser más de una forma!)</p>
+</li>
+<li>
+<p>[<code>encoding</code>]:puede ser <code>UTF-8</code> o <code>Latin-1</code></p>
+</li>
+<li>
+<p>[<code>skip</code>]: indica el <em>número</em> de filas que hay que saltarse (no siempre los csv y excel parten en la primera fila). El argumento <code>nrow</code> indica el número de filas máximas a leer</p>
+</li>
+<li>
+<p>[<code>stringsAsFactors</code>]: si se indica verdadero (<code>TRUE</code>) los carácteres serán transformados en factores, lo cuál será muy útil en caso de necesitar hacer análisis.</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#34;input/data/CASEN.csv&#34;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;,&#34;</span>, 
+                  encoding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;UTF-8&#34;</span>, stringsAsFactors <span style="color:#f92672">=</span> F)
+
+<span style="color:#a6e22e">head</span>(datos)
+</code></pre></div><p>Muchos problemas, ¡vamos solucionado!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#34;input/data/CASEN.csv&#34;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;;&#34;</span>, 
+                  encoding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Latin-1&#34;</span>, stringsAsFactors <span style="color:#f92672">=</span> F, na.strings <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;No sabe&#34;</span>, <span style="color:#66d9ef">NA</span>))
+</code></pre></div><h4 id="d-xlsx">d) <code>.xlsx</code></h4>
+<p>A partir del paquete <code>readxl</code> de <code>tidyverse</code> podremos obtener datos que provienen de Excel (tanto en formato <code>.xls</code> como <code>.xlsx</code>). Ocuparemos la función <code>read_excel()</code>, la cual tiene similares argumentos a <code>read.csv()</code></p>
+<div class="note">
+<code>read_excel(&quot;datos.xlsx&quot;, sheet = &quot;Hoja 1&quot;, range = &quot;A1:C40&quot;)</code>
+<code>read_excel(&quot;datos.xlsx&quot;, sheet = 2, skip = 4, na = &quot;No sabe&quot;)</code>
+</div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> readxl<span style="color:#f92672">::</span><span style="color:#a6e22e">read_excel</span>(path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;input/data/CASEN.xlsx&#34;</span>)
+</code></pre></div><p>¡Hemos sido engañados/as! ¿Cómo solucionar?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> readxl<span style="color:#f92672">::</span><span style="color:#a6e22e">read_excel</span>(path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;input/data/CASEN.xlsx&#34;</span>, sheet <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hoja1&#34;</span>, skip <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
+
+datos <span style="color:#f92672">&lt;-</span> readxl<span style="color:#f92672">::</span><span style="color:#a6e22e">read_excel</span>(path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;input/data/CASEN.xlsx&#34;</span>, sheet <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hoja1&#34;</span>, skip <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, na <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;NA&#34;</span>)
+</code></pre></div><p>Para seguir con este ejercicio volvamos a utilizar la base original en <code>.dta</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_dta</span>(<span style="color:#e6db74">&#34;input/data/Casen en Pandemia 2020 SPSS.dta&#34;</span>) 
+</code></pre></div><h2 id="3-explorar-datos">3. Explorar datos</h2>
+<p>Lo más probable es que, una vez importados los datos a utilizar, no trabajemos con el total de variables incluidas en estos (que, en este caso, suman un total de <em>650</em> columnas). Es por ello, que debemos <strong>seleccionar</strong> las variables de interés para resolver nuestro problema de investigación (sea el que sea).</p>
+<p>Antes de seleccionar las variables debemos <strong>explorar nuestros datos</strong>, si no ¿cómo saber qué seleccionar y qué no? En R base las funciones clásicas para explorar datos son</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">View</span>(datos) <span style="color:#75715e"># Ver datos</span>
+<span style="color:#a6e22e">names</span>(datos) <span style="color:#75715e"># Nombre de columnas</span>
+<span style="color:#a6e22e">dim</span>(datos) <span style="color:#75715e"># Dimensiones</span>
+<span style="color:#a6e22e">str</span>(datos) <span style="color:#75715e"># Estructura de los datos (las clases y categorias de repuesta)</span>
+</code></pre></div><p>A pesar de que son fáciles de aprender, no tienen una visualización muy amena. Un excelente paquete para explorar datos es <code>sjmisc</code> quien tiene tres funciones claves:</p>
+<ul>
+<li>
+<p>[<code>View_df()</code>]: que en el visor &ldquo;Viewer&rdquo; les mostrará una tabla que tiene el nombre de variable, etiqueta y categorías de respuesta</p>
+</li>
+<li>
+<p>[<code>find_var()</code>]: que permite indagar en variables que estamos buscando según sus temáticas</p>
+</li>
+<li>
+<p>[<code>frq()</code>]: nos otorga la distribución univariada de variables categóricas que estamos explorando</p>
+</li>
+<li>
+<p>[<code>descr()</code>]: nos otorga estadísticos de tendencia central para la variable numérica seleccionada.</p>
+</li>
+</ul>
+<p><em>Ver datos en el visor</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sjPlot<span style="color:#f92672">::</span><span style="color:#a6e22e">view_df</span>(datos)
+</code></pre></div><p><em>Buscar variables sobre temáticas relacionadas a &ldquo;vivienda&rdquo; (no olvides dejarla entre comillas)</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">find_var</span>(datos, <span style="color:#e6db74">&#34;pobreza&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">##   col.nr      var.name
+## 1    584       pobreza
+## 2    586 pobreza_sinte
+## 3    579            lp
+##                                                   var.label
+## 1                         Situación de pobreza por ingresos
+## 2 Situación de pobreza por ingresos sin transferencia Covid
+## 3                                          Línea de pobreza
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">find_var</span>(datos, <span style="color:#e6db74">&#34;salario&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">##   col.nr var.name
+## 1    108       y1
+## 2    375    y0101
+## 3    465   y0101h
+## 4    557   y0101c
+## 5    563  y0101ch
+##                                                                var.label
+## 1 y1. Mes pasado, monto Sueldo o salario líquido en su trabajo principal
+## 2                   Asalariados principal - Sueldos y salarios monetario
+## 3                   Asalariados principal - Sueldos y salarios monetario
+## 4         Asalariados principal - Sueldos y salarios monetario corregido
+## 5         Asalariados principal - Sueldos y salarios monetario corregido
+</code></pre></div><p><strong>Explorar distirbución de las variables</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">frq</span>(datos<span style="color:#f92672">$</span>pobreza)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## Situación de pobreza por ingresos (x) &lt;numeric&gt;
+## # total N=185437  valid N=185339  mean=2.84  sd=0.48
+## 
+## Value |              Label |      N | Raw % | Valid % | Cum. %
+## --------------------------------------------------------------
+##     1 |    Pobres extremos |   8439 |  4.55 |    4.55 |   4.55
+##     2 | Pobres no extremos |  12891 |  6.95 |    6.96 |  11.51
+##     3 |          No pobres | 164009 | 88.44 |   88.49 | 100.00
+##  &lt;NA&gt; |               &lt;NA&gt; |     98 |  0.05 |    &lt;NA&gt; |   &lt;NA&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">frq</span>(datos<span style="color:#f92672">$</span>y1) <span style="color:#75715e">#¡Qué feo!</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [[1]]
+##           val  label    frq raw.prc valid.prc cum.prc
+## 1        1200 &lt;none&gt;      1    0.00      0.00    0.00
+## 2        1800 &lt;none&gt;      1    0.00      0.00    0.00
+## 3        2000 &lt;none&gt;      1    0.00      0.00    0.01
+## 4        2222 &lt;none&gt;      1    0.00      0.00    0.01
+## 5        6000 &lt;none&gt;      2    0.00      0.00    0.01
+## 6        7000 &lt;none&gt;      1    0.00      0.00    0.02
+## 7        8073 &lt;none&gt;      1    0.00      0.00    0.02
+## 8       10000 &lt;none&gt;      6    0.00      0.01    0.03
+## 9       12000 &lt;none&gt;      1    0.00      0.00    0.04
+## 10      14000 &lt;none&gt;      1    0.00      0.00    0.04
+## 11      15000 &lt;none&gt;     11    0.01      0.03    0.07
+## 12      16000 &lt;none&gt;      2    0.00      0.00    0.07
+## 13      17000 &lt;none&gt;      2    0.00      0.00    0.08
+## 14      18000 &lt;none&gt;      2    0.00      0.00    0.08
+## 15      20000 &lt;none&gt;     22    0.01      0.05    0.14
+## 16      21800 &lt;none&gt;      1    0.00      0.00    0.14
+## 17      22000 &lt;none&gt;      1    0.00      0.00    0.14
+## 18      24000 &lt;none&gt;      3    0.00      0.01    0.15
+## 19      25000 &lt;none&gt;      9    0.00      0.02    0.17
+## 20      25300 &lt;none&gt;      1    0.00      0.00    0.17
+## 21      26000 &lt;none&gt;      1    0.00      0.00    0.18
+## 22      27000 &lt;none&gt;      1    0.00      0.00    0.18
+## 23      27900 &lt;none&gt;      1    0.00      0.00    0.18
+## 24      28000 &lt;none&gt;      3    0.00      0.01    0.19
+## 25      29000 &lt;none&gt;      1    0.00      0.00    0.19
+## 26      30000 &lt;none&gt;     47    0.03      0.12    0.31
+## 27      31000 &lt;none&gt;      1    0.00      0.00    0.31
+## 28      32000 &lt;none&gt;      4    0.00      0.01    0.32
+## 29      32050 &lt;none&gt;      1    0.00      0.00    0.32
+## 30      32650 &lt;none&gt;      1    0.00      0.00    0.32
+## 31      33000 &lt;none&gt;      2    0.00      0.00    0.33
+## 32      34000 &lt;none&gt;      2    0.00      0.00    0.33
+## 33      35000 &lt;none&gt;      8    0.00      0.02    0.35
+## 34      36000 &lt;none&gt;      2    0.00      0.00    0.36
+## 35      37000 &lt;none&gt;      1    0.00      0.00    0.36
+## 36      38000 &lt;none&gt;      1    0.00      0.00    0.36
+## 37      40000 &lt;none&gt;     54    0.03      0.13    0.50
+## 38      41000 &lt;none&gt;      1    0.00      0.00    0.50
+## 39      42000 &lt;none&gt;      3    0.00      0.01    0.51
+## 40      43000 &lt;none&gt;      1    0.00      0.00    0.51
+## 41      44000 &lt;none&gt;      1    0.00      0.00    0.51
+## 42      44600 &lt;none&gt;      1    0.00      0.00    0.51
+## 43      45000 &lt;none&gt;     17    0.01      0.04    0.56
+## 44      46000 &lt;none&gt;      1    0.00      0.00    0.56
+## 45      47000 &lt;none&gt;      1    0.00      0.00    0.56
+## 46      48000 &lt;none&gt;      1    0.00      0.00    0.56
+## 47      49000 &lt;none&gt;      1    0.00      0.00    0.57
+## 48      50000 &lt;none&gt;    102    0.06      0.25    0.82
+## 49      52000 &lt;none&gt;      1    0.00      0.00    0.82
+## 50      53000 &lt;none&gt;      1    0.00      0.00    0.82
+## 51      55000 &lt;none&gt;      3    0.00      0.01    0.83
+## 52      56000 &lt;none&gt;      2    0.00      0.00    0.84
+## 53      57000 &lt;none&gt;      2    0.00      0.00    0.84
+## 54      58000 &lt;none&gt;      1    0.00      0.00    0.84
+## 55      60000 &lt;none&gt;    110    0.06      0.27    1.12
+## 56      62000 &lt;none&gt;      4    0.00      0.01    1.13
+## 57      63000 &lt;none&gt;      1    0.00      0.00    1.13
+## 58      64000 &lt;none&gt;      5    0.00      0.01    1.14
+## 59      65000 &lt;none&gt;      6    0.00      0.01    1.16
+## 60      68000 &lt;none&gt;      4    0.00      0.01    1.17
+## 61      70000 &lt;none&gt;     57    0.03      0.14    1.31
+## 62      70500 &lt;none&gt;      1    0.00      0.00    1.31
+## 63      71000 &lt;none&gt;      2    0.00      0.00    1.31
+## 64      72000 &lt;none&gt;      5    0.00      0.01    1.33
+## 65      74000 &lt;none&gt;      2    0.00      0.00    1.33
+## 66      75000 &lt;none&gt;     18    0.01      0.04    1.38
+## 67      77000 &lt;none&gt;      2    0.00      0.00    1.38
+## 68      78000 &lt;none&gt;      2    0.00      0.00    1.39
+## 69      79000 &lt;none&gt;      1    0.00      0.00    1.39
+## 70      80000 &lt;none&gt;    137    0.07      0.34    1.73
+## 71      82000 &lt;none&gt;      3    0.00      0.01    1.73
+## 72      83000 &lt;none&gt;      1    0.00      0.00    1.74
+## 73      84000 &lt;none&gt;      2    0.00      0.00    1.74
+## 74      85000 &lt;none&gt;      3    0.00      0.01    1.75
+## 75      86000 &lt;none&gt;      2    0.00      0.00    1.75
+## 76      87000 &lt;none&gt;      1    0.00      0.00    1.76
+## 77      88000 &lt;none&gt;      1    0.00      0.00    1.76
+## 78      89000 &lt;none&gt;      1    0.00      0.00    1.76
+## 79      90000 &lt;none&gt;     47    0.03      0.12    1.88
+## 80      92000 &lt;none&gt;      2    0.00      0.00    1.88
+## 81      95000 &lt;none&gt;      6    0.00      0.01    1.90
+## 82      96000 &lt;none&gt;      6    0.00      0.01    1.91
+## 83      97000 &lt;none&gt;      1    0.00      0.00    1.91
+## 84      97500 &lt;none&gt;      2    0.00      0.00    1.92
+## 85      98000 &lt;none&gt;      6    0.00      0.01    1.93
+## 86     100000 &lt;none&gt;    328    0.18      0.81    2.75
+## 87     100003 &lt;none&gt;      1    0.00      0.00    2.75
+## 88     100008 &lt;none&gt;      1    0.00      0.00    2.75
+## 89     101000 &lt;none&gt;      1    0.00      0.00    2.75
+## 90     104000 &lt;none&gt;      3    0.00      0.01    2.76
+## 91     105000 &lt;none&gt;      7    0.00      0.02    2.78
+## 92     106000 &lt;none&gt;      2    0.00      0.00    2.78
+## 93     107000 &lt;none&gt;      2    0.00      0.00    2.79
+## 94     108000 &lt;none&gt;      1    0.00      0.00    2.79
+## 95     109000 &lt;none&gt;      2    0.00      0.00    2.80
+## 96     110000 &lt;none&gt;     38    0.02      0.09    2.89
+## 97     111000 &lt;none&gt;      1    0.00      0.00    2.89
+## 98     112000 &lt;none&gt;      2    0.00      0.00    2.90
+## 99     112500 &lt;none&gt;      1    0.00      0.00    2.90
+## 100    113000 &lt;none&gt;      3    0.00      0.01    2.91
+## 101    114000 &lt;none&gt;      1    0.00      0.00    2.91
+## 102    115000 &lt;none&gt;      5    0.00      0.01    2.92
+## 103    116000 &lt;none&gt;      2    0.00      0.00    2.93
+## 104    117000 &lt;none&gt;      1    0.00      0.00    2.93
+## 105    118000 &lt;none&gt;      2    0.00      0.00    2.93
+## 106    118800 &lt;none&gt;      1    0.00      0.00    2.94
+## 107    120000 &lt;none&gt;    237    0.13      0.59    3.52
+## 108    120300 &lt;none&gt;      1    0.00      0.00    3.53
+## 109    121000 &lt;none&gt;      1    0.00      0.00    3.53
+## 110    122000 &lt;none&gt;      1    0.00      0.00    3.53
+## 111    123000 &lt;none&gt;      3    0.00      0.01    3.54
+## 112    124000 &lt;none&gt;      2    0.00      0.00    3.54
+## 113    125000 &lt;none&gt;     11    0.01      0.03    3.57
+## 114    126000 &lt;none&gt;      2    0.00      0.00    3.58
+## 115    127000 &lt;none&gt;      1    0.00      0.00    3.58
+## 116    128000 &lt;none&gt;      6    0.00      0.01    3.59
+## 117    129000 &lt;none&gt;      1    0.00      0.00    3.59
+## 118    130000 &lt;none&gt;    100    0.05      0.25    3.84
+## 119    131000 &lt;none&gt;      1    0.00      0.00    3.84
+## 120    132000 &lt;none&gt;      7    0.00      0.02    3.86
+## 121    133000 &lt;none&gt;      4    0.00      0.01    3.87
+## 122    134000 &lt;none&gt;      3    0.00      0.01    3.88
+## 123    135000 &lt;none&gt;     10    0.01      0.02    3.90
+## 124    136000 &lt;none&gt;      1    0.00      0.00    3.91
+## 125    140000 &lt;none&gt;     63    0.03      0.16    4.06
+## 126    141000 &lt;none&gt;      1    0.00      0.00    4.07
+## 127    141681 &lt;none&gt;      1    0.00      0.00    4.07
+## 128    142000 &lt;none&gt;      3    0.00      0.01    4.07
+## 129    143000 &lt;none&gt;      1    0.00      0.00    4.08
+## 130    144000 &lt;none&gt;      5    0.00      0.01    4.09
+## 131    144444 &lt;none&gt;      1    0.00      0.00    4.09
+## 132    145000 &lt;none&gt;      7    0.00      0.02    4.11
+## 133    146000 &lt;none&gt;      5    0.00      0.01    4.12
+## 134    147000 &lt;none&gt;      2    0.00      0.00    4.13
+## 135    148000 &lt;none&gt;      1    0.00      0.00    4.13
+## 136    150000 &lt;none&gt;    416    0.22      1.03    5.16
+## 137    150090 &lt;none&gt;      1    0.00      0.00    5.16
+## 138    151000 &lt;none&gt;      2    0.00      0.00    5.17
+## 139    152000 &lt;none&gt;      2    0.00      0.00    5.17
+## 140    153000 &lt;none&gt;      1    0.00      0.00    5.17
+## 141    154000 &lt;none&gt;      1    0.00      0.00    5.18
+## 142    155000 &lt;none&gt;      1    0.00      0.00    5.18
+## 143    156000 &lt;none&gt;      5    0.00      0.01    5.19
+## 144    157000 &lt;none&gt;      2    0.00      0.00    5.20
+## 145    157388 &lt;none&gt;      1    0.00      0.00    5.20
+## 146    158000 &lt;none&gt;      2    0.00      0.00    5.20
+## 147    159000 &lt;none&gt;      1    0.00      0.00    5.21
+## 148    159479 &lt;none&gt;      1    0.00      0.00    5.21
+## 149    160000 &lt;none&gt;    124    0.07      0.31    5.51
+## 150    160250 &lt;none&gt;      1    0.00      0.00    5.52
+## 151    161000 &lt;none&gt;      1    0.00      0.00    5.52
+## 152    162000 &lt;none&gt;      2    0.00      0.00    5.52
+## 153    163000 &lt;none&gt;      2    0.00      0.00    5.53
+## 154    164000 &lt;none&gt;      3    0.00      0.01    5.54
+## 155    165000 &lt;none&gt;     16    0.01      0.04    5.58
+## 156    165800 &lt;none&gt;      1    0.00      0.00    5.58
+## 157    166556 &lt;none&gt;      1    0.00      0.00    5.58
+## 158    167000 &lt;none&gt;      3    0.00      0.01    5.59
+## 159    168000 &lt;none&gt;      3    0.00      0.01    5.60
+## 160    169999 &lt;none&gt;      1    0.00      0.00    5.60
+## 161    170000 &lt;none&gt;     66    0.04      0.16    5.76
+## 162    172000 &lt;none&gt;      4    0.00      0.01    5.77
+## 163    173000 &lt;none&gt;      5    0.00      0.01    5.78
+## 164    174000 &lt;none&gt;      4    0.00      0.01    5.79
+## 165    175000 &lt;none&gt;     13    0.01      0.03    5.83
+## 166    176000 &lt;none&gt;      3    0.00      0.01    5.83
+## 167    177000 &lt;none&gt;      1    0.00      0.00    5.84
+## 168    178000 &lt;none&gt;      6    0.00      0.01    5.85
+## 169    179000 &lt;none&gt;      2    0.00      0.00    5.86
+## 170    180000 &lt;none&gt;    246    0.13      0.61    6.46
+## 171    182000 &lt;none&gt;      7    0.00      0.02    6.48
+## 172    183000 &lt;none&gt;      2    0.00      0.00    6.49
+## 173    184000 &lt;none&gt;      3    0.00      0.01    6.49
+## 174    185000 &lt;none&gt;      4    0.00      0.01    6.50
+## 175    186000 &lt;none&gt;      4    0.00      0.01    6.51
+## 176    187000 &lt;none&gt;      2    0.00      0.00    6.52
+## 177    188000 &lt;none&gt;      3    0.00      0.01    6.53
+## 178    189000 &lt;none&gt;      3    0.00      0.01    6.53
+## 179    190000 &lt;none&gt;     57    0.03      0.14    6.68
+## 180    191000 &lt;none&gt;      1    0.00      0.00    6.68
+## 181    192000 &lt;none&gt;      5    0.00      0.01    6.69
+## 182    193000 &lt;none&gt;      1    0.00      0.00    6.69
+## 183    194000 &lt;none&gt;      3    0.00      0.01    6.70
+## 184    195000 &lt;none&gt;      4    0.00      0.01    6.71
+## 185    196000 &lt;none&gt;      7    0.00      0.02    6.73
+## 186    196736 &lt;none&gt;      1    0.00      0.00    6.73
+## 187    197000 &lt;none&gt;      2    0.00      0.00    6.73
+## 188    198000 &lt;none&gt;      3    0.00      0.01    6.74
+## 189    200000 &lt;none&gt;    854    0.46      2.11    8.85
+## 190    200002 &lt;none&gt;      1    0.00      0.00    8.86
+## 191    201000 &lt;none&gt;      1    0.00      0.00    8.86
+## 192    202000 &lt;none&gt;      1    0.00      0.00    8.86
+## 193    203156 &lt;none&gt;      1    0.00      0.00    8.86
+## 194    204000 &lt;none&gt;      3    0.00      0.01    8.87
+## 195    204800 &lt;none&gt;      1    0.00      0.00    8.87
+## 196    205000 &lt;none&gt;      9    0.00      0.02    8.90
+## 197    206000 &lt;none&gt;      1    0.00      0.00    8.90
+## 198    208000 &lt;none&gt;      3    0.00      0.01    8.91
+## 199    209000 &lt;none&gt;      3    0.00      0.01    8.91
+## 200    210000 &lt;none&gt;     62    0.03      0.15    9.07
+## 201    211000 &lt;none&gt;      4    0.00      0.01    9.08
+## 202    212000 &lt;none&gt;      4    0.00      0.01    9.09
+## 203    213000 &lt;none&gt;      7    0.00      0.02    9.10
+## 204    214000 &lt;none&gt;      5    0.00      0.01    9.12
+## 205    215000 &lt;none&gt;     11    0.01      0.03    9.14
+## 206    216000 &lt;none&gt;      7    0.00      0.02    9.16
+## 207    217000 &lt;none&gt;      4    0.00      0.01    9.17
+## 208    218000 &lt;none&gt;      6    0.00      0.01    9.19
+## 209    219000 &lt;none&gt;      5    0.00      0.01    9.20
+## 210    220000 &lt;none&gt;    174    0.09      0.43    9.63
+## 211    221000 &lt;none&gt;      1    0.00      0.00    9.63
+## 212    222000 &lt;none&gt;      1    0.00      0.00    9.63
+## 213    222400 &lt;none&gt;      1    0.00      0.00    9.64
+## 214    223000 &lt;none&gt;      2    0.00      0.00    9.64
+## 215    224000 &lt;none&gt;      4    0.00      0.01    9.65
+## 216    225000 &lt;none&gt;     50    0.03      0.12    9.78
+## 217    226000 &lt;none&gt;      6    0.00      0.01    9.79
+## 218    227000 &lt;none&gt;      3    0.00      0.01    9.80
+## 219    228000 &lt;none&gt;      2    0.00      0.00    9.80
+## 220    229000 &lt;none&gt;      1    0.00      0.00    9.81
+## 221    230000 &lt;none&gt;    121    0.07      0.30   10.10
+## 222    230500 &lt;none&gt;      1    0.00      0.00   10.11
+## 223    231000 &lt;none&gt;      1    0.00      0.00   10.11
+## 224    233000 &lt;none&gt;      1    0.00      0.00   10.11
+## 225    234000 &lt;none&gt;      2    0.00      0.00   10.12
+## 226    235000 &lt;none&gt;      7    0.00      0.02   10.13
+## 227    236000 &lt;none&gt;      5    0.00      0.01   10.15
+## 228    236858 &lt;none&gt;      1    0.00      0.00   10.15
+## 229    237000 &lt;none&gt;      1    0.00      0.00   10.15
+## 230    238000 &lt;none&gt;      2    0.00      0.00   10.16
+## 231    240000 &lt;none&gt;    168    0.09      0.42   10.57
+## 232    241000 &lt;none&gt;      1    0.00      0.00   10.57
+## 233    242000 &lt;none&gt;      3    0.00      0.01   10.58
+## 234    245000 &lt;none&gt;     14    0.01      0.03   10.62
+## 235    246000 &lt;none&gt;      2    0.00      0.00   10.62
+## 236    247000 &lt;none&gt;      3    0.00      0.01   10.63
+## 237    248000 &lt;none&gt;      7    0.00      0.02   10.65
+## 238    249000 &lt;none&gt;      3    0.00      0.01   10.65
+## 239    250000 &lt;none&gt;    655    0.35      1.62   12.27
+## 240    251000 &lt;none&gt;      2    0.00      0.00   12.28
+## 241    252000 &lt;none&gt;      7    0.00      0.02   12.30
+## 242    253000 &lt;none&gt;      3    0.00      0.01   12.30
+## 243    254000 &lt;none&gt;      4    0.00      0.01   12.31
+## 244    255000 &lt;none&gt;      8    0.00      0.02   12.33
+## 245    255293 &lt;none&gt;      1    0.00      0.00   12.34
+## 246    255760 &lt;none&gt;      1    0.00      0.00   12.34
+## 247    256000 &lt;none&gt;      7    0.00      0.02   12.36
+## 248    257000 &lt;none&gt;      3    0.00      0.01   12.36
+## 249    258000 &lt;none&gt;      3    0.00      0.01   12.37
+## 250    259000 &lt;none&gt;      5    0.00      0.01   12.38
+## 251    260000 &lt;none&gt;    190    0.10      0.47   12.85
+## 252    261000 &lt;none&gt;      5    0.00      0.01   12.87
+## 253    261200 &lt;none&gt;      1    0.00      0.00   12.87
+## 254    262000 &lt;none&gt;      2    0.00      0.00   12.87
+## 255    263000 &lt;none&gt;      6    0.00      0.01   12.89
+## 256    263681 &lt;none&gt;      1    0.00      0.00   12.89
+## 257    264000 &lt;none&gt;      8    0.00      0.02   12.91
+## 258    265000 &lt;none&gt;      8    0.00      0.02   12.93
+## 259    266000 &lt;none&gt;      4    0.00      0.01   12.94
+## 260    267000 &lt;none&gt;      1    0.00      0.00   12.94
+## 261    268000 &lt;none&gt;      1    0.00      0.00   12.94
+## 262    269000 &lt;none&gt;      1    0.00      0.00   12.95
+## 263    270000 &lt;none&gt;    179    0.10      0.44   13.39
+## 264    271000 &lt;none&gt;      2    0.00      0.00   13.40
+## 265    272000 &lt;none&gt;      3    0.00      0.01   13.40
+## 266    273000 &lt;none&gt;      4    0.00      0.01   13.41
+## 267    274000 &lt;none&gt;      3    0.00      0.01   13.42
+## 268    275000 &lt;none&gt;     12    0.01      0.03   13.45
+## 269    276000 &lt;none&gt;      5    0.00      0.01   13.46
+## 270    277000 &lt;none&gt;      7    0.00      0.02   13.48
+## 271    278000 &lt;none&gt;      3    0.00      0.01   13.49
+## 272    279000 &lt;none&gt;      1    0.00      0.00   13.49
+## 273    280000 &lt;none&gt;    457    0.25      1.13   14.62
+## 274    280088 &lt;none&gt;      1    0.00      0.00   14.62
+## 275    281000 &lt;none&gt;      2    0.00      0.00   14.63
+## 276    282000 &lt;none&gt;      5    0.00      0.01   14.64
+## 277    283000 &lt;none&gt;      2    0.00      0.00   14.64
+## 278    283883 &lt;none&gt;      1    0.00      0.00   14.65
+## 279    284000 &lt;none&gt;      3    0.00      0.01   14.65
+## 280    285000 &lt;none&gt;     20    0.01      0.05   14.70
+## 281    286000 &lt;none&gt;      5    0.00      0.01   14.72
+## 282    287000 &lt;none&gt;      3    0.00      0.01   14.72
+## 283    288000 &lt;none&gt;      4    0.00      0.01   14.73
+## 284    289000 &lt;none&gt;      3    0.00      0.01   14.74
+## 285    289460 &lt;none&gt;      1    0.00      0.00   14.74
+## 286    289737 &lt;none&gt;      1    0.00      0.00   14.75
+## 287    290000 &lt;none&gt;    137    0.07      0.34   15.08
+## 288    290500 &lt;none&gt;      1    0.00      0.00   15.09
+## 289    291000 &lt;none&gt;      3    0.00      0.01   15.09
+## 290    292000 &lt;none&gt;      5    0.00      0.01   15.11
+## 291    293000 &lt;none&gt;      2    0.00      0.00   15.11
+## 292    293790 &lt;none&gt;      1    0.00      0.00   15.11
+## 293    294000 &lt;none&gt;      4    0.00      0.01   15.12
+## 294    295000 &lt;none&gt;     14    0.01      0.03   15.16
+## 295    296000 &lt;none&gt;      5    0.00      0.01   15.17
+## 296    297000 &lt;none&gt;      4    0.00      0.01   15.18
+## 297    298000 &lt;none&gt;     12    0.01      0.03   15.21
+## 298    299000 &lt;none&gt;      1    0.00      0.00   15.21
+## 299    300000 &lt;none&gt;   2304    1.24      5.70   20.91
+## 300    300002 &lt;none&gt;      1    0.00      0.00   20.92
+## 301    300003 &lt;none&gt;      1    0.00      0.00   20.92
+## 302    300008 &lt;none&gt;      1    0.00      0.00   20.92
+## 303    300500 &lt;none&gt;      1    0.00      0.00   20.92
+## 304    301000 &lt;none&gt;    284    0.15      0.70   21.63
+## 305    302000 &lt;none&gt;     15    0.01      0.04   21.66
+## 306    303000 &lt;none&gt;      4    0.00      0.01   21.67
+## 307    304000 &lt;none&gt;      6    0.00      0.01   21.69
+## 308    305000 &lt;none&gt;     37    0.02      0.09   21.78
+## 309    306000 &lt;none&gt;     25    0.01      0.06   21.84
+## 310    307000 &lt;none&gt;      8    0.00      0.02   21.86
+## 311    308000 &lt;none&gt;     12    0.01      0.03   21.89
+## 312    308300 &lt;none&gt;      1    0.00      0.00   21.89
+## 313    309000 &lt;none&gt;     10    0.01      0.02   21.92
+## 314    310000 &lt;none&gt;    341    0.18      0.84   22.76
+## 315    310504 &lt;none&gt;      1    0.00      0.00   22.76
+## 316    311000 &lt;none&gt;      6    0.00      0.01   22.78
+## 317    311100 &lt;none&gt;      1    0.00      0.00   22.78
+## 318    312000 &lt;none&gt;     16    0.01      0.04   22.82
+## 319    312500 &lt;none&gt;      1    0.00      0.00   22.82
+## 320    313000 &lt;none&gt;      3    0.00      0.01   22.83
+## 321    314000 &lt;none&gt;     13    0.01      0.03   22.86
+## 322    315000 &lt;none&gt;     60    0.03      0.15   23.01
+## 323    315692 &lt;none&gt;      1    0.00      0.00   23.01
+## 324    316000 &lt;none&gt;     15    0.01      0.04   23.05
+## 325    317000 &lt;none&gt;      6    0.00      0.01   23.07
+## 326    318000 &lt;none&gt;      9    0.00      0.02   23.09
+## 327    318027 &lt;none&gt;      1    0.00      0.00   23.09
+## 328    318572 &lt;none&gt;      1    0.00      0.00   23.09
+## 329    319000 &lt;none&gt;     61    0.03      0.15   23.24
+## 330    320000 &lt;none&gt;   2873    1.55      7.11   30.35
+## 331    320031 &lt;none&gt;      1    0.00      0.00   30.36
+## 332    320500 &lt;none&gt;     60    0.03      0.15   30.50
+## 333    321000 &lt;none&gt;     20    0.01      0.05   30.55
+## 334    322000 &lt;none&gt;     32    0.02      0.08   30.63
+## 335    323000 &lt;none&gt;      7    0.00      0.02   30.65
+## 336    323500 &lt;none&gt;      1    0.00      0.00   30.65
+## 337    324000 &lt;none&gt;     12    0.01      0.03   30.68
+## 338    324345 &lt;none&gt;      1    0.00      0.00   30.68
+## 339    325000 &lt;none&gt;    192    0.10      0.48   31.16
+## 340    325090 &lt;none&gt;      1    0.00      0.00   31.16
+## 341    326000 &lt;none&gt;    248    0.13      0.61   31.78
+## 342    326500 &lt;none&gt;    107    0.06      0.26   32.04
+## 343    327000 &lt;none&gt;      8    0.00      0.02   32.06
+## 344    328000 &lt;none&gt;      5    0.00      0.01   32.07
+## 345    328888 &lt;none&gt;      1    0.00      0.00   32.07
+## 346    329000 &lt;none&gt;      6    0.00      0.01   32.09
+## 347    329500 &lt;none&gt;      1    0.00      0.00   32.09
+## 348    330000 &lt;none&gt;    306    0.17      0.76   32.85
+## 349    331000 &lt;none&gt;      7    0.00      0.02   32.87
+## 350    332000 &lt;none&gt;      6    0.00      0.01   32.88
+## 351    332636 &lt;none&gt;      1    0.00      0.00   32.88
+## 352    332703 &lt;none&gt;      1    0.00      0.00   32.89
+## 353    333000 &lt;none&gt;      7    0.00      0.02   32.90
+## 354    334000 &lt;none&gt;      5    0.00      0.01   32.92
+## 355    335000 &lt;none&gt;     20    0.01      0.05   32.97
+## 356    336000 &lt;none&gt;     10    0.01      0.02   32.99
+## 357    336500 &lt;none&gt;      1    0.00      0.00   32.99
+## 358    337000 &lt;none&gt;      3    0.00      0.01   33.00
+## 359    338000 &lt;none&gt;     12    0.01      0.03   33.03
+## 360    338500 &lt;none&gt;      1    0.00      0.00   33.03
+## 361    339000 &lt;none&gt;      1    0.00      0.00   33.03
+## 362    340000 &lt;none&gt;    270    0.15      0.67   33.70
+## 363    341000 &lt;none&gt;      1    0.00      0.00   33.71
+## 364    342000 &lt;none&gt;      6    0.00      0.01   33.72
+## 365    343000 &lt;none&gt;      8    0.00      0.02   33.74
+## 366    344000 &lt;none&gt;      4    0.00      0.01   33.75
+## 367    345000 &lt;none&gt;     19    0.01      0.05   33.80
+## 368    346000 &lt;none&gt;      5    0.00      0.01   33.81
+## 369    347000 &lt;none&gt;      3    0.00      0.01   33.82
+## 370    347336 &lt;none&gt;      1    0.00      0.00   33.82
+## 371    348000 &lt;none&gt;      5    0.00      0.01   33.83
+## 372    349000 &lt;none&gt;      4    0.00      0.01   33.84
+## 373    349600 &lt;none&gt;      1    0.00      0.00   33.84
+## 374    350000 &lt;none&gt;   2104    1.13      5.21   39.05
+## 375    351000 &lt;none&gt;      4    0.00      0.01   39.06
+## 376    352000 &lt;none&gt;      4    0.00      0.01   39.07
+## 377    353320 &lt;none&gt;      1    0.00      0.00   39.07
+## 378    354000 &lt;none&gt;      6    0.00      0.01   39.09
+## 379    355000 &lt;none&gt;     10    0.01      0.02   39.11
+## 380    356000 &lt;none&gt;     16    0.01      0.04   39.15
+## 381    356947 &lt;none&gt;      1    0.00      0.00   39.15
+## 382    357000 &lt;none&gt;      5    0.00      0.01   39.17
+## 383    358000 &lt;none&gt;     11    0.01      0.03   39.19
+## 384    359000 &lt;none&gt;      7    0.00      0.02   39.21
+## 385    360000 &lt;none&gt;    327    0.18      0.81   40.02
+## 386    361000 &lt;none&gt;      3    0.00      0.01   40.03
+## 387    361350 &lt;none&gt;      1    0.00      0.00   40.03
+## 388    362000 &lt;none&gt;      3    0.00      0.01   40.04
+## 389    363000 &lt;none&gt;      2    0.00      0.00   40.04
+## 390    364000 &lt;none&gt;      2    0.00      0.00   40.05
+## 391    365000 &lt;none&gt;     23    0.01      0.06   40.10
+## 392    365500 &lt;none&gt;      1    0.00      0.00   40.11
+## 393    367000 &lt;none&gt;      6    0.00      0.01   40.12
+## 394    367200 &lt;none&gt;      1    0.00      0.00   40.12
+## 395    368000 &lt;none&gt;      6    0.00      0.01   40.14
+## 396    369000 &lt;none&gt;      2    0.00      0.00   40.14
+## 397    369364 &lt;none&gt;      1    0.00      0.00   40.15
+## 398    369975 &lt;none&gt;      1    0.00      0.00   40.15
+## 399    370000 &lt;none&gt;    212    0.11      0.52   40.67
+## 400    371000 &lt;none&gt;      7    0.00      0.02   40.69
+## 401    372000 &lt;none&gt;      5    0.00      0.01   40.70
+## 402    373000 &lt;none&gt;      1    0.00      0.00   40.70
+## 403    374000 &lt;none&gt;      3    0.00      0.01   40.71
+## 404    375000 &lt;none&gt;     20    0.01      0.05   40.76
+## 405    376000 &lt;none&gt;      3    0.00      0.01   40.77
+## 406    377000 &lt;none&gt;      3    0.00      0.01   40.78
+## 407    378000 &lt;none&gt;      9    0.00      0.02   40.80
+## 408    379000 &lt;none&gt;      7    0.00      0.02   40.82
+## 409    379663 &lt;none&gt;      1    0.00      0.00   40.82
+## 410    380000 &lt;none&gt;    692    0.37      1.71   42.53
+## 411    381000 &lt;none&gt;      2    0.00      0.00   42.54
+## 412    381649 &lt;none&gt;      1    0.00      0.00   42.54
+## 413    382000 &lt;none&gt;      3    0.00      0.01   42.55
+## 414    383000 &lt;none&gt;      4    0.00      0.01   42.56
+## 415    384000 &lt;none&gt;      6    0.00      0.01   42.57
+## 416    385000 &lt;none&gt;     25    0.01      0.06   42.63
+## 417    386000 &lt;none&gt;      6    0.00      0.01   42.65
+## 418    387000 &lt;none&gt;      7    0.00      0.02   42.66
+## 419    388000 &lt;none&gt;      7    0.00      0.02   42.68
+## 420    389000 &lt;none&gt;      4    0.00      0.01   42.69
+## 421    390000 &lt;none&gt;    160    0.09      0.40   43.09
+## 422    391000 &lt;none&gt;      1    0.00      0.00   43.09
+## 423    392000 &lt;none&gt;      3    0.00      0.01   43.10
+## 424    393000 &lt;none&gt;      1    0.00      0.00   43.10
+## 425    394000 &lt;none&gt;      4    0.00      0.01   43.11
+## 426    395000 &lt;none&gt;     14    0.01      0.03   43.14
+## 427    395850 &lt;none&gt;      1    0.00      0.00   43.15
+## 428    396000 &lt;none&gt;      3    0.00      0.01   43.15
+## 429    397000 &lt;none&gt;      1    0.00      0.00   43.16
+## 430    398000 &lt;none&gt;      8    0.00      0.02   43.18
+## 431    399000 &lt;none&gt;      6    0.00      0.01   43.19
+## 432    400000 &lt;none&gt;   2774    1.50      6.86   50.05
+## 433    400005 &lt;none&gt;      1    0.00      0.00   50.06
+## 434    400600 &lt;none&gt;      1    0.00      0.00   50.06
+## 435    401000 &lt;none&gt;      3    0.00      0.01   50.07
+## 436    401500 &lt;none&gt;      1    0.00      0.00   50.07
+## 437    402000 &lt;none&gt;      5    0.00      0.01   50.08
+## 438    402810 &lt;none&gt;      1    0.00      0.00   50.08
+## 439    403000 &lt;none&gt;      2    0.00      0.00   50.09
+## 440    403800 &lt;none&gt;      1    0.00      0.00   50.09
+## 441    403838 &lt;none&gt;      1    0.00      0.00   50.09
+## 442    404000 &lt;none&gt;      1    0.00      0.00   50.10
+## 443    405000 &lt;none&gt;      9    0.00      0.02   50.12
+## 444    406000 &lt;none&gt;      3    0.00      0.01   50.13
+## 445    407000 &lt;none&gt;      2    0.00      0.00   50.13
+## 446    408000 &lt;none&gt;      2    0.00      0.00   50.14
+## 447    409000 &lt;none&gt;      5    0.00      0.01   50.15
+## 448    410000 &lt;none&gt;     78    0.04      0.19   50.34
+## 449    412000 &lt;none&gt;      8    0.00      0.02   50.36
+## 450    413000 &lt;none&gt;      4    0.00      0.01   50.37
+## 451    413971 &lt;none&gt;      1    0.00      0.00   50.37
+## 452    414000 &lt;none&gt;      2    0.00      0.00   50.38
+## 453    415000 &lt;none&gt;     13    0.01      0.03   50.41
+## 454    416000 &lt;none&gt;      5    0.00      0.01   50.42
+## 455    416365 &lt;none&gt;      1    0.00      0.00   50.43
+## 456    417000 &lt;none&gt;      7    0.00      0.02   50.44
+## 457    418000 &lt;none&gt;      7    0.00      0.02   50.46
+## 458    419000 &lt;none&gt;      7    0.00      0.02   50.48
+## 459    420000 &lt;none&gt;    324    0.17      0.80   51.28
+## 460    421000 &lt;none&gt;      1    0.00      0.00   51.28
+## 461    422000 &lt;none&gt;      3    0.00      0.01   51.29
+## 462    423000 &lt;none&gt;      5    0.00      0.01   51.30
+## 463    424000 &lt;none&gt;      2    0.00      0.00   51.31
+## 464    425000 &lt;none&gt;     22    0.01      0.05   51.36
+## 465    426000 &lt;none&gt;      2    0.00      0.00   51.37
+## 466    427000 &lt;none&gt;      7    0.00      0.02   51.38
+## 467    428000 &lt;none&gt;      2    0.00      0.00   51.39
+## 468    429000 &lt;none&gt;      2    0.00      0.00   51.39
+## 469    430000 &lt;none&gt;    172    0.09      0.43   51.82
+## 470    432000 &lt;none&gt;      6    0.00      0.01   51.83
+## 471    433000 &lt;none&gt;      3    0.00      0.01   51.84
+## 472    434000 &lt;none&gt;      2    0.00      0.00   51.85
+## 473    435000 &lt;none&gt;     14    0.01      0.03   51.88
+## 474    436000 &lt;none&gt;      2    0.00      0.00   51.89
+## 475    438000 &lt;none&gt;      3    0.00      0.01   51.89
+## 476    439000 &lt;none&gt;      4    0.00      0.01   51.90
+## 477    440000 &lt;none&gt;     53    0.03      0.13   52.03
+## 478    440009 &lt;none&gt;      1    0.00      0.00   52.04
+## 479    440215 &lt;none&gt;      1    0.00      0.00   52.04
+## 480    442000 &lt;none&gt;      2    0.00      0.00   52.04
+## 481    443000 &lt;none&gt;      1    0.00      0.00   52.05
+## 482    444000 &lt;none&gt;      3    0.00      0.01   52.05
+## 483    445000 &lt;none&gt;      9    0.00      0.02   52.08
+## 484    445800 &lt;none&gt;      1    0.00      0.00   52.08
+## 485    446000 &lt;none&gt;      5    0.00      0.01   52.09
+## 486    447000 &lt;none&gt;      4    0.00      0.01   52.10
+## 487    448000 &lt;none&gt;      4    0.00      0.01   52.11
+## 488    449000 &lt;none&gt;      2    0.00      0.00   52.12
+## 489    449550 &lt;none&gt;      1    0.00      0.00   52.12
+## 490    450000 &lt;none&gt;   1287    0.69      3.18   55.30
+## 491    452000 &lt;none&gt;      2    0.00      0.00   55.31
+## 492    453000 &lt;none&gt;      3    0.00      0.01   55.31
+## 493    454000 &lt;none&gt;      2    0.00      0.00   55.32
+## 494    455000 &lt;none&gt;      3    0.00      0.01   55.33
+## 495    456000 &lt;none&gt;      6    0.00      0.01   55.34
+## 496    457000 &lt;none&gt;      2    0.00      0.00   55.35
+## 497    458000 &lt;none&gt;      6    0.00      0.01   55.36
+## 498    459000 &lt;none&gt;      2    0.00      0.00   55.37
+## 499    460000 &lt;none&gt;     96    0.05      0.24   55.60
+## 500    460585 &lt;none&gt;      1    0.00      0.00   55.61
+## 501    461000 &lt;none&gt;      2    0.00      0.00   55.61
+## 502    462000 &lt;none&gt;      4    0.00      0.01   55.62
+## 503    462500 &lt;none&gt;      1    0.00      0.00   55.62
+## 504    463000 &lt;none&gt;      1    0.00      0.00   55.63
+## 505    464000 &lt;none&gt;      1    0.00      0.00   55.63
+## 506    465000 &lt;none&gt;      9    0.00      0.02   55.65
+## 507    465312 &lt;none&gt;      1    0.00      0.00   55.65
+## 508    466000 &lt;none&gt;      1    0.00      0.00   55.66
+## 509    468000 &lt;none&gt;      1    0.00      0.00   55.66
+## 510    470000 &lt;none&gt;     94    0.05      0.23   55.89
+## 511    472000 &lt;none&gt;      1    0.00      0.00   55.89
+## 512    473000 &lt;none&gt;      2    0.00      0.00   55.90
+## 513    474000 &lt;none&gt;      1    0.00      0.00   55.90
+## 514    475000 &lt;none&gt;     14    0.01      0.03   55.94
+## 515    476000 &lt;none&gt;      2    0.00      0.00   55.94
+## 516    477000 &lt;none&gt;      3    0.00      0.01   55.95
+## 517    478000 &lt;none&gt;      2    0.00      0.00   55.95
+## 518    479000 &lt;none&gt;      3    0.00      0.01   55.96
+## 519    480000 &lt;none&gt;    288    0.16      0.71   56.67
+## 520    482000 &lt;none&gt;      3    0.00      0.01   56.68
+## 521    483000 &lt;none&gt;      1    0.00      0.00   56.68
+## 522    484000 &lt;none&gt;      2    0.00      0.00   56.69
+## 523    485000 &lt;none&gt;      7    0.00      0.02   56.70
+## 524    487000 &lt;none&gt;      4    0.00      0.01   56.71
+## 525    488000 &lt;none&gt;      2    0.00      0.00   56.72
+## 526    489000 &lt;none&gt;      2    0.00      0.00   56.72
+## 527    490000 &lt;none&gt;     68    0.04      0.17   56.89
+## 528    491000 &lt;none&gt;      3    0.00      0.01   56.90
+## 529    495000 &lt;none&gt;     10    0.01      0.02   56.93
+## 530    495200 &lt;none&gt;      1    0.00      0.00   56.93
+## 531    496000 &lt;none&gt;      5    0.00      0.01   56.94
+## 532    497000 &lt;none&gt;      2    0.00      0.00   56.94
+## 533    498000 &lt;none&gt;      4    0.00      0.01   56.95
+## 534    499318 &lt;none&gt;      1    0.00      0.00   56.96
+## 535    500000 &lt;none&gt;   2213    1.19      5.48   62.43
+## 536    500002 &lt;none&gt;      1    0.00      0.00   62.44
+## 537    500003 &lt;none&gt;      1    0.00      0.00   62.44
+## 538    500005 &lt;none&gt;      1    0.00      0.00   62.44
+## 539    501000 &lt;none&gt;      3    0.00      0.01   62.45
+## 540    502000 &lt;none&gt;      1    0.00      0.00   62.45
+## 541    503000 &lt;none&gt;      1    0.00      0.00   62.45
+## 542    503640 &lt;none&gt;      1    0.00      0.00   62.45
+## 543    505000 &lt;none&gt;      6    0.00      0.01   62.47
+## 544    505189 &lt;none&gt;      1    0.00      0.00   62.47
+## 545    506000 &lt;none&gt;      4    0.00      0.01   62.48
+## 546    507000 &lt;none&gt;      2    0.00      0.00   62.49
+## 547    508000 &lt;none&gt;      3    0.00      0.01   62.49
+## 548    509000 &lt;none&gt;      2    0.00      0.00   62.50
+## 549    510000 &lt;none&gt;     22    0.01      0.05   62.55
+## 550    511000 &lt;none&gt;      2    0.00      0.00   62.56
+## 551    512000 &lt;none&gt;      4    0.00      0.01   62.57
+## 552    513000 &lt;none&gt;      4    0.00      0.01   62.58
+## 553    513700 &lt;none&gt;      1    0.00      0.00   62.58
+## 554    515000 &lt;none&gt;      7    0.00      0.02   62.60
+## 555    516000 &lt;none&gt;      4    0.00      0.01   62.61
+## 556    517000 &lt;none&gt;      5    0.00      0.01   62.62
+## 557    518000 &lt;none&gt;      5    0.00      0.01   62.63
+## 558    519000 &lt;none&gt;      2    0.00      0.00   62.64
+## 559    520000 &lt;none&gt;    117    0.06      0.29   62.93
+## 560    522000 &lt;none&gt;      2    0.00      0.00   62.93
+## 561    522002 &lt;none&gt;      1    0.00      0.00   62.93
+## 562    523000 &lt;none&gt;      2    0.00      0.00   62.94
+## 563    524000 &lt;none&gt;      1    0.00      0.00   62.94
+## 564    525000 &lt;none&gt;      8    0.00      0.02   62.96
+## 565    526000 &lt;none&gt;      3    0.00      0.01   62.97
+## 566    527000 &lt;none&gt;      3    0.00      0.01   62.98
+## 567    528000 &lt;none&gt;      4    0.00      0.01   62.99
+## 568    529000 &lt;none&gt;      1    0.00      0.00   62.99
+## 569    530000 &lt;none&gt;     74    0.04      0.18   63.17
+## 570    531000 &lt;none&gt;      1    0.00      0.00   63.17
+## 571    532000 &lt;none&gt;      1    0.00      0.00   63.18
+## 572    533000 &lt;none&gt;      1    0.00      0.00   63.18
+## 573    533583 &lt;none&gt;      1    0.00      0.00   63.18
+## 574    534000 &lt;none&gt;      1    0.00      0.00   63.18
+## 575    535000 &lt;none&gt;     11    0.01      0.03   63.21
+## 576    536000 &lt;none&gt;      4    0.00      0.01   63.22
+## 577    537000 &lt;none&gt;      3    0.00      0.01   63.23
+## 578    538000 &lt;none&gt;      5    0.00      0.01   63.24
+## 579    540000 &lt;none&gt;     66    0.04      0.16   63.40
+## 580    541000 &lt;none&gt;      1    0.00      0.00   63.41
+## 581    543000 &lt;none&gt;      1    0.00      0.00   63.41
+## 582    545000 &lt;none&gt;     10    0.01      0.02   63.43
+## 583    546000 &lt;none&gt;      1    0.00      0.00   63.44
+## 584    547000 &lt;none&gt;      5    0.00      0.01   63.45
+## 585    548000 &lt;none&gt;      2    0.00      0.00   63.45
+## 586    550000 &lt;none&gt;    483    0.26      1.20   64.65
+## 587    551000 &lt;none&gt;      2    0.00      0.00   64.65
+## 588    552000 &lt;none&gt;      3    0.00      0.01   64.66
+## 589    554000 &lt;none&gt;      2    0.00      0.00   64.67
+## 590    556000 &lt;none&gt;      4    0.00      0.01   64.68
+## 591    557000 &lt;none&gt;      2    0.00      0.00   64.68
+## 592    558000 &lt;none&gt;      3    0.00      0.01   64.69
+## 593    560000 &lt;none&gt;     54    0.03      0.13   64.82
+## 594    561000 &lt;none&gt;      1    0.00      0.00   64.83
+## 595    563000 &lt;none&gt;      1    0.00      0.00   64.83
+## 596    564000 &lt;none&gt;      1    0.00      0.00   64.83
+## 597    565000 &lt;none&gt;      4    0.00      0.01   64.84
+## 598    568000 &lt;none&gt;      1    0.00      0.00   64.84
+## 599    569000 &lt;none&gt;      1    0.00      0.00   64.84
+## 600    570000 &lt;none&gt;     41    0.02      0.10   64.95
+## 601    572000 &lt;none&gt;      1    0.00      0.00   64.95
+## 602    574000 &lt;none&gt;      1    0.00      0.00   64.95
+## 603    575000 &lt;none&gt;      6    0.00      0.01   64.97
+## 604    575760 &lt;none&gt;      1    0.00      0.00   64.97
+## 605    575900 &lt;none&gt;      1    0.00      0.00   64.97
+## 606    576000 &lt;none&gt;      2    0.00      0.00   64.98
+## 607    577000 &lt;none&gt;      1    0.00      0.00   64.98
+## 608    578000 &lt;none&gt;      1    0.00      0.00   64.98
+## 609    579000 &lt;none&gt;      1    0.00      0.00   64.98
+## 610    580000 &lt;none&gt;     98    0.05      0.24   65.23
+## 611    581000 &lt;none&gt;      1    0.00      0.00   65.23
+## 612    581866 &lt;none&gt;      1    0.00      0.00   65.23
+## 613    582000 &lt;none&gt;      1    0.00      0.00   65.23
+## 614    583000 &lt;none&gt;      1    0.00      0.00   65.24
+## 615    584000 &lt;none&gt;      2    0.00      0.00   65.24
+## 616    584600 &lt;none&gt;      1    0.00      0.00   65.24
+## 617    585000 &lt;none&gt;      2    0.00      0.00   65.25
+## 618    586000 &lt;none&gt;      4    0.00      0.01   65.26
+## 619    587000 &lt;none&gt;      1    0.00      0.00   65.26
+## 620    588000 &lt;none&gt;      1    0.00      0.00   65.26
+## 621    589000 &lt;none&gt;      4    0.00      0.01   65.27
+## 622    590000 &lt;none&gt;     30    0.02      0.07   65.35
+## 623    592000 &lt;none&gt;      3    0.00      0.01   65.35
+## 624    594576 &lt;none&gt;      1    0.00      0.00   65.36
+## 625    595000 &lt;none&gt;      2    0.00      0.00   65.36
+## 626    598000 &lt;none&gt;      2    0.00      0.00   65.37
+## 627    599000 &lt;none&gt;      2    0.00      0.00   65.37
+## 628    600000 &lt;none&gt;   1585    0.85      3.92   69.29
+## 629    600005 &lt;none&gt;      1    0.00      0.00   69.30
+## 630    600048 &lt;none&gt;      1    0.00      0.00   69.30
+## 631    601000 &lt;none&gt;      1    0.00      0.00   69.30
+## 632    603000 &lt;none&gt;      1    0.00      0.00   69.30
+## 633    604000 &lt;none&gt;      1    0.00      0.00   69.31
+## 634    606000 &lt;none&gt;      1    0.00      0.00   69.31
+## 635    607000 &lt;none&gt;      1    0.00      0.00   69.31
+## 636    608000 &lt;none&gt;      2    0.00      0.00   69.32
+## 637    610000 &lt;none&gt;     18    0.01      0.04   69.36
+## 638    612000 &lt;none&gt;      3    0.00      0.01   69.37
+## 639    613000 &lt;none&gt;      3    0.00      0.01   69.38
+## 640    614000 &lt;none&gt;      2    0.00      0.00   69.38
+## 641    615000 &lt;none&gt;      4    0.00      0.01   69.39
+## 642    616000 &lt;none&gt;      1    0.00      0.00   69.39
+## 643    618000 &lt;none&gt;      3    0.00      0.01   69.40
+## 644    619000 &lt;none&gt;      1    0.00      0.00   69.40
+## 645    620000 &lt;none&gt;     69    0.04      0.17   69.57
+## 646    623000 &lt;none&gt;      1    0.00      0.00   69.58
+## 647    624000 &lt;none&gt;      3    0.00      0.01   69.58
+## 648    625000 &lt;none&gt;      2    0.00      0.00   69.59
+## 649    626000 &lt;none&gt;      1    0.00      0.00   69.59
+## 650    628000 &lt;none&gt;      1    0.00      0.00   69.59
+## 651    630000 &lt;none&gt;     38    0.02      0.09   69.69
+## 652    631000 &lt;none&gt;      1    0.00      0.00   69.69
+## 653    632000 &lt;none&gt;      1    0.00      0.00   69.69
+## 654    634000 &lt;none&gt;      1    0.00      0.00   69.69
+## 655    634459 &lt;none&gt;      1    0.00      0.00   69.70
+## 656    635000 &lt;none&gt;      1    0.00      0.00   69.70
+## 657    637000 &lt;none&gt;      1    0.00      0.00   69.70
+## 658    638000 &lt;none&gt;      1    0.00      0.00   69.70
+## 659    640000 &lt;none&gt;     31    0.02      0.08   69.78
+## 660    643000 &lt;none&gt;      1    0.00      0.00   69.78
+## 661    645000 &lt;none&gt;      2    0.00      0.00   69.79
+## 662    647000 &lt;none&gt;      1    0.00      0.00   69.79
+## 663    649000 &lt;none&gt;      1    0.00      0.00   69.79
+## 664    650000 &lt;none&gt;    459    0.25      1.14   70.93
+## 665    657000 &lt;none&gt;      1    0.00      0.00   70.93
+## 666    658000 &lt;none&gt;      1    0.00      0.00   70.93
+## 667    659000 &lt;none&gt;      1    0.00      0.00   70.94
+## 668    660000 &lt;none&gt;     23    0.01      0.06   70.99
+## 669    664761 &lt;none&gt;      1    0.00      0.00   71.00
+## 670    665000 &lt;none&gt;      2    0.00      0.00   71.00
+## 671    666000 &lt;none&gt;      1    0.00      0.00   71.00
+## 672    666666 &lt;none&gt;      1    0.00      0.00   71.01
+## 673    667000 &lt;none&gt;      1    0.00      0.00   71.01
+## 674    668000 &lt;none&gt;      2    0.00      0.00   71.01
+## 675    668800 &lt;none&gt;      1    0.00      0.00   71.02
+## 676    669000 &lt;none&gt;      2    0.00      0.00   71.02
+## 677    670000 &lt;none&gt;     42    0.02      0.10   71.12
+## 678    671000 &lt;none&gt;      3    0.00      0.01   71.13
+## 679    672000 &lt;none&gt;      2    0.00      0.00   71.14
+## 680    672196 &lt;none&gt;      1    0.00      0.00   71.14
+## 681    675000 &lt;none&gt;      2    0.00      0.00   71.14
+## 682    676000 &lt;none&gt;      1    0.00      0.00   71.15
+## 683    677000 &lt;none&gt;      1    0.00      0.00   71.15
+## 684    679000 &lt;none&gt;      1    0.00      0.00   71.15
+## 685    680000 &lt;none&gt;     71    0.04      0.18   71.33
+## 686    680458 &lt;none&gt;      1    0.00      0.00   71.33
+## 687    682000 &lt;none&gt;      1    0.00      0.00   71.33
+## 688    683000 &lt;none&gt;      2    0.00      0.00   71.34
+## 689    684000 &lt;none&gt;      1    0.00      0.00   71.34
+## 690    686000 &lt;none&gt;      1    0.00      0.00   71.34
+## 691    687000 &lt;none&gt;      1    0.00      0.00   71.34
+## 692    688117 &lt;none&gt;      1    0.00      0.00   71.35
+## 693    690000 &lt;none&gt;     28    0.02      0.07   71.42
+## 694    691000 &lt;none&gt;      1    0.00      0.00   71.42
+## 695    692000 &lt;none&gt;      1    0.00      0.00   71.42
+## 696    693000 &lt;none&gt;      1    0.00      0.00   71.42
+## 697    694000 &lt;none&gt;      1    0.00      0.00   71.43
+## 698    694109 &lt;none&gt;      1    0.00      0.00   71.43
+## 699    695000 &lt;none&gt;      1    0.00      0.00   71.43
+## 700    697000 &lt;none&gt;      2    0.00      0.00   71.44
+## 701    700000 &lt;none&gt;   1227    0.66      3.04   74.47
+## 702    700050 &lt;none&gt;      1    0.00      0.00   74.47
+## 703    702000 &lt;none&gt;      1    0.00      0.00   74.48
+## 704    703000 &lt;none&gt;      1    0.00      0.00   74.48
+## 705    708000 &lt;none&gt;      1    0.00      0.00   74.48
+## 706    709000 &lt;none&gt;      1    0.00      0.00   74.48
+## 707    710000 &lt;none&gt;      7    0.00      0.02   74.50
+## 708    711000 &lt;none&gt;      1    0.00      0.00   74.50
+## 709    713000 &lt;none&gt;      3    0.00      0.01   74.51
+## 710    714000 &lt;none&gt;      1    0.00      0.00   74.51
+## 711    715000 &lt;none&gt;      6    0.00      0.01   74.53
+## 712    718000 &lt;none&gt;      1    0.00      0.00   74.53
+## 713    718508 &lt;none&gt;      1    0.00      0.00   74.53
+## 714    720000 &lt;none&gt;     76    0.04      0.19   74.72
+## 715    721000 &lt;none&gt;      2    0.00      0.00   74.73
+## 716    725000 &lt;none&gt;      4    0.00      0.01   74.74
+## 717    730000 &lt;none&gt;     32    0.02      0.08   74.82
+## 718    733000 &lt;none&gt;      1    0.00      0.00   74.82
+## 719    734000 &lt;none&gt;      1    0.00      0.00   74.82
+## 720    735000 &lt;none&gt;      2    0.00      0.00   74.83
+## 721    737000 &lt;none&gt;      1    0.00      0.00   74.83
+## 722    738000 &lt;none&gt;      2    0.00      0.00   74.83
+## 723    739000 &lt;none&gt;      2    0.00      0.00   74.84
+## 724    740000 &lt;none&gt;     22    0.01      0.05   74.89
+## 725    742184 &lt;none&gt;      1    0.00      0.00   74.89
+## 726    743000 &lt;none&gt;      1    0.00      0.00   74.90
+## 727    743831 &lt;none&gt;      1    0.00      0.00   74.90
+## 728    745000 &lt;none&gt;      2    0.00      0.00   74.90
+## 729    746000 &lt;none&gt;      2    0.00      0.00   74.91
+## 730    747000 &lt;none&gt;      1    0.00      0.00   74.91
+## 731    748000 &lt;none&gt;      1    0.00      0.00   74.91
+## 732    750000 &lt;none&gt;    350    0.19      0.87   75.78
+## 733    752000 &lt;none&gt;      1    0.00      0.00   75.78
+## 734    754000 &lt;none&gt;      1    0.00      0.00   75.79
+## 735    756804 &lt;none&gt;      1    0.00      0.00   75.79
+## 736    759000 &lt;none&gt;      1    0.00      0.00   75.79
+## 737    760000 &lt;none&gt;     26    0.01      0.06   75.85
+## 738    763000 &lt;none&gt;      2    0.00      0.00   75.86
+## 739    768000 &lt;none&gt;      1    0.00      0.00   75.86
+## 740    769000 &lt;none&gt;      2    0.00      0.00   75.87
+## 741    770000 &lt;none&gt;     22    0.01      0.05   75.92
+## 742    774000 &lt;none&gt;      1    0.00      0.00   75.92
+## 743    775000 &lt;none&gt;      1    0.00      0.00   75.93
+## 744    776000 &lt;none&gt;      2    0.00      0.00   75.93
+## 745    780000 &lt;none&gt;     58    0.03      0.14   76.08
+## 746    782032 &lt;none&gt;      1    0.00      0.00   76.08
+## 747    785000 &lt;none&gt;      1    0.00      0.00   76.08
+## 748    787000 &lt;none&gt;      1    0.00      0.00   76.08
+## 749    788000 &lt;none&gt;      2    0.00      0.00   76.09
+## 750    790000 &lt;none&gt;     24    0.01      0.06   76.15
+## 751    795000 &lt;none&gt;      1    0.00      0.00   76.15
+## 752    797000 &lt;none&gt;      1    0.00      0.00   76.15
+## 753    798000 &lt;none&gt;      2    0.00      0.00   76.16
+## 754    799000 &lt;none&gt;      1    0.00      0.00   76.16
+## 755    800000 &lt;none&gt;   1250    0.67      3.09   79.25
+## 756    803000 &lt;none&gt;      2    0.00      0.00   79.26
+## 757    805000 &lt;none&gt;      2    0.00      0.00   79.26
+## 758    808698 &lt;none&gt;      1    0.00      0.00   79.26
+## 759    809000 &lt;none&gt;      1    0.00      0.00   79.27
+## 760    810000 &lt;none&gt;      3    0.00      0.01   79.27
+## 761    812000 &lt;none&gt;      1    0.00      0.00   79.28
+## 762    814000 &lt;none&gt;      1    0.00      0.00   79.28
+## 763    818000 &lt;none&gt;      1    0.00      0.00   79.28
+## 764    820000 &lt;none&gt;     35    0.02      0.09   79.37
+## 765    821000 &lt;none&gt;      1    0.00      0.00   79.37
+## 766    822000 &lt;none&gt;      1    0.00      0.00   79.37
+## 767    823000 &lt;none&gt;      2    0.00      0.00   79.38
+## 768    824000 &lt;none&gt;      2    0.00      0.00   79.38
+## 769    825000 &lt;none&gt;      3    0.00      0.01   79.39
+## 770    827000 &lt;none&gt;      1    0.00      0.00   79.39
+## 771    828000 &lt;none&gt;      1    0.00      0.00   79.40
+## 772    829000 &lt;none&gt;      1    0.00      0.00   79.40
+## 773    830000 &lt;none&gt;     34    0.02      0.08   79.48
+## 774    832000 &lt;none&gt;      2    0.00      0.00   79.49
+## 775    832405 &lt;none&gt;      1    0.00      0.00   79.49
+## 776    834000 &lt;none&gt;      2    0.00      0.00   79.49
+## 777    835000 &lt;none&gt;      1    0.00      0.00   79.50
+## 778    838000 &lt;none&gt;      1    0.00      0.00   79.50
+## 779    840000 &lt;none&gt;     13    0.01      0.03   79.53
+## 780    845000 &lt;none&gt;      3    0.00      0.01   79.54
+## 781    847000 &lt;none&gt;      1    0.00      0.00   79.54
+## 782    850000 &lt;none&gt;    254    0.14      0.63   80.17
+## 783    852000 &lt;none&gt;      1    0.00      0.00   80.17
+## 784    853000 &lt;none&gt;      2    0.00      0.00   80.18
+## 785    854000 &lt;none&gt;      1    0.00      0.00   80.18
+## 786    858463 &lt;none&gt;      1    0.00      0.00   80.18
+## 787    859000 &lt;none&gt;      3    0.00      0.01   80.19
+## 788    860000 &lt;none&gt;     24    0.01      0.06   80.25
+## 789    861000 &lt;none&gt;      1    0.00      0.00   80.25
+## 790    863000 &lt;none&gt;      2    0.00      0.00   80.26
+## 791    865000 &lt;none&gt;      1    0.00      0.00   80.26
+## 792    869000 &lt;none&gt;      1    0.00      0.00   80.26
+## 793    870000 &lt;none&gt;     15    0.01      0.04   80.30
+## 794    871000 &lt;none&gt;      1    0.00      0.00   80.30
+## 795    873000 &lt;none&gt;      1    0.00      0.00   80.30
+## 796    874481 &lt;none&gt;      1    0.00      0.00   80.31
+## 797    876000 &lt;none&gt;      1    0.00      0.00   80.31
+## 798    879000 &lt;none&gt;      1    0.00      0.00   80.31
+## 799    880000 &lt;none&gt;     15    0.01      0.04   80.35
+## 800    884000 &lt;none&gt;      1    0.00      0.00   80.35
+## 801    885000 &lt;none&gt;      3    0.00      0.01   80.36
+## 802    886000 &lt;none&gt;      1    0.00      0.00   80.36
+## 803    890000 &lt;none&gt;     28    0.02      0.07   80.43
+## 804    892000 &lt;none&gt;      3    0.00      0.01   80.44
+## 805    894805 &lt;none&gt;      1    0.00      0.00   80.44
+## 806    899000 &lt;none&gt;      1    0.00      0.00   80.44
+## 807    900000 &lt;none&gt;    693    0.37      1.71   82.16
+## 808    900005 &lt;none&gt;      1    0.00      0.00   82.16
+## 809    902000 &lt;none&gt;      1    0.00      0.00   82.16
+## 810    903000 &lt;none&gt;      1    0.00      0.00   82.16
+## 811    905000 &lt;none&gt;      1    0.00      0.00   82.17
+## 812    907000 &lt;none&gt;      1    0.00      0.00   82.17
+## 813    910000 &lt;none&gt;      2    0.00      0.00   82.17
+## 814    915000 &lt;none&gt;      6    0.00      0.01   82.19
+## 815    916000 &lt;none&gt;      1    0.00      0.00   82.19
+## 816    917000 &lt;none&gt;      1    0.00      0.00   82.19
+## 817    919000 &lt;none&gt;      1    0.00      0.00   82.20
+## 818    920000 &lt;none&gt;     34    0.02      0.08   82.28
+## 819    923000 &lt;none&gt;      1    0.00      0.00   82.28
+## 820    924000 &lt;none&gt;      1    0.00      0.00   82.29
+## 821    925000 &lt;none&gt;      2    0.00      0.00   82.29
+## 822    930000 &lt;none&gt;     17    0.01      0.04   82.33
+## 823    932000 &lt;none&gt;      1    0.00      0.00   82.33
+## 824    934000 &lt;none&gt;      1    0.00      0.00   82.34
+## 825    935000 &lt;none&gt;      1    0.00      0.00   82.34
+## 826    936000 &lt;none&gt;      2    0.00      0.00   82.34
+## 827    937000 &lt;none&gt;      1    0.00      0.00   82.35
+## 828    938000 &lt;none&gt;      2    0.00      0.00   82.35
+## 829    940000 &lt;none&gt;     20    0.01      0.05   82.40
+## 830    944000 &lt;none&gt;      1    0.00      0.00   82.40
+## 831    945000 &lt;none&gt;      1    0.00      0.00   82.41
+## 832    948000 &lt;none&gt;      1    0.00      0.00   82.41
+## 833    949000 &lt;none&gt;      1    0.00      0.00   82.41
+## 834    950000 &lt;none&gt;    112    0.06      0.28   82.69
+## 835    952000 &lt;none&gt;      1    0.00      0.00   82.69
+## 836    953000 &lt;none&gt;      1    0.00      0.00   82.69
+## 837    956000 &lt;none&gt;      1    0.00      0.00   82.70
+## 838    960000 &lt;none&gt;     16    0.01      0.04   82.74
+## 839    962000 &lt;none&gt;      1    0.00      0.00   82.74
+## 840    963000 &lt;none&gt;      1    0.00      0.00   82.74
+## 841    964000 &lt;none&gt;      1    0.00      0.00   82.74
+## 842    965000 &lt;none&gt;      1    0.00      0.00   82.75
+## 843    968000 &lt;none&gt;      1    0.00      0.00   82.75
+## 844    969000 &lt;none&gt;      1    0.00      0.00   82.75
+## 845    970000 &lt;none&gt;     17    0.01      0.04   82.79
+## 846    971000 &lt;none&gt;      2    0.00      0.00   82.80
+## 847    973000 &lt;none&gt;      1    0.00      0.00   82.80
+## 848    976641 &lt;none&gt;      1    0.00      0.00   82.80
+## 849    978000 &lt;none&gt;      1    0.00      0.00   82.80
+## 850    980000 &lt;none&gt;     44    0.02      0.11   82.91
+## 851    980777 &lt;none&gt;      1    0.00      0.00   82.92
+## 852    983000 &lt;none&gt;      1    0.00      0.00   82.92
+## 853    985000 &lt;none&gt;      1    0.00      0.00   82.92
+## 854    990000 &lt;none&gt;      7    0.00      0.02   82.94
+## 855    992000 &lt;none&gt;      2    0.00      0.00   82.94
+## 856    993000 &lt;none&gt;      1    0.00      0.00   82.95
+## 857    995000 &lt;none&gt;      4    0.00      0.01   82.96
+## 858    996000 &lt;none&gt;      2    0.00      0.00   82.96
+## 859    998000 &lt;none&gt;      3    0.00      0.01   82.97
+## 860    999000 &lt;none&gt;      1    0.00      0.00   82.97
+## 861   1000000 &lt;none&gt;   1252    0.68      3.10   86.07
+## 862   1000050 &lt;none&gt;      3    0.00      0.01   86.08
+## 863   1000100 &lt;none&gt;      2    0.00      0.00   86.08
+## 864   1000500 &lt;none&gt;      1    0.00      0.00   86.08
+## 865   1003000 &lt;none&gt;      1    0.00      0.00   86.09
+## 866   1005000 &lt;none&gt;      1    0.00      0.00   86.09
+## 867   1008000 &lt;none&gt;      3    0.00      0.01   86.10
+## 868   1009000 &lt;none&gt;      1    0.00      0.00   86.10
+## 869   1010000 &lt;none&gt;      1    0.00      0.00   86.10
+## 870   1012000 &lt;none&gt;      2    0.00      0.00   86.11
+## 871   1014000 &lt;none&gt;      1    0.00      0.00   86.11
+## 872   1017000 &lt;none&gt;      2    0.00      0.00   86.11
+## 873   1020000 &lt;none&gt;      8    0.00      0.02   86.13
+## 874   1022000 &lt;none&gt;      1    0.00      0.00   86.13
+## 875   1024000 &lt;none&gt;      2    0.00      0.00   86.14
+## 876   1025000 &lt;none&gt;      1    0.00      0.00   86.14
+## 877   1027000 &lt;none&gt;      2    0.00      0.00   86.15
+## 878   1028000 &lt;none&gt;      1    0.00      0.00   86.15
+## 879   1029000 &lt;none&gt;      1    0.00      0.00   86.15
+## 880   1030000 &lt;none&gt;      4    0.00      0.01   86.16
+## 881   1036000 &lt;none&gt;      2    0.00      0.00   86.17
+## 882   1039000 &lt;none&gt;      1    0.00      0.00   86.17
+## 883   1040000 &lt;none&gt;      5    0.00      0.01   86.18
+## 884   1046000 &lt;none&gt;      1    0.00      0.00   86.18
+## 885   1048000 &lt;none&gt;      1    0.00      0.00   86.19
+## 886   1049000 &lt;none&gt;      2    0.00      0.00   86.19
+## 887   1050000 &lt;none&gt;     33    0.02      0.08   86.27
+## 888   1056000 &lt;none&gt;      2    0.00      0.00   86.28
+## 889   1060000 &lt;none&gt;      8    0.00      0.02   86.30
+## 890   1070000 &lt;none&gt;      5    0.00      0.01   86.31
+## 891   1072000 &lt;none&gt;      1    0.00      0.00   86.31
+## 892   1080000 &lt;none&gt;     12    0.01      0.03   86.34
+## 893   1082000 &lt;none&gt;      2    0.00      0.00   86.35
+## 894   1083000 &lt;none&gt;      1    0.00      0.00   86.35
+## 895   1085000 &lt;none&gt;      1    0.00      0.00   86.35
+## 896   1089613 &lt;none&gt;      1    0.00      0.00   86.36
+## 897   1090000 &lt;none&gt;      4    0.00      0.01   86.36
+## 898   1092000 &lt;none&gt;      1    0.00      0.00   86.37
+## 899   1094000 &lt;none&gt;      1    0.00      0.00   86.37
+## 900   1100000 &lt;none&gt;    346    0.19      0.86   87.23
+## 901   1102000 &lt;none&gt;      1    0.00      0.00   87.23
+## 902   1110000 &lt;none&gt;      3    0.00      0.01   87.24
+## 903   1120000 &lt;none&gt;      8    0.00      0.02   87.26
+## 904   1123000 &lt;none&gt;      1    0.00      0.00   87.26
+## 905   1125378 &lt;none&gt;      1    0.00      0.00   87.26
+## 906   1130000 &lt;none&gt;      7    0.00      0.02   87.28
+## 907   1133000 &lt;none&gt;      1    0.00      0.00   87.28
+## 908   1138000 &lt;none&gt;      1    0.00      0.00   87.28
+## 909   1139000 &lt;none&gt;      1    0.00      0.00   87.29
+## 910   1140000 &lt;none&gt;      1    0.00      0.00   87.29
+## 911   1143000 &lt;none&gt;      1    0.00      0.00   87.29
+## 912   1148000 &lt;none&gt;      1    0.00      0.00   87.29
+## 913   1150000 &lt;none&gt;     30    0.02      0.07   87.37
+## 914   1155000 &lt;none&gt;      1    0.00      0.00   87.37
+## 915   1160000 &lt;none&gt;      7    0.00      0.02   87.39
+## 916   1160250 &lt;none&gt;      1    0.00      0.00   87.39
+## 917   1163000 &lt;none&gt;      1    0.00      0.00   87.39
+## 918   1169000 &lt;none&gt;      1    0.00      0.00   87.39
+## 919   1170000 &lt;none&gt;      4    0.00      0.01   87.40
+## 920   1176000 &lt;none&gt;      1    0.00      0.00   87.41
+## 921   1180000 &lt;none&gt;      7    0.00      0.02   87.42
+## 922   1185000 &lt;none&gt;      2    0.00      0.00   87.43
+## 923   1190000 &lt;none&gt;      5    0.00      0.01   87.44
+## 924   1197000 &lt;none&gt;      1    0.00      0.00   87.44
+## 925   1200000 &lt;none&gt;    737    0.40      1.82   89.27
+## 926   1220000 &lt;none&gt;      1    0.00      0.00   89.27
+## 927   1230000 &lt;none&gt;      1    0.00      0.00   89.27
+## 928   1238000 &lt;none&gt;      1    0.00      0.00   89.27
+## 929   1240000 &lt;none&gt;      4    0.00      0.01   89.28
+## 930   1242000 &lt;none&gt;      1    0.00      0.00   89.29
+## 931   1244273 &lt;none&gt;      1    0.00      0.00   89.29
+## 932   1250000 &lt;none&gt;     31    0.02      0.08   89.37
+## 933   1253000 &lt;none&gt;      1    0.00      0.00   89.37
+## 934   1258000 &lt;none&gt;      2    0.00      0.00   89.37
+## 935   1260000 &lt;none&gt;      1    0.00      0.00   89.38
+## 936   1268000 &lt;none&gt;      2    0.00      0.00   89.38
+## 937   1270000 &lt;none&gt;      3    0.00      0.01   89.39
+## 938   1280000 &lt;none&gt;      5    0.00      0.01   89.40
+## 939   1287275 &lt;none&gt;      1    0.00      0.00   89.40
+## 940   1288000 &lt;none&gt;      1    0.00      0.00   89.41
+## 941   1290000 &lt;none&gt;      3    0.00      0.01   89.41
+## 942   1298000 &lt;none&gt;      1    0.00      0.00   89.42
+## 943   1300000 &lt;none&gt;    374    0.20      0.93   90.34
+## 944   1304144 &lt;none&gt;      1    0.00      0.00   90.34
+## 945   1307000 &lt;none&gt;      2    0.00      0.00   90.35
+## 946   1313354 &lt;none&gt;      1    0.00      0.00   90.35
+## 947   1320000 &lt;none&gt;      3    0.00      0.01   90.36
+## 948   1330000 &lt;none&gt;      2    0.00      0.00   90.36
+## 949   1333000 &lt;none&gt;      1    0.00      0.00   90.37
+## 950   1338182 &lt;none&gt;      1    0.00      0.00   90.37
+## 951   1340000 &lt;none&gt;      1    0.00      0.00   90.37
+## 952   1350000 &lt;none&gt;     50    0.03      0.12   90.49
+## 953   1360000 &lt;none&gt;      1    0.00      0.00   90.50
+## 954   1370000 &lt;none&gt;      1    0.00      0.00   90.50
+## 955   1373000 &lt;none&gt;      1    0.00      0.00   90.50
+## 956   1380000 &lt;none&gt;      3    0.00      0.01   90.51
+## 957   1386000 &lt;none&gt;      1    0.00      0.00   90.51
+## 958   1390000 &lt;none&gt;      1    0.00      0.00   90.51
+## 959   1395000 &lt;none&gt;      1    0.00      0.00   90.52
+## 960   1397000 &lt;none&gt;      1    0.00      0.00   90.52
+## 961   1399000 &lt;none&gt;      1    0.00      0.00   90.52
+## 962   1400000 &lt;none&gt;    274    0.15      0.68   91.20
+## 963   1420000 &lt;none&gt;      2    0.00      0.00   91.20
+## 964   1423000 &lt;none&gt;      1    0.00      0.00   91.21
+## 965   1425000 &lt;none&gt;      1    0.00      0.00   91.21
+## 966   1437000 &lt;none&gt;      1    0.00      0.00   91.21
+## 967   1450000 &lt;none&gt;     16    0.01      0.04   91.25
+## 968   1458000 &lt;none&gt;      1    0.00      0.00   91.25
+## 969   1460000 &lt;none&gt;      1    0.00      0.00   91.26
+## 970   1476000 &lt;none&gt;      1    0.00      0.00   91.26
+## 971   1480000 &lt;none&gt;      4    0.00      0.01   91.27
+## 972   1488000 &lt;none&gt;      1    0.00      0.00   91.27
+## 973   1490000 &lt;none&gt;      1    0.00      0.00   91.27
+## 974   1500000 &lt;none&gt;    768    0.41      1.90   93.17
+## 975   1514000 &lt;none&gt;      1    0.00      0.00   93.18
+## 976   1520000 &lt;none&gt;      2    0.00      0.00   93.18
+## 977   1525000 &lt;none&gt;      1    0.00      0.00   93.18
+## 978   1526000 &lt;none&gt;      1    0.00      0.00   93.19
+## 979   1535000 &lt;none&gt;      1    0.00      0.00   93.19
+## 980   1550000 &lt;none&gt;      6    0.00      0.01   93.20
+## 981   1556000 &lt;none&gt;      1    0.00      0.00   93.21
+## 982   1560000 &lt;none&gt;      4    0.00      0.01   93.22
+## 983   1560800 &lt;none&gt;      1    0.00      0.00   93.22
+## 984   1570000 &lt;none&gt;      1    0.00      0.00   93.22
+## 985   1578000 &lt;none&gt;      1    0.00      0.00   93.22
+## 986   1580000 &lt;none&gt;      3    0.00      0.01   93.23
+## 987   1586000 &lt;none&gt;      1    0.00      0.00   93.23
+## 988   1590000 &lt;none&gt;      3    0.00      0.01   93.24
+## 989   1595000 &lt;none&gt;      1    0.00      0.00   93.24
+## 990   1600000 &lt;none&gt;    220    0.12      0.54   93.79
+## 991   1608000 &lt;none&gt;      1    0.00      0.00   93.79
+## 992   1620000 &lt;none&gt;      2    0.00      0.00   93.79
+## 993   1630000 &lt;none&gt;      1    0.00      0.00   93.80
+## 994   1650000 &lt;none&gt;      9    0.00      0.02   93.82
+## 995   1657000 &lt;none&gt;      1    0.00      0.00   93.82
+## 996   1660000 &lt;none&gt;      1    0.00      0.00   93.82
+## 997   1670000 &lt;none&gt;      2    0.00      0.00   93.83
+## 998   1690000 &lt;none&gt;      2    0.00      0.00   93.83
+## 999   1700000 &lt;none&gt;    166    0.09      0.41   94.25
+## 1000  1720000 &lt;none&gt;      1    0.00      0.00   94.25
+## 1001  1750000 &lt;none&gt;     14    0.01      0.03   94.28
+## 1002  1758000 &lt;none&gt;      1    0.00      0.00   94.28
+## 1003  1770000 &lt;none&gt;      2    0.00      0.00   94.29
+## 1004  1780000 &lt;none&gt;      3    0.00      0.01   94.30
+## 1005  1785000 &lt;none&gt;      1    0.00      0.00   94.30
+## 1006  1790000 &lt;none&gt;      1    0.00      0.00   94.30
+## 1007  1799000 &lt;none&gt;      1    0.00      0.00   94.30
+## 1008  1800000 &lt;none&gt;    330    0.18      0.82   95.12
+## 1009  1819437 &lt;none&gt;      1    0.00      0.00   95.12
+## 1010  1825000 &lt;none&gt;      1    0.00      0.00   95.13
+## 1011  1850000 &lt;none&gt;      9    0.00      0.02   95.15
+## 1012  1860000 &lt;none&gt;      2    0.00      0.00   95.15
+## 1013  1870000 &lt;none&gt;      2    0.00      0.00   95.16
+## 1014  1876000 &lt;none&gt;      1    0.00      0.00   95.16
+## 1015  1890000 &lt;none&gt;      2    0.00      0.00   95.17
+## 1016  1891781 &lt;none&gt;      1    0.00      0.00   95.17
+## 1017  1894000 &lt;none&gt;      1    0.00      0.00   95.17
+## 1018  1900000 &lt;none&gt;     85    0.05      0.21   95.38
+## 1019  1920000 &lt;none&gt;      1    0.00      0.00   95.38
+## 1020  1940000 &lt;none&gt;      1    0.00      0.00   95.39
+## 1021  1950000 &lt;none&gt;      5    0.00      0.01   95.40
+## 1022  1980000 &lt;none&gt;      1    0.00      0.00   95.40
+## 1023  1990000 &lt;none&gt;      1    0.00      0.00   95.40
+## 1024  1995000 &lt;none&gt;      1    0.00      0.00   95.41
+## 1025  2000000 &lt;none&gt;    456    0.25      1.13   96.53
+## 1026  2000008 &lt;none&gt;      1    0.00      0.00   96.54
+## 1027  2030000 &lt;none&gt;      1    0.00      0.00   96.54
+## 1028  2050000 &lt;none&gt;      4    0.00      0.01   96.55
+## 1029  2060000 &lt;none&gt;      1    0.00      0.00   96.55
+## 1030  2072000 &lt;none&gt;      1    0.00      0.00   96.55
+## 1031  2080000 &lt;none&gt;      1    0.00      0.00   96.56
+## 1032  2088808 &lt;none&gt;      1    0.00      0.00   96.56
+## 1033  2090000 &lt;none&gt;      1    0.00      0.00   96.56
+## 1034  2100000 &lt;none&gt;     65    0.04      0.16   96.72
+## 1035  2107000 &lt;none&gt;      1    0.00      0.00   96.72
+## 1036  2150000 &lt;none&gt;      2    0.00      0.00   96.73
+## 1037  2170000 &lt;none&gt;      1    0.00      0.00   96.73
+## 1038  2180000 &lt;none&gt;      1    0.00      0.00   96.73
+## 1039  2190000 &lt;none&gt;      1    0.00      0.00   96.74
+## 1040  2200000 &lt;none&gt;     73    0.04      0.18   96.92
+## 1041  2220000 &lt;none&gt;      1    0.00      0.00   96.92
+## 1042  2250000 &lt;none&gt;      4    0.00      0.01   96.93
+## 1043  2290000 &lt;none&gt;      1    0.00      0.00   96.93
+## 1044  2300000 &lt;none&gt;     77    0.04      0.19   97.12
+## 1045  2320000 &lt;none&gt;      1    0.00      0.00   97.13
+## 1046  2350000 &lt;none&gt;      3    0.00      0.01   97.13
+## 1047  2400000 &lt;none&gt;     51    0.03      0.13   97.26
+## 1048  2410000 &lt;none&gt;      1    0.00      0.00   97.26
+## 1049  2460000 &lt;none&gt;      1    0.00      0.00   97.26
+## 1050  2470000 &lt;none&gt;      2    0.00      0.00   97.27
+## 1051  2500000 &lt;none&gt;    206    0.11      0.51   97.78
+## 1052  2550000 &lt;none&gt;      1    0.00      0.00   97.78
+## 1053  2600000 &lt;none&gt;     32    0.02      0.08   97.86
+## 1054  2700000 &lt;none&gt;     36    0.02      0.09   97.95
+## 1055  2750000 &lt;none&gt;      2    0.00      0.00   97.95
+## 1056  2770000 &lt;none&gt;      1    0.00      0.00   97.96
+## 1057  2800000 &lt;none&gt;     51    0.03      0.13   98.08
+## 1058  2866000 &lt;none&gt;      1    0.00      0.00   98.09
+## 1059  2900000 &lt;none&gt;     20    0.01      0.05   98.13
+## 1060  2930000 &lt;none&gt;      1    0.00      0.00   98.14
+## 1061  2983550 &lt;none&gt;      1    0.00      0.00   98.14
+## 1062  3000000 &lt;none&gt;    197    0.11      0.49   98.63
+## 1063  3000200 &lt;none&gt;      1    0.00      0.00   98.63
+## 1064  3050000 &lt;none&gt;      1    0.00      0.00   98.63
+## 1065  3060000 &lt;none&gt;      1    0.00      0.00   98.63
+## 1066  3100000 &lt;none&gt;      7    0.00      0.02   98.65
+## 1067  3196000 &lt;none&gt;      1    0.00      0.00   98.65
+## 1068  3200000 &lt;none&gt;     31    0.02      0.08   98.73
+## 1069  3280000 &lt;none&gt;      1    0.00      0.00   98.73
+## 1070  3300000 &lt;none&gt;      8    0.00      0.02   98.75
+## 1071  3400000 &lt;none&gt;     11    0.01      0.03   98.78
+## 1072  3412000 &lt;none&gt;      1    0.00      0.00   98.78
+## 1073  3459000 &lt;none&gt;      1    0.00      0.00   98.79
+## 1074  3460000 &lt;none&gt;      1    0.00      0.00   98.79
+## 1075  3500000 &lt;none&gt;     99    0.05      0.24   99.03
+## 1076  3600000 &lt;none&gt;     12    0.01      0.03   99.06
+## 1077  3670000 &lt;none&gt;      1    0.00      0.00   99.06
+## 1078  3677137 &lt;none&gt;      1    0.00      0.00   99.07
+## 1079  3700000 &lt;none&gt;      9    0.00      0.02   99.09
+## 1080  3800000 &lt;none&gt;     20    0.01      0.05   99.14
+## 1081  3900000 &lt;none&gt;      1    0.00      0.00   99.14
+## 1082  4000000 &lt;none&gt;     99    0.05      0.24   99.39
+## 1083  4100000 &lt;none&gt;      5    0.00      0.01   99.40
+## 1084  4200000 &lt;none&gt;     11    0.01      0.03   99.43
+## 1085  4300000 &lt;none&gt;      2    0.00      0.00   99.43
+## 1086  4400000 &lt;none&gt;      2    0.00      0.00   99.44
+## 1087  4500000 &lt;none&gt;     34    0.02      0.08   99.52
+## 1088  4600000 &lt;none&gt;      8    0.00      0.02   99.54
+## 1089  4700000 &lt;none&gt;      4    0.00      0.01   99.55
+## 1090  4800000 &lt;none&gt;      5    0.00      0.01   99.56
+## 1091  5000000 &lt;none&gt;     65    0.04      0.16   99.72
+## 1092  5100000 &lt;none&gt;      1    0.00      0.00   99.73
+## 1093  5200000 &lt;none&gt;      4    0.00      0.01   99.74
+## 1094  5300000 &lt;none&gt;      1    0.00      0.00   99.74
+## 1095  5500000 &lt;none&gt;     12    0.01      0.03   99.77
+## 1096  5600000 &lt;none&gt;      3    0.00      0.01   99.77
+## 1097  5700000 &lt;none&gt;      4    0.00      0.01   99.78
+## 1098  5800000 &lt;none&gt;      1    0.00      0.00   99.79
+## 1099  5900000 &lt;none&gt;      1    0.00      0.00   99.79
+## 1100  6000000 &lt;none&gt;     41    0.02      0.10   99.89
+## 1101  6100000 &lt;none&gt;      1    0.00      0.00   99.89
+## 1102  6500000 &lt;none&gt;      2    0.00      0.00   99.90
+## 1103  6800000 &lt;none&gt;      1    0.00      0.00   99.90
+## 1104  7000000 &lt;none&gt;     11    0.01      0.03   99.93
+## 1105  7800000 &lt;none&gt;      1    0.00      0.00   99.93
+## 1106  8000000 &lt;none&gt;      8    0.00      0.02   99.95
+## 1107  9000000 &lt;none&gt;      3    0.00      0.01   99.96
+## 1108  9500000 &lt;none&gt;      2    0.00      0.00   99.96
+## 1109  9800000 &lt;none&gt;      1    0.00      0.00   99.97
+## 1110 10000000 &lt;none&gt;      5    0.00      0.01   99.98
+## 1111 12000000 &lt;none&gt;      4    0.00      0.01   99.99
+## 1112 15000000 &lt;none&gt;      3    0.00      0.01  100.00
+## 1113 17700000 &lt;none&gt;      1    0.00      0.00  100.00
+## 1114 25000000 &lt;none&gt;      1    0.00      0.00  100.00
+## 1115       NA   &lt;NA&gt; 145019   78.20        NA      NA
+</code></pre></div><p>Para las variables numeric, en cambio, podemos utilizar la función <code>descr()</code> del mismo paquete, que nos indicará las <em>medidas de tendencia central, dispersión y posición</em> de la variable.</p>
+<h4 id="sobre-las-clases-de-las-variables">Sobre las clases de las variables</h4>
+<p>Un punto que ya se hace evidente de empezar a trabajar son como reconocer y trabajar <strong>los distintos tipos de variables en R</strong>. Si bien al inicio no es tan intuitivo ¡no te preocupes! Cuando uno avanza en el aprendizaje del programa de a poco estos conceptos se asimilan más.</p>
+<p>Partamos por lo básico que ustedes ya saben de sus cursos de estadística: <strong>los niveles de medición</strong>:  sabemos que el nivel de medición de la variable <em>género</em> es <em>nominal</em> y, por lo tanto, sólo nos permite clasificar a unas personas u otras. Por ello, no podemos, por ejemplo, calcular el promedio del género de una muestra. Por otra parte, la variable <em>edad</em> presenta un nivel de medición <em>de razón</em>, por lo cual sí podemos realizar con ella operaciones aritméticas y, en consecuencia, es posible, por ejemplo, calcular el promedio de edad de la muestra con que estamos trabajando.</p>
+<p>La función <code>class()</code>, incluido en el <em>paquete base</em> de R, nos permite saber la <em>clase</em> de una variable determinada con la cual deseemos trabajar. También nos permite conocer la clase de otros objetos en R, pero no es algo que utilizaremos (aún).</p>
+<h3 id="a-numeric">a) <code>numeric</code></h3>
+<p>Una variable puede presentar la clase  <code>numeric</code>, lo cual significa que sus datos <em>sólo incorporan números</em>. Así, es posible, por ejemplo, calcular el promedio para este tipo de variables. En <em>Casen en Pandemia 2020</em>, una de las variables <code>numeric</code> incluidas es <em>Ingreso total per cápita del hogar corregido</em> (codificada como ypchtotcor).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">class</span>(datos<span style="color:#f92672">$</span>ypchtotcor)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] &#34;numeric&#34;
+</code></pre></div><h3 id="b-character">b) <code>character</code></h3>
+<p>Una variable de clase <code>character</code> puede incluir tanto números como letras. Si bien con estas variables no es posible calcular, por ejemplo, promedios, sí podemos calcular frecuencias (absolutas y relativas), entre otros.</p>
+<h3 id="c-logic">c) <code>Logic</code></h3>
+<p>Una variable de clase <code>Logic</code> incluye valores lógicos, como TRUE (T) o FALSE (F). Los valores nulos (NA) también son valores lógicos. Este tipo de variables nos pueden servir a la hora de crear funciones, lo cual no se revisará en este práctico.</p>
+<h3 id="d-factor">d) <code>factor</code></h3>
+<p>Una variable de clase <code>factor</code> puede incluir tanto números como letras. Es una especie de variable <code>character</code>, pero recodificada de modo que los posibles valores sean etiquetados. Las bases de datos no suelen incluirlas a priori, por lo que lo usual es que debamos realizar un proceso de <em>recodificación</em> para poder trabajar una variable como factor. ¡Esto último será tratado en el siguiente práctico!</p>
+<h4 id="en-resumen">En resumen:</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Clase</th>
+<th style="text-align:left">Tipo de variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><code>numeric</code></td>
+<td style="text-align:left">Cuantitativa</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>character</code></td>
+<td style="text-align:left">Categórica</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>Logic</code></td>
+<td style="text-align:left">Lógica (TRUE, FALSE, NA)</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>factor</code></td>
+<td style="text-align:left">Categórica con niveles y etiquetas</td>
+</tr>
+</tbody>
+</table>
+<h2 id="31-selección-de-variables">3.1. Selección de variables</h2>
+<p>Luego de revisar el nivel de medición de las variables y reconociendo la distribución de los datos que tenemos, es evidente que lo mejor es solamente trabajar con un <em>subset</em> de una base de datos con las variables que queremos transformar.</p>
+<p>Para asegurarnos que variables queremos utilizar deberíamos ir al libro de códigos, pero también podemos elegir y decidir de manera más certera qué variables incorporar a partir de la revisión con <code>find_var()</code>. En esta sección no profundizaremos distintas formas de seleccionar datos. Solo les mostraremos de manera simple como seleccionar dos variables de nuestro interés:</p>
+<ul>
+<li><code>ypchtotcor</code>: Ingresos del hogar</li>
+<li><code>v13</code>: &ldquo;Su hogar, ¿bajo qué situación ocupa la vivienda?&rdquo;</li>
+<li><code>v29</code>: &ldquo;¿Cuántos dormitorios de uso exclusivo ocupa su hogar en esta vivienda?&rdquo;</li>
+<li><code>p6</code>: &ldquo;¿Cuántas personas viven habitualmente en esta vivienda?&rdquo;</li>
+</ul>
+<p>Crearemos una base procesada llamado <code>datos_proc</code>, que sólo incluirá estas tres variables.</p>
+<p>Como podemos ver en el ambiente (Environment), se creó un nuevo objeto llamado <code>datos_proc</code>, que tiene la misma cantidad de observaciones (filas) que datos, pero que sólo incluye 4 de las 650 variables iniciales.</p>
+<h2 id="4-limpieza-de-datos">4. Limpieza de datos</h2>
+<p>Los datos con los que trabajamos suelen incorporar valores nulos (<code>NA</code>), casos perdidos ingresados como valores de clase <code>Logic</code>. Estos valores no nos entregan información útil para nuestros análisis, y pueden generar problemas al momento de, por ejemplo, calcular <em>medidas de tendencia central</em>, u otros procedimientos estadísticos.</p>
+<p>Hay diversas maneras de trabajar los valores nulos, tales como realizar procesos de imputación, entre otros. Sin embargo, la más sencilla consiste en <strong>eliminar los valores nulos</strong> que se encuentran presentes en nuestros datos (aunque no recomendable)</p>
+<p>Para ello, lo primero es <em>identificar valores nulos</em> en el set de datos en general, o en alguna variable en específico. Para ello, empleamos la función <code>is.na()</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">is.na</span>(datos_proc) <span style="color:#75715e">#Revisamos si hay casos perdidos en el total del set de datos </span>
+<span style="color:#a6e22e">is.na</span>(datos_proc<span style="color:#f92672">$</span>ypchtotcor) <span style="color:#75715e">#Revisamos si hay casos perdidos en Ingresos per cápita</span>
+</code></pre></div><p>Sin embargo, esto no resulta muy práctico para el análisis. Es por ello que emplearemos la función <code>sum()</code> para <em>contar cuántos valores nulos</em> hay en el set de datos en general, o en alguna variable en particular.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">is.na</span>(datos_proc)) <span style="color:#75715e">#Contamos los valores nulos del set de datos en general, que suman un total de 180.148</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 180148
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">is.na</span>(datos_proc<span style="color:#f92672">$</span>ypchtotcor)) <span style="color:#75715e">#Contaremos los valores nulos de la variable Ingresos per cápita, que alcanzan un total de 98</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 98
+</code></pre></div><p>Una vez identificamos los <em>valores nulos</em>, podemos proceder a <strong>eliminarlos</strong> del set de datos. El comando <code>na.omit()</code> eliminará <em>todas las filas</em> que presenten casos perdidos.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">nrow</span>(datos_proc)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 185437
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">na.omit</span>(datos_proc) <span style="color:#75715e">#Eliminamos las filas con casos perdidos</span>
+<span style="color:#a6e22e">nrow</span>(datos_proc) <span style="color:#75715e">#La nueva base de datos tiene 5.387 filas y 4 columnas</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 5387
+</code></pre></div><p>¡La próxima sesión aprenderemos a recodificarlas!</p>
+<h2 id="5-guardar-y-exportar-datos">5. Guardar y exportar datos</h2>
+<p>Por último, una vez que hayamos procesado los datos, es importante que los <strong>guardemos</strong> en una nueva base de datos procesada, para no tener que llevar a cabo el procesamiento otra vez.</p>
+<p>Al igual que en el paso de carga de datos, y a partir del flujo de <code>input-R-output</code>propuesto, es esperable que estos datos procesados (o intermedios) los guardemos en <code>output/data</code> para que se entienda que provienen de un proceso de manipulación personal</p>
+<p>El archivo se puede guardar en distintos formatos:</p>
+<h3 id="a-rdata-y-rds">a) .RData y .rds</h3>
+<div class="note">
+<p><em>Guardar un objeto a un archivo</em></p>
+<p>saveRDS(objecto, file = &ldquo;datos.rds&rdquo;)</p>
+<p><em>Guardar un objeto a un archivo</em>
+save(objeto1, objeto2, file = &ldquo;datos.RData)</p>
+
+</div>
+
+<p>Es lo recomendable, si el resto del análisis lo realizaremos en R.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">save</span>(datos_proc, file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;output/data/datos_proc.RData&#34;</span>) <span style="color:#75715e">#Guardamos el objeto datos_proc en la ruta de trabajo actual, bajo el nombre de datos_proc.RData. </span>
+
+<span style="color:#a6e22e">saveRDS</span>(datos_proc, file<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;output/data/datos_proc.rds&#34;</span>) <span style="color:#75715e">#Guardamos el objeto datos_proc en la ruta de trabajo actual, bajo el nombre de datos_proc.rds. </span>
+</code></pre></div><h3 id="b-sav-haven">b) .sav (<code>haven</code>)</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">write_sav</span>(datos_proc, <span style="color:#e6db74">&#34;output/data/datos_proc.sav&#34;</span>) <span style="color:#75715e">#Guardamos el objeto datos_proc en la ruta de trabajo actual, bajo el nombre de datos_proc.sav. </span>
+</code></pre></div><h3 id="b-dta-haven">b) .dta (<code>haven</code>)</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">write_dta</span>(datos_proc, <span style="color:#e6db74">&#34;output/data/datos_proc.dta&#34;</span>) <span style="color:#75715e">#Guardamos el objeto datos_proc en la ruta de trabajo actual, bajo el nombre de datos_proc.dta. </span>
+</code></pre></div><h3 id="b-csv">b) .csv</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">write.csv</span>(datos_proc, <span style="color:#e6db74">&#34;output/data/datos_proc.csv&#34;</span>) <span style="color:#75715e">#Guardamos el objeto datos_proc en la ruta de trabajo actual, bajo el nombre de datos_proc.csv. </span>
+</code></pre></div><h3 id="b-xlsx">b) .xlsx</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">writexl<span style="color:#f92672">::</span><span style="color:#a6e22e">write_xlsx</span>(datos_proc, <span style="color:#e6db74">&#34;output/data/datos_proc.xlsx&#34;</span>) <span style="color:#75715e">#Guardamos el objeto datos_proc en la ruta de trabajo actual, bajo el nombre de datos_proc.xlsx. </span>
+</code></pre></div><h2 id="resumen">Resumen</h2>
+<p>¡Eso es todo por este práctico! Aquí, aprendimos a:</p>
+<ul>
+<li>
+<ol>
+<li>Importar datos en diferentes formatos.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Seleccionar variables (y hacer una revisión de ciertos aspectos de estas).</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Limpiar los datos, eliminando casos perdidos</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>Guardar y exportar los datos procesados, en distintos formatos.</li>
+</ol>
+</li>
+</ul>
+<h2 id="reporte-de-progreso">Reporte de progreso</h2>
+<p>¡Recuerda rellenar tu <a href="https://learn-r.formr.org/" target="_blank" rel="noopener">reporte de progreso</a>. Te llegó un código único a tu correo electrónico. Mediante él debes acceder para actualizar tu estado de avance del curso.</p>
 
                     </div>
 

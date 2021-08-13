@@ -90,7 +90,7 @@ slides: "01-slides"
 
 -   [<i class="fas fa-file-archive"></i> `01-bloque.zip`](https://github.com/learn-R/02-class/raw/main/01-bloque.zip)
 
--   [<i class="fas fa-laptop-code"></i> Práctico](https://learn-r-uah.netlify.app/example/01-practico/)
+-   [<i class="fas fa-laptop-code"></i> Práctico](/example/01-practico/)
 
 -   [<i class="fas fa-file-o"></i> Descomprimir archivos](/resource/unzipping)
 

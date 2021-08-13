@@ -55,6 +55,11 @@ Typography
   font-size: 0.5em;
 }
 
+.very-tiny {
+  font-size: 0.3em;
+}
+
+
 .light {
   font-weight: 300;
 }
@@ -277,7 +282,7 @@ Slides with title bars at the top
 }
 
 .title-1 {
-  border-top-color: #170C3A;
+  border-top-color: #5271ff;
 }
 
 .title-2 {
@@ -305,11 +310,11 @@ Slides with title bars at the top
 }
 
 .title-8 {
-  border-top-color: #F6D645;
+  border-top-color: #1a9875;
 }
 
 .title-inv-1 {
-  border-top-color: #B1AEC4;
+  border-top-color: #B2BFF7;
 }
 
 .title-inv-2 {
@@ -337,14 +342,14 @@ Slides with title bars at the top
 }
 
 .title-inv-8 {
-  border-top-color: #FFF2CE;
+  border-top-color: #aad6ca;
 }
 
 /*
 General color classes
 */
 .color-1 {
-  color: #170C3A;
+  color: #5271ff;
 }
 
 .color-2 {
@@ -372,11 +377,11 @@ General color classes
 }
 
 .color-8 {
-  color: #F6D645;
+  color: #1a9875;
 }
 
 .color-light-1 {
-  color: #B1AEC4;
+  color: #B2BFF7;
 }
 
 .color-light-2 {
@@ -404,7 +409,7 @@ General color classes
 }
 
 .color-light-8 {
-  color: #FFF2CE;
+  color: #aad6ca;
 }
 
 /* 
@@ -412,7 +417,7 @@ Coloring and inverse coloring in title bars and content boxes
 */
 .box-1,
 .section-title-1 {
-  background-color: #170C3A;
+  background-color: #5271ff;
 }
 
 .box-2,
@@ -447,12 +452,12 @@ Coloring and inverse coloring in title bars and content boxes
 
 .box-8,
 .section-title-8 {
-  background-color: #F6D645;
+  background-color: #1a9875;
 }
 
 .box-inv-1,
 .section-title-inv-1 {
-  background-color: #B1AEC4;
+  background-color: #B2BFF7;
 }
 
 .box-inv-2,
@@ -487,13 +492,13 @@ Coloring and inverse coloring in title bars and content boxes
 
 .box-inv-8,
 .section-title-inv-8 {
-  background-color: #FFF2CE;
+  background-color: #aad6ca;
 }
 
 .box-inv-1,
 .title-inv-1 h1,
 .section-title-inv-1 h1 {
-  color: #170C3A;
+  color: #5271ff;
 }
 
 .box-inv-2,
@@ -535,7 +540,7 @@ Coloring and inverse coloring in title bars and content boxes
 .box-inv-8,
 .title-inv-8 h1,
 .section-title-inv-8 h1 {
-  color: #F6D645;
+  color: #1a9875;
 }
 
 .box-8, .box-7, .box-6, .box-5, .box-4, .box-3, .box-2, .box-1, .title-8 h1, .title-7 h1, .title-6 h1, .title-5 h1, .title-4 h1, .title-3 h1, .title-2 h1, .title-1 h1, .section-title h1 {
