@@ -1,6 +1,6 @@
 ---
-title: "Bienvenido/a a R, RStudio y tidyverse"
-linktitle: "1: R, RStudio y tidyverse"
+title: "Bienvenido/a a R, RStudio e instalar paquetes"
+linktitle: "1: R, RStudio e instalar paquetes"
 date: "2021-08-13"
 menu:
   example:
@@ -12,100 +12,253 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Part 1: The basics of R and dplyr
+# Objetivo de la práctica 
 
-For this week's problem set, you need to work through a few of RStudio's introductory primers. You'll do these in your browser and type code and see results there.
+Introducir en aspectos relativos a R, RStudio e instalación de paquetes. El práctico considera los contenidos profundizados en el [bloque 1](/content/01-content), que serán repasados en tres partes: 1. RStudio, 2. Rprojects, 3. Script (.R) y 4. Instalar paquetes
 
-You'll learn some of the basics of R, as well as some powerful methods for manipulating data with the **dplyr** package.
+## Parte 1: Empenzando a asimilarnos con RStudio 
 
-Complete these primers. It seems like there are a lot, but they're short and go fairly quickly (especially as you get the hang of the syntax). Also, **I have no way of seeing what you do or what you get wrong or right**, and that's totally fine! If you get stuck and want to skip some (or if it gets too easy), go right ahead and skip them!
+RStudio es un software que permite integrar diferentes herramientas asociadas a R (IDE), de modo de hacer más fácil tu interacción con el. Este programa está orientado en dar una interfaz intuitiva para el análisis estadístico [^1].
 
-- **The Basics**
-	- [Visualization Basics](https://rstudio.cloud/learn/primers/1.1)
-	- [Programming Basics](https://rstudio.cloud/learn/primers/1.2)
-- **Work with Data**
-	- [Working with Tibbles](https://rstudio.cloud/learn/primers/2.1)
-	- [Isolating Data with dplyr](https://rstudio.cloud/learn/primers/2.2)
-	- [Deriving Information with dplyr](https://rstudio.cloud/learn/primers/2.3)
-- **Visualize Data**
-  - [Exploratory Data Analysis](https://rstudio.cloud/learn/primers/3.1)
-  - [Bar Charts](https://rstudio.cloud/learn/primers/3.2)
-  - [Histograms](https://rstudio.cloud/learn/primers/3.3)
-  - [Boxplots and Counts](https://rstudio.cloud/learn/primers/3.4)
-  - [Scatterplots](https://rstudio.cloud/learn/primers/3.5)
-  - [Line plots](https://rstudio.cloud/learn/primers/3.6)
-  - [Overplotting and Big Data](https://rstudio.cloud/learn/primers/3.7)
-  - [Customize Your Plots](https://rstudio.cloud/learn/primers/3.8)
-- **Tidy Your Data**
-  - [Reshape Data](https://rstudio.cloud/learn/primers/4.1)
+Por ello podrás encontrar los siguientes elementos en esta
 
-{{< div "note" >}}
-Recent versions of **tidyr** have renamed these core functions: `gather()` is now `pivot_longer()` and `spread()` is now `pivot_wider()`. The syntax for these `pivot_*()` functions is *slightly* different from what it was in `gather()` and `spread()`, so you can't just replace the names. Fortunately, both `gather()` and `spread()` still work and won't go away for a while, so you can still use them as you learn about reshaping and tidying data. It would be worth learning how the newer `pivot_*()` functions work, eventually, though ([see here for examples](https://tidyr.tidyverse.org/articles/pivot.html)).
-{{< /div >}}
+1. **Consola**: donde puedes escribir código (input) y donde recibirás resultados (output). Lo que se escriba en esa consola, independiente de su está bien o mal quedará registrado en el caché (`.RHistory`). Otro lugar donde podrás ver resultados es en *Plots* y *Viewer*.
 
-The content from these primers comes from the (free and online!) book [*R for Data Science* by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz/). I highly recommend the book as a reference and for continuing to learn and use R in the future.
+2. **Script**: es un documento de extensión *.R* donde se alojan los códigos que permiten ejecutar los análisis que buscas realizar. Además de contener **código ejecutable**, los códigos que se guarden son los que realmente quieres guardar (y no los mil intentos que hacemos previamente).
 
+3. **Enviroment**: es una forma de interactuar con el espacio de trabajo **dentro de R** (*Workspace*) pues podremos visualizar los diferentes **objetos** que vamos creando para ser manipulados, junto con los **paquetes** que tenemos cargados.
 
-## Part 2: Getting familiar with RStudio
+4. **Files**: es una forma de visualizar el espacio de trabajo en el que nos "posicionamos" **fuera de R** (*Working directory*). Por ejemplo, con los archivos que cargamos para trabajar en nuestro RStudio (como los datos). Si estos no están en el espacio de trabajo en que estamos, probablemente estaremos en un problema (¡ya les mostraremos la solución!)
 
-The RStudio primers you just worked through are a great introduction to writing and running R code, but you typically won't type code in a browser when you work with R. Instead, you'll use a nicer programming environment like RStudio, which lets you type and save code in scripts, run code from those scripts, and see the output of that code, all in the same program.
+5. **Help**: un amigo/a fiel. Nos dará ayuda e información útil del programa y los paquetes. Otros lugares donde encontrar ayuda es en *Tutorial* y en *Packages*. El primero ofrece tutoriales, como dice su nombre, y el segundo no solo nos indica qué paquetes tenemos instalados y/o cargados, sino que también **dónde encontrar más documentación sobre estos** (en el ícono del planeta).
 
-To get familiar with RStudio, watch this video (it's from PMAP 8921, but the content still applies here): 
+[^1]: Aquí luego aparecerá la parte del video que tiene que ver con **RStudio**
 
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cnQ-v1UUWyE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+## Parte 2: RStudio Projects
 
+Uno de los aspectos **más potentes** y **útiles** de RStudio es su capacidad de manejar proyectos. 
 
-## Part 3: RStudio Projects
+La primera vez que tu abres R este está "posicionado" en alguna carpeta de tu computadora (*¿cuál? una buena pregunta...*) y todo lo que se haga se hará relativo a esa carpeta. El concepto "técnico" de eso es lo que ya les había comentado: el *Working Directory*.
 
-One of the most powerful and useful aspects of RStudio is its ability to manage projects. 
+¿Cómo saber dónde estoy?
 
-When you first open R, it is "pointed" at some folder on your computer, and anything you do will be relative to that folder. The technical term for this is a "working directory."
-
-When you first open RStudio, look in the area right at the top of the Console pane to see your current working directory. Most likely you'll see something cryptic: `~/`
+1. Puedes mirar arriba de la consola y aparecerá tu versión de R y la ruta `.~` [^2]
 
 ```{r working-directory, echo=FALSE, out.width="50%"}
 knitr::include_graphics("/img/example/working-directory.png", error = FALSE)
 ```
 
-That tilde sign (`~`) is a shortcut that stands for your user directory. On Windows this is `C:\Users\your_user_name\`; on macOS this is `/Users/your_user_name/`. With the working directory set to `~/`, R is "pointed" at that folder, and anything you save will end up in that folder, and R will expect any data that you load to be there too.
+2. Escribiendo en tu consola `getwd()` (obteniendo mi working directory) y ver el resultado de esta
 
-It's always best to point R at some other directory. If you don't use RStudio, you need to manually set the working directory to where you want it with `setwd()`, and many R scripts in the wild include something like `setwd("C:\\Users\\bill\\Desktop\\Important research project")` at the beginning to change the directory. **THIS IS BAD THOUGH** ([see here for an explanation](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/)). If you ever move that directory somewhere else, or run the script on a different computer, or share the project with someone, the path will be wrong and nothing will run and you will be sad.
+En la pestaña `Files` podrán ver qué archivos están en el ambiente del *Working directory*
 
-The best way to deal with working directories with RStudio is to use RStudio Projects. These are special files that RStudio creates for you that end in a `.Rproj` extension. When you open one of these special files, a new RStudio instance will open up and be pointed at the correct directory automatically. If you move the folder later or open it on a different computer, it will work just fine and you will not be sad.
+Sea cual sea la forma de ver el directorio de trabajo notaremos desde ya que es algo "críptico". Muchas veces tendremos que transformarnos en detectives de *rutas* del directorio, sobre todo cuando tenemos **millones de carpetas** y no tenemos una organización clara de dónde tenemos nuestros códigos y datos. 
 
-[Read this super short chapter on RStudio projects to learn how to create and use them](https://r4ds.had.co.nz/workflow-projects.html#rstudio-projects)
+[^2]: El signo `~` (tilde) indica en Windows `C:\Users\your_user_name\` y en macOS `/Users/your_user_name/`.
 
-In general, you can create a new project by going to File > New Project > New Directory > Empty Project, which will create a new folder on your computer that is empty except for a single `.Rproj` file. Double click on that file to open an RStudio instance that is pointed at the correct folder.
+En ese ejercicio intentaremos cambiar nuestro directorio de trabajo (*Set Working Directory*) para poder alojar nuestro directorio donde están nuestros archivos necesarios para el análisis. Eso lo tendríamos que hacer **cada vez que abrimos el programa** (en R terminal se hace manualmente y en RStudio se puede guardar ese código en el script).
+
+{{< div "note" >}}
+Para ello debemos utilizar `setwd()` y dentro de esta indicar la ruta y dar vuelta las barras (`\`) por (`/`).
+{{< /div >}}
+
+Como mencionámos, parte importante de los scripts tienen al inicio un directorio del estilo `setwd("C:\\Users\\bill\\Desktop\\Important research project")` lo que es una **pésima idea** [(para más explicación véase aquí)](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/)
+
+1. Si corres ese directorio a algún otro lugar o corres el **script en otro computador** o **compartes con otra persona** la **ruta estará mala y nada funcionará**.
+
+La mejor manera de manejar los directorios de trabajo (*Working Directory*) con *RStudio* es utilizar los **RProjects** de RStudio.
+
+**¿Qué es un RProject?**
+
+Estos son archivos especiales que RStudio crea y que terminan en una extensión `.Rproj`.Cuando abra uno de estos archivos especiales, se abrirá una nueva sesión de RStudio y se apuntará al directorio correcto automáticamente. Si mueves la carpeta más tarde o la abres en un computador diferente, funcionará sin problemas y no lloraremos por el problema del directorio de trabajo
+
+En general, puedes crear un nuevo proyecto yendo a `File > New Project > New Directory > Empty Project/Exting directory`, que creará una nueva carpeta en tu ordenador que está vacía excepto por un único archivo `.Rproj`. Haga doble clic en ese archivo para abrir una sesión de RStudio que apunte a la carpeta correcta.
+
+Como vimos en la sesión, los *RProject* potenciarán nuestra posibilidad de colaborar con otros/as usuarias/os de R. No olvides que además, nos permitirá trabajar con rutas relativas de manera interna, dando la posibilidad de mantener ordenada la información de nuestros proyectos. 
+
+- <i class="fab fa-r-project"></i>[Descargar Rproject del bloque 1 `01-bloque.zip`](https://github.com/learn-R/02-class/raw/main/01-bloque.zip)
+
+{{< div "note" >}}
+Descargarás un archivo .zip, para ver como descomprimir un archivom en caso de que no sepas cómo [revisa esta breve guía](/resource/unzipping/)
+{{< /div >}}
 
 
-## Part 4: Getting familiar with R Markdown
 
-To ensure that the analysis and graphics you make are reproducible, you'll do the majority of your work in this class using **R Markdown** files.
+## Parte 3: Partes de un script (.R)
 
-Do the following things: 
+```{r}
+# Los gatos ( # ) son comentarios
+print("¡Hola estudiantes!")
+# Lo que está antes de los paréntesis son las funciones
+# Lo que está dentro de los paréntesis son argumentos
+```
 
-1. Watch this video:
+### Algunos shortcuts importantes
 
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/178485416?color=428bca" frameborder="0"  allow="autoplay; fullscreen" allowfullscreen></iframe>
-</div>
+Los siguientes atajos del teclado serán sus mejores amigos/as
 
-&nbsp;
+- **Ejecutar** líneas de código del script:   <kbd>CTRL</kbd> <kbd>Enter</kbd>
 
-2. Skim through the content at these pages:
+- **Guardar** el script (archivo . R):   <kbd>CTRL</kbd> <kbd>S</kbd>
 
-    - [Using Markdown](/resource/markdown/)
-    - [Using R Markdown](/resource/rmarkdown/)
-    - [How it Works](http://rmarkdown.rstudio.com/lesson-2.html)
-    - [Code Chunks](http://rmarkdown.rstudio.com/lesson-3.html)
-    - [Inline Code](http://rmarkdown.rstudio.com/lesson-4.html)
-    - [Markdown Basics](http://rmarkdown.rstudio.com/lesson-8.html) (The [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) is super useful here.)
-    - [Output Formats](http://rmarkdown.rstudio.com/lesson-9.html)
+- **Nuevo** script (archivo . R):   <kbd>CTRL</kbd> <kbd>N</kbd>
 
-3. Watch this video (again, it's from PMAP 8921, but the content works for this class):
+- *Título automático* dentro del script: <kbd>CTRL</kbd> <kbd>Shift</kbd> <kbd>R</kbd>
 
-    <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/fT5xI1cmE2c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+
+{{< div "note" >}}
+*¿Qué pasa si me aparece el script con símbolos raros?* En la barra del navegador de tu *RStudio* debes buscar:
+
+File → Reopen with Encoding → seleccionar `UTF-8`
+{{< /div >}}
+
+```{r sintaxis, echo=FALSE, out.width="70%"}
+knitr::include_graphics("/img/example/01/orden-sintaxis.png", error = FALSE)
+```
+
+### Elementos del lenguaje de R 
+
+**Calculando una media**
+```{r}
+(25 + 24 + 22)/3
+media <- (25 + 24 + 22)/3
+media
+
+```
+
+**Carácteres** (`character`)
+```{r}
+c("Valentina", "Nicolás", "Dafne")
+equipo <- c("Valentina", "Nicolás", "Dafne")
+
+```
+
+**Números** (`numeric`)
+```{r}
+c(25, 22, 24)
+edad <- c(25,22,24)
+mean(edad)
+
+```
+
+**Lonitudes** (`integer`)
+```{r}
+1:3
+orden <- 1:3
+```
+
+**Tabulados**[^1] (`data.frame`)
+```{r, eval = FALSE}
+?data.frame()
+```
+
+```{r}
+datos <- data.frame(equipo, edad, orden)
+```
+
+[^1] O base de datos (pese a que **realmente una tabla no es una base de datos**)
+
+Y ahora **¿cómo calculamos la media?**
+```{r}
+mean(datos$edad)
+```
+
+## Parte 4: Instalar paquetes
+
+Muchas veces requeriremos de extender los potenciales de `R base`. Para implementar estas extensiones será necesario realizar un proceso de carga de paquetes (también llamadas librarías) que contienen funciones muy útiles. Este proceso de compone de dos partes esenciales (1) Instalar paquetes (`ìnstall.packages()`) y (2) Llamar paquetes (`library()`). Veamos su paso a paso
+
+**0. Información de la sesión**
+
+No es un paso que debas hacer siempre. Pero lo realizaremos por esta vez para que véas que con este comando podremos obtener información útil sobre el ambiente en el que estas desarrollando tus análisis. Por la función `sessionInfo()` en tu consola y ve que nos arroja. Probablemente la ocuparás cuando tengas problemas con un código y requieras de ayuda. 
+
+```{r}
+sessionInfo()
+```
+
+**1. Instalar paquetes**
+
+Para instalar paquetes utilizaremos `install.packages()`. Dentro del `()` tenemos que rellenar cuál paquete queremos instalar. Pero ... una pregunta lógica es ¿cómo sé eso? ¿qué argumentos o "cosas" se ponen dentro de una función?
+
+Para ello hay dos enfoques que puedes seguir
+
+1. poner en tu consola `?nombre_de_la_funcion()` y notarás que en **Help** aparecerá automáticamente información de este. Esta información está contenida en [CRAN](https://cran.r-project.org/)
+
+2. Buscar información del paquete en [https://www.rdocumentation.org/](https://www.rdocumentation.org/)
+
+```{r, eval = F}
+install.packages("tidyverse") # Instalar
+remove.packages("tidyverse") # Remover
+```
+
+También funciona la noción de una *cadena* de paquetes concatenados por `c()`
+
+```{r, eval= F}
+install.packages(c("tidyverse", "sjPlot", "sjmisc")) # Primera vez
+```
+
+**2. Llamar paquetes**
+
+Este proceso lo haremos con la función `library()`. Cuando la utilicemos nos dirá algunas informaciones importantes: (1) su versión, (2) los paquetes que trae si es una colección de estos (*attaching packages*) y (3) los **conflictos** con otros paquetes que ya tienes cargados.
+
+```{r}
+library(tidyverse)
+```
+
+Ahora, intentemos ocupar la función `frq()` del paquete `sjmisc()`  para ver la distribución de equipo dentro de la base *datos*
+```{r, eval = F}
+frq(datos$equipo)
+```
+
+Sí, no es un error del sitio web. Aparecerá el siguiente error: 
+
+```{r}
+# > Error in frq(datos$equipo) : could not find function "frq"
+```
+
+Tal como dice, no se puede encontrar la función `frq()`. Por eso, no deben olvidar **llamar** a los paquetes, que como vimos en la sesión, es como "encender" el interruptor
+
+```{r, message= F , error= FALSE}
+library(sjmisc)
+```
+
+También existe la opción de indicar desde qué paquete proviene la función, y eso automáticamente los llama pero **solo en el momento en que se ocupa la función (`paquete::funcion()`)
+
+```{r}
+sjmisc::frq(datos$equipo)
+```
+
+Esto será muy útil cuando existan paquetes que tengan funciones que están en conflicto.
+
+### Una forma fácil de cargar paquetes: `pacman`
+
+`pacman` es un paquete que *literalmente* se comió procesos de R `base` y las simplificó en funciones únicas y más intuitivas. 
+
+Para comentar utilizándolo hay que hacer instalación tradicional
+
+```{r , eval= FALSE}
+install.packages("pacman")
+library(pacman)
+```
+
+Luego, la función que utilizaremos con frecuencia será `p_load()` que es una función que permite cargar librerías e instalarlas en caso de que estas no hayan sido descargadas. Básicamente `p_load()` resume las funciones `library()` e `install.packages()`, y optimiza esta relación entre ambas pues solo las aplica cuando son necesarias (if `requiere()``), es decir, **¡no te reinicia R si ya está instalada la librería!**
+
+```{r}
+pacman::p_load(tidyverse,
+               sjPlot,
+               sjmisc)
+```
+
+Por último, muchas veces ocurrirá que hay paquetes que dependen de otros, pues dada su complejidad, requieren de otras funcionalidades que ya han sido desarrolladas en otras extensiones. Esto, las **dependencias** no será un tema del cuál preocuparte pues `pacman::p_load()` lo hace solito. 
+
+# Reporte de progreso
+  
+¡Recuerda rellenar tu [reporte de progreso](https://learn-r.formr.org/). En tu correo electrónico está disponible el código mediante al cuál debes acceder para actualizar tu estado de avance del curso.
+
+
+# Recomendaciones
+
+El contenido de estos primers es libre y gratis, y provienen del libro de Hadley Wickham y Garrett Grolemund [*R for Data Science*](https://r4ds.had.co.nz/).
+
+  - [RProjects](https://r4ds.had.co.nz/workflow-projects.html#rstudio-projects)
+	- [Programming Basics](https://rstudio.cloud/learn/primers/1.2)
+	- [Working with Tibbles](https://rstudio.cloud/learn/primers/2.1)
