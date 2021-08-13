@@ -20,9 +20,12 @@ Descomprimir archivos en macOS es trivial, pero descomprimir archivos en Windows
 
 Haz doble clic en el archivo `.zip` descargado. macOS creará automáticamente una nueva carpeta con el mismo nombre que el archivo `.zip`, y todo el contenido del archivo estará dentro. Haz doble clic en el archivo de proyecto de RStudio (`.Rproj`) para empezar.
 
-```{r}
+
+```r
 knitr::include_graphics("/img/unzipping/unzip-mac.png", error = FALSE)
 ```
+
+![](/img/unzipping/unzip-mac.png)<!-- -->
 
 
 ## Descomprimir archivos en Windows
@@ -31,32 +34,22 @@ knitr::include_graphics("/img/unzipping/unzip-mac.png", error = FALSE)
 
 A diferencia de macOS, Windows no descomprime automáticamente las cosas por ti. Si haces doble clic en el archivo `.zip`, Windows te mostrará lo que hay dentro, pero lo hará sin extraer nada. ¡Esto ~~puede ser~~ increíblemente confuso! Esto es lo que parece: las únicas pistas de que esta carpeta es realmente un archivo `.zip` son que hay una pestaña de "Herramientas de carpetas comprimidas" en la parte superior, y hay una columna de "Ratio" que muestra cuánto está comprimido cada archivo. 
 
-```{r, echo=FALSE, out.width="80%"}
-knitr::include_graphics("/img/unzipping/inside-zip-windows.png", error = FALSE)
-```
+<img src="/img/unzipping/inside-zip-windows.png" width="80%" />
 
 Es muy tentador intentar abrir archivos desde esta vista. Sin embargo, si lo hace, las cosas se romperán y no podrá trabajar correctamente con ninguno de los archivos de la carpeta comprimida. Si abre el archivo del Proyecto R, por ejemplo, RStudio apuntará a un extraño directorio de trabajo enterrado en alguna carpeta temporal:
 
-```{r, echo=FALSE, out.width="60%"}
-knitr::include_graphics("/img/unzipping/temp-wd-windows.png", error = FALSE)
-```
+<img src="/img/unzipping/temp-wd-windows.png" width="60%" />
 
 Lo más probable es que no puedas abrir ningún archivo de datos ni guardar nada, lo cual será frustrante.
 
 En lugar de eso, tienes que hacer clic con el botón derecho del ratón en el archivo `.zip` y seleccionar "Extraer todo...":
 
-```{r, echo=FALSE, out.width="60%"}
-knitr::include_graphics("/img/unzipping/extract-windows-1.png", error = FALSE)
-```
+<img src="/img/unzipping/extract-windows-1.png" width="60%" />
 
 A continuación, elige dónde quieres descomprimir todos los archivos y haz clic en "Extraer"
 
-```{r, echo=FALSE, out.width="60%"}
-knitr::include_graphics("/img/unzipping/extract-windows-2.png", error = FALSE)
-```
+<img src="/img/unzipping/extract-windows-2.png" width="60%" />
 
 Finalmente deberías tener una carpeta real con todo el contenido del archivo comprimido. Abre el archivo del proyecto R y RStudio apuntará al directorio de trabajo correcto y todo funcionará.
 
-```{r, echo=FALSE, out.width="60%"}
-knitr::include_graphics("/img/unzipping/extract-windows-3.png", error = FALSE)
-```
+<img src="/img/unzipping/extract-windows-3.png" width="60%" />
