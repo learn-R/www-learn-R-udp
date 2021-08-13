@@ -20,10 +20,10 @@ source(here::here("R", "slide-tabs.R"))
 
 slide_details <- tibble::tribble(
   ~title, ~slide, ~active,
-  "Introducción", "1", TRUE,
-   "R enviroment", "ds-ps", FALSE,
-   "R comunicación", "evidence-evaluation-causation", FALSE,
-  "Librerías para el uso de R", "evidence-evaluation-causation1", FALSE, "Detalles del curso", "class-details", FALSE
+  "Introducción", "class-details", TRUE,
+   "R enviroment", "renv", FALSE,
+   "R projects", "rcom", FALSE,
+  "Librerías para el uso de R", "rpack", FALSE
 )
 ```
 
@@ -39,8 +39,13 @@ slide_tabs(slide_details, "/slides/01-slides.html")
 **¿Cómo ocupar**: Si presionas <kbd>?</kbd> (o <kbd>shift</kbd> + <kbd>/</kbd>) mientras estas viendo las slides, podrás ver los comandos específicos para navegar en ellas.
 {{% /div %}}
 
+# Material de la clase
 
-# Video de la clase
+- [<i class="fas fa-file-archive"></i> `01-bloque.zip`](https://github.com/learn-R/02-class/raw/main/01-bloque.zip)
+
+- [<i class="fas fa-laptop-code"></i> Práctico](https://learn-r-uah.netlify.app/example/01-practico/)
+
+- [<i class="fas fa-file-o"></i> Descomprimir archivos](/resource/unzipping)
 
 
 # Recomendaciones
@@ -49,7 +54,6 @@ slide_tabs(slide_details, "/slides/01-slides.html")
 
 - <i class="fab fa-youtube"></i> Tutoriales, ["Learn-R"](https://www.youtube.com/watch?v=UOoMzaWOQJA) 
     - <small>Instalación de softwares</small>
-
 
 - <i class="fas fa-external-link-square-alt"></i> [Contestar reporte de registro](https://learn-r.formr.org)
 
