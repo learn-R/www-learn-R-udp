@@ -8,12 +8,12 @@
   </url>
   
   <url>
-    <loc>/resource/install/</loc>
-    <lastmod>2021-08-13T00:00:00+00:00</lastmod>
+    <loc>/example/</loc>
+    <lastmod>2021-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/example/</loc>
+    <loc>/resource/install/</loc>
     <lastmod>2021-08-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -27,17 +27,27 @@
   </url>
   
   <url>
+    <loc>/resource/unzipping/</loc>
+    <lastmod>2021-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/example/03-practico/</loc>
+    <lastmod>2021-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2021-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/example/01-practico/</loc>
     <lastmod>2021-08-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/example/02-practico/</loc>
-    <lastmod>2021-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
     <lastmod>2021-08-13T00:00:00+00:00</lastmod>
   </url>
   

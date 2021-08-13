@@ -29,9 +29,7 @@
   
     
   
-  <meta name="description" content="DAGs with dagitty.net The easiest way to quickly build DAGs and find adjustment sets and testable implications is to use dagitty.net.
-This video shows how to use it:
-DAGs with R, ggdag, and dagitty You can use the ggdag and dagitty packages in R to build and work with DAGs too." />
+  <meta name="description" content="0. Objetivo de la práctica El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio." />
 
   
   <link rel="alternate" hreflang="en-us" href="/example/03-practico/" />
@@ -289,19 +287,17 @@ This video shows how to use it:
   
   <meta property="og:site_name" content="Análisis Estadístico en R" />
   <meta property="og:url" content="/example/03-practico/" />
-  <meta property="og:title" content="Importar, explorar y limpiar datos | Análisis Estadístico en R" />
-  <meta property="og:description" content="DAGs with dagitty.net The easiest way to quickly build DAGs and find adjustment sets and testable implications is to use dagitty.net.
-This video shows how to use it:
-DAGs with R, ggdag, and dagitty You can use the ggdag and dagitty packages in R to build and work with DAGs too." /><meta property="og:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" />
+  <meta property="og:title" content="Transformar y seleccionar variables | Análisis Estadístico en R" />
+  <meta property="og:description" content="0. Objetivo de la práctica El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio." /><meta property="og:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" />
     <meta property="twitter:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2021-08-23T00:00:00&#43;00:00"
+        content="2021-08-20T00:00:00&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2021-08-23T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2021-08-20T00:00:00&#43;00:00">
   
 
   
@@ -328,7 +324,7 @@ This video shows how to use it:
   <meta name="msapplication-TileImage" content="/img/mstile-144x144.png" />
 
 
-  <title>Importar, explorar y limpiar datos | Análisis Estadístico en R</title>
+  <title>Transformar y seleccionar variables | Análisis Estadístico en R</title>
 </head>
 
 
@@ -625,16 +621,11 @@ This video shows how to use it:
 
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" >Información general</a>
-
-  </div>
-  
-  <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/example/01-datos/">Datos</a>
+    <a class="docs-toc-link" href="/example/">Información general</a>
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/example/01-datos/">1: Synthetic data</a>
+        <a href="/example/">Prácticos (códigos de ejemplo)</a>
       </li>
 
       
@@ -644,56 +635,26 @@ This video shows how to use it:
   </div>
   
   <div class="docs-toc-item">
+    <a class="docs-toc-link" >Datos</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
     <a class="docs-toc-link" href="/example/01-practico/">Ejemplos</a>
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/example/01-practico/">1: R, RStudio y Github</a>
+        <a href="/example/01-practico/">1: R, RStudio e instalar paquetes</a>
       </li>
 
       
       <li >
-        <a href="/example/02-practico/">2: R, RStudio y tidyverse</a>
+        <a href="/example/02-practico/">2: Transformar y seleccionar variables</a>
       </li>
 
       
       <li class="active">
-        <a href="/example/03-practico/">3: Importar, explorar y limpiar datos</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/04-practico/">4: Tranformar y seleccionar variables</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/05-practico/">5: Transformación de datos</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/06-practico/">6: Análisis descriptivo</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/07-practico/">7: Muestras complejas</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/09-practico/">9: Regresiones lineales</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/10-practico/">10: Regresiones logísticas</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/11-practico/">11: Calidad de modelos y otras técnicas de estimación</a>
+        <a href="/example/03-practico/">3: Transformar y seleccionar variables</a>
       </li>
 
       
@@ -715,23 +676,57 @@ This video shows how to use it:
 
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#dags-with-dagittynet">DAGs with dagitty.net</a></li>
-    <li><a href="#dags-with-r-ggdag-and-dagitty">DAGs with R, ggdag, and dagitty</a>
+    <li><a href="#0-objetivo-de-la-práctica">0. Objetivo de la práctica</a></li>
+    <li><a href="#1-recursos-de-la-práctica">1. Recursos de la práctica</a></li>
+    <li><a href="#2-librerias-a-utilizar">2. Librerias a utilizar</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-cargar-librerías">1. Cargar librerías</a></li>
+    <li><a href="#2-cargar-base-de-datos">2. Cargar base de datos</a></li>
+    <li><a href="#4-un-aspecto-clave-antes-de-comenzar-los-operadores">4. Un aspecto clave antes de comenzar: los operadores</a>
       <ul>
-        <li><a href="#live-coding-example">Live coding example</a></li>
-        <li><a href="#basic-dags">Basic DAGs</a></li>
-        <li><a href="#layouts-and-manual-coordinates">Layouts and manual coordinates</a></li>
-        <li><a href="#node-names-and-labels">Node names and labels</a></li>
-        <li><a href="#paths-and-adjustment-sets">Paths and adjustment sets</a></li>
-        <li><a href="#plot-dag-from-dagittynet-with-ggdag">Plot DAG from dagitty.net with <code>ggdag()</code></a></li>
+        <li>
+          <ul>
+            <li><a href="#operadores-relacionales">Operadores relacionales</a></li>
+            <li><a href="#operadores-aritméticos">Operadores aritméticos</a></li>
+            <li><a href="#operadores-de-asignación">Operadores de asignación</a></li>
+            <li><a href="#operadores-booleanos">Operadores booleanos</a></li>
+          </ul>
+        </li>
+        <li><a href="#operador-pipeline-">Operador pipeline %&gt;%</a></li>
       </ul>
     </li>
-    <li><a href="#mosquito-net-example">Mosquito net example</a>
+    <li><a href="#5-transformación-y-selección-de-variables-con-dplyr">5. Transformación y selección de variables con <code>dplyr()</code></a>
       <ul>
-        <li><a href="#conditional-independencies">Conditional independencies</a></li>
-        <li><a href="#mosquito-net-adjustment-sets">Mosquito net adjustment sets</a></li>
+        <li><a href="#51-select-para-manipular-variables">5.1 <code>select()</code> para manipular variables</a>
+          <ul>
+            <li><a href="#select-por-indexación"><code>select()</code> por indexación</a></li>
+            <li><a href="#select-por-nombre-de-columna"><code>select()</code> por nombre de columna</a></li>
+            <li><a href="#select-para-reordenar-variables"><code>select()</code> para reordenar variables</a></li>
+            <li><a href="#select-con-patrones-de-texto"><code>select()</code> con patrones de texto</a></li>
+            <li><a href="#select-y-condiciones-lógicas"><code>select()</code> y condiciones lógicas</a></li>
+          </ul>
+        </li>
+        <li><a href="#52-filter-para-manipular-observaciones">5.2 <code>filter()</code> para manipular observaciones</a>
+          <ul>
+            <li><a href="#filter-con-números"><code>filter</code> con números</a></li>
+            <li><a href="#filter-con-carácteres"><code>filter()</code> con carácteres</a></li>
+          </ul>
+        </li>
+        <li><a href="#53-mutate-para-transformación-de--variables">5.3 <code>mutate()</code> para transformación de  variables</a>
+          <ul>
+            <li><a href="#mutate-en-base-a-cálculo"><code>mutate()</code> en base a cálculo</a></li>
+            <li><a href="#recode"><code>recode()</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#532-if_else-para-construir-variables-condicionales">5.3.2 <code>if_else()</code> para construir variables condicionales</a></li>
+        <li><a href="#532-case_when-para-construir-variable-en-base-a-múltiples-condiciones">5.3.2 <code>case_when()</code> para construir variable en base a múltiples condiciones</a></li>
       </ul>
     </li>
+    <li><a href="#6-resumen-con-procesamiento-de-las-variables">6. Resumen con procesamiento de las variables</a></li>
+    <li><a href="#7-guardar-base-procesada">7. Guardar base procesada</a></li>
+    <li><a href="#8-reporte-de-progreso">8. Reporte de progreso</a></li>
   </ul>
 </nav>
 
@@ -744,7 +739,7 @@ This video shows how to use it:
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Importar, explorar y limpiar datos</h1>
+                    <h1>Transformar y seleccionar variables</h1>
 
                     
 
@@ -753,263 +748,833 @@ This video shows how to use it:
                     
 
                     <div class="article-style">
-                        <h2 id="dags-with-dagittynet">DAGs with dagitty.net</h2>
-<p>The easiest way to quickly build DAGs and find adjustment sets and testable implications is to use <a href="http://dagitty.net/" target="_blank" rel="noopener">dagitty.net</a>.</p>
-<p>This video shows how to use it:</p>
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3euqrnD9w7c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <h2 id="0-objetivo-de-la-práctica">0. Objetivo de la práctica</h2>
+<p>El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio.</p>
+<h2 id="1-recursos-de-la-práctica">1. Recursos de la práctica</h2>
+<p>En este práctico utilizaremos la base de datos de la <a href="http://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-en-pandemia-2020" target="_blank" rel="noopener"><strong>Encuesta de Caracterización Socioeconómica (CASEN)</strong></a>, la cual fue procesada en el <a href="">Práctico anterior</a>.Recuerden siempre consultar el <a href="http://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2020/Libro_de_codigos_Base_de_Datos_Casen_en_Pandemia_2020.pdf" target="_blank" rel="noopener"><strong>manual/libro de códigos</strong></a> antes de trabajar una base de datos.</p>
+<h2 id="2-librerias-a-utilizar">2. Librerias a utilizar</h2>
+<p>En este práctico utilizaremos cuatro paquetes</p>
+<ol>
+<li>
+<p><code>pacman</code>: este facilita y agiliza la lectura de los paquetes a utilizar en R</p>
+</li>
+<li>
+<p><code>sjmisc</code>: explorar datos</p>
+</li>
+<li>
+<p><code>car()</code>: recodificar manteniendo las etiquetas</p>
+</li>
+<li>
+<p><code>tidyverse</code>: colección de paquetes, del cuál utilizaremos <code>dplyr</code>  <code>forcast</code></p>
+</li>
+<li>
+<p><code>magrittr</code>: nos permitirá ocupar dos operadores que en R son <strong>muy</strong> utilizados</p>
+</li>
+</ol>
+<h1 id="pasos-del-procesamiento">Pasos del procesamiento</h1>
+<h2 id="1-cargar-librerías">1. Cargar librerías</h2>
+<p>Primero instalamos <code>pacman</code> por única vez</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;pacman&#34;</span>)
+<span style="color:#a6e22e">library </span>(pacman)
+</code></pre></div><p>Luego cargaremos así los paquetes. Les recordamos que cuando luego de un paquete ponemos <code>::</code> esto se refiere a que se <em>&ldquo;fuerza&rdquo;</em> que esa función provenga de <em>ese paquete</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pacman<span style="color:#f92672">::</span><span style="color:#a6e22e">p_load</span>(tidyverse,
+               magrittr,
+               car,
+               sjmisc)
+</code></pre></div><h2 id="2-cargar-base-de-datos">2. Cargar base de datos</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_dta</span>(<span style="color:#e6db74">&#34;../Rproject/input/Casen en Pandemia 2020 STATA.dta&#34;</span>) 
+</code></pre></div><p>En el panel <strong>Environment</strong>, visualizamos el nuevo objeto, que posee 185.437 observaciones (o filas), y 650 variables (columnas)</p>
+<p>Recordemos que también podemos explorar la base de datos con las siguientes funciones.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># De paquete base</span>
+<span style="color:#a6e22e">dim</span>(datos) <span style="color:#75715e"># nos entrega las dimensiones, es decir el numero de observaciones y el número de variables</span>
+<span style="color:#a6e22e">View</span>(datos) <span style="color:#75715e"># se usa para visualizar la base de datos</span>
+<span style="color:#a6e22e">names</span>(datos) <span style="color:#75715e"># entrega los nombres de las variables que componen el dataset</span>
+<span style="color:#a6e22e">head</span>(datos) <span style="color:#75715e"># muestra las primeras filas presentes en el marco de datos</span>
+
+<span style="color:#75715e"># De sjmisc</span>
+
+<span style="color:#a6e22e">find_var</span>(datos, <span style="color:#e6db74">&#34;concepto&#34;</span>) <span style="color:#75715e"># se utiliza para encontrar variables</span>
+</code></pre></div><h2 id="4-un-aspecto-clave-antes-de-comenzar-los-operadores">4. Un aspecto clave antes de comenzar: los operadores</h2>
+<p>Previo a trabajar con la base de datos, debemos repasemos el concepto de <strong>operadores</strong>. Estos símbolos no son de uso exclusivo en R ¡probablemente los conoces desde tus cursos de matemática! Ahora bien, no todos tienen el mismo significado que en otros softwares.</p>
+<p>Los <strong>operadores</strong> serán símbolos que permitirán, en los distintos procedimientos de procesamiento, simplificar procesos. Por ejemplo, serán útilizados cuando filtremos nuestros datos para personas de ciertas categorías, cuando calculemos variables nuevas (de manera aritmética o condicional) o, simplemente, cuando queramos hacer procesos &ldquo;concatenados&rdquo;.</p>
+<h4 id="operadores-relacionales">Operadores relacionales</h4>
+<p>Se usan para hacer comparaciones. Cuando en la <em>Tabla 1</em> nos referimos a <code>un valor</code>, esto refiere tambien a <code>variables</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Símbolo</th>
+<th style="text-align:left">Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><code>&lt;</code></td>
+<td style="text-align:left">Un valor es menor que otro</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>&gt;</code></td>
+<td style="text-align:left">Un valor es mayor que otro</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>==</code></td>
+<td style="text-align:left">Un valor es igual que otro <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>&lt;=</code></td>
+<td style="text-align:left">Un valor es menor o igual que otro</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>&gt;=</code></td>
+<td style="text-align:left">Un valor es mayor o igual que otro</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>!=</code></td>
+<td style="text-align:left">Un valor es distinto o diferente que otro</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>%in%</code></td>
+<td style="text-align:left">Un valor pertenece al conjunto designado <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>is.na()</code></td>
+<td style="text-align:left">El valor es perdido o <code>NA</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>!is.na()</code></td>
+<td style="text-align:left">El valor es distinto de  <code>NA</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operadores-aritméticos">Operadores aritméticos</h4>
+<p>Realizan operaciones, como la suma, resta, división, entre otros.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Símbolo</th>
+<th style="text-align:left">Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><code>+</code></td>
+<td style="text-align:left">Suma</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>-</code></td>
+<td style="text-align:left">Resta</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>*</code></td>
+<td style="text-align:left">Multiplicación</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>/</code></td>
+<td style="text-align:left">División</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>^</code></td>
+<td style="text-align:left">Elevado</td>
+</tr>
+</tbody>
+</table>
+<h4 id="operadores-de-asignación">Operadores de asignación</h4>
+<p>Hay dos formas de asignar <code>objetoA &lt;- objetoB</code> o <code>objetoA = objetoB</code>. Ambas implican que lo que se este realizando en el <em>objetoB</em> implica que eso va a producir o generar al <em>objetoA</em></p>
+<h4 id="operadores-booleanos">Operadores booleanos</h4>
+<p>Describen relaciones <strong>lógicas</strong> o <strong>condicionales</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Símbolo</th>
+<th style="text-align:left">Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><code>&amp;</code></td>
+<td style="text-align:left">Indica un <em>y</em> lógico</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>|</code></td>
+<td style="text-align:left">Indica un <em>o</em> lógico</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>xor()</code></td>
+<td style="text-align:left">Excluye la condición</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>!</code></td>
+<td style="text-align:left">Distinto de &hellip;</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>any</code></td>
+<td style="text-align:left">Ninguna de las condiciones serán utilizadas</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>all</code></td>
+<td style="text-align:left">Todas las condiciones serán ocupadas</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/img/example/02-practico/01operad.png" alt=""></p>
+<p><img src="/img/example/02-practico/01operad.png" width="60%" />
+Figura 1: Resumen de operadores</p>
+<h3 id="operador-pipeline-">Operador pipeline %&gt;%</h3>
+<p>¡Aquí mucha atención! Este operador <code>%&gt;%</code> (llamado <code>pipe</code>) no es un operador que este contenido en las funciones base del lenguaje R. Este operador proviene de la función <code>magrittr</code> de <code>tidyverse</code>, y es de los operadores más útiles y utilizados en R.</p>
+<p>¿Para qué sirve? Para concatenar múltiples funciones y procesos. <em>Imagina que quieres filtrar una base de datos a partir de tramos etarios. Pero no tienes esa variable creada. ¿Que hacer? La respuesta: concatenar el proceso de creación de variables y luego filtrar.</em> Eso se puede hacer gracias a <code>%&gt;%</code> (ya mostraremos como utilizar esta herramienta), que por lo demás es muy fácil de ejecutar.</p>
+<ul>
+<li><code>Ctrl + shift + M</code> Para Windows</li>
+<li><code>⌘ + shift + M</code> Para Mac</li>
+</ul>
+<h2 id="5-transformación-y-selección-de-variables-con-dplyr">5. Transformación y selección de variables con <code>dplyr()</code></h2>
+<p><code>dplyr()</code>es un paquete de <code>tidyverse</code> que proporciona una base para la manipulación de datos, principalmente a partir de funciones que permiten operar las columnas (o variables)</p>
+<h3 id="51-select-para-manipular-variables">5.1 <code>select()</code> para manipular variables</h3>
+<p>Para <strong>seleccionar variables</strong> ocuparemos <code>select()</code>. Existen diversos enfoques para realizarlo. Primero, debemos conocer su estructura</p>
+<p>Si queremos incluir las variables <code>variable1</code>, <code>variable2</code> y <code>variable3</code>
+<div class="note">
+select(datos, variable1, variable2, variable3)
 </div>
-<h2 id="dags-with-r-ggdag-and-dagitty">DAGs with R, ggdag, and dagitty</h2>
-<p>You can use the <a href="https://ggdag.malco.io/" target="_blank" rel="noopener"><strong>ggdag</strong></a> and <a href="http://dagitty.net/primer/" target="_blank" rel="noopener"><strong>dagitty</strong></a> packages in R to build and work with DAGs too. I typically draw an initial DAG in my browser with dagitty.net and then I rewrite it in code in R so that it&rsquo;s more official and formal and reproducible.</p>
-<h3 id="live-coding-example">Live coding example</h3>
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uoAjyyToUTE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<p>Si queremos excluir anteponemos un menos <code>-variable1</code>
+<div class="note">
+select(datos, -variable1)
 </div>
-<h3 id="basic-dags">Basic DAGs</h3>
-<p><em>(This is a heavily cleaned up and annotated version of the code from the video.)</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Load packages</span>
-<span style="color:#a6e22e">library</span>(tidyverse)  <span style="color:#75715e"># For dplyr, ggplot, and friends</span>
-<span style="color:#a6e22e">library</span>(ggdag)      <span style="color:#75715e"># For plotting DAGs</span>
-<span style="color:#a6e22e">library</span>(dagitty)    <span style="color:#75715e"># For working with DAG logic</span>
-</code></pre></div><p>The general process for making and working with DAGs in R is to create a DAG object with <code>dagify()</code> and then plot it with <code>ggdag()</code>. The documentation for <strong>ggdag</strong> is really good and helpful and full of examples. Check these pages for all sorts of additional details:</p>
+</p>
+<h4 id="select-por-indexación"><code>select()</code> por indexación</h4>
+<p>La indexación refiere al orden que tiene la columna o variable dentro de los datos. Imaginemos que queremos seleccionar:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>) <span style="color:#75715e"># la primera y la segunda columna</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 2
+##           folio     o
+##           &lt;dbl&gt; &lt;dbl&gt;
+##  1 110110010101     1
+##  2 110110010101     2
+##  3 110110010201     2
+##  4 110110010201     1
+##  5 110110010201     3
+##  6 110110010301     2
+##  7 110110010301     3
+##  8 110110010301     1
+##  9 110110010401     1
+## 10 110110010401     2
+## # ... with 185,427 more rows
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">4</span>) <span style="color:#75715e"># la primera hasta la cuarta columna</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 4
+##           folio     o id_persona id_vivienda
+##           &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;
+##  1 110110010101     1          5  1101100101
+##  2 110110010101     2          6  1101100101
+##  3 110110010201     2         31  1101100102
+##  4 110110010201     1         32  1101100102
+##  5 110110010201     3         30  1101100102
+##  6 110110010301     2        117  1101100103
+##  7 110110010301     3        118  1101100103
+##  8 110110010301     1        116  1101100103
+##  9 110110010401     1       2209  1101100104
+## 10 110110010401     2       2210  1101100104
+## # ... with 185,427 more rows
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>)) <span style="color:#75715e"># la primera y la cuarta columna</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 2
+##           folio id_vivienda
+##           &lt;dbl&gt;       &lt;dbl&gt;
+##  1 110110010101  1101100101
+##  2 110110010101  1101100101
+##  3 110110010201  1101100102
+##  4 110110010201  1101100102
+##  5 110110010201  1101100102
+##  6 110110010301  1101100103
+##  7 110110010301  1101100103
+##  8 110110010301  1101100103
+##  9 110110010401  1101100104
+## 10 110110010401  1101100104
+## # ... with 185,427 more rows
+</code></pre></div><h4 id="select-por-nombre-de-columna"><code>select()</code> por nombre de columna</h4>
+<p>Si conocemos el nombre de la variable simplemente lo podemos poner y se seleccionará.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, edad, sexo, o1)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 3
+##     edad       sexo        o1
+##    &lt;dbl&gt;  &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;
+##  1    34 2 [Mujer]     2 [No]
+##  2     4 2 [Mujer]    NA     
+##  3     5 2 [Mujer]    NA     
+##  4    45 1 [Hombre]    1 [Sí]
+##  5    19 2 [Mujer]     2 [No]
+##  6    57 1 [Hombre]    1 [Sí]
+##  7    20 1 [Hombre]    2 [No]
+##  8    56 2 [Mujer]     2 [No]
+##  9    77 1 [Hombre]    2 [No]
+## 10    60 2 [Mujer]     2 [No]
+## # ... with 185,427 more rows
+</code></pre></div><p>También puedo renombrar en el mismo proceso de selección indicando <code>nuevo_nombre = nombre_original</code> en el proceso de selección</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, edad, sexo, ocupacion <span style="color:#f92672">=</span> o1)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 3
+##     edad       sexo ocupacion
+##    &lt;dbl&gt;  &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;
+##  1    34 2 [Mujer]     2 [No]
+##  2     4 2 [Mujer]    NA     
+##  3     5 2 [Mujer]    NA     
+##  4    45 1 [Hombre]    1 [Sí]
+##  5    19 2 [Mujer]     2 [No]
+##  6    57 1 [Hombre]    1 [Sí]
+##  7    20 1 [Hombre]    2 [No]
+##  8    56 2 [Mujer]     2 [No]
+##  9    77 1 [Hombre]    2 [No]
+## 10    60 2 [Mujer]     2 [No]
+## # ... with 185,427 more rows
+</code></pre></div><h4 id="select-para-reordenar-variables"><code>select()</code> para reordenar variables</h4>
+<p>Podemos seleccionar variables y luego indicar que queremos todo el resto de las variables (<code>everythin()</code>). Solo por una cosa de orden. Esto será útil sobre todo cuando tengamos identificadores</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, id_persona, sexo, edad, <span style="color:#a6e22e">everything</span>())
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 650
+##    id_persona      sexo  edad    folio     o id_vivienda       region  provincia
+##         &lt;dbl&gt; &lt;dbl+lbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl+lbl&gt;  &lt;dbl+lbl&gt;
+##  1          5 2 [Mujer]    34  1.10e11     1  1101100101 1 [Región d~ 11 [Iquiq~
+##  2          6 2 [Mujer]     4  1.10e11     2  1101100101 1 [Región d~ 11 [Iquiq~
+##  3         31 2 [Mujer]     5  1.10e11     2  1101100102 1 [Región d~ 11 [Iquiq~
+##  4         32 1 [Hombr~    45  1.10e11     1  1101100102 1 [Región d~ 11 [Iquiq~
+##  5         30 2 [Mujer]    19  1.10e11     3  1101100102 1 [Región d~ 11 [Iquiq~
+##  6        117 1 [Hombr~    57  1.10e11     2  1101100103 1 [Región d~ 11 [Iquiq~
+##  7        118 1 [Hombr~    20  1.10e11     3  1101100103 1 [Región d~ 11 [Iquiq~
+##  8        116 2 [Mujer]    56  1.10e11     1  1101100103 1 [Región d~ 11 [Iquiq~
+##  9       2209 1 [Hombr~    77  1.10e11     1  1101100104 1 [Región d~ 11 [Iquiq~
+## 10       2210 2 [Mujer]    60  1.10e11     2  1101100104 1 [Región d~ 11 [Iquiq~
+## # ... with 185,427 more rows, and 642 more variables: comuna &lt;dbl+lbl&gt;,
+## #   zona &lt;dbl+lbl&gt;, area &lt;dbl+lbl&gt;, segmento &lt;dbl&gt;, estrato &lt;dbl&gt;,
+## #   cod_upm &lt;dbl&gt;, hogar &lt;dbl&gt;, p6_p_con &lt;dbl+lbl&gt;, expr &lt;dbl&gt;, expp &lt;dbl&gt;,
+## #   expc &lt;dbl&gt;, varstrat &lt;dbl&gt;, varunit &lt;dbl&gt;, fecha_entrev &lt;date&gt;,
+## #   metodologia_entrev &lt;dbl+lbl&gt;, tot_hog &lt;dbl&gt;, numviv &lt;dbl&gt;,
+## #   informante_idoneo &lt;dbl+lbl&gt;, tel1 &lt;dbl+lbl&gt;, tel2 &lt;dbl+lbl&gt;,
+## #   tel3 &lt;dbl+lbl&gt;, tel4 &lt;dbl+lbl&gt;, tel5 &lt;dbl+lbl&gt;, tel6 &lt;dbl+lbl&gt;,
+## #   tel7 &lt;dbl+lbl&gt;, tel8 &lt;dbl+lbl&gt;, p0a &lt;dbl+lbl&gt;, p0b &lt;dbl+lbl&gt;, p1 &lt;dbl+lbl&gt;,
+## #   p2 &lt;dbl+lbl&gt;, p3 &lt;dbl+lbl&gt;, p4 &lt;dbl+lbl&gt;, p5 &lt;dbl+lbl&gt;, p6 &lt;dbl&gt;,
+## #   p7 &lt;dbl+lbl&gt;, p8 &lt;dbl&gt;, id_persona_e &lt;dbl+lbl&gt;, pco1 &lt;dbl+lbl&gt;,
+## #   tot_per &lt;dbl&gt;, h5 &lt;dbl&gt;, ecivil &lt;dbl+lbl&gt;, h5_1 &lt;chr&gt;, h5_2 &lt;dbl&gt;,
+## #   nucleo &lt;dbl&gt;, pco2 &lt;dbl+lbl&gt;, numper &lt;dbl&gt;, n_ocupados &lt;dbl&gt;,
+## #   n_desocupados &lt;dbl&gt;, n_inactivos &lt;dbl&gt;, conyuge_jh &lt;dbl+lbl&gt;, numnuc &lt;dbl&gt;,
+## #   men18c &lt;dbl+lbl&gt;, may60c &lt;dbl+lbl&gt;, tipohogar &lt;dbl+lbl&gt;, e2 &lt;dbl+lbl&gt;,
+## #   e5b &lt;dbl+lbl&gt;, e6a &lt;dbl+lbl&gt;, e6b &lt;dbl+lbl&gt;, asiste2 &lt;dbl+lbl&gt;, esc &lt;dbl&gt;,
+## #   esc2 &lt;dbl&gt;, educ &lt;dbl+lbl&gt;, o1 &lt;dbl+lbl&gt;, o2 &lt;dbl+lbl&gt;, o3 &lt;dbl+lbl&gt;,
+## #   o3b &lt;dbl+lbl&gt;, o4 &lt;dbl+lbl&gt;, o6 &lt;dbl+lbl&gt;, o7 &lt;dbl+lbl&gt;, o7_esp &lt;chr&gt;,
+## #   o9a &lt;chr&gt;, o9b &lt;chr&gt;, oficio4_08 &lt;dbl+lbl&gt;, oficio1_08 &lt;dbl+lbl&gt;,
+## #   oficio4_88 &lt;dbl+lbl&gt;, oficio1_88 &lt;dbl+lbl&gt;, o15 &lt;dbl+lbl&gt;, o16 &lt;dbl+lbl&gt;,
+## #   o17 &lt;dbl+lbl&gt;, o24 &lt;chr&gt;, rama4 &lt;dbl+lbl&gt;, rama1 &lt;dbl+lbl&gt;,
+## #   rama4_rev3 &lt;dbl+lbl&gt;, rama1_rev3 &lt;dbl+lbl&gt;, o29 &lt;dbl+lbl&gt;, o30 &lt;dbl+lbl&gt;,
+## #   o31 &lt;dbl+lbl&gt;, o32 &lt;dbl+lbl&gt;, o32_esp &lt;chr&gt;, o32b &lt;dbl+lbl&gt;,
+## #   o33a &lt;dbl+lbl&gt;, o33b &lt;dbl+lbl&gt;, o34 &lt;dbl+lbl&gt;, o35 &lt;dbl+lbl&gt;,
+## #   o36 &lt;dbl+lbl&gt;, activ &lt;dbl+lbl&gt;, activ2 &lt;dbl+lbl&gt;, ocup_inf &lt;dbl+lbl&gt;,
+## #   y1_preg &lt;dbl+lbl&gt;, y1 &lt;dbl&gt;, ...
+</code></pre></div><h4 id="select-con-patrones-de-texto"><code>select()</code> con patrones de texto</h4>
+<p>Podemos seleccionar variables considerando los prefijos, sufijos o partes de <em>cómo están nombradas las variables</em>. Independiente de qué tipo de patrón estes buscando, como todo texto y expresión regular en R (y gran parte de los carácteres) este texto debe venir entre <strong>comillas</strong>. Algunas de las funciones que posibilitan este proceso son:</p>
 <ul>
-<li><a href="https://ggdag.malco.io/articles/intro-to-ggdag.html" target="_blank" rel="noopener">&ldquo;An introduction to ggdag&rdquo;</a></li>
-<li><a href="https://ggdag.malco.io/articles/intro-to-dags.html" target="_blank" rel="noopener">&ldquo;An introduction to directed acyclic graphs&rdquo;</a></li>
-<li><a href="https://ggdag.malco.io/reference/index.html" target="_blank" rel="noopener">List of all ggdag-related functions</a></li>
+<li><code>starts_with()</code>: prefijo</li>
+<li><code>ends_with() </code>:  sufijo</li>
+<li><code>contains()</code> : contiene una cadena de texto literal</li>
+<li><code>matches()</code> : coincide con una expresión regular</li>
 </ul>
-<p>The syntax for <code>dagify()</code> is similar to the formula syntax you&rsquo;ve been using for building regression models with <code>lm()</code>. The formulas you use in <code>dagify()</code> indicate the relationships between nodes.</p>
-<p>For instance, in this DAG, <code>y</code> is caused by <code>x</code>, <code>a</code>, and <code>b</code> (<code>y ~ x + a + b</code>), and <code>x</code> is caused by <code>a</code> and <code>b</code> (<code>x ~ a + b</code>). This means that <code>a</code> and <code>b</code> are confounders. Use the <code>exposure</code> and <code>outcome</code> arguments to specify which nodes are the exposure (or treatment/intervention/program) and the outcome.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Create super basic DAG</span>
-simple_dag <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  y <span style="color:#f92672">~</span> x <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> b,
-  x <span style="color:#f92672">~</span> a <span style="color:#f92672">+</span> b,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>
-)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">starts_with</span>(<span style="color:#e6db74">&#34;a&#34;</span>), <span style="color:#a6e22e">ends_with</span>(<span style="color:#e6db74">&#34;preg&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 63
+##       area asiste2    activ   activ2 y1_preg y2a_preg y2b_preg y3a_preg y3b_preg
+##    &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+l&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt;
+##  1 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~ NA      NA       NA        NA       NA     
+##  2 1 [Urb~ 1 [Asi~ NA       NA       NA      NA       NA        NA       NA     
+##  3 1 [Urb~ 1 [Asi~ NA       NA       NA      NA       NA        NA       NA     
+##  4 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~  1 [Sí]  1 [Día~  1 [Hor~   1 [Sí]   1 [Sí]
+##  5 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~ NA      NA       NA        NA       NA     
+##  6 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~  1 [Sí]  1 [Día~  1 [Hor~   2 [No]   2 [No]
+##  7 1 [Urb~ 1 [Asi~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
+##  8 1 [Urb~ 2 [No ~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
+##  9 1 [Urb~ 2 [No ~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
+## 10 1 [Urb~ 2 [No ~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
+## # ... with 185,427 more rows, and 54 more variables: y3c_preg &lt;dbl+lbl&gt;,
+## #   y3d_preg &lt;dbl+lbl&gt;, y3e_preg &lt;dbl+lbl&gt;, y3f_preg &lt;dbl+lbl&gt;,
+## #   y4a_preg &lt;dbl+lbl&gt;, y4b_preg &lt;dbl+lbl&gt;, y4c_preg &lt;dbl+lbl&gt;,
+## #   y4d_preg &lt;dbl+lbl&gt;, y5a_preg &lt;dbl+lbl&gt;, y5b_preg &lt;dbl+lbl&gt;,
+## #   y5c_preg &lt;dbl+lbl&gt;, y5d_preg &lt;dbl+lbl&gt;, y5e_preg &lt;dbl+lbl&gt;,
+## #   y5f_preg &lt;dbl+lbl&gt;, y5g_preg &lt;dbl+lbl&gt;, y5h_preg &lt;dbl+lbl&gt;,
+## #   y5i_preg &lt;dbl+lbl&gt;, y5j_preg &lt;dbl+lbl&gt;, y5k_preg &lt;dbl+lbl&gt;,
+## #   y5l_preg &lt;dbl+lbl&gt;, y6_preg &lt;dbl+lbl&gt;, y7_preg &lt;dbl+lbl&gt;,
+## #   y8_preg &lt;dbl+lbl&gt;, y9_preg &lt;dbl+lbl&gt;, y10_preg &lt;dbl+lbl&gt;,
+## #   y11_preg &lt;dbl+lbl&gt;, y12a_preg &lt;dbl+lbl&gt;, y12b_preg &lt;dbl+lbl&gt;,
+## #   y13a_preg &lt;dbl+lbl&gt;, y13b_preg &lt;dbl+lbl&gt;, y13c_preg &lt;dbl+lbl&gt;,
+## #   y14a_preg &lt;dbl+lbl&gt;, y14b_preg &lt;dbl+lbl&gt;, y14c_preg &lt;dbl+lbl&gt;,
+## #   y15a_preg &lt;dbl+lbl&gt;, y15b_preg &lt;dbl+lbl&gt;, y15c_preg &lt;dbl+lbl&gt;,
+## #   y16a_preg &lt;dbl+lbl&gt;, y16b_preg &lt;dbl+lbl&gt;, y17_preg &lt;dbl+lbl&gt;,
+## #   y18a_preg &lt;dbl+lbl&gt;, y18b_preg &lt;dbl+lbl&gt;, y18c_preg &lt;dbl+lbl&gt;,
+## #   y18d_preg &lt;dbl+lbl&gt;, y22_preg &lt;dbl+lbl&gt;, y23a_preg &lt;dbl+lbl&gt;,
+## #   y24_preg &lt;dbl+lbl&gt;, y25a_preg &lt;dbl+lbl&gt;, y25g_preg &lt;dbl+lbl&gt;,
+## #   y26a_preg &lt;dbl+lbl&gt;, y26b_preg &lt;dbl+lbl&gt;, y26d_preg &lt;dbl+lbl&gt;,
+## #   y27_preg &lt;dbl+lbl&gt;, v19_preg &lt;dbl+lbl&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># También se pueden combinar con operadores logicos</span>
 
-<span style="color:#75715e"># Adding a theme_dag() layer to the plot makes it have a white background with no axis labels</span>
-<span style="color:#a6e22e">ggdag</span>(simple_dag) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/03-practico_files/figure-html/super-basic-dag-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>If you want to plot which nodes are the exposure and outcome, use <code>ggdag_status()</code> instead:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_status</span>(simple_dag) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/03-practico_files/figure-html/simple-status-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h3 id="layouts-and-manual-coordinates">Layouts and manual coordinates</h3>
-<p>Notice how the layout is different in both of those graphs. By default, <code>ggdag()</code> positions the nodes randomly every time using a network algorithm. You can change the algorithm by using the <code>layout</code> argument: <code>ggdag(simple_dag, layout = &quot;nicely&quot;)</code>. You can see a full list of possible algorithms by running <code>?layout_tbl_graph_igraph</code> in the console.</p>
-<p>Alternatively, you can specify your own coordinates so that the nodes are positioned in the same place every time. Do this with the <code>coords</code> argument in <code>dagify()</code>.</p>
-<p>The best way to figure out what these numbers should be is to draw the DAG on paper or on a whiteboard and add a grid to it and then figure out the coordinates. For instance, in this DAG there are three rows and three columns: <code>x</code> and <code>y</code> go in the middle row (row 2) while <code>a</code> and <code>b</code> go in the middle column (column 2). It can also be helpful to not include <code>theme_dag()</code> at first so you can see the numbers for the underlying grid. Once you have everything positioned correctly, add <code>theme_dag()</code> to clean it up.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">simple_dag_with_coords <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  y <span style="color:#f92672">~</span> x <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> b,
-  x <span style="color:#f92672">~</span> a <span style="color:#f92672">+</span> b,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>,
-  coords <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(x <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>),
-                y <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>))
-)
-
-<span style="color:#a6e22e">ggdag_status</span>(simple_dag_with_coords) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/03-practico_files/figure-html/dag-with-coords-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h3 id="node-names-and-labels">Node names and labels</h3>
-<p>The variable names you use do not have to be limited to just <code>x</code>, <code>y</code>, and other lowercase letters. You can any names you want, as long as there are no spaces.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">dag_with_var_names <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  outcome <span style="color:#f92672">~</span> treatment <span style="color:#f92672">+</span> confounder1 <span style="color:#f92672">+</span> confounder2,
-  treatment <span style="color:#f92672">~</span> confounder1 <span style="color:#f92672">+</span> confounder2,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;treatment&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;outcome&#34;</span>
-)
-
-<span style="color:#a6e22e">ggdag_status</span>(dag_with_var_names) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/03-practico_files/figure-html/dag-with-names-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>However, unless you use very short names, it is likely that the text will not fit inside the nodes. To get around this, you can add labels to the nodes using the <code>labels</code> argument in <code>dagify()</code>. Plot the labels by setting <code>use_labels = &quot;label&quot;</code> in <code>ggdag()</code>. You can turn off the text in the nodes with <code>text = FALSE</code> in <code>ggdag()</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">simple_dag_with_coords_and_labels <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  y <span style="color:#f92672">~</span> x <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> b,
-  x <span style="color:#f92672">~</span> a <span style="color:#f92672">+</span> b,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>,
-  labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Outcome&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Treatment&#34;</span>,
-             a <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Confounder 1&#34;</span>, b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Confounder 2&#34;</span>),
-  coords <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(x <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>),
-                y <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>))
-)
-
-<span style="color:#a6e22e">ggdag_status</span>(simple_dag_with_coords_and_labels,
-             use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;label&#34;</span>, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">guides</span>(fill <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>  <span style="color:#75715e"># Disable the legend</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/03-practico_files/figure-html/dag-with-labels-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h3 id="paths-and-adjustment-sets">Paths and adjustment sets</h3>
-<p>R can also perform analysis on DAG objects. For example, we can find all the testable implications from the DAG using the <code>impliedConditionalIndependencies()</code> function from the <strong>dagitty</strong> package. For this simple DAG, there is only one: <code>a</code> should be independent of <code>b</code>. If we had a dataset with columns for each of these variables, we could check if this is true by running <code>cor(a, b)</code> to see if the two are related.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">impliedConditionalIndependencies</span>(simple_dag)
-<span style="color:#75715e">## a _||_ b</span>
-</code></pre></div><p>We can also find all the paths between <code>x</code> and <code>y</code> using the <code>paths()</code> function from the <strong>dagitty</strong> package. We can see that there are three open paths between <code>x</code> and <code>y</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">paths</span>(simple_dag)
-<span style="color:#75715e">## $paths</span>
-<span style="color:#75715e">## [1] &#34;x -&gt; y&#34;      &#34;x &lt;- a -&gt; y&#34; &#34;x &lt;- b -&gt; y&#34;</span>
-<span style="color:#75715e">## </span>
-<span style="color:#75715e">## $open</span>
-<span style="color:#75715e">## [1] TRUE TRUE TRUE</span>
-</code></pre></div><p>The first open path is fine—we want a single <em>d</em>-connected relationship between treatment and outcome—but the other two indicate that there is confounding from <code>a</code> and <code>b</code>. We can see what each of these paths are with the <code>ggdag_paths()</code> function from the <strong>ggdag</strong> package:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_paths</span>(simple_dag_with_coords) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/03-practico_files/figure-html/plot-dag-paths-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Instead of listing out all the possible paths and identifying backdoors by hand, you can use the <code>adjustmentSets()</code> function in the <strong>dagitty</strong> package to programmatically find all the nodes that need to be adjusted. Here we see that both <code>a</code> and <code>b</code> need to be controlled for to isolate the <code>x -&gt; y</code> relationship.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">adjustmentSets</span>(simple_dag)
-<span style="color:#75715e">## { a, b }</span>
-</code></pre></div><p>You can also visualize the adjustment sets with <code>ggdag_adjustment_set()</code> in the <strong>ggdag</strong> package. Make sure you set <code>shadow = TRUE</code> to draw the arrows coming out of the adjusted nodes—by default, those are not included.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_adjustment_set</span>(simple_dag_with_coords, shadow <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/03-practico_files/figure-html/plot-adjustment-sets-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>R will find minimally sufficient adjustment sets, which includes the fewest number of adjustments needed to close all backdoors between <code>x</code> and <code>y</code>. In this example DAG there was only one set of variables (<code>a</code> and <code>b</code>), but in other situations there could be many possible sets, or none if the causal effect is not identifiable.</p>
-<h3 id="plot-dag-from-dagittynet-with-ggdag">Plot DAG from dagitty.net with <code>ggdag()</code></h3>
-<p>If you use <a href="http://dagitty.net/" target="_blank" rel="noopener">dagitty.net</a> to draw a DAG, you&rsquo;ll notice that it generates some code for you in the model code section:</p>
-<p><img src="/img/example/dagitty-code.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>You can copy that <code>dag{ ... }</code> code and paste it into R to define a DAG object rather than use the <code>dagify()</code> function. To do this, use the <code>dagitty()</code> function from the <strong>dagitty</strong> library and include the whole generated model code in single quotes (<code>''</code>):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">model_from_dagitty <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagitty</span>(<span style="color:#e6db74">&#39;dag {
-</span><span style="color:#e6db74">bb=&#34;0,0,1,1&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; [pos=&#34;0.809,0.306&#34;]
-</span><span style="color:#e6db74">&#34;Another confounder&#34; [pos=&#34;0.810,0.529&#34;]
-</span><span style="color:#e6db74">&#34;Some outcome&#34; [outcome,pos=&#34;0.918,0.432&#34;]
-</span><span style="color:#e6db74">&#34;Some treatment&#34; [exposure,pos=&#34;0.681,0.426&#34;]
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Some treatment&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">}
-</span><span style="color:#e6db74">&#39;</span>)
-
-<span style="color:#a6e22e">ggdag</span>(model_from_dagitty) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/03-practico_files/figure-html/code-from-dagitty-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>By default it&rsquo;s going to look ugly because (1) the node labels don&rsquo;t fit, and (2) slight differences in the coordinates make it so the nodes don&rsquo;t perfectly align with each other. To fix coordinate alignment, you can modify the numbers in the generated DAG code. Here I rounded the numbers so that they&rsquo;re all 0.3, 0.8, etc.</p>
-<p>To fix the label issue, you can add the <code>use_labels</code> argument like normally. Only here, you can&rsquo;t specify <code>use_labels = &quot;label&quot;</code>. Instead, when you specify a DAG using dagitty&rsquo;s code like this, the column in the underlying dataset that contains the labels is named <code>name</code>, so you need to use <code>use_labels = &quot;name&quot;</code>.</p>
-<p>Other <code>ggdag()</code> variations like <code>ggdag_status()</code> will still work fine.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">model_from_dagitty_rounded <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagitty</span>(<span style="color:#e6db74">&#39;dag {
-</span><span style="color:#e6db74">bb=&#34;0,0,1,1&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; [pos=&#34;0.8,0.3&#34;]
-</span><span style="color:#e6db74">&#34;Another confounder&#34; [pos=&#34;0.8,0.5&#34;]
-</span><span style="color:#e6db74">&#34;Some outcome&#34; [outcome,pos=&#34;0.9,0.4&#34;]
-</span><span style="color:#e6db74">&#34;Some treatment&#34; [exposure,pos=&#34;0.7,0.4&#34;]
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Some treatment&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">}
-</span><span style="color:#e6db74">&#39;</span>)
-
-<span style="color:#a6e22e">ggdag_status</span>(model_from_dagitty_rounded, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">guides</span>(color <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>  <span style="color:#75715e"># Turn off legend</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/03-practico_files/figure-html/code-from-dagitty-better-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h2 id="mosquito-net-example">Mosquito net example</h2>
-<h3 id="conditional-independencies">Conditional independencies</h3>
-<p>You can test if your stated relationships are correct by looking at the conditional independencies that are implied by the DAG. In dagitty.net, these appear in the sidebar in the &ldquo;Testable implications&rdquo; section. To show how this works, we&rsquo;ll use a simulated dataset that I generated about a fictional mosquito net program. Download the data here if you want to follow along:</p>
+<span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">starts_with</span>(<span style="color:#e6db74">&#34;y1&#34;</span>)<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ends_with</span>(<span style="color:#e6db74">&#34;preg&#34;</span>)) 
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 21
+##     y1_preg y10_preg  y11_preg y12a_preg y12b_preg y13a_preg y13b_preg y13c_preg
+##    &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;
+##  1  NA            NA NA           2 [No]    2 [No]    2 [No]    2 [No]    1 [Sí]
+##  2  NA            NA NA          NA        NA         2 [No]    1 [Sí]    2 [No]
+##  3  NA            NA NA          NA        NA         2 [No]    2 [No]    1 [Sí]
+##  4   1 [Sí]       NA NA           2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+##  5  NA            NA NA           2 [No]    2 [No]    2 [No]    2 [No]    1 [Sí]
+##  6   1 [Sí]       NA NA           2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+##  7  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+##  8  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+##  9  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+## 10  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+## # ... with 185,427 more rows, and 13 more variables: y14a_preg &lt;dbl+lbl&gt;,
+## #   y14b_preg &lt;dbl+lbl&gt;, y14c_preg &lt;dbl+lbl&gt;, y15a_preg &lt;dbl+lbl&gt;,
+## #   y15b_preg &lt;dbl+lbl&gt;, y15c_preg &lt;dbl+lbl&gt;, y16a_preg &lt;dbl+lbl&gt;,
+## #   y16b_preg &lt;dbl+lbl&gt;, y17_preg &lt;dbl+lbl&gt;, y18a_preg &lt;dbl+lbl&gt;,
+## #   y18b_preg &lt;dbl+lbl&gt;, y18c_preg &lt;dbl+lbl&gt;, y18d_preg &lt;dbl+lbl&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">contains</span>(<span style="color:#e6db74">&#34;pobre&#34;</span>)<span style="color:#f92672">|</span><span style="color:#a6e22e">contains</span>(<span style="color:#e6db74">&#34;vivienda&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 3
+##          pobreza                          pobreza_sinte id_vivienda
+##        &lt;dbl+lbl&gt;                              &lt;dbl+lbl&gt;       &lt;dbl&gt;
+##  1 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100101
+##  2 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100101
+##  3 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100102
+##  4 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100102
+##  5 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100102
+##  6 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100103
+##  7 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100103
+##  8 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100103
+##  9 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100104
+## 10 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100104
+## # ... with 185,427 more rows
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">matches</span>(<span style="color:#e6db74">&#34;pobreza_|vivienda&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 2
+##    id_vivienda                          pobreza_sinte
+##          &lt;dbl&gt;                              &lt;dbl+lbl&gt;
+##  1  1101100101 3 [No pobres sin transferencia Covid ]
+##  2  1101100101 3 [No pobres sin transferencia Covid ]
+##  3  1101100102 3 [No pobres sin transferencia Covid ]
+##  4  1101100102 3 [No pobres sin transferencia Covid ]
+##  5  1101100102 3 [No pobres sin transferencia Covid ]
+##  6  1101100103 3 [No pobres sin transferencia Covid ]
+##  7  1101100103 3 [No pobres sin transferencia Covid ]
+##  8  1101100103 3 [No pobres sin transferencia Covid ]
+##  9  1101100104 3 [No pobres sin transferencia Covid ]
+## 10  1101100104 3 [No pobres sin transferencia Covid ]
+## # ... with 185,427 more rows
+</code></pre></div><h4 id="select-y-condiciones-lógicas"><code>select()</code> y condiciones lógicas</h4>
+<p>Si combinamos <code>select()</code> con <code>where()</code> obtendremos algo así como una frase <em>&ldquo;seleciona donde&rdquo;</em>, ese <em>donde</em> responde a una condición que cumple cierta variable. Por ejemplo, queremos seleccionar todas las variables que son carácteres (<code>is.character</code>):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, <span style="color:#a6e22e">where</span>(is.character))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 19
+##    h5_1   o7_esp o9a     o9b    o24     o32_esp y3f_esp y4d_esp y18d_esp y27_esp
+##    &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;  
+##  1 0      &#34;&#34;     &#34;VENDE~ &#34;VEND~ &#34;VENDE~ &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
+##  2 5      &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
+##  3 32     &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
+##  4 0      &#34;&#34;     &#34;GASTR~ &#34;BARM~ &#34;HOTEL~ &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
+##  5 32     &#34;&#34;     &#34;ARTES~ &#34;QUEQ~ &#34;HACE ~ &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
+##  6 0      &#34;&#34;     &#34;DGAC&#34;  &#34;CONT~ &#34;AEROP~ &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
+##  7 116|1~ &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
+##  8 0      &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
+##  9 0      &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
+## 10 0      &#34;&#34;     &#34;&#34;      &#34;&#34;     &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;      &#34;&#34;       &#34;&#34;     
+## # ... with 185,427 more rows, and 9 more variables: y28_1j_esp &lt;chr&gt;,
+## #   s18_esp &lt;chr&gt;, s28_esp &lt;chr&gt;, s30_esp &lt;chr&gt;, r1b_comuna_esp &lt;chr&gt;,
+## #   r1b_pais_esp &lt;chr&gt;, r2_comuna_esp &lt;chr&gt;, r2_pais_esp &lt;chr&gt;, v20_esp &lt;chr&gt;
+</code></pre></div><p>Luego de la revisión del libro de códigos y la exploración de datos mediante a funciones como <code>find_var()</code> de <code>sjmisc</code> decidimos trabajar con las siguientes variables.</p>
 <ul>
-<li><a href="/data/mosquito_nets.csv"><i class="fas fa-table"></i> <code>mosquito_nets.csv</code></a></li>
+<li><code>edad</code></li>
+<li><code>sexo</code></li>
+<li><code>s13</code>: previsión de salud</li>
+<li><code>tot_per</code>: número de personas en el hogar</li>
+<li><code>ytoth</code>: ingresos totales del hogar</li>
+<li><code>o1</code>: ocupación</li>
+<li><code>y26d_total</code>: Monto del IFE</li>
+<li><code>y26d_hog</code>: ¿Alguien recibió el IFE?</li>
 </ul>
-<p>Researchers are interested in whether using mosquito nets decreases an individual&rsquo;s risk of contracting malaria. They have collected data from 1,752 households in an unnamed country and have variables related to environmental factors, individual health, and household characteristics. Additionally, this country has a special government program that provides free mosquito nets to households that meet specific requirements: to qualify for the program, there must be more than 4 members of the household, and the household&rsquo;s monthly income must be lower than $700 a month. Households are not automatically enrolled in the program, and many do not use it. The data is not experimental—researchers have no control over who uses mosquito nets, and individual households make their own choices over whether to apply for free nets or buy their own nets, as well as whether they use the nets if they have them.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">mosquito_dag <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  malaria_risk <span style="color:#f92672">~</span> net <span style="color:#f92672">+</span> income <span style="color:#f92672">+</span> health <span style="color:#f92672">+</span> temperature <span style="color:#f92672">+</span> resistance,
-  net <span style="color:#f92672">~</span> income <span style="color:#f92672">+</span> health <span style="color:#f92672">+</span> temperature <span style="color:#f92672">+</span> eligible <span style="color:#f92672">+</span> household,
-  eligible <span style="color:#f92672">~</span> income <span style="color:#f92672">+</span> household,
-  health <span style="color:#f92672">~</span> income,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;net&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;malaria_risk&#34;</span>,
-  coords <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(x <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(malaria_risk <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>, net <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, income <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>, health <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>,
-                      temperature <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>, resistance <span style="color:#f92672">=</span> <span style="color:#ae81ff">8.5</span>, eligible <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, household <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>),
-                y <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(malaria_risk <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, net <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, income <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, health <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>,
-                      temperature <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, resistance <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, eligible <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, household <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)),
-  labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(malaria_risk <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Risk of malaria&#34;</span>, net <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mosquito net&#34;</span>, income <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Income&#34;</span>,
-             health <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Health&#34;</span>, temperature <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Nighttime temperatures&#34;</span>,
-             resistance <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Insecticide resistance&#34;</span>,
-             eligible <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Eligible for program&#34;</span>, household <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number in household&#34;</span>)
-)
+<p>¡Apliquémos conocimientos!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">select</span>(datos, edad, sexo, prev <span style="color:#f92672">=</span><span style="color:#ae81ff">592</span>, ocupacion <span style="color:#f92672">=</span> o1, tot_per, ytoth, <span style="color:#a6e22e">starts_with</span>(<span style="color:#e6db74">&#34;y26d_&#34;</span>)<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">matches</span>(<span style="color:#e6db74">&#34;total|hog&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 8
+##     edad      sexo             prev ocupacion tot_per  ytoth y26d_hog y26d_total
+##    &lt;dbl&gt; &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
+##  1    34 2 [Mujer] 3 [ISAPRE]          2 [No]       2 3.91e5   1 [Sí]         NA
+##  2     4 2 [Mujer] 3 [ISAPRE]         NA            2 3.91e5   1 [Sí]         NA
+##  3     5 2 [Mujer] 4 [Ninguno (par~   NA            3 9.48e5   2 [No]         NA
+##  4    45 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       3 9.48e5   2 [No]         NA
+##  5    19 2 [Mujer] 4 [Ninguno (par~    2 [No]       3 9.48e5   2 [No]         NA
+##  6    57 1 [Hombr~ 5 [Otro sistema]    1 [Sí]       3 3.00e6   2 [No]         NA
+##  7    20 1 [Hombr~ 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  8    56 2 [Mujer] 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  9    77 1 [Hombr~ 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+## 10    60 2 [Mujer] 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+## # ... with 185,427 more rows
+</code></pre></div><p>Es una buena práctica trabajar solo con las columnas que utilizaremos para el análisis, principalmente pues disminuye el <em>uso de memoria</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">select</span>(datos, edad, sexo, prev <span style="color:#f92672">=</span> <span style="color:#ae81ff">592</span>, ocupacion <span style="color:#f92672">=</span> o1, tot_per, ytoth, <span style="color:#a6e22e">starts_with</span>(<span style="color:#e6db74">&#34;y26d_&#34;</span>)<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">matches</span>(<span style="color:#e6db74">&#34;total|hog&#34;</span>))
+</code></pre></div><p>El nuevo objeto posee650 variables (columnas), pero conserva las filas 185.437 (u observaciones) ¿Qué pasa si quiero trabajar con un <em>subset</em> de casos? La respuesta es <code>filter()</code></p>
+<h3 id="52-filter-para-manipular-observaciones">5.2 <code>filter()</code> para manipular observaciones</h3>
+<p>La función <code>filter()</code> de <code>dplyr</code> escoge o extrae filas basados en sus valores, subdivide un data frame (<em>subset</em>), reteniendo todas las filas que satisfacen sus condiciones.</p>
+<p>Con <code>filter()</code> será esencial el uso de los <strong>operadores</strong> que ya vimos, dado que las observaciones que preservarán en nuestros datos (y aquellas que no), están definidas por condiciones lógicas (relacionales o booleanas)</p>
+<div class="note">
+filter(datos, condicion_para filtrar)
+Esta condición para filtrar podría ser, por ejemplo
+variable1 &gt;= 3
+</div>
 
-<span style="color:#a6e22e">ggdag_status</span>(mosquito_dag, use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;label&#34;</span>, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">guides</span>(fill <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>  <span style="color:#75715e"># Disable the legend</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/03-practico_files/figure-html/build-mosquito-dag-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>The causal graph above  outlines the complete relationship between mosquito net use and risk of malaria. Each node in the DAG is a column in the dataset collected by the researchers, and includes the following:</p>
+<h4 id="filter-con-números"><code>filter</code> con números</h4>
+<p>Imaginémos que queremos una base con las personas mayores de 15 años. Pero también que pertenezcan a hogares con menos de 7 personas.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, edad <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">15</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 151,315 x 8
+##     edad      sexo             prev ocupacion tot_per  ytoth y26d_hog y26d_total
+##    &lt;dbl&gt; &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
+##  1    34 2 [Mujer] 3 [ISAPRE]          2 [No]       2 3.91e5   1 [Sí]         NA
+##  2    45 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       3 9.48e5   2 [No]         NA
+##  3    19 2 [Mujer] 4 [Ninguno (par~    2 [No]       3 9.48e5   2 [No]         NA
+##  4    57 1 [Hombr~ 5 [Otro sistema]    1 [Sí]       3 3.00e6   2 [No]         NA
+##  5    20 1 [Hombr~ 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  6    56 2 [Mujer] 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  7    77 1 [Hombr~ 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+##  8    60 2 [Mujer] 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+##  9    54 2 [Mujer] 1 [Sistema Públ~    1 [Sí]       4 1.32e6   1 [Sí]         NA
+## 10    18 1 [Hombr~ 4 [Ninguno (par~    2 [No]       4 1.32e6   1 [Sí]         NA
+## # ... with 151,305 more rows
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, edad <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">&amp;</span> tot_per <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">7</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 144,418 x 8
+##     edad      sexo             prev ocupacion tot_per  ytoth y26d_hog y26d_total
+##    &lt;dbl&gt; &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
+##  1    34 2 [Mujer] 3 [ISAPRE]          2 [No]       2 3.91e5   1 [Sí]         NA
+##  2    45 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       3 9.48e5   2 [No]         NA
+##  3    19 2 [Mujer] 4 [Ninguno (par~    2 [No]       3 9.48e5   2 [No]         NA
+##  4    57 1 [Hombr~ 5 [Otro sistema]    1 [Sí]       3 3.00e6   2 [No]         NA
+##  5    20 1 [Hombr~ 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  6    56 2 [Mujer] 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  7    77 1 [Hombr~ 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+##  8    60 2 [Mujer] 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+##  9    54 2 [Mujer] 1 [Sistema Públ~    1 [Sí]       4 1.32e6   1 [Sí]         NA
+## 10    18 1 [Hombr~ 4 [Ninguno (par~    2 [No]       4 1.32e6   1 [Sí]         NA
+## # ... with 144,408 more rows
+</code></pre></div><p>¿Y si quiero filtrar para saber el valor máximo de ingresos (<code>ytoth</code>)?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, ytoth <span style="color:#f92672">==</span> <span style="color:#a6e22e">max</span>(ytoth))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 1 x 8
+##    edad      sexo             prev ocupacion tot_per   ytoth y26d_hog y26d_total
+##   &lt;dbl&gt; &lt;dbl+lbl&gt;        &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
+## 1    41 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       1  2.25e8   2 [No]         NA
+</code></pre></div><p>¡Gana $225.200.000, es Hombre y tiene 41 años! (y vive solo&hellip;)</p>
+<h4 id="filter-con-carácteres"><code>filter()</code> con carácteres</h4>
+<p>Si queremos filtrar por la variable <code>sexo</code> solo a las mujeres, tengo dos opciones: o solo selecciono a las mujeres (<code>==</code>) o excluyo a los hombres (<code>!=</code>).</p>
+<p>Ahora bien, antes hay que hacer una precisión importante: en los datos <code>sexo</code> es una variable que está como <code>dbl</code> y <code>lbl</code> (número etiquetado), por lo que no es que en la base aparezcan &ldquo;Mujeres&rdquo; y &ldquo;Hombres&rdquo;, sino que 2 y 1.</p>
+<p>Por ello, con el siguiente código aparecerá un error en sus consolas.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, sexo <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Mujer&#34;</span>)
+</code></pre></div><p>Una función <strong>muy muy útil</strong> (sobre todo cuando trabajemos con regresiones) es <code>as_factor()</code> que permite conservar los niveles pero definiendo sus categorías de respuesta en base a la etiqueta que traen (el <code>lbl</code>)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc<span style="color:#f92672">$</span>sexo <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as_factor</span>(datos_proc<span style="color:#f92672">$</span>sexo)
+</code></pre></div><p>¡Ahora si funcionará!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, sexo <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Mujer&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 99,341 x 8
+##     edad sexo                 prev ocupacion tot_per   ytoth y26d_hog y26d_total
+##    &lt;dbl&gt; &lt;fct&gt;           &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
+##  1    34 Mujer 3 [ISAPRE]             2 [No]       2  390833   1 [Sí]         NA
+##  2     4 Mujer 3 [ISAPRE]            NA            2  390833   1 [Sí]         NA
+##  3     5 Mujer 4 [Ninguno (partic~   NA            3  947583   2 [No]         NA
+##  4    19 Mujer 4 [Ninguno (partic~    2 [No]       3  947583   2 [No]         NA
+##  5    56 Mujer 5 [Otro sistema]       2 [No]       3 3004167   2 [No]         NA
+##  6    60 Mujer 1 [Sistema Público~    2 [No]       2  610250   2 [No]         NA
+##  7    54 Mujer 1 [Sistema Público~    1 [Sí]       4 1321481   1 [Sí]         NA
+##  8    31 Mujer 1 [Sistema Público~    1 [Sí]       4 1110000   2 [No]         NA
+##  9     9 Mujer 1 [Sistema Público~   NA            4 1110000   2 [No]         NA
+## 10    77 Mujer 1 [Sistema Público~    2 [No]       1  739833   2 [No]         NA
+## # ... with 99,331 more rows
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">filter</span>(datos_proc, sexo <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;Hombre&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 99,341 x 8
+##     edad sexo                 prev ocupacion tot_per   ytoth y26d_hog y26d_total
+##    &lt;dbl&gt; &lt;fct&gt;           &lt;dbl+lbl&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
+##  1    34 Mujer 3 [ISAPRE]             2 [No]       2  390833   1 [Sí]         NA
+##  2     4 Mujer 3 [ISAPRE]            NA            2  390833   1 [Sí]         NA
+##  3     5 Mujer 4 [Ninguno (partic~   NA            3  947583   2 [No]         NA
+##  4    19 Mujer 4 [Ninguno (partic~    2 [No]       3  947583   2 [No]         NA
+##  5    56 Mujer 5 [Otro sistema]       2 [No]       3 3004167   2 [No]         NA
+##  6    60 Mujer 1 [Sistema Público~    2 [No]       2  610250   2 [No]         NA
+##  7    54 Mujer 1 [Sistema Público~    1 [Sí]       4 1321481   1 [Sí]         NA
+##  8    31 Mujer 1 [Sistema Público~    1 [Sí]       4 1110000   2 [No]         NA
+##  9     9 Mujer 1 [Sistema Público~   NA            4 1110000   2 [No]         NA
+## 10    77 Mujer 1 [Sistema Público~    2 [No]       1  739833   2 [No]         NA
+## # ... with 99,331 more rows
+</code></pre></div><div class="note">
+<strong>Ojo</strong>. R es <em>sensible</em> a cómo está escrito el texto. Si pones el mismo código pero sin respetar mayúsuculas y minúsculas el código no funcionará
+</div>
+
+<p>¡Por último! ¿Cómo se seleccionan dos condiciones en carácter? Con el operador <code>%in%</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc<span style="color:#f92672">$</span>prev <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as_factor</span>(datos_proc<span style="color:#f92672">$</span>prev)
+
+<span style="color:#a6e22e">filter</span>(datos_proc, prev <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Sistema Público FONASA&#34;</span>, <span style="color:#e6db74">&#34;ISAPRE&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 169,503 x 8
+##     edad sexo   prev               ocupacion tot_per   ytoth y26d_hog y26d_total
+##    &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;              &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
+##  1    34 Mujer  ISAPRE                2 [No]       2  390833   1 [Sí]         NA
+##  2     4 Mujer  ISAPRE               NA            2  390833   1 [Sí]         NA
+##  3    45 Hombre Sistema Público F~    1 [Sí]       3  947583   2 [No]         NA
+##  4    77 Hombre Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+##  5    60 Mujer  Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+##  6    11 Hombre Sistema Público F~   NA            4 1321481   1 [Sí]         NA
+##  7    54 Mujer  Sistema Público F~    1 [Sí]       4 1321481   1 [Sí]         NA
+##  8    57 Hombre Sistema Público F~    1 [Sí]       4 1321481   1 [Sí]         NA
+##  9    55 Hombre Sistema Público F~    1 [Sí]       4 1110000   2 [No]         NA
+## 10    31 Mujer  Sistema Público F~    1 [Sí]       4 1110000   2 [No]         NA
+## # ... with 169,493 more rows
+</code></pre></div><p>Antes de definir que observaciones vamos a conservar en una base procesada <code>datos_proc</code> ¡Creemos transformemos variables con <code>mutate()</code>!</p>
+<h3 id="53-mutate-para-transformación-de--variables">5.3 <code>mutate()</code> para transformación de  variables</h3>
+<p>La función de <code>mutate()</code> permite hacer operaciones para crear nuevas variables o transformar las ya existentes.</p>
+<div class="note">
+mutate(datos, nueva_variable = cálculo o condición)
+</div>
+
+<h4 id="mutate-en-base-a-cálculo"><code>mutate()</code> en base a cálculo</h4>
+<p>Calcularemos una nueva variable llamada <code>nueva_variable</code> que proviene de la suma de 2+3. También una variable <code>ingreso_percapita</code> que proviene de la división del ingreso total del hogar y el número de personas que residen en el hogar</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">mutate</span>(datos_proc, nueva_variable <span style="color:#f92672">=</span> <span style="color:#ae81ff">3+2</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 9
+##     edad sexo  prev  ocupacion tot_per  ytoth y26d_hog y26d_total nueva_variable
+##    &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;          &lt;dbl&gt;
+##  1    34 Mujer ISAP~    2 [No]       2 3.91e5   1 [Sí]         NA              5
+##  2     4 Mujer ISAP~   NA            2 3.91e5   1 [Sí]         NA              5
+##  3     5 Mujer Ning~   NA            3 9.48e5   2 [No]         NA              5
+##  4    45 Homb~ Sist~    1 [Sí]       3 9.48e5   2 [No]         NA              5
+##  5    19 Mujer Ning~    2 [No]       3 9.48e5   2 [No]         NA              5
+##  6    57 Homb~ Otro~    1 [Sí]       3 3.00e6   2 [No]         NA              5
+##  7    20 Homb~ Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
+##  8    56 Mujer Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
+##  9    77 Homb~ Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
+## 10    60 Mujer Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
+## # ... with 185,427 more rows
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">mutate</span>(datos_proc, nueva_variable <span style="color:#f92672">=</span> <span style="color:#ae81ff">3+2</span>,
+       ingreso_percapita <span style="color:#f92672">=</span> ytoth<span style="color:#f92672">/</span>tot_per)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 10
+##     edad sexo  prev  ocupacion tot_per  ytoth y26d_hog y26d_total nueva_variable
+##    &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt; &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;          &lt;dbl&gt;
+##  1    34 Mujer ISAP~    2 [No]       2 3.91e5   1 [Sí]         NA              5
+##  2     4 Mujer ISAP~   NA            2 3.91e5   1 [Sí]         NA              5
+##  3     5 Mujer Ning~   NA            3 9.48e5   2 [No]         NA              5
+##  4    45 Homb~ Sist~    1 [Sí]       3 9.48e5   2 [No]         NA              5
+##  5    19 Mujer Ning~    2 [No]       3 9.48e5   2 [No]         NA              5
+##  6    57 Homb~ Otro~    1 [Sí]       3 3.00e6   2 [No]         NA              5
+##  7    20 Homb~ Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
+##  8    56 Mujer Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
+##  9    77 Homb~ Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
+## 10    60 Mujer Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
+## # ... with 185,427 more rows, and 1 more variable: ingreso_percapita &lt;dbl&gt;
+</code></pre></div><p>¿Qué pasa si queremos, luego de calcular nuestras nuevas variables, filtrar un ingreso per cápita menor o igual a $1.000.000</p>
+<p><strong>¡Ahora entra en escena nuestro operador estrella <code>%&gt;%</code>!</strong></p>
+<div class="note">
+datos %&gt;% 
+mutate(., nueva_variable = calculo ) %&gt;% 
+filter(., nueva_variable &lt;= valor)
+</div>
+
+<p>Básicamente, el <code>%&gt;%</code> permite &ldquo;ingresar&rdquo; nuestra base de datos como argumento para cada función e ir operándola en proceso</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">mutate</span>(ingreso_percapita <span style="color:#f92672">=</span> ytoth<span style="color:#f92672">/</span>tot_per) <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">filter</span>(ingreso_percapita <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1000000</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 176,094 x 9
+##     edad sexo   prev               ocupacion tot_per   ytoth y26d_hog y26d_total
+##    &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;              &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
+##  1    34 Mujer  ISAPRE                2 [No]       2  390833   1 [Sí]         NA
+##  2     4 Mujer  ISAPRE               NA            2  390833   1 [Sí]         NA
+##  3     5 Mujer  Ninguno (particul~   NA            3  947583   2 [No]         NA
+##  4    45 Hombre Sistema Público F~    1 [Sí]       3  947583   2 [No]         NA
+##  5    19 Mujer  Ninguno (particul~    2 [No]       3  947583   2 [No]         NA
+##  6    77 Hombre Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+##  7    60 Mujer  Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+##  8    11 Hombre Sistema Público F~   NA            4 1321481   1 [Sí]         NA
+##  9    54 Mujer  Sistema Público F~    1 [Sí]       4 1321481   1 [Sí]         NA
+## 10    18 Hombre Ninguno (particul~    2 [No]       4 1321481   1 [Sí]         NA
+## # ... with 176,084 more rows, and 1 more variable: ingreso_percapita &lt;dbl&gt;
+</code></pre></div><h4 id="recode"><code>recode()</code></h4>
+<p>La función denominada <em>recode</em> puede reemplazar valores numéricos en base a su posición o su nombre, y valores de carácteres o factores sólo por su nombre.</p>
+<p>En el siguiente ejemplo recodificamos las categorías de respuesta de Mujer a Femenino y de Hombre a Masculino</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(sexo <span style="color:#f92672">=</span> dplyr<span style="color:#f92672">::</span><span style="color:#a6e22e">recode</span>(sexo, <span style="color:#e6db74">&#34;Mujer&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Femenino&#34;</span>, <span style="color:#e6db74">&#34;Hombre&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Masculino&#34;</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 8
+##     edad sexo     prev              ocupacion tot_per  ytoth y26d_hog y26d_total
+##    &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;             &lt;dbl+lbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
+##  1    34 Femenino ISAPRE               2 [No]       2 3.91e5   1 [Sí]         NA
+##  2     4 Femenino ISAPRE              NA            2 3.91e5   1 [Sí]         NA
+##  3     5 Femenino Ninguno (particu~   NA            3 9.48e5   2 [No]         NA
+##  4    45 Masculi~ Sistema Público ~    1 [Sí]       3 9.48e5   2 [No]         NA
+##  5    19 Femenino Ninguno (particu~    2 [No]       3 9.48e5   2 [No]         NA
+##  6    57 Masculi~ Otro sistema         1 [Sí]       3 3.00e6   2 [No]         NA
+##  7    20 Masculi~ Otro sistema         2 [No]       3 3.00e6   2 [No]         NA
+##  8    56 Femenino Otro sistema         2 [No]       3 3.00e6   2 [No]         NA
+##  9    77 Masculi~ Sistema Público ~    2 [No]       2 6.10e5   2 [No]         NA
+## 10    60 Femenino Sistema Público ~    2 [No]       2 6.10e5   2 [No]         NA
+## # ... with 185,427 more rows
+</code></pre></div><p>El problema de <code>recode()</code> que se utiliza dentro de <code>dplyr</code> es que si recodifico se pierde la etiqueta anterior. Esto es un problema a si por ejemplo, solo quiero recodificar casos perdidos.</p>
+<p>Frente a ello, con el tiempo nos hemos convencido de que la mejor solución hasta ahora es ocupar <code>recode()</code> del paquete <code>car</code>. Si recuerdan, dos funciones con el mismo nombre podrían producir <em>conflictos</em>, y por ello, especificaremos con <code>car::recode()</code> que la función <code>recode()</code> que ocupamos proviene de <code>car</code></p>
+<div class="note">
+<p>datos %$% 
+car::recode(.$variable, c(&lsquo;valor_orig1=nuevo_valor1;valor_org2=nuevo_valor2&rsquo;))</p>
+<p><em>Ojo: %$% es el primo hermano de %&gt;% (básicamente funcionan igual, pero este es necesario para car)</em></p>
+
+</div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%$%</span> 
+  car<span style="color:#f92672">::</span><span style="color:#a6e22e">recode</span>(.$y26d_hog, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;9=NA&#39;</span>)) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">head</span>(.)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## &lt;labelled&lt;double&gt;[6]&gt;: y26d_hog. Últimos 12 meses, ¿alguien recibió Ingreso Familiar de Emergencia?
+## [1] 1 1 2 2 2 2
+## 
+## Labels:
+##  value   label
+##      1      Sí
+##      2      No
+##      9 No sabe
+</code></pre></div><p>Aquí una versión de si la recodificación es hacia carácteres (mismo ejemplo que con <code>recode()</code> de <code>dplyr</code>)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%$%</span> 
+  car<span style="color:#f92672">::</span><span style="color:#a6e22e">recode</span>(.$sexo, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;&#34;Mujer&#34;=&#34;Femenino&#34;;&#34;Hombre&#34;= &#34;Masculino&#34;&#39;</span>), as.factor <span style="color:#f92672">=</span> T) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">head</span>(.)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] Femenino  Femenino  Femenino  Masculino Femenino  Masculino
+## Levels: Femenino Masculino
+</code></pre></div><h3 id="532-if_else-para-construir-variables-condicionales">5.3.2 <code>if_else()</code> para construir variables condicionales</h3>
+<p>La función <code>if_else()</code> permite construir variables en base a condiciones lógicas. Su estructura es la siguiente</p>
+<div class="note">
+if_else(condición,TRUE,FALSE)
+Donde dice <code>TRUE</code> es el valor que se obtiene si la condición es verdadera, mientras que <code>FALSE</code> es todo el resto de las opciones (o cuando es FALSA)
+</div>
+
+<p>Crearemos una variable que <em>dummy</em> que indica si el respondente es <em>FONASA</em> o no lo es.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+ 		 <span style="color:#a6e22e">mutate</span>(fonasa <span style="color:#f92672">=</span> <span style="color:#a6e22e">if_else</span>(prev <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Sistema Público FONASA&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>))
+</code></pre></div><p>También podemos ocupar esta función como validador, por ejemplo, rellenando con valores lógicos como <code>FALSE</code> cuando no hay valores en <code>ytoth</code>. Luego esos <code>FALSE</code> podrían ser contados en otros procesos estadísticos</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(validador_ingreso <span style="color:#f92672">=</span> <span style="color:#a6e22e">if_else</span>(<span style="color:#a6e22e">is.na</span>(ytoth), <span style="color:#66d9ef">FALSE</span>, <span style="color:#66d9ef">TRUE</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 9
+##     edad sexo   prev               ocupacion tot_per   ytoth y26d_hog y26d_total
+##    &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;              &lt;dbl+lbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lb&gt;  &lt;dbl+lbl&gt;
+##  1    34 Mujer  ISAPRE                2 [No]       2  390833   1 [Sí]         NA
+##  2     4 Mujer  ISAPRE               NA            2  390833   1 [Sí]         NA
+##  3     5 Mujer  Ninguno (particul~   NA            3  947583   2 [No]         NA
+##  4    45 Hombre Sistema Público F~    1 [Sí]       3  947583   2 [No]         NA
+##  5    19 Mujer  Ninguno (particul~    2 [No]       3  947583   2 [No]         NA
+##  6    57 Hombre Otro sistema          1 [Sí]       3 3004167   2 [No]         NA
+##  7    20 Hombre Otro sistema          2 [No]       3 3004167   2 [No]         NA
+##  8    56 Mujer  Otro sistema          2 [No]       3 3004167   2 [No]         NA
+##  9    77 Hombre Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+## 10    60 Mujer  Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+## # ... with 185,427 more rows, and 1 more variable: validador_ingreso &lt;lgl&gt;
+</code></pre></div><h3 id="532-case_when-para-construir-variable-en-base-a-múltiples-condiciones">5.3.2 <code>case_when()</code> para construir variable en base a múltiples condiciones</h3>
+<p>Una función que se utiliza frecuentemente para <em>colapsar</em> categorías o construir categorías en base a varias condiciones es <code>case_when()</code> por lo lógico y <em>fácil</em> que es de entender</p>
+<div class="note">
+<p>case_when(variable == condicion ~ valor1,
+variable == condicion ~ valor2,
+TRUE ~ NA_real)</p>
 <ul>
-<li>Malaria risk (<code>malaria_risk</code>): The likelihood that someone in the household will be infected with malaria. Measured on a scale of 0–100, with higher values indicating higher risk.</li>
-<li>Mosquito net (<code>net</code> and <code>net_num</code>): A binary variable indicating if the household used mosquito nets.</li>
-<li>Eligible for program (<code>eligible</code>): A binary variable indicating if the household is eligible for the free net program.</li>
-<li>Income (<code>income</code>): The household&rsquo;s monthly income, in US dollars.</li>
-<li>Nighttime temperatures (<code>temperature</code>): The average temperature at night, in Celsius.</li>
-<li>Health (<code>health</code>): Self-reported healthiness in the household. Measured on a scale of 0–100, with higher values indicating better health.</li>
-<li>Number in household (<code>household</code>): Number of people living in the household.</li>
-<li>Insecticide resistance (<code>resistance</code>): Some strains of mosquitoes are more resistant to insecticide and thus pose a higher risk of infecting people with malaria. This is measured on a scale of 0–100, with higher values indicating higher resistance.</li>
+<li>Donde, TRUE indica &ldquo;todo el resto&rdquo;, y el NA dependerá de la clase del valor de recodificación</li>
 </ul>
-<p>According to the DAG, malaria risk is caused by income, temperatures, health, insecticide resistance, and mosquito net use. People who live in hotter regions, have lower incomes, have worse health, are surrounded by mosquitoes with high resistance to insecticide, and who do not use mosquito nets are at higher risk of contracting malaria than those who do not. Mosquito net use is caused by income, nighttime temperatures, health, the number of people living in the house, and eligibility for the free net program. People who live in areas that are cooler at night, have higher incomes, have better health, have more people in the home, and are eligible for free government nets are more likely to regularly use nets than those who do not. The DAG also shows that eligibility for the free net program is caused by income and household size, since households must meet specific thresholds to qualify.</p>
-<p>First, let&rsquo;s download the dataset, put in a folder named <code>data</code>, and load it:</p>
-<ul>
-<li><a href="/data/mosquito_nets.csv"><i class="fas fa-table"></i> <code>mosquito_nets.csv</code></a></li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Load the data.</span>
-<span style="color:#75715e"># It&#39;d be a good idea to click on the &#34;mosquito_nets.csv&#34; object in the</span>
-<span style="color:#75715e"># Environment panel in RStudio to see what the data looks like after you load it</span>
-mosquito_nets <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;data/mosquito_nets.csv&#34;</span>)
-</code></pre></div><p>We can use this data to check if the relationships defined by our DAG reflect reality. Recall that <em>d</em>-separation implies that nodes are statistically independent of each other and do not transfer associational information. If you draw the mosquito net DAG with dagitty.net, or if you run <code>impliedConditionalIndependencies()</code> in R, you can see a list of all the implied conditional independencies.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">impliedConditionalIndependencies</span>(mosquito_dag)
-<span style="color:#75715e">## elgb _||_ hlth | incm</span>
-<span style="color:#75715e">## elgb _||_ mlr_ | hlth, incm, net, tmpr</span>
-<span style="color:#75715e">## elgb _||_ rsst</span>
-<span style="color:#75715e">## elgb _||_ tmpr</span>
-<span style="color:#75715e">## hlth _||_ hshl</span>
-<span style="color:#75715e">## hlth _||_ rsst</span>
-<span style="color:#75715e">## hlth _||_ tmpr</span>
-<span style="color:#75715e">## hshl _||_ incm</span>
-<span style="color:#75715e">## hshl _||_ mlr_ | hlth, incm, net, tmpr</span>
-<span style="color:#75715e">## hshl _||_ rsst</span>
-<span style="color:#75715e">## hshl _||_ tmpr</span>
-<span style="color:#75715e">## incm _||_ rsst</span>
-<span style="color:#75715e">## incm _||_ tmpr</span>
-<span style="color:#75715e">## net _||_ rsst</span>
-<span style="color:#75715e">## rsst _||_ tmpr</span>
-</code></pre></div><p>The <code>_||_</code> symbol in the output here is the <code>\(\perp\)</code> symbol, which means &ldquo;independent of&rdquo;. The <code>|</code> in the output means &ldquo;given&rdquo;.</p>
-<p>In the interest of space, we will not verify all these implied independencies, but we can test a few of them:</p>
-<ul>
-<li>
-<p><code>\(\text{Health} \perp \text{Household members}\)</code>: (Read as <em>&ldquo;Health is independent of household member count&rdquo;</em>.) Health should be independent of the number of people in each household. In the data, the two variables should not be correlated. This is indeed the case:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">cor</span>(mosquito_nets<span style="color:#f92672">$</span>health, mosquito_nets<span style="color:#f92672">$</span>household)
-<span style="color:#75715e">## [1] 9.8e-05</span>
-</code></pre></div></li>
-<li>
-<p><code>\(\text{Income} \perp \text{Insecticide resistance}\)</code>: (Read as <em>&ldquo;Income is independent of insecticide resistance&rdquo;</em>.) Income should be independent of insecticide resistance. This is again true:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">cor</span>(mosquito_nets<span style="color:#f92672">$</span>income, mosquito_nets<span style="color:#f92672">$</span>resistance)
-<span style="color:#75715e">## [1] 0.014</span>
-</code></pre></div></li>
-<li>
-<p><code>\(\text{Malaria risk} \perp \text{Household members}\ |\ \text{Health, Income, Bed net use, Temperature}\)</code>: (Read as <em>&ldquo;Malaria risk is independent of house member count given health, income, bed net use, and temperature&rdquo;</em>.) Malaria risk should be independent of the number of household members given similar levels of health, income, mosquito net use, and nighttime temperatures. We cannot use <code>cor()</code> to test this implication, since there are many variables involved, but we can use a regression model to check if the number of household members is significantly related to malaria risk. It is not significant ($t = -0.17$, <code>\(p = 0.863\)</code>), which means the two are independent, as expected.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">lm</span>(malaria_risk <span style="color:#f92672">~</span> household <span style="color:#f92672">+</span> health <span style="color:#f92672">+</span> income <span style="color:#f92672">+</span> net <span style="color:#f92672">+</span> temperature,
-   data <span style="color:#f92672">=</span> mosquito_nets) <span style="color:#f92672">%&gt;%</span>
-  broom<span style="color:#f92672">::</span><span style="color:#a6e22e">tidy</span>()
-<span style="color:#75715e">## # A tibble: 6 x 5</span>
-<span style="color:#75715e">##   term        estimate std.error statistic   p.value</span>
-<span style="color:#75715e">##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;</span>
-<span style="color:#75715e">## 1 (Intercept)  76.2      0.966      78.9   0.       </span>
-<span style="color:#75715e">## 2 household    -0.0155   0.0893     -0.173 8.63e-  1</span>
-<span style="color:#75715e">## 3 health        0.148    0.0107     13.9   9.75e- 42</span>
-<span style="color:#75715e">## 4 income       -0.0751   0.00104   -72.6   0.       </span>
-<span style="color:#75715e">## 5 netTRUE     -10.4      0.266     -39.2   2.63e-241</span>
-<span style="color:#75715e">## 6 temperature   1.01     0.0310     32.5   1.88e-181</span>
-</code></pre></div></li>
-</ul>
-<p>We can check all the other conditional independencies to see if the DAG captures the reality of the full system of factors that influence mosquito net use and malaria risk. If there are substantial and significant correlations between nodes that should be independent, there is likely an issue with the specification of the DAG. Return to the theory of how the phenomena are generated and refine the DAG more.</p>
-<h3 id="mosquito-net-adjustment-sets">Mosquito net adjustment sets</h3>
-<p>There is a direct path between mosquito net use and the risk of malaria, but the effect is not causally identified due to several other open paths. We can either list out all the paths and find which open paths have arrows pointing backwards into the mosquito net node (run <code>paths(mosquito_dag)</code> to see these results), or we can let R find the appropriate adjustment sets automatically:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">adjustmentSets</span>(mosquito_dag)
-<span style="color:#75715e">## { health, income, temperature }</span>
-</code></pre></div><p>Based on the relationships between all the nodes in the DAG, adjusting for health, income, and temperature is enough to close all backdoors and identify the relationship between net use and malaria risk. Importantly, we do not need to worry about any of the nodes related to the government program for free nets, since those nodes are not <em>d</em>-connected to malaria risk. We only need to worry about confounding relationships.</p>
-<p>We can confirm this graphically with <code>ggdag_adjustment_set()</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_adjustment_set</span>(mosquito_dag, shadow <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>,
-                     use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;label&#34;</span>, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/03-practico_files/figure-html/plot-mosquito-adjustment-fake-1.png" width="75%" style="display: block; margin: auto;" /></p>
+
+</div>
+
+<p>Un ejemplo claro es cuando queremos construir <em>categorías de edad</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">mutate</span>(edad_tramo <span style="color:#f92672">=</span> <span style="color:#a6e22e">case_when</span>(edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">39</span> <span style="color:#f92672">~</span>  <span style="color:#e6db74">&#34;Joven&#34;</span>,
+                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">39</span> <span style="color:#f92672">&amp;</span> edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto&#34;</span>,
+                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto mayor&#34;</span>,
+                                <span style="color:#66d9ef">TRUE</span> <span style="color:#f92672">~</span> <span style="color:#66d9ef">NA_character_</span>)) <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">select</span>(edad, edad_tramo)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 185,437 x 2
+##     edad edad_tramo  
+##    &lt;dbl&gt; &lt;chr&gt;       
+##  1    34 Joven       
+##  2     4 Joven       
+##  3     5 Joven       
+##  4    45 Adulto      
+##  5    19 Joven       
+##  6    57 Adulto      
+##  7    20 Joven       
+##  8    56 Adulto      
+##  9    77 Adulto mayor
+## 10    60 Adulto mayor
+## # ... with 185,427 more rows
+</code></pre></div><p>Como se puede ver, no solamente indicamos tramos de la variable edad, sino que utilizamos operadores lógicos (<code>&amp;</code>). Podríamos ocupar el que necesitemos, y sobre todo, también combinar variables (por ejemplo, crear una variable <code>sexo-edad</code>)</p>
+<h2 id="6-resumen-con-procesamiento-de-las-variables">6. Resumen con procesamiento de las variables</h2>
+<p>Hasta ahora, solo hemos creado una base de datos que selecciona variables. Ahora nos resta incorporar en un nuevo objeto los cambios que nos parezcan relevantes para la base de datos procesada que utilizaremos en nuestros análisis.</p>
+<p>Como ya conocemos operadores que permiten concatenar procesos ( <code>%&gt;%</code>  y <code>%$%</code>) este procedimiento será mucho más fácil.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">%&gt;%</span> 
+ <span style="color:#a6e22e">filter</span>(edad <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">&amp;</span> tot_per <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">7</span>) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">mutate</span>(ingreso_percapita <span style="color:#f92672">=</span> ytoth<span style="color:#f92672">/</span>tot_per,
+           edad_tramo <span style="color:#f92672">=</span> <span style="color:#a6e22e">case_when</span>(edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">39</span> <span style="color:#f92672">~</span>  <span style="color:#e6db74">&#34;Joven&#34;</span>,
+                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">39</span> <span style="color:#f92672">&amp;</span> edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto&#34;</span>,
+                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto mayor&#34;</span>,
+                                <span style="color:#66d9ef">TRUE</span> <span style="color:#f92672">~</span> <span style="color:#66d9ef">NA_character_</span>),
+           fonasa <span style="color:#f92672">=</span> <span style="color:#a6e22e">if_else</span>(prev <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Sistema Público FONASA&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+           ocupacion <span style="color:#f92672">=</span> <span style="color:#a6e22e">as_factor</span>(ocupacion)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(sexo, edad_tramo, ocupacion, ingreso_percapita, ife <span style="color:#f92672">=</span> y26d_hog)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 144,418 x 5
+##    sexo   edad_tramo   ocupacion ingreso_percapita       ife
+##    &lt;fct&gt;  &lt;chr&gt;        &lt;fct&gt;                 &lt;dbl&gt; &lt;dbl+lbl&gt;
+##  1 Mujer  Joven        No                  195416.    1 [Sí]
+##  2 Hombre Adulto       Sí                  315861     2 [No]
+##  3 Mujer  Joven        No                  315861     2 [No]
+##  4 Hombre Adulto       Sí                 1001389     2 [No]
+##  5 Hombre Joven        No                 1001389     2 [No]
+##  6 Mujer  Adulto       No                 1001389     2 [No]
+##  7 Hombre Adulto mayor No                  305125     2 [No]
+##  8 Mujer  Adulto mayor No                  305125     2 [No]
+##  9 Mujer  Adulto       Sí                  330370.    1 [Sí]
+## 10 Hombre Joven        No                  330370.    1 [Sí]
+## # ... with 144,408 more rows
+</code></pre></div><p>¡Ahora que estamos seguras/os sobre-escribimos la base!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos_proc <span style="color:#f92672">&lt;-</span> datos_proc <span style="color:#f92672">%&gt;%</span> 
+ <span style="color:#a6e22e">filter</span>(edad <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">&amp;</span> tot_per <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">7</span>) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">mutate</span>(ingreso_percapita <span style="color:#f92672">=</span> ytoth<span style="color:#f92672">/</span>tot_per,
+           edad_tramo <span style="color:#f92672">=</span> <span style="color:#a6e22e">case_when</span>(edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">39</span> <span style="color:#f92672">~</span>  <span style="color:#e6db74">&#34;Joven&#34;</span>,
+                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">39</span> <span style="color:#f92672">&amp;</span> edad <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto&#34;</span>,
+                                edad <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">59</span> <span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;Adulto mayor&#34;</span>,
+                                <span style="color:#66d9ef">TRUE</span> <span style="color:#f92672">~</span> <span style="color:#66d9ef">NA_character_</span>),
+           fonasa <span style="color:#f92672">=</span> <span style="color:#a6e22e">if_else</span>(prev <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Sistema Público FONASA&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>),
+           ocupacion <span style="color:#f92672">=</span> <span style="color:#a6e22e">as_factor</span>(ocupacion)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(sexo, edad_tramo, ocupacion, ingreso_percapita, ife <span style="color:#f92672">=</span> y26d_hog)
+</code></pre></div><p>Podemos visualizar la base resultante a partir de <code>view_df()</code> de <code>sjPlot</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sjPlot<span style="color:#f92672">::</span><span style="color:#a6e22e">view_df</span>(datos_proc)
+</code></pre></div><table style="border-collapse:collapse; border:none;">
+<caption>Data frame: datos_proc</caption>
+<tr>
+<th style="border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;">ID</th><th style="border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;">Name</th><th style="border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;">Label</th><th style="border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;">Values</th><th style="border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;">Value Labels</th>
+</tr>
+<tr>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">1</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">sexo</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">Sexo</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;"></td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">Hombre<br>Mujer</td>
+</tr>
+<tr>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">2</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">edad_tramo</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee"></td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee"></td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">&lt;output omitted&gt;</td>
+</tr>
+<tr>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">3</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">ocupacion</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">o1. La semana pasada, Â¿trabajÃ³ al menos una hora?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;"></td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">SÃ­<br>No</td>
+</tr>
+<tr>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">4</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">ingreso_percapita</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee">Ingreso total del hogar</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee" colspan="2"><em>range: 0.0-225200000.0</em></td>
+</tr>
+<tr>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">5</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">ife</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">y26d_hog. Ãšltimos 12 meses, Â¿alguien recibiÃ³<br>Ingreso Familiar de Emergencia?</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">1<br>2<br>9</td>
+<td style="padding:0.2cm; text-align:left; vertical-align:top;">SÃ­<br>No<br>No sabe</td>
+</tr>
+</table>
+<h2 id="7-guardar-base-procesada">7. Guardar base procesada</h2>
+<p>Para guardar la base de datos procesada, debes dirigir la ruta hacia tu Rproject</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">saveRDS</span>(datos_proc, file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;../nombre_project/output/datos_proc.rds&#34;</span>)
+</code></pre></div><h2 id="8-reporte-de-progreso">8. Reporte de progreso</h2>
+<p>¡Recuerda rellenar tu <a href="https://learn-r.formr.org/" target="_blank" rel="noopener">reporte de progreso</a>. En tu correo electrónico está disponible el código mediante al cuál debes acceder para actualizar tu estado de avance del curso.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>¡Atención! Fíjate bien que <code>==</code> y <code>=</code> son distintos. En R <code>==</code> es indicar <em>&ldquo;igual a&rdquo;</em>, mientras que  <code>=</code> es <em>asignar</em> (sinónimo de <code>&lt;-</code>) <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Este operador es <strong>muy utilizado</strong>, sirve para indicar que algo está dentro de una cadena de valores. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
                     </div>
 
@@ -1025,15 +1590,8 @@ mosquito_nets <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22
   
   
   <div class="post-nav-item">
-    <div class="meta-nav">Previous</div>
-    <a href="/example/01-datos/" rel="next">The ultimate guide to generating synthetic data for causal inference</a>
-  </div>
-  
-  
-  
-  <div class="post-nav-item">
     <div class="meta-nav">Next</div>
-    <a href="/example/02-practico/" rel="prev">Bienvenido/a a R, RStudio y tidyverse</a>
+    <a href="/example/01-practico/" rel="prev">Bienvenido/a a R, RStudio e instalar paquetes</a>
   </div>
   
 </div>
@@ -1043,7 +1601,7 @@ mosquito_nets <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on August 23, 2021</p>
+                    <p>Last updated on August 20, 2021</p>
 
                     
 

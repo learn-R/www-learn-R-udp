@@ -127,5 +127,33 @@
 </description>
     </item>
     
+    <item>
+      <title>Descomprimir archivos</title>
+      <link>/resource/unzipping/</link>
+      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>/resource/unzipping/</guid>
+      <description>&lt;p&gt;Debido a que los Rproject  de RStudio normalmente consisten en múltiples archivos (scripts de R, conjuntos de datos, salida gráfica, etc.) la forma más fácil de distribuirlos para los ejemplos, tareas y proyectos es combinar todos los diferentes archivos en una sola colección comprimida llamada &lt;strong&gt;archivo comprimido&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Cuando descomprimes un archivo comprimido, tu sistema operativo extrae todos los archivos que contiene en una nueva carpeta de tu ordenador.&lt;/p&gt;
+&lt;p&gt;Descomprimir archivos en macOS es trivial, pero descomprimir archivos en Windows puede ser molesto, si no sigues los siguientes pasos. Aquí tienes una guía útil para descomprimir archivos tanto en macOS como en Windows.&lt;/p&gt;
+&lt;h2 id=&#34;descomprimir-archivos-en-macos&#34;&gt;Descomprimir archivos en macOS&lt;/h2&gt;
+&lt;p&gt;Haz doble clic en el archivo &lt;code&gt;.zip&lt;/code&gt; descargado. macOS creará automáticamente una nueva carpeta con el mismo nombre que el archivo &lt;code&gt;.zip&lt;/code&gt;, y todo el contenido del archivo estará dentro. Haz doble clic en el archivo de proyecto de RStudio (&lt;code&gt;.Rproj&lt;/code&gt;) para empezar.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;knitr&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;include_graphics&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/img/unzipping/unzip-mac.png&amp;#34;&lt;/span&gt;, error &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/img/unzipping/unzip-mac.png&#34; alt=&#34;&#34;&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;h2 id=&#34;descomprimir-archivos-en-windows&#34;&gt;Descomprimir archivos en Windows&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;: Haz clic con el botón derecho del ratón en el archivo &lt;code&gt;.zip&lt;/code&gt;, selecciona &amp;ldquo;Extraer todo&amp;hellip;&amp;rdquo;, y trabaja con la carpeta descomprimida resultante.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A diferencia de macOS, Windows no descomprime automáticamente las cosas por ti. Si haces doble clic en el archivo &lt;code&gt;.zip&lt;/code&gt;, Windows te mostrará lo que hay dentro, pero lo hará sin extraer nada. ¡Esto &lt;del&gt;puede ser&lt;/del&gt; increíblemente confuso! Esto es lo que parece: las únicas pistas de que esta carpeta es realmente un archivo &lt;code&gt;.zip&lt;/code&gt; son que hay una pestaña de &amp;ldquo;Herramientas de carpetas comprimidas&amp;rdquo; en la parte superior, y hay una columna de &amp;ldquo;Ratio&amp;rdquo; que muestra cuánto está comprimido cada archivo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/unzipping/inside-zip-windows.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Es muy tentador intentar abrir archivos desde esta vista. Sin embargo, si lo hace, las cosas se romperán y no podrá trabajar correctamente con ninguno de los archivos de la carpeta comprimida. Si abre el archivo del Proyecto R, por ejemplo, RStudio apuntará a un extraño directorio de trabajo enterrado en alguna carpeta temporal:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/unzipping/temp-wd-windows.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Lo más probable es que no puedas abrir ningún archivo de datos ni guardar nada, lo cual será frustrante.&lt;/p&gt;
+&lt;p&gt;En lugar de eso, tienes que hacer clic con el botón derecho del ratón en el archivo &lt;code&gt;.zip&lt;/code&gt; y seleccionar &amp;ldquo;Extraer todo&amp;hellip;&amp;quot;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/unzipping/extract-windows-1.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;A continuación, elige dónde quieres descomprimir todos los archivos y haz clic en &amp;ldquo;Extraer&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/unzipping/extract-windows-2.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Finalmente deberías tener una carpeta real con todo el contenido del archivo comprimido. Abre el archivo del proyecto R y RStudio apuntará al directorio de trabajo correcto y todo funcionará.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/unzipping/extract-windows-3.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

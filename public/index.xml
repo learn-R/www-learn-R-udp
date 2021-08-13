@@ -5,7 +5,7 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Course materials</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><lastBuildDate>Fri, 13 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><lastBuildDate>Fri, 20 Aug 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png</url>
       <title>Course materials</title>
@@ -128,97 +128,1093 @@
     </item>
     
     <item>
-      <title>Bienvenido/a a R, RStudio y tidyverse</title>
+      <title>Descomprimir archivos</title>
+      <link>/resource/unzipping/</link>
+      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>/resource/unzipping/</guid>
+      <description>&lt;p&gt;Debido a que los Rproject  de RStudio normalmente consisten en múltiples archivos (scripts de R, conjuntos de datos, salida gráfica, etc.) la forma más fácil de distribuirlos para los ejemplos, tareas y proyectos es combinar todos los diferentes archivos en una sola colección comprimida llamada &lt;strong&gt;archivo comprimido&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Cuando descomprimes un archivo comprimido, tu sistema operativo extrae todos los archivos que contiene en una nueva carpeta de tu ordenador.&lt;/p&gt;
+&lt;p&gt;Descomprimir archivos en macOS es trivial, pero descomprimir archivos en Windows puede ser molesto, si no sigues los siguientes pasos. Aquí tienes una guía útil para descomprimir archivos tanto en macOS como en Windows.&lt;/p&gt;
+&lt;h2 id=&#34;descomprimir-archivos-en-macos&#34;&gt;Descomprimir archivos en macOS&lt;/h2&gt;
+&lt;p&gt;Haz doble clic en el archivo &lt;code&gt;.zip&lt;/code&gt; descargado. macOS creará automáticamente una nueva carpeta con el mismo nombre que el archivo &lt;code&gt;.zip&lt;/code&gt;, y todo el contenido del archivo estará dentro. Haz doble clic en el archivo de proyecto de RStudio (&lt;code&gt;.Rproj&lt;/code&gt;) para empezar.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;knitr&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;include_graphics&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/img/unzipping/unzip-mac.png&amp;#34;&lt;/span&gt;, error &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/img/unzipping/unzip-mac.png&#34; alt=&#34;&#34;&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;h2 id=&#34;descomprimir-archivos-en-windows&#34;&gt;Descomprimir archivos en Windows&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;: Haz clic con el botón derecho del ratón en el archivo &lt;code&gt;.zip&lt;/code&gt;, selecciona &amp;ldquo;Extraer todo&amp;hellip;&amp;rdquo;, y trabaja con la carpeta descomprimida resultante.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A diferencia de macOS, Windows no descomprime automáticamente las cosas por ti. Si haces doble clic en el archivo &lt;code&gt;.zip&lt;/code&gt;, Windows te mostrará lo que hay dentro, pero lo hará sin extraer nada. ¡Esto &lt;del&gt;puede ser&lt;/del&gt; increíblemente confuso! Esto es lo que parece: las únicas pistas de que esta carpeta es realmente un archivo &lt;code&gt;.zip&lt;/code&gt; son que hay una pestaña de &amp;ldquo;Herramientas de carpetas comprimidas&amp;rdquo; en la parte superior, y hay una columna de &amp;ldquo;Ratio&amp;rdquo; que muestra cuánto está comprimido cada archivo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/unzipping/inside-zip-windows.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Es muy tentador intentar abrir archivos desde esta vista. Sin embargo, si lo hace, las cosas se romperán y no podrá trabajar correctamente con ninguno de los archivos de la carpeta comprimida. Si abre el archivo del Proyecto R, por ejemplo, RStudio apuntará a un extraño directorio de trabajo enterrado en alguna carpeta temporal:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/unzipping/temp-wd-windows.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Lo más probable es que no puedas abrir ningún archivo de datos ni guardar nada, lo cual será frustrante.&lt;/p&gt;
+&lt;p&gt;En lugar de eso, tienes que hacer clic con el botón derecho del ratón en el archivo &lt;code&gt;.zip&lt;/code&gt; y seleccionar &amp;ldquo;Extraer todo&amp;hellip;&amp;quot;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/unzipping/extract-windows-1.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;A continuación, elige dónde quieres descomprimir todos los archivos y haz clic en &amp;ldquo;Extraer&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/unzipping/extract-windows-2.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Finalmente deberías tener una carpeta real con todo el contenido del archivo comprimido. Abre el archivo del proyecto R y RStudio apuntará al directorio de trabajo correcto y todo funcionará.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/unzipping/extract-windows-3.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Transformar y seleccionar variables</title>
+      <link>/example/03-practico/</link>
+      <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>/example/03-practico/</guid>
+      <description>&lt;h2 id=&#34;0-objetivo-de-la-práctica&#34;&gt;0. Objetivo de la práctica&lt;/h2&gt;
+&lt;p&gt;El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio.&lt;/p&gt;
+&lt;h2 id=&#34;1-recursos-de-la-práctica&#34;&gt;1. Recursos de la práctica&lt;/h2&gt;
+&lt;p&gt;En este práctico utilizaremos la base de datos de la &lt;a href=&#34;http://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-en-pandemia-2020&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Encuesta de Caracterización Socioeconómica (CASEN)&lt;/strong&gt;&lt;/a&gt;, la cual fue procesada en el &lt;a href=&#34;&#34;&gt;Práctico anterior&lt;/a&gt;.Recuerden siempre consultar el &lt;a href=&#34;http://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2020/Libro_de_codigos_Base_de_Datos_Casen_en_Pandemia_2020.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;manual/libro de códigos&lt;/strong&gt;&lt;/a&gt; antes de trabajar una base de datos.&lt;/p&gt;
+&lt;h2 id=&#34;2-librerias-a-utilizar&#34;&gt;2. Librerias a utilizar&lt;/h2&gt;
+&lt;p&gt;En este práctico utilizaremos cuatro paquetes&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;pacman&lt;/code&gt;: este facilita y agiliza la lectura de los paquetes a utilizar en R&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sjmisc&lt;/code&gt;: explorar datos&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;car()&lt;/code&gt;: recodificar manteniendo las etiquetas&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;tidyverse&lt;/code&gt;: colección de paquetes, del cuál utilizaremos &lt;code&gt;dplyr&lt;/code&gt;  &lt;code&gt;forcast&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;magrittr&lt;/code&gt;: nos permitirá ocupar dos operadores que en R son &lt;strong&gt;muy&lt;/strong&gt; utilizados&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;pasos-del-procesamiento&#34;&gt;Pasos del procesamiento&lt;/h1&gt;
+&lt;h2 id=&#34;1-cargar-librerías&#34;&gt;1. Cargar librerías&lt;/h2&gt;
+&lt;p&gt;Primero instalamos &lt;code&gt;pacman&lt;/code&gt; por única vez&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;install.packages&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pacman&amp;#34;&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;library &lt;/span&gt;(pacman)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Luego cargaremos así los paquetes. Les recordamos que cuando luego de un paquete ponemos &lt;code&gt;::&lt;/code&gt; esto se refiere a que se &lt;em&gt;&amp;ldquo;fuerza&amp;rdquo;&lt;/em&gt; que esa función provenga de &lt;em&gt;ese paquete&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;pacman&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;p_load&lt;/span&gt;(tidyverse,
+               magrittr,
+               car,
+               sjmisc)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-cargar-base-de-datos&#34;&gt;2. Cargar base de datos&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;read_dta&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;../Rproject/input/Casen en Pandemia 2020 STATA.dta&amp;#34;&lt;/span&gt;) 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;En el panel &lt;strong&gt;Environment&lt;/strong&gt;, visualizamos el nuevo objeto, que posee 185.437 observaciones (o filas), y 650 variables (columnas)&lt;/p&gt;
+&lt;p&gt;Recordemos que también podemos explorar la base de datos con las siguientes funciones.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# De paquete base&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;dim&lt;/span&gt;(datos) &lt;span style=&#34;color:#75715e&#34;&gt;# nos entrega las dimensiones, es decir el numero de observaciones y el número de variables&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;View&lt;/span&gt;(datos) &lt;span style=&#34;color:#75715e&#34;&gt;# se usa para visualizar la base de datos&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;names&lt;/span&gt;(datos) &lt;span style=&#34;color:#75715e&#34;&gt;# entrega los nombres de las variables que componen el dataset&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;(datos) &lt;span style=&#34;color:#75715e&#34;&gt;# muestra las primeras filas presentes en el marco de datos&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# De sjmisc&lt;/span&gt;
+
+&lt;span style=&#34;color:#a6e22e&#34;&gt;find_var&lt;/span&gt;(datos, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;concepto&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;# se utiliza para encontrar variables&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;4-un-aspecto-clave-antes-de-comenzar-los-operadores&#34;&gt;4. Un aspecto clave antes de comenzar: los operadores&lt;/h2&gt;
+&lt;p&gt;Previo a trabajar con la base de datos, debemos repasemos el concepto de &lt;strong&gt;operadores&lt;/strong&gt;. Estos símbolos no son de uso exclusivo en R ¡probablemente los conoces desde tus cursos de matemática! Ahora bien, no todos tienen el mismo significado que en otros softwares.&lt;/p&gt;
+&lt;p&gt;Los &lt;strong&gt;operadores&lt;/strong&gt; serán símbolos que permitirán, en los distintos procedimientos de procesamiento, simplificar procesos. Por ejemplo, serán útilizados cuando filtremos nuestros datos para personas de ciertas categorías, cuando calculemos variables nuevas (de manera aritmética o condicional) o, simplemente, cuando queramos hacer procesos &amp;ldquo;concatenados&amp;rdquo;.&lt;/p&gt;
+&lt;h4 id=&#34;operadores-relacionales&#34;&gt;Operadores relacionales&lt;/h4&gt;
+&lt;p&gt;Se usan para hacer comparaciones. Cuando en la &lt;em&gt;Tabla 1&lt;/em&gt; nos referimos a &lt;code&gt;un valor&lt;/code&gt;, esto refiere tambien a &lt;code&gt;variables&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Símbolo&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;&amp;lt;&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Un valor es menor que otro&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Un valor es mayor que otro&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;==&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Un valor es igual que otro &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;&amp;lt;=&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Un valor es menor o igual que otro&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;&amp;gt;=&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Un valor es mayor o igual que otro&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;!=&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Un valor es distinto o diferente que otro&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;%in%&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Un valor pertenece al conjunto designado &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;is.na()&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;El valor es perdido o &lt;code&gt;NA&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;!is.na()&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;El valor es distinto de  &lt;code&gt;NA&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;operadores-aritméticos&#34;&gt;Operadores aritméticos&lt;/h4&gt;
+&lt;p&gt;Realizan operaciones, como la suma, resta, división, entre otros.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Símbolo&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;+&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Suma&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Resta&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;*&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Multiplicación&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;/&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;División&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;^&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Elevado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;operadores-de-asignación&#34;&gt;Operadores de asignación&lt;/h4&gt;
+&lt;p&gt;Hay dos formas de asignar &lt;code&gt;objetoA &amp;lt;- objetoB&lt;/code&gt; o &lt;code&gt;objetoA = objetoB&lt;/code&gt;. Ambas implican que lo que se este realizando en el &lt;em&gt;objetoB&lt;/em&gt; implica que eso va a producir o generar al &lt;em&gt;objetoA&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;operadores-booleanos&#34;&gt;Operadores booleanos&lt;/h4&gt;
+&lt;p&gt;Describen relaciones &lt;strong&gt;lógicas&lt;/strong&gt; o &lt;strong&gt;condicionales&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Símbolo&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;&amp;amp;&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Indica un &lt;em&gt;y&lt;/em&gt; lógico&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;|&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Indica un &lt;em&gt;o&lt;/em&gt; lógico&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;xor()&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Excluye la condición&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;!&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Distinto de &amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;any&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Ninguna de las condiciones serán utilizadas&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;code&gt;all&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Todas las condiciones serán ocupadas&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;/img/example/02-practico/01operad.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/example/02-practico/01operad.png&#34; width=&#34;60%&#34; /&gt;
+Figura 1: Resumen de operadores&lt;/p&gt;
+&lt;h3 id=&#34;operador-pipeline-&#34;&gt;Operador pipeline %&amp;gt;%&lt;/h3&gt;
+&lt;p&gt;¡Aquí mucha atención! Este operador &lt;code&gt;%&amp;gt;%&lt;/code&gt; (llamado &lt;code&gt;pipe&lt;/code&gt;) no es un operador que este contenido en las funciones base del lenguaje R. Este operador proviene de la función &lt;code&gt;magrittr&lt;/code&gt; de &lt;code&gt;tidyverse&lt;/code&gt;, y es de los operadores más útiles y utilizados en R.&lt;/p&gt;
+&lt;p&gt;¿Para qué sirve? Para concatenar múltiples funciones y procesos. &lt;em&gt;Imagina que quieres filtrar una base de datos a partir de tramos etarios. Pero no tienes esa variable creada. ¿Que hacer? La respuesta: concatenar el proceso de creación de variables y luego filtrar.&lt;/em&gt; Eso se puede hacer gracias a &lt;code&gt;%&amp;gt;%&lt;/code&gt; (ya mostraremos como utilizar esta herramienta), que por lo demás es muy fácil de ejecutar.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + shift + M&lt;/code&gt; Para Windows&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;⌘ + shift + M&lt;/code&gt; Para Mac&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5-transformación-y-selección-de-variables-con-dplyr&#34;&gt;5. Transformación y selección de variables con &lt;code&gt;dplyr()&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;dplyr()&lt;/code&gt;es un paquete de &lt;code&gt;tidyverse&lt;/code&gt; que proporciona una base para la manipulación de datos, principalmente a partir de funciones que permiten operar las columnas (o variables)&lt;/p&gt;
+&lt;h3 id=&#34;51-select-para-manipular-variables&#34;&gt;5.1 &lt;code&gt;select()&lt;/code&gt; para manipular variables&lt;/h3&gt;
+&lt;p&gt;Para &lt;strong&gt;seleccionar variables&lt;/strong&gt; ocuparemos &lt;code&gt;select()&lt;/code&gt;. Existen diversos enfoques para realizarlo. Primero, debemos conocer su estructura&lt;/p&gt;
+&lt;p&gt;Si queremos incluir las variables &lt;code&gt;variable1&lt;/code&gt;, &lt;code&gt;variable2&lt;/code&gt; y &lt;code&gt;variable3&lt;/code&gt;
+&lt;div class=&#34;note&#34;&gt;
+select(datos, variable1, variable2, variable3)
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;p&gt;Si queremos excluir anteponemos un menos &lt;code&gt;-variable1&lt;/code&gt;
+&lt;div class=&#34;note&#34;&gt;
+select(datos, -variable1)
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;select-por-indexación&#34;&gt;&lt;code&gt;select()&lt;/code&gt; por indexación&lt;/h4&gt;
+&lt;p&gt;La indexación refiere al orden que tiene la columna o variable dentro de los datos. Imaginemos que queremos seleccionar:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;# la primera y la segunda columna&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 2
+##           folio     o
+##           &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1 110110010101     1
+##  2 110110010101     2
+##  3 110110010201     2
+##  4 110110010201     1
+##  5 110110010201     3
+##  6 110110010301     2
+##  7 110110010301     3
+##  8 110110010301     1
+##  9 110110010401     1
+## 10 110110010401     2
+## # ... with 185,427 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;# la primera hasta la cuarta columna&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 4
+##           folio     o id_persona id_vivienda
+##           &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
+##  1 110110010101     1          5  1101100101
+##  2 110110010101     2          6  1101100101
+##  3 110110010201     2         31  1101100102
+##  4 110110010201     1         32  1101100102
+##  5 110110010201     3         30  1101100102
+##  6 110110010301     2        117  1101100103
+##  7 110110010301     3        118  1101100103
+##  8 110110010301     1        116  1101100103
+##  9 110110010401     1       2209  1101100104
+## 10 110110010401     2       2210  1101100104
+## # ... with 185,427 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;)) &lt;span style=&#34;color:#75715e&#34;&gt;# la primera y la cuarta columna&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 2
+##           folio id_vivienda
+##           &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
+##  1 110110010101  1101100101
+##  2 110110010101  1101100101
+##  3 110110010201  1101100102
+##  4 110110010201  1101100102
+##  5 110110010201  1101100102
+##  6 110110010301  1101100103
+##  7 110110010301  1101100103
+##  8 110110010301  1101100103
+##  9 110110010401  1101100104
+## 10 110110010401  1101100104
+## # ... with 185,427 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;select-por-nombre-de-columna&#34;&gt;&lt;code&gt;select()&lt;/code&gt; por nombre de columna&lt;/h4&gt;
+&lt;p&gt;Si conocemos el nombre de la variable simplemente lo podemos poner y se seleccionará.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, edad, sexo, o1)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 3
+##     edad       sexo        o1
+##    &amp;lt;dbl&amp;gt;  &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;
+##  1    34 2 [Mujer]     2 [No]
+##  2     4 2 [Mujer]    NA     
+##  3     5 2 [Mujer]    NA     
+##  4    45 1 [Hombre]    1 [Sí]
+##  5    19 2 [Mujer]     2 [No]
+##  6    57 1 [Hombre]    1 [Sí]
+##  7    20 1 [Hombre]    2 [No]
+##  8    56 2 [Mujer]     2 [No]
+##  9    77 1 [Hombre]    2 [No]
+## 10    60 2 [Mujer]     2 [No]
+## # ... with 185,427 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;También puedo renombrar en el mismo proceso de selección indicando &lt;code&gt;nuevo_nombre = nombre_original&lt;/code&gt; en el proceso de selección&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, edad, sexo, ocupacion &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; o1)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 3
+##     edad       sexo ocupacion
+##    &amp;lt;dbl&amp;gt;  &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;
+##  1    34 2 [Mujer]     2 [No]
+##  2     4 2 [Mujer]    NA     
+##  3     5 2 [Mujer]    NA     
+##  4    45 1 [Hombre]    1 [Sí]
+##  5    19 2 [Mujer]     2 [No]
+##  6    57 1 [Hombre]    1 [Sí]
+##  7    20 1 [Hombre]    2 [No]
+##  8    56 2 [Mujer]     2 [No]
+##  9    77 1 [Hombre]    2 [No]
+## 10    60 2 [Mujer]     2 [No]
+## # ... with 185,427 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;select-para-reordenar-variables&#34;&gt;&lt;code&gt;select()&lt;/code&gt; para reordenar variables&lt;/h4&gt;
+&lt;p&gt;Podemos seleccionar variables y luego indicar que queremos todo el resto de las variables (&lt;code&gt;everythin()&lt;/code&gt;). Solo por una cosa de orden. Esto será útil sobre todo cuando tengamos identificadores&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, id_persona, sexo, edad, &lt;span style=&#34;color:#a6e22e&#34;&gt;everything&lt;/span&gt;())
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 650
+##    id_persona      sexo  edad    folio     o id_vivienda       region  provincia
+##         &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;    &amp;lt;dbl+lbl&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+##  1          5 2 [Mujer]    34  1.10e11     1  1101100101 1 [Región d~ 11 [Iquiq~
+##  2          6 2 [Mujer]     4  1.10e11     2  1101100101 1 [Región d~ 11 [Iquiq~
+##  3         31 2 [Mujer]     5  1.10e11     2  1101100102 1 [Región d~ 11 [Iquiq~
+##  4         32 1 [Hombr~    45  1.10e11     1  1101100102 1 [Región d~ 11 [Iquiq~
+##  5         30 2 [Mujer]    19  1.10e11     3  1101100102 1 [Región d~ 11 [Iquiq~
+##  6        117 1 [Hombr~    57  1.10e11     2  1101100103 1 [Región d~ 11 [Iquiq~
+##  7        118 1 [Hombr~    20  1.10e11     3  1101100103 1 [Región d~ 11 [Iquiq~
+##  8        116 2 [Mujer]    56  1.10e11     1  1101100103 1 [Región d~ 11 [Iquiq~
+##  9       2209 1 [Hombr~    77  1.10e11     1  1101100104 1 [Región d~ 11 [Iquiq~
+## 10       2210 2 [Mujer]    60  1.10e11     2  1101100104 1 [Región d~ 11 [Iquiq~
+## # ... with 185,427 more rows, and 642 more variables: comuna &amp;lt;dbl+lbl&amp;gt;,
+## #   zona &amp;lt;dbl+lbl&amp;gt;, area &amp;lt;dbl+lbl&amp;gt;, segmento &amp;lt;dbl&amp;gt;, estrato &amp;lt;dbl&amp;gt;,
+## #   cod_upm &amp;lt;dbl&amp;gt;, hogar &amp;lt;dbl&amp;gt;, p6_p_con &amp;lt;dbl+lbl&amp;gt;, expr &amp;lt;dbl&amp;gt;, expp &amp;lt;dbl&amp;gt;,
+## #   expc &amp;lt;dbl&amp;gt;, varstrat &amp;lt;dbl&amp;gt;, varunit &amp;lt;dbl&amp;gt;, fecha_entrev &amp;lt;date&amp;gt;,
+## #   metodologia_entrev &amp;lt;dbl+lbl&amp;gt;, tot_hog &amp;lt;dbl&amp;gt;, numviv &amp;lt;dbl&amp;gt;,
+## #   informante_idoneo &amp;lt;dbl+lbl&amp;gt;, tel1 &amp;lt;dbl+lbl&amp;gt;, tel2 &amp;lt;dbl+lbl&amp;gt;,
+## #   tel3 &amp;lt;dbl+lbl&amp;gt;, tel4 &amp;lt;dbl+lbl&amp;gt;, tel5 &amp;lt;dbl+lbl&amp;gt;, tel6 &amp;lt;dbl+lbl&amp;gt;,
+## #   tel7 &amp;lt;dbl+lbl&amp;gt;, tel8 &amp;lt;dbl+lbl&amp;gt;, p0a &amp;lt;dbl+lbl&amp;gt;, p0b &amp;lt;dbl+lbl&amp;gt;, p1 &amp;lt;dbl+lbl&amp;gt;,
+## #   p2 &amp;lt;dbl+lbl&amp;gt;, p3 &amp;lt;dbl+lbl&amp;gt;, p4 &amp;lt;dbl+lbl&amp;gt;, p5 &amp;lt;dbl+lbl&amp;gt;, p6 &amp;lt;dbl&amp;gt;,
+## #   p7 &amp;lt;dbl+lbl&amp;gt;, p8 &amp;lt;dbl&amp;gt;, id_persona_e &amp;lt;dbl+lbl&amp;gt;, pco1 &amp;lt;dbl+lbl&amp;gt;,
+## #   tot_per &amp;lt;dbl&amp;gt;, h5 &amp;lt;dbl&amp;gt;, ecivil &amp;lt;dbl+lbl&amp;gt;, h5_1 &amp;lt;chr&amp;gt;, h5_2 &amp;lt;dbl&amp;gt;,
+## #   nucleo &amp;lt;dbl&amp;gt;, pco2 &amp;lt;dbl+lbl&amp;gt;, numper &amp;lt;dbl&amp;gt;, n_ocupados &amp;lt;dbl&amp;gt;,
+## #   n_desocupados &amp;lt;dbl&amp;gt;, n_inactivos &amp;lt;dbl&amp;gt;, conyuge_jh &amp;lt;dbl+lbl&amp;gt;, numnuc &amp;lt;dbl&amp;gt;,
+## #   men18c &amp;lt;dbl+lbl&amp;gt;, may60c &amp;lt;dbl+lbl&amp;gt;, tipohogar &amp;lt;dbl+lbl&amp;gt;, e2 &amp;lt;dbl+lbl&amp;gt;,
+## #   e5b &amp;lt;dbl+lbl&amp;gt;, e6a &amp;lt;dbl+lbl&amp;gt;, e6b &amp;lt;dbl+lbl&amp;gt;, asiste2 &amp;lt;dbl+lbl&amp;gt;, esc &amp;lt;dbl&amp;gt;,
+## #   esc2 &amp;lt;dbl&amp;gt;, educ &amp;lt;dbl+lbl&amp;gt;, o1 &amp;lt;dbl+lbl&amp;gt;, o2 &amp;lt;dbl+lbl&amp;gt;, o3 &amp;lt;dbl+lbl&amp;gt;,
+## #   o3b &amp;lt;dbl+lbl&amp;gt;, o4 &amp;lt;dbl+lbl&amp;gt;, o6 &amp;lt;dbl+lbl&amp;gt;, o7 &amp;lt;dbl+lbl&amp;gt;, o7_esp &amp;lt;chr&amp;gt;,
+## #   o9a &amp;lt;chr&amp;gt;, o9b &amp;lt;chr&amp;gt;, oficio4_08 &amp;lt;dbl+lbl&amp;gt;, oficio1_08 &amp;lt;dbl+lbl&amp;gt;,
+## #   oficio4_88 &amp;lt;dbl+lbl&amp;gt;, oficio1_88 &amp;lt;dbl+lbl&amp;gt;, o15 &amp;lt;dbl+lbl&amp;gt;, o16 &amp;lt;dbl+lbl&amp;gt;,
+## #   o17 &amp;lt;dbl+lbl&amp;gt;, o24 &amp;lt;chr&amp;gt;, rama4 &amp;lt;dbl+lbl&amp;gt;, rama1 &amp;lt;dbl+lbl&amp;gt;,
+## #   rama4_rev3 &amp;lt;dbl+lbl&amp;gt;, rama1_rev3 &amp;lt;dbl+lbl&amp;gt;, o29 &amp;lt;dbl+lbl&amp;gt;, o30 &amp;lt;dbl+lbl&amp;gt;,
+## #   o31 &amp;lt;dbl+lbl&amp;gt;, o32 &amp;lt;dbl+lbl&amp;gt;, o32_esp &amp;lt;chr&amp;gt;, o32b &amp;lt;dbl+lbl&amp;gt;,
+## #   o33a &amp;lt;dbl+lbl&amp;gt;, o33b &amp;lt;dbl+lbl&amp;gt;, o34 &amp;lt;dbl+lbl&amp;gt;, o35 &amp;lt;dbl+lbl&amp;gt;,
+## #   o36 &amp;lt;dbl+lbl&amp;gt;, activ &amp;lt;dbl+lbl&amp;gt;, activ2 &amp;lt;dbl+lbl&amp;gt;, ocup_inf &amp;lt;dbl+lbl&amp;gt;,
+## #   y1_preg &amp;lt;dbl+lbl&amp;gt;, y1 &amp;lt;dbl&amp;gt;, ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;select-con-patrones-de-texto&#34;&gt;&lt;code&gt;select()&lt;/code&gt; con patrones de texto&lt;/h4&gt;
+&lt;p&gt;Podemos seleccionar variables considerando los prefijos, sufijos o partes de &lt;em&gt;cómo están nombradas las variables&lt;/em&gt;. Independiente de qué tipo de patrón estes buscando, como todo texto y expresión regular en R (y gran parte de los carácteres) este texto debe venir entre &lt;strong&gt;comillas&lt;/strong&gt;. Algunas de las funciones que posibilitan este proceso son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;starts_with()&lt;/code&gt;: prefijo&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ends_with() &lt;/code&gt;:  sufijo&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;contains()&lt;/code&gt; : contiene una cadena de texto literal&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;matches()&lt;/code&gt; : coincide con una expresión regular&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, &lt;span style=&#34;color:#a6e22e&#34;&gt;starts_with&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;a&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;ends_with&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;preg&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 63
+##       area asiste2    activ   activ2 y1_preg y2a_preg y2b_preg y3a_preg y3b_preg
+##    &amp;lt;dbl+l&amp;gt; &amp;lt;dbl+l&amp;gt; &amp;lt;dbl+lb&amp;gt; &amp;lt;dbl+lb&amp;gt; &amp;lt;dbl+l&amp;gt; &amp;lt;dbl+lb&amp;gt; &amp;lt;dbl+lb&amp;gt; &amp;lt;dbl+lb&amp;gt; &amp;lt;dbl+lb&amp;gt;
+##  1 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~ NA      NA       NA        NA       NA     
+##  2 1 [Urb~ 1 [Asi~ NA       NA       NA      NA       NA        NA       NA     
+##  3 1 [Urb~ 1 [Asi~ NA       NA       NA      NA       NA        NA       NA     
+##  4 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~  1 [Sí]  1 [Día~  1 [Hor~   1 [Sí]   1 [Sí]
+##  5 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~ NA      NA       NA        NA       NA     
+##  6 1 [Urb~ 2 [No ~  1 [Ocu~  1 [Ocu~  1 [Sí]  1 [Día~  1 [Hor~   2 [No]   2 [No]
+##  7 1 [Urb~ 1 [Asi~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
+##  8 1 [Urb~ 2 [No ~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
+##  9 1 [Urb~ 2 [No ~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
+## 10 1 [Urb~ 2 [No ~  3 [Ina~  4 [Ina~ NA      NA       NA        NA       NA     
+## # ... with 185,427 more rows, and 54 more variables: y3c_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y3d_preg &amp;lt;dbl+lbl&amp;gt;, y3e_preg &amp;lt;dbl+lbl&amp;gt;, y3f_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y4a_preg &amp;lt;dbl+lbl&amp;gt;, y4b_preg &amp;lt;dbl+lbl&amp;gt;, y4c_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y4d_preg &amp;lt;dbl+lbl&amp;gt;, y5a_preg &amp;lt;dbl+lbl&amp;gt;, y5b_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y5c_preg &amp;lt;dbl+lbl&amp;gt;, y5d_preg &amp;lt;dbl+lbl&amp;gt;, y5e_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y5f_preg &amp;lt;dbl+lbl&amp;gt;, y5g_preg &amp;lt;dbl+lbl&amp;gt;, y5h_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y5i_preg &amp;lt;dbl+lbl&amp;gt;, y5j_preg &amp;lt;dbl+lbl&amp;gt;, y5k_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y5l_preg &amp;lt;dbl+lbl&amp;gt;, y6_preg &amp;lt;dbl+lbl&amp;gt;, y7_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y8_preg &amp;lt;dbl+lbl&amp;gt;, y9_preg &amp;lt;dbl+lbl&amp;gt;, y10_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y11_preg &amp;lt;dbl+lbl&amp;gt;, y12a_preg &amp;lt;dbl+lbl&amp;gt;, y12b_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y13a_preg &amp;lt;dbl+lbl&amp;gt;, y13b_preg &amp;lt;dbl+lbl&amp;gt;, y13c_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y14a_preg &amp;lt;dbl+lbl&amp;gt;, y14b_preg &amp;lt;dbl+lbl&amp;gt;, y14c_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y15a_preg &amp;lt;dbl+lbl&amp;gt;, y15b_preg &amp;lt;dbl+lbl&amp;gt;, y15c_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y16a_preg &amp;lt;dbl+lbl&amp;gt;, y16b_preg &amp;lt;dbl+lbl&amp;gt;, y17_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y18a_preg &amp;lt;dbl+lbl&amp;gt;, y18b_preg &amp;lt;dbl+lbl&amp;gt;, y18c_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y18d_preg &amp;lt;dbl+lbl&amp;gt;, y22_preg &amp;lt;dbl+lbl&amp;gt;, y23a_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y24_preg &amp;lt;dbl+lbl&amp;gt;, y25a_preg &amp;lt;dbl+lbl&amp;gt;, y25g_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y26a_preg &amp;lt;dbl+lbl&amp;gt;, y26b_preg &amp;lt;dbl+lbl&amp;gt;, y26d_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y27_preg &amp;lt;dbl+lbl&amp;gt;, v19_preg &amp;lt;dbl+lbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# También se pueden combinar con operadores logicos&lt;/span&gt;
+
+&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, &lt;span style=&#34;color:#a6e22e&#34;&gt;starts_with&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;y1&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ends_with&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;preg&amp;#34;&lt;/span&gt;)) 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 21
+##     y1_preg y10_preg  y11_preg y12a_preg y12b_preg y13a_preg y13b_preg y13c_preg
+##    &amp;lt;dbl+lb&amp;gt; &amp;lt;dbl+lb&amp;gt; &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;
+##  1  NA            NA NA           2 [No]    2 [No]    2 [No]    2 [No]    1 [Sí]
+##  2  NA            NA NA          NA        NA         2 [No]    1 [Sí]    2 [No]
+##  3  NA            NA NA          NA        NA         2 [No]    2 [No]    1 [Sí]
+##  4   1 [Sí]       NA NA           2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+##  5  NA            NA NA           2 [No]    2 [No]    2 [No]    2 [No]    1 [Sí]
+##  6   1 [Sí]       NA NA           2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+##  7  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+##  8  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+##  9  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+## 10  NA            NA  2 [No r~    2 [No]    2 [No]    2 [No]    2 [No]    2 [No]
+## # ... with 185,427 more rows, and 13 more variables: y14a_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y14b_preg &amp;lt;dbl+lbl&amp;gt;, y14c_preg &amp;lt;dbl+lbl&amp;gt;, y15a_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y15b_preg &amp;lt;dbl+lbl&amp;gt;, y15c_preg &amp;lt;dbl+lbl&amp;gt;, y16a_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y16b_preg &amp;lt;dbl+lbl&amp;gt;, y17_preg &amp;lt;dbl+lbl&amp;gt;, y18a_preg &amp;lt;dbl+lbl&amp;gt;,
+## #   y18b_preg &amp;lt;dbl+lbl&amp;gt;, y18c_preg &amp;lt;dbl+lbl&amp;gt;, y18d_preg &amp;lt;dbl+lbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, &lt;span style=&#34;color:#a6e22e&#34;&gt;contains&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pobre&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;contains&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;vivienda&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 3
+##          pobreza                          pobreza_sinte id_vivienda
+##        &amp;lt;dbl+lbl&amp;gt;                              &amp;lt;dbl+lbl&amp;gt;       &amp;lt;dbl&amp;gt;
+##  1 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100101
+##  2 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100101
+##  3 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100102
+##  4 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100102
+##  5 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100102
+##  6 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100103
+##  7 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100103
+##  8 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100103
+##  9 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100104
+## 10 3 [No pobres] 3 [No pobres sin transferencia Covid ]  1101100104
+## # ... with 185,427 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, &lt;span style=&#34;color:#a6e22e&#34;&gt;matches&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pobreza_|vivienda&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 2
+##    id_vivienda                          pobreza_sinte
+##          &amp;lt;dbl&amp;gt;                              &amp;lt;dbl+lbl&amp;gt;
+##  1  1101100101 3 [No pobres sin transferencia Covid ]
+##  2  1101100101 3 [No pobres sin transferencia Covid ]
+##  3  1101100102 3 [No pobres sin transferencia Covid ]
+##  4  1101100102 3 [No pobres sin transferencia Covid ]
+##  5  1101100102 3 [No pobres sin transferencia Covid ]
+##  6  1101100103 3 [No pobres sin transferencia Covid ]
+##  7  1101100103 3 [No pobres sin transferencia Covid ]
+##  8  1101100103 3 [No pobres sin transferencia Covid ]
+##  9  1101100104 3 [No pobres sin transferencia Covid ]
+## 10  1101100104 3 [No pobres sin transferencia Covid ]
+## # ... with 185,427 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;select-y-condiciones-lógicas&#34;&gt;&lt;code&gt;select()&lt;/code&gt; y condiciones lógicas&lt;/h4&gt;
+&lt;p&gt;Si combinamos &lt;code&gt;select()&lt;/code&gt; con &lt;code&gt;where()&lt;/code&gt; obtendremos algo así como una frase &lt;em&gt;&amp;ldquo;seleciona donde&amp;rdquo;&lt;/em&gt;, ese &lt;em&gt;donde&lt;/em&gt; responde a una condición que cumple cierta variable. Por ejemplo, queremos seleccionar todas las variables que son carácteres (&lt;code&gt;is.character&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, &lt;span style=&#34;color:#a6e22e&#34;&gt;where&lt;/span&gt;(is.character))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 19
+##    h5_1   o7_esp o9a     o9b    o24     o32_esp y3f_esp y4d_esp y18d_esp y27_esp
+##    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;  
+##  1 0      &amp;#34;&amp;#34;     &amp;#34;VENDE~ &amp;#34;VEND~ &amp;#34;VENDE~ &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;       &amp;#34;&amp;#34;     
+##  2 5      &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;       &amp;#34;&amp;#34;     
+##  3 32     &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;       &amp;#34;&amp;#34;     
+##  4 0      &amp;#34;&amp;#34;     &amp;#34;GASTR~ &amp;#34;BARM~ &amp;#34;HOTEL~ &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;       &amp;#34;&amp;#34;     
+##  5 32     &amp;#34;&amp;#34;     &amp;#34;ARTES~ &amp;#34;QUEQ~ &amp;#34;HACE ~ &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;       &amp;#34;&amp;#34;     
+##  6 0      &amp;#34;&amp;#34;     &amp;#34;DGAC&amp;#34;  &amp;#34;CONT~ &amp;#34;AEROP~ &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;       &amp;#34;&amp;#34;     
+##  7 116|1~ &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;       &amp;#34;&amp;#34;     
+##  8 0      &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;       &amp;#34;&amp;#34;     
+##  9 0      &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;       &amp;#34;&amp;#34;     
+## 10 0      &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;     &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;      &amp;#34;&amp;#34;       &amp;#34;&amp;#34;     
+## # ... with 185,427 more rows, and 9 more variables: y28_1j_esp &amp;lt;chr&amp;gt;,
+## #   s18_esp &amp;lt;chr&amp;gt;, s28_esp &amp;lt;chr&amp;gt;, s30_esp &amp;lt;chr&amp;gt;, r1b_comuna_esp &amp;lt;chr&amp;gt;,
+## #   r1b_pais_esp &amp;lt;chr&amp;gt;, r2_comuna_esp &amp;lt;chr&amp;gt;, r2_pais_esp &amp;lt;chr&amp;gt;, v20_esp &amp;lt;chr&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Luego de la revisión del libro de códigos y la exploración de datos mediante a funciones como &lt;code&gt;find_var()&lt;/code&gt; de &lt;code&gt;sjmisc&lt;/code&gt; decidimos trabajar con las siguientes variables.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;edad&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sexo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;s13&lt;/code&gt;: previsión de salud&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tot_per&lt;/code&gt;: número de personas en el hogar&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ytoth&lt;/code&gt;: ingresos totales del hogar&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;o1&lt;/code&gt;: ocupación&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;y26d_total&lt;/code&gt;: Monto del IFE&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;y26d_hog&lt;/code&gt;: ¿Alguien recibió el IFE?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;¡Apliquémos conocimientos!&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, edad, sexo, prev &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;592&lt;/span&gt;, ocupacion &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; o1, tot_per, ytoth, &lt;span style=&#34;color:#a6e22e&#34;&gt;starts_with&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;y26d_&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;matches&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;total|hog&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 8
+##     edad      sexo             prev ocupacion tot_per  ytoth y26d_hog y26d_total
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;        &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+##  1    34 2 [Mujer] 3 [ISAPRE]          2 [No]       2 3.91e5   1 [Sí]         NA
+##  2     4 2 [Mujer] 3 [ISAPRE]         NA            2 3.91e5   1 [Sí]         NA
+##  3     5 2 [Mujer] 4 [Ninguno (par~   NA            3 9.48e5   2 [No]         NA
+##  4    45 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       3 9.48e5   2 [No]         NA
+##  5    19 2 [Mujer] 4 [Ninguno (par~    2 [No]       3 9.48e5   2 [No]         NA
+##  6    57 1 [Hombr~ 5 [Otro sistema]    1 [Sí]       3 3.00e6   2 [No]         NA
+##  7    20 1 [Hombr~ 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  8    56 2 [Mujer] 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  9    77 1 [Hombr~ 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+## 10    60 2 [Mujer] 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+## # ... with 185,427 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Es una buena práctica trabajar solo con las columnas que utilizaremos para el análisis, principalmente pues disminuye el &lt;em&gt;uso de memoria&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(datos, edad, sexo, prev &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;592&lt;/span&gt;, ocupacion &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; o1, tot_per, ytoth, &lt;span style=&#34;color:#a6e22e&#34;&gt;starts_with&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;y26d_&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;matches&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;total|hog&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;El nuevo objeto posee650 variables (columnas), pero conserva las filas 185.437 (u observaciones) ¿Qué pasa si quiero trabajar con un &lt;em&gt;subset&lt;/em&gt; de casos? La respuesta es &lt;code&gt;filter()&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;52-filter-para-manipular-observaciones&#34;&gt;5.2 &lt;code&gt;filter()&lt;/code&gt; para manipular observaciones&lt;/h3&gt;
+&lt;p&gt;La función &lt;code&gt;filter()&lt;/code&gt; de &lt;code&gt;dplyr&lt;/code&gt; escoge o extrae filas basados en sus valores, subdivide un data frame (&lt;em&gt;subset&lt;/em&gt;), reteniendo todas las filas que satisfacen sus condiciones.&lt;/p&gt;
+&lt;p&gt;Con &lt;code&gt;filter()&lt;/code&gt; será esencial el uso de los &lt;strong&gt;operadores&lt;/strong&gt; que ya vimos, dado que las observaciones que preservarán en nuestros datos (y aquellas que no), están definidas por condiciones lógicas (relacionales o booleanas)&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+filter(datos, condicion_para filtrar)
+Esta condición para filtrar podría ser, por ejemplo
+variable1 &amp;gt;= 3
+&lt;/div&gt;
+
+&lt;h4 id=&#34;filter-con-números&#34;&gt;&lt;code&gt;filter&lt;/code&gt; con números&lt;/h4&gt;
+&lt;p&gt;Imaginémos que queremos una base con las personas mayores de 15 años. Pero también que pertenezcan a hogares con menos de 7 personas.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 151,315 x 8
+##     edad      sexo             prev ocupacion tot_per  ytoth y26d_hog y26d_total
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;        &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+##  1    34 2 [Mujer] 3 [ISAPRE]          2 [No]       2 3.91e5   1 [Sí]         NA
+##  2    45 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       3 9.48e5   2 [No]         NA
+##  3    19 2 [Mujer] 4 [Ninguno (par~    2 [No]       3 9.48e5   2 [No]         NA
+##  4    57 1 [Hombr~ 5 [Otro sistema]    1 [Sí]       3 3.00e6   2 [No]         NA
+##  5    20 1 [Hombr~ 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  6    56 2 [Mujer] 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  7    77 1 [Hombr~ 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+##  8    60 2 [Mujer] 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+##  9    54 2 [Mujer] 1 [Sistema Públ~    1 [Sí]       4 1.32e6   1 [Sí]         NA
+## 10    18 1 [Hombr~ 4 [Ninguno (par~    2 [No]       4 1.32e6   1 [Sí]         NA
+## # ... with 151,305 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; tot_per &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 144,418 x 8
+##     edad      sexo             prev ocupacion tot_per  ytoth y26d_hog y26d_total
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;        &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+##  1    34 2 [Mujer] 3 [ISAPRE]          2 [No]       2 3.91e5   1 [Sí]         NA
+##  2    45 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       3 9.48e5   2 [No]         NA
+##  3    19 2 [Mujer] 4 [Ninguno (par~    2 [No]       3 9.48e5   2 [No]         NA
+##  4    57 1 [Hombr~ 5 [Otro sistema]    1 [Sí]       3 3.00e6   2 [No]         NA
+##  5    20 1 [Hombr~ 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  6    56 2 [Mujer] 5 [Otro sistema]    2 [No]       3 3.00e6   2 [No]         NA
+##  7    77 1 [Hombr~ 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+##  8    60 2 [Mujer] 1 [Sistema Públ~    2 [No]       2 6.10e5   2 [No]         NA
+##  9    54 2 [Mujer] 1 [Sistema Públ~    1 [Sí]       4 1.32e6   1 [Sí]         NA
+## 10    18 1 [Hombr~ 4 [Ninguno (par~    2 [No]       4 1.32e6   1 [Sí]         NA
+## # ... with 144,408 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;¿Y si quiero filtrar para saber el valor máximo de ingresos (&lt;code&gt;ytoth&lt;/code&gt;)?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, ytoth &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;max&lt;/span&gt;(ytoth))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 1 x 8
+##    edad      sexo             prev ocupacion tot_per   ytoth y26d_hog y26d_total
+##   &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;        &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+## 1    41 1 [Hombr~ 1 [Sistema Públ~    1 [Sí]       1  2.25e8   2 [No]         NA
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;¡Gana $225.200.000, es Hombre y tiene 41 años! (y vive solo&amp;hellip;)&lt;/p&gt;
+&lt;h4 id=&#34;filter-con-carácteres&#34;&gt;&lt;code&gt;filter()&lt;/code&gt; con carácteres&lt;/h4&gt;
+&lt;p&gt;Si queremos filtrar por la variable &lt;code&gt;sexo&lt;/code&gt; solo a las mujeres, tengo dos opciones: o solo selecciono a las mujeres (&lt;code&gt;==&lt;/code&gt;) o excluyo a los hombres (&lt;code&gt;!=&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Ahora bien, antes hay que hacer una precisión importante: en los datos &lt;code&gt;sexo&lt;/code&gt; es una variable que está como &lt;code&gt;dbl&lt;/code&gt; y &lt;code&gt;lbl&lt;/code&gt; (número etiquetado), por lo que no es que en la base aparezcan &amp;ldquo;Mujeres&amp;rdquo; y &amp;ldquo;Hombres&amp;rdquo;, sino que 2 y 1.&lt;/p&gt;
+&lt;p&gt;Por ello, con el siguiente código aparecerá un error en sus consolas.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, sexo &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mujer&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Una función &lt;strong&gt;muy muy útil&lt;/strong&gt; (sobre todo cuando trabajemos con regresiones) es &lt;code&gt;as_factor()&lt;/code&gt; que permite conservar los niveles pero definiendo sus categorías de respuesta en base a la etiqueta que traen (el &lt;code&gt;lbl&lt;/code&gt;)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;sexo &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;as_factor&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;sexo)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;¡Ahora si funcionará!&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, sexo &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mujer&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 99,341 x 8
+##     edad sexo                 prev ocupacion tot_per   ytoth y26d_hog y26d_total
+##    &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;           &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+##  1    34 Mujer 3 [ISAPRE]             2 [No]       2  390833   1 [Sí]         NA
+##  2     4 Mujer 3 [ISAPRE]            NA            2  390833   1 [Sí]         NA
+##  3     5 Mujer 4 [Ninguno (partic~   NA            3  947583   2 [No]         NA
+##  4    19 Mujer 4 [Ninguno (partic~    2 [No]       3  947583   2 [No]         NA
+##  5    56 Mujer 5 [Otro sistema]       2 [No]       3 3004167   2 [No]         NA
+##  6    60 Mujer 1 [Sistema Público~    2 [No]       2  610250   2 [No]         NA
+##  7    54 Mujer 1 [Sistema Público~    1 [Sí]       4 1321481   1 [Sí]         NA
+##  8    31 Mujer 1 [Sistema Público~    1 [Sí]       4 1110000   2 [No]         NA
+##  9     9 Mujer 1 [Sistema Público~   NA            4 1110000   2 [No]         NA
+## 10    77 Mujer 1 [Sistema Público~    2 [No]       1  739833   2 [No]         NA
+## # ... with 99,331 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, sexo &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hombre&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 99,341 x 8
+##     edad sexo                 prev ocupacion tot_per   ytoth y26d_hog y26d_total
+##    &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;           &amp;lt;dbl+lbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+##  1    34 Mujer 3 [ISAPRE]             2 [No]       2  390833   1 [Sí]         NA
+##  2     4 Mujer 3 [ISAPRE]            NA            2  390833   1 [Sí]         NA
+##  3     5 Mujer 4 [Ninguno (partic~   NA            3  947583   2 [No]         NA
+##  4    19 Mujer 4 [Ninguno (partic~    2 [No]       3  947583   2 [No]         NA
+##  5    56 Mujer 5 [Otro sistema]       2 [No]       3 3004167   2 [No]         NA
+##  6    60 Mujer 1 [Sistema Público~    2 [No]       2  610250   2 [No]         NA
+##  7    54 Mujer 1 [Sistema Público~    1 [Sí]       4 1321481   1 [Sí]         NA
+##  8    31 Mujer 1 [Sistema Público~    1 [Sí]       4 1110000   2 [No]         NA
+##  9     9 Mujer 1 [Sistema Público~   NA            4 1110000   2 [No]         NA
+## 10    77 Mujer 1 [Sistema Público~    2 [No]       1  739833   2 [No]         NA
+## # ... with 99,331 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;note&#34;&gt;
+&lt;strong&gt;Ojo&lt;/strong&gt;. R es &lt;em&gt;sensible&lt;/em&gt; a cómo está escrito el texto. Si pones el mismo código pero sin respetar mayúsuculas y minúsculas el código no funcionará
+&lt;/div&gt;
+
+&lt;p&gt;¡Por último! ¿Cómo se seleccionan dos condiciones en carácter? Con el operador &lt;code&gt;%in%&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;prev &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;as_factor&lt;/span&gt;(datos_proc&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;prev)
+
+&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(datos_proc, prev &lt;span style=&#34;color:#f92672&#34;&gt;%in%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Sistema Público FONASA&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ISAPRE&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 169,503 x 8
+##     edad sexo   prev               ocupacion tot_per   ytoth y26d_hog y26d_total
+##    &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;  &amp;lt;fct&amp;gt;              &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+##  1    34 Mujer  ISAPRE                2 [No]       2  390833   1 [Sí]         NA
+##  2     4 Mujer  ISAPRE               NA            2  390833   1 [Sí]         NA
+##  3    45 Hombre Sistema Público F~    1 [Sí]       3  947583   2 [No]         NA
+##  4    77 Hombre Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+##  5    60 Mujer  Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+##  6    11 Hombre Sistema Público F~   NA            4 1321481   1 [Sí]         NA
+##  7    54 Mujer  Sistema Público F~    1 [Sí]       4 1321481   1 [Sí]         NA
+##  8    57 Hombre Sistema Público F~    1 [Sí]       4 1321481   1 [Sí]         NA
+##  9    55 Hombre Sistema Público F~    1 [Sí]       4 1110000   2 [No]         NA
+## 10    31 Mujer  Sistema Público F~    1 [Sí]       4 1110000   2 [No]         NA
+## # ... with 169,493 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Antes de definir que observaciones vamos a conservar en una base procesada &lt;code&gt;datos_proc&lt;/code&gt; ¡Creemos transformemos variables con &lt;code&gt;mutate()&lt;/code&gt;!&lt;/p&gt;
+&lt;h3 id=&#34;53-mutate-para-transformación-de--variables&#34;&gt;5.3 &lt;code&gt;mutate()&lt;/code&gt; para transformación de  variables&lt;/h3&gt;
+&lt;p&gt;La función de &lt;code&gt;mutate()&lt;/code&gt; permite hacer operaciones para crear nuevas variables o transformar las ya existentes.&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+mutate(datos, nueva_variable = cálculo o condición)
+&lt;/div&gt;
+
+&lt;h4 id=&#34;mutate-en-base-a-cálculo&#34;&gt;&lt;code&gt;mutate()&lt;/code&gt; en base a cálculo&lt;/h4&gt;
+&lt;p&gt;Calcularemos una nueva variable llamada &lt;code&gt;nueva_variable&lt;/code&gt; que proviene de la suma de 2+3. También una variable &lt;code&gt;ingreso_percapita&lt;/code&gt; que proviene de la división del ingreso total del hogar y el número de personas que residen en el hogar&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(datos_proc, nueva_variable &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3+2&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 9
+##     edad sexo  prev  ocupacion tot_per  ytoth y26d_hog y26d_total nueva_variable
+##    &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;          &amp;lt;dbl&amp;gt;
+##  1    34 Mujer ISAP~    2 [No]       2 3.91e5   1 [Sí]         NA              5
+##  2     4 Mujer ISAP~   NA            2 3.91e5   1 [Sí]         NA              5
+##  3     5 Mujer Ning~   NA            3 9.48e5   2 [No]         NA              5
+##  4    45 Homb~ Sist~    1 [Sí]       3 9.48e5   2 [No]         NA              5
+##  5    19 Mujer Ning~    2 [No]       3 9.48e5   2 [No]         NA              5
+##  6    57 Homb~ Otro~    1 [Sí]       3 3.00e6   2 [No]         NA              5
+##  7    20 Homb~ Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
+##  8    56 Mujer Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
+##  9    77 Homb~ Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
+## 10    60 Mujer Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
+## # ... with 185,427 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(datos_proc, nueva_variable &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3+2&lt;/span&gt;,
+       ingreso_percapita &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ytoth&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;tot_per)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 10
+##     edad sexo  prev  ocupacion tot_per  ytoth y26d_hog y26d_total nueva_variable
+##    &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;          &amp;lt;dbl&amp;gt;
+##  1    34 Mujer ISAP~    2 [No]       2 3.91e5   1 [Sí]         NA              5
+##  2     4 Mujer ISAP~   NA            2 3.91e5   1 [Sí]         NA              5
+##  3     5 Mujer Ning~   NA            3 9.48e5   2 [No]         NA              5
+##  4    45 Homb~ Sist~    1 [Sí]       3 9.48e5   2 [No]         NA              5
+##  5    19 Mujer Ning~    2 [No]       3 9.48e5   2 [No]         NA              5
+##  6    57 Homb~ Otro~    1 [Sí]       3 3.00e6   2 [No]         NA              5
+##  7    20 Homb~ Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
+##  8    56 Mujer Otro~    2 [No]       3 3.00e6   2 [No]         NA              5
+##  9    77 Homb~ Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
+## 10    60 Mujer Sist~    2 [No]       2 6.10e5   2 [No]         NA              5
+## # ... with 185,427 more rows, and 1 more variable: ingreso_percapita &amp;lt;dbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;¿Qué pasa si queremos, luego de calcular nuestras nuevas variables, filtrar un ingreso per cápita menor o igual a $1.000.000&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;¡Ahora entra en escena nuestro operador estrella &lt;code&gt;%&amp;gt;%&lt;/code&gt;!&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+datos %&amp;gt;% 
+mutate(., nueva_variable = calculo ) %&amp;gt;% 
+filter(., nueva_variable &amp;lt;= valor)
+&lt;/div&gt;
+
+&lt;p&gt;Básicamente, el &lt;code&gt;%&amp;gt;%&lt;/code&gt; permite &amp;ldquo;ingresar&amp;rdquo; nuestra base de datos como argumento para cada función e ir operándola en proceso&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(ingreso_percapita &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ytoth&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;tot_per) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(ingreso_percapita &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1000000&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 176,094 x 9
+##     edad sexo   prev               ocupacion tot_per   ytoth y26d_hog y26d_total
+##    &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;  &amp;lt;fct&amp;gt;              &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+##  1    34 Mujer  ISAPRE                2 [No]       2  390833   1 [Sí]         NA
+##  2     4 Mujer  ISAPRE               NA            2  390833   1 [Sí]         NA
+##  3     5 Mujer  Ninguno (particul~   NA            3  947583   2 [No]         NA
+##  4    45 Hombre Sistema Público F~    1 [Sí]       3  947583   2 [No]         NA
+##  5    19 Mujer  Ninguno (particul~    2 [No]       3  947583   2 [No]         NA
+##  6    77 Hombre Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+##  7    60 Mujer  Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+##  8    11 Hombre Sistema Público F~   NA            4 1321481   1 [Sí]         NA
+##  9    54 Mujer  Sistema Público F~    1 [Sí]       4 1321481   1 [Sí]         NA
+## 10    18 Hombre Ninguno (particul~    2 [No]       4 1321481   1 [Sí]         NA
+## # ... with 176,084 more rows, and 1 more variable: ingreso_percapita &amp;lt;dbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;recode&#34;&gt;&lt;code&gt;recode()&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;La función denominada &lt;em&gt;recode&lt;/em&gt; puede reemplazar valores numéricos en base a su posición o su nombre, y valores de carácteres o factores sólo por su nombre.&lt;/p&gt;
+&lt;p&gt;En el siguiente ejemplo recodificamos las categorías de respuesta de Mujer a Femenino y de Hombre a Masculino&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(sexo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dplyr&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;recode&lt;/span&gt;(sexo, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mujer&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Femenino&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hombre&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Masculino&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 8
+##     edad sexo     prev              ocupacion tot_per  ytoth y26d_hog y26d_total
+##    &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;    &amp;lt;fct&amp;gt;             &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+##  1    34 Femenino ISAPRE               2 [No]       2 3.91e5   1 [Sí]         NA
+##  2     4 Femenino ISAPRE              NA            2 3.91e5   1 [Sí]         NA
+##  3     5 Femenino Ninguno (particu~   NA            3 9.48e5   2 [No]         NA
+##  4    45 Masculi~ Sistema Público ~    1 [Sí]       3 9.48e5   2 [No]         NA
+##  5    19 Femenino Ninguno (particu~    2 [No]       3 9.48e5   2 [No]         NA
+##  6    57 Masculi~ Otro sistema         1 [Sí]       3 3.00e6   2 [No]         NA
+##  7    20 Masculi~ Otro sistema         2 [No]       3 3.00e6   2 [No]         NA
+##  8    56 Femenino Otro sistema         2 [No]       3 3.00e6   2 [No]         NA
+##  9    77 Masculi~ Sistema Público ~    2 [No]       2 6.10e5   2 [No]         NA
+## 10    60 Femenino Sistema Público ~    2 [No]       2 6.10e5   2 [No]         NA
+## # ... with 185,427 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;El problema de &lt;code&gt;recode()&lt;/code&gt; que se utiliza dentro de &lt;code&gt;dplyr&lt;/code&gt; es que si recodifico se pierde la etiqueta anterior. Esto es un problema a si por ejemplo, solo quiero recodificar casos perdidos.&lt;/p&gt;
+&lt;p&gt;Frente a ello, con el tiempo nos hemos convencido de que la mejor solución hasta ahora es ocupar &lt;code&gt;recode()&lt;/code&gt; del paquete &lt;code&gt;car&lt;/code&gt;. Si recuerdan, dos funciones con el mismo nombre podrían producir &lt;em&gt;conflictos&lt;/em&gt;, y por ello, especificaremos con &lt;code&gt;car::recode()&lt;/code&gt; que la función &lt;code&gt;recode()&lt;/code&gt; que ocupamos proviene de &lt;code&gt;car&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;datos %$% 
+car::recode(.$variable, c(&amp;lsquo;valor_orig1=nuevo_valor1;valor_org2=nuevo_valor2&amp;rsquo;))&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ojo: %$% es el primo hermano de %&amp;gt;% (básicamente funcionan igual, pero este es necesario para car)&lt;/em&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%$%&lt;/span&gt; 
+  car&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;recode&lt;/span&gt;(.$y26d_hog, &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;9=NA&amp;#39;&lt;/span&gt;)) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;(.)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## &amp;lt;labelled&amp;lt;double&amp;gt;[6]&amp;gt;: y26d_hog. Últimos 12 meses, ¿alguien recibió Ingreso Familiar de Emergencia?
+## [1] 1 1 2 2 2 2
+## 
+## Labels:
+##  value   label
+##      1      Sí
+##      2      No
+##      9 No sabe
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Aquí una versión de si la recodificación es hacia carácteres (mismo ejemplo que con &lt;code&gt;recode()&lt;/code&gt; de &lt;code&gt;dplyr&lt;/code&gt;)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%$%&lt;/span&gt; 
+  car&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;recode&lt;/span&gt;(.$sexo, &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#34;Mujer&amp;#34;=&amp;#34;Femenino&amp;#34;;&amp;#34;Hombre&amp;#34;= &amp;#34;Masculino&amp;#34;&amp;#39;&lt;/span&gt;), as.factor &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; T) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;(.)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## [1] Femenino  Femenino  Femenino  Masculino Femenino  Masculino
+## Levels: Femenino Masculino
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;532-if_else-para-construir-variables-condicionales&#34;&gt;5.3.2 &lt;code&gt;if_else()&lt;/code&gt; para construir variables condicionales&lt;/h3&gt;
+&lt;p&gt;La función &lt;code&gt;if_else()&lt;/code&gt; permite construir variables en base a condiciones lógicas. Su estructura es la siguiente&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+if_else(condición,TRUE,FALSE)
+Donde dice &lt;code&gt;TRUE&lt;/code&gt; es el valor que se obtiene si la condición es verdadera, mientras que &lt;code&gt;FALSE&lt;/code&gt; es todo el resto de las opciones (o cuando es FALSA)
+&lt;/div&gt;
+
+&lt;p&gt;Crearemos una variable que &lt;em&gt;dummy&lt;/em&gt; que indica si el respondente es &lt;em&gt;FONASA&lt;/em&gt; o no lo es.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+ 		 &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(fonasa &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;if_else&lt;/span&gt;(prev &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Sistema Público FONASA&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;También podemos ocupar esta función como validador, por ejemplo, rellenando con valores lógicos como &lt;code&gt;FALSE&lt;/code&gt; cuando no hay valores en &lt;code&gt;ytoth&lt;/code&gt;. Luego esos &lt;code&gt;FALSE&lt;/code&gt; podrían ser contados en otros procesos estadísticos&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(validador_ingreso &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;if_else&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;is.na&lt;/span&gt;(ytoth), &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 9
+##     edad sexo   prev               ocupacion tot_per   ytoth y26d_hog y26d_total
+##    &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;  &amp;lt;fct&amp;gt;              &amp;lt;dbl+lbl&amp;gt;   &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl+lb&amp;gt;  &amp;lt;dbl+lbl&amp;gt;
+##  1    34 Mujer  ISAPRE                2 [No]       2  390833   1 [Sí]         NA
+##  2     4 Mujer  ISAPRE               NA            2  390833   1 [Sí]         NA
+##  3     5 Mujer  Ninguno (particul~   NA            3  947583   2 [No]         NA
+##  4    45 Hombre Sistema Público F~    1 [Sí]       3  947583   2 [No]         NA
+##  5    19 Mujer  Ninguno (particul~    2 [No]       3  947583   2 [No]         NA
+##  6    57 Hombre Otro sistema          1 [Sí]       3 3004167   2 [No]         NA
+##  7    20 Hombre Otro sistema          2 [No]       3 3004167   2 [No]         NA
+##  8    56 Mujer  Otro sistema          2 [No]       3 3004167   2 [No]         NA
+##  9    77 Hombre Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+## 10    60 Mujer  Sistema Público F~    2 [No]       2  610250   2 [No]         NA
+## # ... with 185,427 more rows, and 1 more variable: validador_ingreso &amp;lt;lgl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;532-case_when-para-construir-variable-en-base-a-múltiples-condiciones&#34;&gt;5.3.2 &lt;code&gt;case_when()&lt;/code&gt; para construir variable en base a múltiples condiciones&lt;/h3&gt;
+&lt;p&gt;Una función que se utiliza frecuentemente para &lt;em&gt;colapsar&lt;/em&gt; categorías o construir categorías en base a varias condiciones es &lt;code&gt;case_when()&lt;/code&gt; por lo lógico y &lt;em&gt;fácil&lt;/em&gt; que es de entender&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;case_when(variable == condicion ~ valor1,
+variable == condicion ~ valor2,
+TRUE ~ NA_real)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Donde, TRUE indica &amp;ldquo;todo el resto&amp;rdquo;, y el NA dependerá de la clase del valor de recodificación&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Un ejemplo claro es cuando queremos construir &lt;em&gt;categorías de edad&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(edad_tramo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;case_when&lt;/span&gt;(edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;39&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Joven&amp;#34;&lt;/span&gt;,
+                                edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;39&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;59&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Adulto&amp;#34;&lt;/span&gt;,
+                                edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;59&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Adulto mayor&amp;#34;&lt;/span&gt;,
+                                &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NA_character_&lt;/span&gt;)) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(edad, edad_tramo)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 185,437 x 2
+##     edad edad_tramo  
+##    &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;       
+##  1    34 Joven       
+##  2     4 Joven       
+##  3     5 Joven       
+##  4    45 Adulto      
+##  5    19 Joven       
+##  6    57 Adulto      
+##  7    20 Joven       
+##  8    56 Adulto      
+##  9    77 Adulto mayor
+## 10    60 Adulto mayor
+## # ... with 185,427 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Como se puede ver, no solamente indicamos tramos de la variable edad, sino que utilizamos operadores lógicos (&lt;code&gt;&amp;amp;&lt;/code&gt;). Podríamos ocupar el que necesitemos, y sobre todo, también combinar variables (por ejemplo, crear una variable &lt;code&gt;sexo-edad&lt;/code&gt;)&lt;/p&gt;
+&lt;h2 id=&#34;6-resumen-con-procesamiento-de-las-variables&#34;&gt;6. Resumen con procesamiento de las variables&lt;/h2&gt;
+&lt;p&gt;Hasta ahora, solo hemos creado una base de datos que selecciona variables. Ahora nos resta incorporar en un nuevo objeto los cambios que nos parezcan relevantes para la base de datos procesada que utilizaremos en nuestros análisis.&lt;/p&gt;
+&lt;p&gt;Como ya conocemos operadores que permiten concatenar procesos ( &lt;code&gt;%&amp;gt;%&lt;/code&gt;  y &lt;code&gt;%$%&lt;/code&gt;) este procedimiento será mucho más fácil.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+ &lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; tot_per &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(ingreso_percapita &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ytoth&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;tot_per,
+           edad_tramo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;case_when&lt;/span&gt;(edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;39&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Joven&amp;#34;&lt;/span&gt;,
+                                edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;39&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;59&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Adulto&amp;#34;&lt;/span&gt;,
+                                edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;59&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Adulto mayor&amp;#34;&lt;/span&gt;,
+                                &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NA_character_&lt;/span&gt;),
+           fonasa &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;if_else&lt;/span&gt;(prev &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Sistema Público FONASA&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;),
+           ocupacion &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;as_factor&lt;/span&gt;(ocupacion)) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(sexo, edad_tramo, ocupacion, ingreso_percapita, ife &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; y26d_hog)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## # A tibble: 144,418 x 5
+##    sexo   edad_tramo   ocupacion ingreso_percapita       ife
+##    &amp;lt;fct&amp;gt;  &amp;lt;chr&amp;gt;        &amp;lt;fct&amp;gt;                 &amp;lt;dbl&amp;gt; &amp;lt;dbl+lbl&amp;gt;
+##  1 Mujer  Joven        No                  195416.    1 [Sí]
+##  2 Hombre Adulto       Sí                  315861     2 [No]
+##  3 Mujer  Joven        No                  315861     2 [No]
+##  4 Hombre Adulto       Sí                 1001389     2 [No]
+##  5 Hombre Joven        No                 1001389     2 [No]
+##  6 Mujer  Adulto       No                 1001389     2 [No]
+##  7 Hombre Adulto mayor No                  305125     2 [No]
+##  8 Mujer  Adulto mayor No                  305125     2 [No]
+##  9 Mujer  Adulto       Sí                  330370.    1 [Sí]
+## 10 Hombre Joven        No                  330370.    1 [Sí]
+## # ... with 144,408 more rows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;¡Ahora que estamos seguras/os sobre-escribimos la base!&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; datos_proc &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+ &lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; tot_per &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;mutate&lt;/span&gt;(ingreso_percapita &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ytoth&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;tot_per,
+           edad_tramo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;case_when&lt;/span&gt;(edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;39&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Joven&amp;#34;&lt;/span&gt;,
+                                edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;39&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;59&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Adulto&amp;#34;&lt;/span&gt;,
+                                edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;59&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Adulto mayor&amp;#34;&lt;/span&gt;,
+                                &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NA_character_&lt;/span&gt;),
+           fonasa &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;if_else&lt;/span&gt;(prev &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Sistema Público FONASA&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;),
+           ocupacion &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;as_factor&lt;/span&gt;(ocupacion)) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(sexo, edad_tramo, ocupacion, ingreso_percapita, ife &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; y26d_hog)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Podemos visualizar la base resultante a partir de &lt;code&gt;view_df()&lt;/code&gt; de &lt;code&gt;sjPlot&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;sjPlot&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;view_df&lt;/span&gt;(datos_proc)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table style=&#34;border-collapse:collapse; border:none;&#34;&gt;
+&lt;caption&gt;Data frame: datos_proc&lt;/caption&gt;
+&lt;tr&gt;
+&lt;th style=&#34;border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;ID&lt;/th&gt;&lt;th style=&#34;border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;Name&lt;/th&gt;&lt;th style=&#34;border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;Label&lt;/th&gt;&lt;th style=&#34;border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;Values&lt;/th&gt;&lt;th style=&#34;border-bottom:double; font-style:italic; font-weight:normal; padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;Value Labels&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;sexo&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;Sexo&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;Hombre&lt;br&gt;Mujer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;edad_tramo&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;&amp;lt;output omitted&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;3&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;ocupacion&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;o1. La semana pasada, Â¿trabajÃ³ al menos una hora?&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;SÃ­&lt;br&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;4&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;ingreso_percapita&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34;&gt;Ingreso total del hogar&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top; background-color:#eeeeee&#34; colspan=&#34;2&#34;&gt;&lt;em&gt;range: 0.0-225200000.0&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;5&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;ife&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;y26d_hog. Ãšltimos 12 meses, Â¿alguien recibiÃ³&lt;br&gt;Ingreso Familiar de Emergencia?&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;1&lt;br&gt;2&lt;br&gt;9&lt;/td&gt;
+&lt;td style=&#34;padding:0.2cm; text-align:left; vertical-align:top;&#34;&gt;SÃ­&lt;br&gt;No&lt;br&gt;No sabe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;7-guardar-base-procesada&#34;&gt;7. Guardar base procesada&lt;/h2&gt;
+&lt;p&gt;Para guardar la base de datos procesada, debes dirigir la ruta hacia tu Rproject&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;saveRDS&lt;/span&gt;(datos_proc, file &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;../nombre_project/output/datos_proc.rds&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;8-reporte-de-progreso&#34;&gt;8. Reporte de progreso&lt;/h2&gt;
+&lt;p&gt;¡Recuerda rellenar tu &lt;a href=&#34;https://learn-r.formr.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;reporte de progreso&lt;/a&gt;. En tu correo electrónico está disponible el código mediante al cuál debes acceder para actualizar tu estado de avance del curso.&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;¡Atención! Fíjate bien que &lt;code&gt;==&lt;/code&gt; y &lt;code&gt;=&lt;/code&gt; son distintos. En R &lt;code&gt;==&lt;/code&gt; es indicar &lt;em&gt;&amp;ldquo;igual a&amp;rdquo;&lt;/em&gt;, mientras que  &lt;code&gt;=&lt;/code&gt; es &lt;em&gt;asignar&lt;/em&gt; (sinónimo de &lt;code&gt;&amp;lt;-&lt;/code&gt;) &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Este operador es &lt;strong&gt;muy utilizado&lt;/strong&gt;, sirve para indicar que algo está dentro de una cadena de valores. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bienvenido/a a R, RStudio e instalar paquetes</title>
       <link>/example/01-practico/</link>
       <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
       <guid>/example/01-practico/</guid>
-      <description>&lt;h2 id=&#34;part-1-the-basics-of-r-and-dplyr&#34;&gt;Part 1: The basics of R and dplyr&lt;/h2&gt;
-&lt;p&gt;For this week&amp;rsquo;s problem set, you need to work through a few of RStudio&amp;rsquo;s introductory primers. You&amp;rsquo;ll do these in your browser and type code and see results there.&lt;/p&gt;
-&lt;p&gt;You&amp;rsquo;ll learn some of the basics of R, as well as some powerful methods for manipulating data with the &lt;strong&gt;dplyr&lt;/strong&gt; package.&lt;/p&gt;
-&lt;p&gt;Complete these primers. It seems like there are a lot, but they&amp;rsquo;re short and go fairly quickly (especially as you get the hang of the syntax). Also, &lt;strong&gt;I have no way of seeing what you do or what you get wrong or right&lt;/strong&gt;, and that&amp;rsquo;s totally fine! If you get stuck and want to skip some (or if it gets too easy), go right ahead and skip them!&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;The Basics&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/1.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visualization Basics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/1.2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Programming Basics&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+      <description>&lt;h1 id=&#34;objetivo-de-la-práctica&#34;&gt;Objetivo de la práctica&lt;/h1&gt;
+&lt;p&gt;Introducir en aspectos relativos a R, RStudio e instalación de paquetes. El práctico considera los contenidos profundizados en el &lt;a href=&#34;/content/01-content&#34;&gt;bloque 1&lt;/a&gt;, que serán repasados en tres partes: 1. RStudio, 2. Rprojects, 3. Script (.R) y 4. Instalar paquetes&lt;/p&gt;
+&lt;h2 id=&#34;parte-1-empenzando-a-asimilarnos-con-rstudio&#34;&gt;Parte 1: Empenzando a asimilarnos con RStudio&lt;/h2&gt;
+&lt;p&gt;RStudio es un software que permite integrar diferentes herramientas asociadas a R (IDE), de modo de hacer más fácil tu interacción con el. Este programa está orientado en dar una interfaz intuitiva para el análisis estadístico &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Por ello podrás encontrar los siguientes elementos en esta&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Consola&lt;/strong&gt;: donde puedes escribir código (input) y donde recibirás resultados (output). Lo que se escriba en esa consola, independiente de su está bien o mal quedará registrado en el caché (&lt;code&gt;.RHistory&lt;/code&gt;). Otro lugar donde podrás ver resultados es en &lt;em&gt;Plots&lt;/em&gt; y &lt;em&gt;Viewer&lt;/em&gt;.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Work with Data&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/2.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Working with Tibbles&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/2.2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Isolating Data with dplyr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/2.3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deriving Information with dplyr&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Script&lt;/strong&gt;: es un documento de extensión &lt;em&gt;.R&lt;/em&gt; donde se alojan los códigos que permiten ejecutar los análisis que buscas realizar. Además de contener &lt;strong&gt;código ejecutable&lt;/strong&gt;, los códigos que se guarden son los que realmente quieres guardar (y no los mil intentos que hacemos previamente).&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Visualize Data&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Exploratory Data Analysis&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bar Charts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Histograms&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Boxplots and Counts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Scatterplots&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Line plots&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.7&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Overplotting and Big Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Customize Your Plots&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Enviroment&lt;/strong&gt;: es una forma de interactuar con el espacio de trabajo &lt;strong&gt;dentro de R&lt;/strong&gt; (&lt;em&gt;Workspace&lt;/em&gt;) pues podremos visualizar los diferentes &lt;strong&gt;objetos&lt;/strong&gt; que vamos creando para ser manipulados, junto con los &lt;strong&gt;paquetes&lt;/strong&gt; que tenemos cargados.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Tidy Your Data&lt;/strong&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Files&lt;/strong&gt;: es una forma de visualizar el espacio de trabajo en el que nos &amp;ldquo;posicionamos&amp;rdquo; &lt;strong&gt;fuera de R&lt;/strong&gt; (&lt;em&gt;Working directory&lt;/em&gt;). Por ejemplo, con los archivos que cargamos para trabajar en nuestro RStudio (como los datos). Si estos no están en el espacio de trabajo en que estamos, probablemente estaremos en un problema (¡ya les mostraremos la solución!)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Help&lt;/strong&gt;: un amigo/a fiel. Nos dará ayuda e información útil del programa y los paquetes. Otros lugares donde encontrar ayuda es en &lt;em&gt;Tutorial&lt;/em&gt; y en &lt;em&gt;Packages&lt;/em&gt;. El primero ofrece tutoriales, como dice su nombre, y el segundo no solo nos indica qué paquetes tenemos instalados y/o cargados, sino que también &lt;strong&gt;dónde encontrar más documentación sobre estos&lt;/strong&gt; (en el ícono del planeta).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;parte-2-rstudio-projects&#34;&gt;Parte 2: RStudio Projects&lt;/h2&gt;
+&lt;p&gt;Uno de los aspectos &lt;strong&gt;más potentes&lt;/strong&gt; y &lt;strong&gt;útiles&lt;/strong&gt; de RStudio es su capacidad de manejar proyectos.&lt;/p&gt;
+&lt;p&gt;La primera vez que tu abres R este está &amp;ldquo;posicionado&amp;rdquo; en alguna carpeta de tu computadora (&lt;em&gt;¿cuál? una buena pregunta&amp;hellip;&lt;/em&gt;) y todo lo que se haga se hará relativo a esa carpeta. El concepto &amp;ldquo;técnico&amp;rdquo; de eso es lo que ya les había comentado: el &lt;em&gt;Working Directory&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;¿Cómo saber dónde estoy?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Puedes mirar arriba de la consola y aparecerá tu versión de R y la ruta &lt;code&gt;.~&lt;/code&gt; &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;/img/example/working-directory.png&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Escribiendo en tu consola &lt;code&gt;getwd()&lt;/code&gt; (obteniendo mi working directory) y ver el resultado de esta&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;En la pestaña &lt;code&gt;Files&lt;/code&gt; podrán ver qué archivos están en el ambiente del &lt;em&gt;Working directory&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Sea cual sea la forma de ver el directorio de trabajo notaremos desde ya que es algo &amp;ldquo;críptico&amp;rdquo;. Muchas veces tendremos que transformarnos en detectives de &lt;em&gt;rutas&lt;/em&gt; del directorio, sobre todo cuando tenemos &lt;strong&gt;millones de carpetas&lt;/strong&gt; y no tenemos una organización clara de dónde tenemos nuestros códigos y datos.&lt;/p&gt;
+&lt;p&gt;En ese ejercicio intentaremos cambiar nuestro directorio de trabajo (&lt;em&gt;Set Working Directory&lt;/em&gt;) para poder alojar nuestro directorio donde están nuestros archivos necesarios para el análisis. Eso lo tendríamos que hacer &lt;strong&gt;cada vez que abrimos el programa&lt;/strong&gt; (en R terminal se hace manualmente y en RStudio se puede guardar ese código en el script).&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+Para ello debemos utilizar &lt;code&gt;setwd()&lt;/code&gt; y dentro de esta indicar la ruta y dar vuelta las barras (&lt;code&gt;\&lt;/code&gt;) por (&lt;code&gt;/&lt;/code&gt;).
+&lt;/div&gt;
+
+&lt;p&gt;Como mencionámos, parte importante de los scripts tienen al inicio un directorio del estilo &lt;code&gt;setwd(&amp;quot;C:\\Users\\bill\\Desktop\\Important research project&amp;quot;)&lt;/code&gt; lo que es una &lt;strong&gt;pésima idea&lt;/strong&gt; &lt;a href=&#34;https://www.tidyverse.org/blog/2017/12/workflow-vs-script/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(para más explicación véase aquí)&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Si corres ese directorio a algún otro lugar o corres el &lt;strong&gt;script en otro computador&lt;/strong&gt; o &lt;strong&gt;compartes con otra persona&lt;/strong&gt; la &lt;strong&gt;ruta estará mala y nada funcionará&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La mejor manera de manejar los directorios de trabajo (&lt;em&gt;Working Directory&lt;/em&gt;) con &lt;em&gt;RStudio&lt;/em&gt; es utilizar los &lt;strong&gt;RProjects&lt;/strong&gt; de RStudio.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;¿Qué es un RProject?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Estos son archivos especiales que RStudio crea y que terminan en una extensión &lt;code&gt;.Rproj&lt;/code&gt;.Cuando abra uno de estos archivos especiales, se abrirá una nueva sesión de RStudio y se apuntará al directorio correcto automáticamente. Si mueves la carpeta más tarde o la abres en un computador diferente, funcionará sin problemas y no lloraremos por el problema del directorio de trabajo&lt;/p&gt;
+&lt;p&gt;En general, puedes crear un nuevo proyecto yendo a &lt;code&gt;File &amp;gt; New Project &amp;gt; New Directory &amp;gt; Empty Project/Exting directory&lt;/code&gt;, que creará una nueva carpeta en tu ordenador que está vacía excepto por un único archivo &lt;code&gt;.Rproj&lt;/code&gt;. Haga doble clic en ese archivo para abrir una sesión de RStudio que apunte a la carpeta correcta.&lt;/p&gt;
+&lt;p&gt;Como vimos en la sesión, los &lt;em&gt;RProject&lt;/em&gt; potenciarán nuestra posibilidad de colaborar con otros/as usuarias/os de R. No olvides que además, nos permitirá trabajar con rutas relativas de manera interna, dando la posibilidad de mantener ordenada la información de nuestros proyectos.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/4.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reshape Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i class=&#34;fab fa-r-project&#34;&gt;&lt;/i&gt;&lt;a href=&#34;https://github.com/learn-R/02-class/raw/main/01-bloque.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Descargar Rproject del bloque 1 &lt;code&gt;01-bloque.zip&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class=&#34;note&#34;&gt;
+Descargarás un archivo .zip, para ver como descomprimir un archivom en caso de que no sepas cómo &lt;a href=&#34;/resource/unzipping/&#34;&gt;revisa esta breve guía&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;parte-3-partes-de-un-script-r&#34;&gt;Parte 3: Partes de un script (.R)&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Los gatos ( # ) son comentarios&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;¡Hola estudiantes!&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## [1] &amp;#34;¡Hola estudiantes!&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Lo que está antes de los paréntesis son las funciones&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Lo que está dentro de los paréntesis son argumentos&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;algunos-shortcuts-importantes&#34;&gt;Algunos shortcuts importantes&lt;/h3&gt;
+&lt;p&gt;Los siguientes atajos del teclado serán sus mejores amigos/as&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Ejecutar&lt;/strong&gt; líneas de código del script:   &lt;kbd&gt;CTRL&lt;/kbd&gt; &lt;kbd&gt;Enter&lt;/kbd&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Guardar&lt;/strong&gt; el script (archivo . R):   &lt;kbd&gt;CTRL&lt;/kbd&gt; &lt;kbd&gt;S&lt;/kbd&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Nuevo&lt;/strong&gt; script (archivo . R):   &lt;kbd&gt;CTRL&lt;/kbd&gt; &lt;kbd&gt;N&lt;/kbd&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Título automático&lt;/em&gt; dentro del script: &lt;kbd&gt;CTRL&lt;/kbd&gt; &lt;kbd&gt;Shift&lt;/kbd&gt; &lt;kbd&gt;R&lt;/kbd&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;note&#34;&gt;
-Recent versions of &lt;strong&gt;tidyr&lt;/strong&gt; have renamed these core functions: &lt;code&gt;gather()&lt;/code&gt; is now &lt;code&gt;pivot_longer()&lt;/code&gt; and &lt;code&gt;spread()&lt;/code&gt; is now &lt;code&gt;pivot_wider()&lt;/code&gt;. The syntax for these &lt;code&gt;pivot_*()&lt;/code&gt; functions is &lt;em&gt;slightly&lt;/em&gt; different from what it was in &lt;code&gt;gather()&lt;/code&gt; and &lt;code&gt;spread()&lt;/code&gt;, so you can&amp;rsquo;t just replace the names. Fortunately, both &lt;code&gt;gather()&lt;/code&gt; and &lt;code&gt;spread()&lt;/code&gt; still work and won&amp;rsquo;t go away for a while, so you can still use them as you learn about reshaping and tidying data. It would be worth learning how the newer &lt;code&gt;pivot_*()&lt;/code&gt; functions work, eventually, though (&lt;a href=&#34;https://tidyr.tidyverse.org/articles/pivot.html&#34;&gt;see here for examples&lt;/a&gt;).
+&lt;p&gt;&lt;em&gt;¿Qué pasa si me aparece el script con símbolos raros?&lt;/em&gt; En la barra del navegador de tu &lt;em&gt;RStudio&lt;/em&gt; debes buscar:&lt;/p&gt;
+&lt;p&gt;File → Reopen with Encoding → seleccionar &lt;code&gt;UTF-8&lt;/code&gt;&lt;/p&gt;
+
 &lt;/div&gt;
 
-&lt;p&gt;The content from these primers comes from the (free and online!) book &lt;a href=&#34;https://r4ds.had.co.nz/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;R for Data Science&lt;/em&gt; by Garrett Grolemund and Hadley Wickham&lt;/a&gt;. I highly recommend the book as a reference and for continuing to learn and use R in the future.&lt;/p&gt;
-&lt;h2 id=&#34;part-2-getting-familiar-with-rstudio&#34;&gt;Part 2: Getting familiar with RStudio&lt;/h2&gt;
-&lt;p&gt;The RStudio primers you just worked through are a great introduction to writing and running R code, but you typically won&amp;rsquo;t type code in a browser when you work with R. Instead, you&amp;rsquo;ll use a nicer programming environment like RStudio, which lets you type and save code in scripts, run code from those scripts, and see the output of that code, all in the same program.&lt;/p&gt;
-&lt;p&gt;To get familiar with RStudio, watch this video (it&amp;rsquo;s from PMAP 8921, but the content still applies here):&lt;/p&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;https://www.youtube.com/embed/cnQ-v1UUWyE&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;h2 id=&#34;part-3-rstudio-projects&#34;&gt;Part 3: RStudio Projects&lt;/h2&gt;
-&lt;p&gt;One of the most powerful and useful aspects of RStudio is its ability to manage projects.&lt;/p&gt;
-&lt;p&gt;When you first open R, it is &amp;ldquo;pointed&amp;rdquo; at some folder on your computer, and anything you do will be relative to that folder. The technical term for this is a &amp;ldquo;working directory.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;When you first open RStudio, look in the area right at the top of the Console pane to see your current working directory. Most likely you&amp;rsquo;ll see something cryptic: &lt;code&gt;~/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/example/working-directory.png&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;That tilde sign (&lt;code&gt;~&lt;/code&gt;) is a shortcut that stands for your user directory. On Windows this is &lt;code&gt;C:\Users\your_user_name\&lt;/code&gt;; on macOS this is &lt;code&gt;/Users/your_user_name/&lt;/code&gt;. With the working directory set to &lt;code&gt;~/&lt;/code&gt;, R is &amp;ldquo;pointed&amp;rdquo; at that folder, and anything you save will end up in that folder, and R will expect any data that you load to be there too.&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s always best to point R at some other directory. If you don&amp;rsquo;t use RStudio, you need to manually set the working directory to where you want it with &lt;code&gt;setwd()&lt;/code&gt;, and many R scripts in the wild include something like &lt;code&gt;setwd(&amp;quot;C:\\Users\\bill\\Desktop\\Important research project&amp;quot;)&lt;/code&gt; at the beginning to change the directory. &lt;strong&gt;THIS IS BAD THOUGH&lt;/strong&gt; (&lt;a href=&#34;https://www.tidyverse.org/blog/2017/12/workflow-vs-script/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;see here for an explanation&lt;/a&gt;). If you ever move that directory somewhere else, or run the script on a different computer, or share the project with someone, the path will be wrong and nothing will run and you will be sad.&lt;/p&gt;
-&lt;p&gt;The best way to deal with working directories with RStudio is to use RStudio Projects. These are special files that RStudio creates for you that end in a &lt;code&gt;.Rproj&lt;/code&gt; extension. When you open one of these special files, a new RStudio instance will open up and be pointed at the correct directory automatically. If you move the folder later or open it on a different computer, it will work just fine and you will not be sad.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://r4ds.had.co.nz/workflow-projects.html#rstudio-projects&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read this super short chapter on RStudio projects to learn how to create and use them&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;In general, you can create a new project by going to File &amp;gt; New Project &amp;gt; New Directory &amp;gt; Empty Project, which will create a new folder on your computer that is empty except for a single &lt;code&gt;.Rproj&lt;/code&gt; file. Double click on that file to open an RStudio instance that is pointed at the correct folder.&lt;/p&gt;
-&lt;h2 id=&#34;part-4-getting-familiar-with-r-markdown&#34;&gt;Part 4: Getting familiar with R Markdown&lt;/h2&gt;
-&lt;p&gt;To ensure that the analysis and graphics you make are reproducible, you&amp;rsquo;ll do the majority of your work in this class using &lt;strong&gt;R Markdown&lt;/strong&gt; files.&lt;/p&gt;
-&lt;p&gt;Do the following things:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/example/01/orden-sintaxis.png&#34; width=&#34;70%&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;elementos-del-lenguaje-de-r&#34;&gt;Elementos del lenguaje de R&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Calculando una media&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## [1] 23.66667
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;media &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+media
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## [1] 23.66667
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Carácteres&lt;/strong&gt; (&lt;code&gt;character&lt;/code&gt;)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Valentina&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Nicolás&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dafne&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## [1] &amp;#34;Valentina&amp;#34; &amp;#34;Nicolás&amp;#34;   &amp;#34;Dafne&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;equipo &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Valentina&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Nicolás&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dafne&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Números&lt;/strong&gt; (&lt;code&gt;numeric&lt;/code&gt;)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## [1] 25 22 24
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;edad &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;mean&lt;/span&gt;(edad)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## [1] 23.66667
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Lonitudes&lt;/strong&gt; (&lt;code&gt;integer&lt;/code&gt;)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## [1] 1 2 3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;orden &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Tabulados&lt;/strong&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; (&lt;code&gt;data.frame&lt;/code&gt;)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;data.frame&lt;/span&gt;()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;datos &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;data.frame&lt;/span&gt;(equipo, edad, orden)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; O base de datos (pese a que &lt;strong&gt;realmente una tabla no es una base de datos&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;Y ahora &lt;strong&gt;¿cómo calculamos la media?&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mean&lt;/span&gt;(datos&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;edad)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## [1] 23.66667
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;parte-4-instalar-paquetes&#34;&gt;Parte 4: Instalar paquetes&lt;/h2&gt;
+&lt;p&gt;Muchas veces requeriremos de extender los potenciales de &lt;code&gt;R base&lt;/code&gt;. Para implementar estas extensiones será necesario realizar un proceso de carga de paquetes (también llamadas librarías) que contienen funciones muy útiles. Este proceso de compone de dos partes esenciales (1) Instalar paquetes (&lt;code&gt;ìnstall.packages()&lt;/code&gt;) y (2) Llamar paquetes (&lt;code&gt;library()&lt;/code&gt;). Veamos su paso a paso&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;0. Información de la sesión&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;No es un paso que debas hacer siempre. Pero lo realizaremos por esta vez para que véas que con este comando podremos obtener información útil sobre el ambiente en el que estas desarrollando tus análisis. Por la función &lt;code&gt;sessionInfo()&lt;/code&gt; en tu consola y ve que nos arroja. Probablemente la ocuparás cuando tengas problemas con un código y requieras de ayuda.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;sessionInfo&lt;/span&gt;()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## R version 4.0.4 (2021-02-15)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 19043)
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=Spanish_Chile.1252  LC_CTYPE=Spanish_Chile.1252   
+## [3] LC_MONETARY=Spanish_Chile.1252 LC_NUMERIC=C                  
+## [5] LC_TIME=Spanish_Chile.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] bookdown_0.21     digest_0.6.27     R6_2.5.0          jsonlite_1.7.2   
+##  [5] magrittr_2.0.1    evaluate_0.14     highr_0.8         blogdown_1.3     
+##  [9] stringi_1.5.3     rlang_0.4.10      jquerylib_0.1.3   bslib_0.2.4      
+## [13] rmarkdown_2.7     tools_4.0.4       stringr_1.4.0     xfun_0.22        
+## [17] yaml_2.2.1        compiler_4.0.4    htmltools_0.5.1.1 knitr_1.31       
+## [21] sass_0.3.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;1. Instalar paquetes&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para instalar paquetes utilizaremos &lt;code&gt;install.packages()&lt;/code&gt;. Dentro del &lt;code&gt;()&lt;/code&gt; tenemos que rellenar cuál paquete queremos instalar. Pero &amp;hellip; una pregunta lógica es ¿cómo sé eso? ¿qué argumentos o &amp;ldquo;cosas&amp;rdquo; se ponen dentro de una función?&lt;/p&gt;
+&lt;p&gt;Para ello hay dos enfoques que puedes seguir&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Watch this video:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;https://player.vimeo.com/video/178485416?color=428bca&#34; frameborder=&#34;0&#34;  allow=&#34;autoplay; fullscreen&#34; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
-&lt;p&gt;Skim through the content at these pages:&lt;/p&gt;
+&lt;p&gt;poner en tu consola &lt;code&gt;?nombre_de_la_funcion()&lt;/code&gt; y notarás que en &lt;strong&gt;Help&lt;/strong&gt; aparecerá automáticamente información de este. Esta información está contenida en &lt;a href=&#34;https://cran.r-project.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CRAN&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Buscar información del paquete en &lt;a href=&#34;https://www.rdocumentation.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.rdocumentation.org/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;install.packages&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tidyverse&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;# Instalar&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;remove.packages&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tidyverse&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;# Remover&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;También funciona la noción de una &lt;em&gt;cadena&lt;/em&gt; de paquetes concatenados por &lt;code&gt;c()&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;install.packages&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tidyverse&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sjPlot&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sjmisc&amp;#34;&lt;/span&gt;)) &lt;span style=&#34;color:#75715e&#34;&gt;# Primera vez&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;2. Llamar paquetes&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Este proceso lo haremos con la función &lt;code&gt;library()&lt;/code&gt;. Cuando la utilicemos nos dirá algunas informaciones importantes: (1) su versión, (2) los paquetes que trae si es una colección de estos (&lt;em&gt;attaching packages&lt;/em&gt;) y (3) los &lt;strong&gt;conflictos&lt;/strong&gt; con otros paquetes que ya tienes cargados.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(tidyverse)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;##&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Warning&lt;/span&gt;: &lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;tidyverse&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;was&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;built&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;under&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;version&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4.0.5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## v ggplot2 3.3.3     v purrr   0.3.4
+## v tibble  3.1.0     v dplyr   1.0.6
+## v tidyr   1.1.3     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;##&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Warning&lt;/span&gt;: &lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readr&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;was&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;built&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;under&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;version&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4.0.5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;##&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Warning&lt;/span&gt;: &lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;dplyr&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;was&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;built&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;under&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;R&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;version&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4.0.5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ahora, intentemos ocupar la función &lt;code&gt;frq()&lt;/code&gt; del paquete &lt;code&gt;sjmisc()&lt;/code&gt;  para ver la distribución de equipo dentro de la base &lt;em&gt;datos&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;frq&lt;/span&gt;(datos&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;equipo)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Sí, no es un error del sitio web. Aparecerá el siguiente error:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# &amp;gt; Error in frq(datos$equipo) : could not find function &amp;#34;frq&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tal como dice, no se puede encontrar la función &lt;code&gt;frq()&lt;/code&gt;. Por eso, no deben olvidar &lt;strong&gt;llamar&lt;/strong&gt; a los paquetes, que como vimos en la sesión, es como &amp;ldquo;encender&amp;rdquo; el interruptor&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(sjmisc)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;También existe la opción de indicar desde qué paquete proviene la función, y eso automáticamente los llama pero **solo en el momento en que se ocupa la función (&lt;code&gt;paquete::funcion()&lt;/code&gt;)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;sjmisc&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;frq&lt;/span&gt;(datos&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;equipo)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;## 
+## x &amp;lt;character&amp;gt;
+## # total N=3  valid N=3  mean=2.00  sd=1.00
+## 
+## Value     | N | Raw % | Valid % | Cum. %
+## ----------------------------------------
+## Dafne     | 1 | 33.33 |   33.33 |  33.33
+## Nicolás   | 1 | 33.33 |   33.33 |  66.67
+## Valentina | 1 | 33.33 |   33.33 | 100.00
+## &amp;lt;NA&amp;gt;      | 0 |  0.00 |    &amp;lt;NA&amp;gt; |   &amp;lt;NA&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Esto será muy útil cuando existan paquetes que tengan funciones que están en conflicto.&lt;/p&gt;
+&lt;h3 id=&#34;una-forma-fácil-de-cargar-paquetes-pacman&#34;&gt;Una forma fácil de cargar paquetes: &lt;code&gt;pacman&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;pacman&lt;/code&gt; es un paquete que &lt;em&gt;literalmente&lt;/em&gt; se comió procesos de R &lt;code&gt;base&lt;/code&gt; y las simplificó en funciones únicas y más intuitivas.&lt;/p&gt;
+&lt;p&gt;Para comentar utilizándolo hay que hacer instalación tradicional&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;install.packages&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pacman&amp;#34;&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(pacman)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Luego, la función que utilizaremos con frecuencia será &lt;code&gt;p_load()&lt;/code&gt; que es una función que permite cargar librerías e instalarlas en caso de que estas no hayan sido descargadas. Básicamente &lt;code&gt;p_load()&lt;/code&gt; resume las funciones &lt;code&gt;library()&lt;/code&gt; e &lt;code&gt;install.packages()&lt;/code&gt;, y optimiza esta relación entre ambas pues solo las aplica cuando son necesarias (if `requiere()``), es decir, &lt;strong&gt;¡no te reinicia R si ya está instalada la librería!&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;pacman&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;p_load&lt;/span&gt;(tidyverse,
+               sjPlot,
+               sjmisc)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Por último, muchas veces ocurrirá que hay paquetes que dependen de otros, pues dada su complejidad, requieren de otras funcionalidades que ya han sido desarrolladas en otras extensiones. Esto, las &lt;strong&gt;dependencias&lt;/strong&gt; no será un tema del cuál preocuparte pues &lt;code&gt;pacman::p_load()&lt;/code&gt; lo hace solito.&lt;/p&gt;
+&lt;h1 id=&#34;reporte-de-progreso&#34;&gt;Reporte de progreso&lt;/h1&gt;
+&lt;p&gt;¡Recuerda rellenar tu &lt;a href=&#34;https://learn-r.formr.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;reporte de progreso&lt;/a&gt;. En tu correo electrónico está disponible el código mediante al cuál debes acceder para actualizar tu estado de avance del curso.&lt;/p&gt;
+&lt;h1 id=&#34;recomendaciones&#34;&gt;Recomendaciones&lt;/h1&gt;
+&lt;p&gt;El contenido de estos primers es libre y gratis, y provienen del libro de Hadley Wickham y Garrett Grolemund &lt;a href=&#34;https://r4ds.had.co.nz/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;R for Data Science&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/resource/markdown/&#34;&gt;Using Markdown&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/resource/rmarkdown/&#34;&gt;Using R Markdown&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-2.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;How it Works&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-3.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code Chunks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-4.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Inline Code&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-8.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Markdown Basics&lt;/a&gt; (The &lt;a href=&#34;https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Markdown Reference Guide&lt;/a&gt; is super useful here.)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-9.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Output Formats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/workflow-projects.html#rstudio-projects&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RProjects&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/1.2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Programming Basics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/2.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Working with Tibbles&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Watch this video (again, it&amp;rsquo;s from PMAP 8921, but the content works for this class):&lt;/p&gt;
- &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
- &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;https://www.youtube.com/embed/fT5xI1cmE2c&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
- &lt;/div&gt;
+&lt;/ul&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Aquí luego aparecerá la parte del video que tiene que ver con &lt;strong&gt;RStudio&lt;/strong&gt; &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;El signo &lt;code&gt;~&lt;/code&gt; (tilde) indica en Windows &lt;code&gt;C:\Users\your_user_name\&lt;/code&gt; y en macOS &lt;code&gt;/Users/your_user_name/&lt;/code&gt;. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;/section&gt;
 </description>
     </item>
     

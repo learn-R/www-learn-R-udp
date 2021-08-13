@@ -29,7 +29,7 @@
   
     
   
-  <meta name="description" content="Part 1: The basics of R and dplyr For this week&rsquo;s problem set, you need to work through a few of RStudio&rsquo;s introductory primers. You&rsquo;ll do these in your browser and type code and see results there." />
+  <meta name="description" content="Objetivo de la práctica Introducir en aspectos relativos a R, RStudio e instalación de paquetes. El práctico considera los contenidos profundizados en el bloque 1, que serán repasados en tres partes: 1." />
 
   
   <link rel="alternate" hreflang="en-us" href="/example/01-practico/" />
@@ -287,8 +287,8 @@
   
   <meta property="og:site_name" content="Análisis Estadístico en R" />
   <meta property="og:url" content="/example/01-practico/" />
-  <meta property="og:title" content="Bienvenido/a a R, RStudio y tidyverse | Análisis Estadístico en R" />
-  <meta property="og:description" content="Part 1: The basics of R and dplyr For this week&rsquo;s problem set, you need to work through a few of RStudio&rsquo;s introductory primers. You&rsquo;ll do these in your browser and type code and see results there." /><meta property="og:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" />
+  <meta property="og:title" content="Bienvenido/a a R, RStudio e instalar paquetes | Análisis Estadístico en R" />
+  <meta property="og:description" content="Objetivo de la práctica Introducir en aspectos relativos a R, RStudio e instalación de paquetes. El práctico considera los contenidos profundizados en el bloque 1, que serán repasados en tres partes: 1." /><meta property="og:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" />
     <meta property="twitter:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -324,7 +324,7 @@
   <meta name="msapplication-TileImage" content="/img/mstile-144x144.png" />
 
 
-  <title>Bienvenido/a a R, RStudio y tidyverse | Análisis Estadístico en R</title>
+  <title>Bienvenido/a a R, RStudio e instalar paquetes | Análisis Estadístico en R</title>
 </head>
 
 
@@ -644,12 +644,17 @@
     <ul class="nav docs-sidenav">
       
       <li class="active">
-        <a href="/example/01-practico/">1: R, RStudio y tidyverse</a>
+        <a href="/example/01-practico/">1: R, RStudio e instalar paquetes</a>
       </li>
 
       
       <li >
         <a href="/example/02-practico/">2: Transformar y seleccionar variables</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/03-practico/">3: Transformar y seleccionar variables</a>
       </li>
 
       
@@ -671,10 +676,19 @@
 
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#part-1-the-basics-of-r-and-dplyr">Part 1: The basics of R and dplyr</a></li>
-    <li><a href="#part-2-getting-familiar-with-rstudio">Part 2: Getting familiar with RStudio</a></li>
-    <li><a href="#part-3-rstudio-projects">Part 3: RStudio Projects</a></li>
-    <li><a href="#part-4-getting-familiar-with-r-markdown">Part 4: Getting familiar with R Markdown</a></li>
+    <li><a href="#parte-1-empenzando-a-asimilarnos-con-rstudio">Parte 1: Empenzando a asimilarnos con RStudio</a></li>
+    <li><a href="#parte-2-rstudio-projects">Parte 2: RStudio Projects</a></li>
+    <li><a href="#parte-3-partes-de-un-script-r">Parte 3: Partes de un script (.R)</a>
+      <ul>
+        <li><a href="#algunos-shortcuts-importantes">Algunos shortcuts importantes</a></li>
+        <li><a href="#elementos-del-lenguaje-de-r">Elementos del lenguaje de R</a></li>
+      </ul>
+    </li>
+    <li><a href="#parte-4-instalar-paquetes">Parte 4: Instalar paquetes</a>
+      <ul>
+        <li><a href="#una-forma-fácil-de-cargar-paquetes-pacman">Una forma fácil de cargar paquetes: <code>pacman</code></a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -687,7 +701,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Bienvenido/a a R, RStudio y tidyverse</h1>
+                    <h1>Bienvenido/a a R, RStudio e instalar paquetes</h1>
 
                     
 
@@ -696,93 +710,226 @@
                     
 
                     <div class="article-style">
-                        <h2 id="part-1-the-basics-of-r-and-dplyr">Part 1: The basics of R and dplyr</h2>
-<p>For this week&rsquo;s problem set, you need to work through a few of RStudio&rsquo;s introductory primers. You&rsquo;ll do these in your browser and type code and see results there.</p>
-<p>You&rsquo;ll learn some of the basics of R, as well as some powerful methods for manipulating data with the <strong>dplyr</strong> package.</p>
-<p>Complete these primers. It seems like there are a lot, but they&rsquo;re short and go fairly quickly (especially as you get the hang of the syntax). Also, <strong>I have no way of seeing what you do or what you get wrong or right</strong>, and that&rsquo;s totally fine! If you get stuck and want to skip some (or if it gets too easy), go right ahead and skip them!</p>
-<ul>
-<li><strong>The Basics</strong>
-<ul>
-<li><a href="https://rstudio.cloud/learn/primers/1.1" target="_blank" rel="noopener">Visualization Basics</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/1.2" target="_blank" rel="noopener">Programming Basics</a></li>
-</ul>
+                        <h1 id="objetivo-de-la-práctica">Objetivo de la práctica</h1>
+<p>Introducir en aspectos relativos a R, RStudio e instalación de paquetes. El práctico considera los contenidos profundizados en el <a href="/content/01-content">bloque 1</a>, que serán repasados en tres partes: 1. RStudio, 2. Rprojects, 3. Script (.R) y 4. Instalar paquetes</p>
+<h2 id="parte-1-empenzando-a-asimilarnos-con-rstudio">Parte 1: Empenzando a asimilarnos con RStudio</h2>
+<p>RStudio es un software que permite integrar diferentes herramientas asociadas a R (IDE), de modo de hacer más fácil tu interacción con el. Este programa está orientado en dar una interfaz intuitiva para el análisis estadístico <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<p>Por ello podrás encontrar los siguientes elementos en esta</p>
+<ol>
+<li>
+<p><strong>Consola</strong>: donde puedes escribir código (input) y donde recibirás resultados (output). Lo que se escriba en esa consola, independiente de su está bien o mal quedará registrado en el caché (<code>.RHistory</code>). Otro lugar donde podrás ver resultados es en <em>Plots</em> y <em>Viewer</em>.</p>
 </li>
-<li><strong>Work with Data</strong>
-<ul>
-<li><a href="https://rstudio.cloud/learn/primers/2.1" target="_blank" rel="noopener">Working with Tibbles</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/2.2" target="_blank" rel="noopener">Isolating Data with dplyr</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/2.3" target="_blank" rel="noopener">Deriving Information with dplyr</a></li>
-</ul>
+<li>
+<p><strong>Script</strong>: es un documento de extensión <em>.R</em> donde se alojan los códigos que permiten ejecutar los análisis que buscas realizar. Además de contener <strong>código ejecutable</strong>, los códigos que se guarden son los que realmente quieres guardar (y no los mil intentos que hacemos previamente).</p>
 </li>
-<li><strong>Visualize Data</strong>
-<ul>
-<li><a href="https://rstudio.cloud/learn/primers/3.1" target="_blank" rel="noopener">Exploratory Data Analysis</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.2" target="_blank" rel="noopener">Bar Charts</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.3" target="_blank" rel="noopener">Histograms</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.4" target="_blank" rel="noopener">Boxplots and Counts</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.5" target="_blank" rel="noopener">Scatterplots</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.6" target="_blank" rel="noopener">Line plots</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.7" target="_blank" rel="noopener">Overplotting and Big Data</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.8" target="_blank" rel="noopener">Customize Your Plots</a></li>
-</ul>
+<li>
+<p><strong>Enviroment</strong>: es una forma de interactuar con el espacio de trabajo <strong>dentro de R</strong> (<em>Workspace</em>) pues podremos visualizar los diferentes <strong>objetos</strong> que vamos creando para ser manipulados, junto con los <strong>paquetes</strong> que tenemos cargados.</p>
 </li>
-<li><strong>Tidy Your Data</strong>
+<li>
+<p><strong>Files</strong>: es una forma de visualizar el espacio de trabajo en el que nos &ldquo;posicionamos&rdquo; <strong>fuera de R</strong> (<em>Working directory</em>). Por ejemplo, con los archivos que cargamos para trabajar en nuestro RStudio (como los datos). Si estos no están en el espacio de trabajo en que estamos, probablemente estaremos en un problema (¡ya les mostraremos la solución!)</p>
+</li>
+<li>
+<p><strong>Help</strong>: un amigo/a fiel. Nos dará ayuda e información útil del programa y los paquetes. Otros lugares donde encontrar ayuda es en <em>Tutorial</em> y en <em>Packages</em>. El primero ofrece tutoriales, como dice su nombre, y el segundo no solo nos indica qué paquetes tenemos instalados y/o cargados, sino que también <strong>dónde encontrar más documentación sobre estos</strong> (en el ícono del planeta).</p>
+</li>
+</ol>
+<h2 id="parte-2-rstudio-projects">Parte 2: RStudio Projects</h2>
+<p>Uno de los aspectos <strong>más potentes</strong> y <strong>útiles</strong> de RStudio es su capacidad de manejar proyectos.</p>
+<p>La primera vez que tu abres R este está &ldquo;posicionado&rdquo; en alguna carpeta de tu computadora (<em>¿cuál? una buena pregunta&hellip;</em>) y todo lo que se haga se hará relativo a esa carpeta. El concepto &ldquo;técnico&rdquo; de eso es lo que ya les había comentado: el <em>Working Directory</em>.</p>
+<p>¿Cómo saber dónde estoy?</p>
+<ol>
+<li>Puedes mirar arriba de la consola y aparecerá tu versión de R y la ruta <code>.~</code> <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+</ol>
+<p><img src="/img/example/working-directory.png" width="50%" /></p>
+<ol start="2">
+<li>Escribiendo en tu consola <code>getwd()</code> (obteniendo mi working directory) y ver el resultado de esta</li>
+</ol>
+<p>En la pestaña <code>Files</code> podrán ver qué archivos están en el ambiente del <em>Working directory</em></p>
+<p>Sea cual sea la forma de ver el directorio de trabajo notaremos desde ya que es algo &ldquo;críptico&rdquo;. Muchas veces tendremos que transformarnos en detectives de <em>rutas</em> del directorio, sobre todo cuando tenemos <strong>millones de carpetas</strong> y no tenemos una organización clara de dónde tenemos nuestros códigos y datos.</p>
+<p>En ese ejercicio intentaremos cambiar nuestro directorio de trabajo (<em>Set Working Directory</em>) para poder alojar nuestro directorio donde están nuestros archivos necesarios para el análisis. Eso lo tendríamos que hacer <strong>cada vez que abrimos el programa</strong> (en R terminal se hace manualmente y en RStudio se puede guardar ese código en el script).</p>
+<div class="note">
+Para ello debemos utilizar <code>setwd()</code> y dentro de esta indicar la ruta y dar vuelta las barras (<code>\</code>) por (<code>/</code>).
+</div>
+
+<p>Como mencionámos, parte importante de los scripts tienen al inicio un directorio del estilo <code>setwd(&quot;C:\\Users\\bill\\Desktop\\Important research project&quot;)</code> lo que es una <strong>pésima idea</strong> <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/" target="_blank" rel="noopener">(para más explicación véase aquí)</a></p>
+<ol>
+<li>Si corres ese directorio a algún otro lugar o corres el <strong>script en otro computador</strong> o <strong>compartes con otra persona</strong> la <strong>ruta estará mala y nada funcionará</strong>.</li>
+</ol>
+<p>La mejor manera de manejar los directorios de trabajo (<em>Working Directory</em>) con <em>RStudio</em> es utilizar los <strong>RProjects</strong> de RStudio.</p>
+<p><strong>¿Qué es un RProject?</strong></p>
+<p>Estos son archivos especiales que RStudio crea y que terminan en una extensión <code>.Rproj</code>.Cuando abra uno de estos archivos especiales, se abrirá una nueva sesión de RStudio y se apuntará al directorio correcto automáticamente. Si mueves la carpeta más tarde o la abres en un computador diferente, funcionará sin problemas y no lloraremos por el problema del directorio de trabajo</p>
+<p>En general, puedes crear un nuevo proyecto yendo a <code>File &gt; New Project &gt; New Directory &gt; Empty Project/Exting directory</code>, que creará una nueva carpeta en tu ordenador que está vacía excepto por un único archivo <code>.Rproj</code>. Haga doble clic en ese archivo para abrir una sesión de RStudio que apunte a la carpeta correcta.</p>
+<p>Como vimos en la sesión, los <em>RProject</em> potenciarán nuestra posibilidad de colaborar con otros/as usuarias/os de R. No olvides que además, nos permitirá trabajar con rutas relativas de manera interna, dando la posibilidad de mantener ordenada la información de nuestros proyectos.</p>
 <ul>
-<li><a href="https://rstudio.cloud/learn/primers/4.1" target="_blank" rel="noopener">Reshape Data</a></li>
+<li><i class="fab fa-r-project"></i><a href="https://github.com/learn-R/02-class/raw/main/01-bloque.zip" target="_blank" rel="noopener">Descargar Rproject del bloque 1 <code>01-bloque.zip</code></a></li>
 </ul>
+<div class="note">
+Descargarás un archivo .zip, para ver como descomprimir un archivom en caso de que no sepas cómo <a href="/resource/unzipping/">revisa esta breve guía</a>
+</div>
+
+<h2 id="parte-3-partes-de-un-script-r">Parte 3: Partes de un script (.R)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Los gatos ( # ) son comentarios</span>
+<span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#34;¡Hola estudiantes!&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] &#34;¡Hola estudiantes!&#34;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Lo que está antes de los paréntesis son las funciones</span>
+<span style="color:#75715e"># Lo que está dentro de los paréntesis son argumentos</span>
+</code></pre></div><h3 id="algunos-shortcuts-importantes">Algunos shortcuts importantes</h3>
+<p>Los siguientes atajos del teclado serán sus mejores amigos/as</p>
+<ul>
+<li>
+<p><strong>Ejecutar</strong> líneas de código del script:   <kbd>CTRL</kbd> <kbd>Enter</kbd></p>
+</li>
+<li>
+<p><strong>Guardar</strong> el script (archivo . R):   <kbd>CTRL</kbd> <kbd>S</kbd></p>
+</li>
+<li>
+<p><strong>Nuevo</strong> script (archivo . R):   <kbd>CTRL</kbd> <kbd>N</kbd></p>
+</li>
+<li>
+<p><em>Título automático</em> dentro del script: <kbd>CTRL</kbd> <kbd>Shift</kbd> <kbd>R</kbd></p>
 </li>
 </ul>
 <div class="note">
-Recent versions of <strong>tidyr</strong> have renamed these core functions: <code>gather()</code> is now <code>pivot_longer()</code> and <code>spread()</code> is now <code>pivot_wider()</code>. The syntax for these <code>pivot_*()</code> functions is <em>slightly</em> different from what it was in <code>gather()</code> and <code>spread()</code>, so you can&rsquo;t just replace the names. Fortunately, both <code>gather()</code> and <code>spread()</code> still work and won&rsquo;t go away for a while, so you can still use them as you learn about reshaping and tidying data. It would be worth learning how the newer <code>pivot_*()</code> functions work, eventually, though (<a href="https://tidyr.tidyverse.org/articles/pivot.html">see here for examples</a>).
+<p><em>¿Qué pasa si me aparece el script con símbolos raros?</em> En la barra del navegador de tu <em>RStudio</em> debes buscar:</p>
+<p>File → Reopen with Encoding → seleccionar <code>UTF-8</code></p>
+
 </div>
 
-<p>The content from these primers comes from the (free and online!) book <a href="https://r4ds.had.co.nz/" target="_blank" rel="noopener"><em>R for Data Science</em> by Garrett Grolemund and Hadley Wickham</a>. I highly recommend the book as a reference and for continuing to learn and use R in the future.</p>
-<h2 id="part-2-getting-familiar-with-rstudio">Part 2: Getting familiar with RStudio</h2>
-<p>The RStudio primers you just worked through are a great introduction to writing and running R code, but you typically won&rsquo;t type code in a browser when you work with R. Instead, you&rsquo;ll use a nicer programming environment like RStudio, which lets you type and save code in scripts, run code from those scripts, and see the output of that code, all in the same program.</p>
-<p>To get familiar with RStudio, watch this video (it&rsquo;s from PMAP 8921, but the content still applies here):</p>
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cnQ-v1UUWyE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<h2 id="part-3-rstudio-projects">Part 3: RStudio Projects</h2>
-<p>One of the most powerful and useful aspects of RStudio is its ability to manage projects.</p>
-<p>When you first open R, it is &ldquo;pointed&rdquo; at some folder on your computer, and anything you do will be relative to that folder. The technical term for this is a &ldquo;working directory.&rdquo;</p>
-<p>When you first open RStudio, look in the area right at the top of the Console pane to see your current working directory. Most likely you&rsquo;ll see something cryptic: <code>~/</code></p>
-<p><img src="/img/example/working-directory.png" width="50%" /></p>
-<p>That tilde sign (<code>~</code>) is a shortcut that stands for your user directory. On Windows this is <code>C:\Users\your_user_name\</code>; on macOS this is <code>/Users/your_user_name/</code>. With the working directory set to <code>~/</code>, R is &ldquo;pointed&rdquo; at that folder, and anything you save will end up in that folder, and R will expect any data that you load to be there too.</p>
-<p>It&rsquo;s always best to point R at some other directory. If you don&rsquo;t use RStudio, you need to manually set the working directory to where you want it with <code>setwd()</code>, and many R scripts in the wild include something like <code>setwd(&quot;C:\\Users\\bill\\Desktop\\Important research project&quot;)</code> at the beginning to change the directory. <strong>THIS IS BAD THOUGH</strong> (<a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/" target="_blank" rel="noopener">see here for an explanation</a>). If you ever move that directory somewhere else, or run the script on a different computer, or share the project with someone, the path will be wrong and nothing will run and you will be sad.</p>
-<p>The best way to deal with working directories with RStudio is to use RStudio Projects. These are special files that RStudio creates for you that end in a <code>.Rproj</code> extension. When you open one of these special files, a new RStudio instance will open up and be pointed at the correct directory automatically. If you move the folder later or open it on a different computer, it will work just fine and you will not be sad.</p>
-<p><a href="https://r4ds.had.co.nz/workflow-projects.html#rstudio-projects" target="_blank" rel="noopener">Read this super short chapter on RStudio projects to learn how to create and use them</a></p>
-<p>In general, you can create a new project by going to File &gt; New Project &gt; New Directory &gt; Empty Project, which will create a new folder on your computer that is empty except for a single <code>.Rproj</code> file. Double click on that file to open an RStudio instance that is pointed at the correct folder.</p>
-<h2 id="part-4-getting-familiar-with-r-markdown">Part 4: Getting familiar with R Markdown</h2>
-<p>To ensure that the analysis and graphics you make are reproducible, you&rsquo;ll do the majority of your work in this class using <strong>R Markdown</strong> files.</p>
-<p>Do the following things:</p>
+<p><img src="/img/example/01/orden-sintaxis.png" width="70%" /></p>
+<h3 id="elementos-del-lenguaje-de-r">Elementos del lenguaje de R</h3>
+<p><strong>Calculando una media</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">(<span style="color:#ae81ff">25</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">24</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">22</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 23.66667
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">media <span style="color:#f92672">&lt;-</span> (<span style="color:#ae81ff">25</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">24</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">22</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>
+media
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 23.66667
+</code></pre></div><p><strong>Carácteres</strong> (<code>character</code>)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Valentina&#34;</span>, <span style="color:#e6db74">&#34;Nicolás&#34;</span>, <span style="color:#e6db74">&#34;Dafne&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] &#34;Valentina&#34; &#34;Nicolás&#34;   &#34;Dafne&#34;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">equipo <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Valentina&#34;</span>, <span style="color:#e6db74">&#34;Nicolás&#34;</span>, <span style="color:#e6db74">&#34;Dafne&#34;</span>)
+</code></pre></div><p><strong>Números</strong> (<code>numeric</code>)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">24</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 25 22 24
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">edad <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">25</span>,<span style="color:#ae81ff">22</span>,<span style="color:#ae81ff">24</span>)
+<span style="color:#a6e22e">mean</span>(edad)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 23.66667
+</code></pre></div><p><strong>Lonitudes</strong> (<code>integer</code>)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">3</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 1 2 3
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">orden <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">3</span>
+</code></pre></div><p><strong>Tabulados</strong><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (<code>data.frame</code>)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">?</span><span style="color:#a6e22e">data.frame</span>()
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(equipo, edad, orden)
+</code></pre></div><p><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> O base de datos (pese a que <strong>realmente una tabla no es una base de datos</strong>)</p>
+<p>Y ahora <strong>¿cómo calculamos la media?</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">mean</span>(datos<span style="color:#f92672">$</span>edad)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 23.66667
+</code></pre></div><h2 id="parte-4-instalar-paquetes">Parte 4: Instalar paquetes</h2>
+<p>Muchas veces requeriremos de extender los potenciales de <code>R base</code>. Para implementar estas extensiones será necesario realizar un proceso de carga de paquetes (también llamadas librarías) que contienen funciones muy útiles. Este proceso de compone de dos partes esenciales (1) Instalar paquetes (<code>ìnstall.packages()</code>) y (2) Llamar paquetes (<code>library()</code>). Veamos su paso a paso</p>
+<p><strong>0. Información de la sesión</strong></p>
+<p>No es un paso que debas hacer siempre. Pero lo realizaremos por esta vez para que véas que con este comando podremos obtener información útil sobre el ambiente en el que estas desarrollando tus análisis. Por la función <code>sessionInfo()</code> en tu consola y ve que nos arroja. Probablemente la ocuparás cuando tengas problemas con un código y requieras de ayuda.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">sessionInfo</span>()
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## R version 4.0.4 (2021-02-15)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 19043)
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=Spanish_Chile.1252  LC_CTYPE=Spanish_Chile.1252   
+## [3] LC_MONETARY=Spanish_Chile.1252 LC_NUMERIC=C                  
+## [5] LC_TIME=Spanish_Chile.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] bookdown_0.21     digest_0.6.27     R6_2.5.0          jsonlite_1.7.2   
+##  [5] magrittr_2.0.1    evaluate_0.14     highr_0.8         blogdown_1.3     
+##  [9] stringi_1.5.3     rlang_0.4.10      jquerylib_0.1.3   bslib_0.2.4      
+## [13] rmarkdown_2.7     tools_4.0.4       stringr_1.4.0     xfun_0.22        
+## [17] yaml_2.2.1        compiler_4.0.4    htmltools_0.5.1.1 knitr_1.31       
+## [21] sass_0.3.1
+</code></pre></div><p><strong>1. Instalar paquetes</strong></p>
+<p>Para instalar paquetes utilizaremos <code>install.packages()</code>. Dentro del <code>()</code> tenemos que rellenar cuál paquete queremos instalar. Pero &hellip; una pregunta lógica es ¿cómo sé eso? ¿qué argumentos o &ldquo;cosas&rdquo; se ponen dentro de una función?</p>
+<p>Para ello hay dos enfoques que puedes seguir</p>
 <ol>
-<li>Watch this video:</li>
-</ol>
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/178485416?color=428bca" frameborder="0"  allow="autoplay; fullscreen" allowfullscreen></iframe>
-</div>
-<p> </p>
-<ol start="2">
 <li>
-<p>Skim through the content at these pages:</p>
+<p>poner en tu consola <code>?nombre_de_la_funcion()</code> y notarás que en <strong>Help</strong> aparecerá automáticamente información de este. Esta información está contenida en <a href="https://cran.r-project.org/" target="_blank" rel="noopener">CRAN</a></p>
+</li>
+<li>
+<p>Buscar información del paquete en <a href="https://www.rdocumentation.org/" target="_blank" rel="noopener">https://www.rdocumentation.org/</a></p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;tidyverse&#34;</span>) <span style="color:#75715e"># Instalar</span>
+<span style="color:#a6e22e">remove.packages</span>(<span style="color:#e6db74">&#34;tidyverse&#34;</span>) <span style="color:#75715e"># Remover</span>
+</code></pre></div><p>También funciona la noción de una <em>cadena</em> de paquetes concatenados por <code>c()</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">install.packages</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;tidyverse&#34;</span>, <span style="color:#e6db74">&#34;sjPlot&#34;</span>, <span style="color:#e6db74">&#34;sjmisc&#34;</span>)) <span style="color:#75715e"># Primera vez</span>
+</code></pre></div><p><strong>2. Llamar paquetes</strong></p>
+<p>Este proceso lo haremos con la función <code>library()</code>. Cuando la utilicemos nos dirá algunas informaciones importantes: (1) su versión, (2) los paquetes que trae si es una colección de estos (<em>attaching packages</em>) y (3) los <strong>conflictos</strong> con otros paquetes que ya tienes cargados.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(tidyverse)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#960050;background-color:#1e0010">##</span> <span style="color:#a6e22e">Warning</span>: <span style="color:#f92672">package</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">tidyverse</span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#a6e22e">was</span> <span style="color:#a6e22e">built</span> <span style="color:#a6e22e">under</span> <span style="color:#a6e22e">R</span> <span style="color:#a6e22e">version</span> <span style="color:#ae81ff">4.0.5</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## v ggplot2 3.3.3     v purrr   0.3.4
+## v tibble  3.1.0     v dplyr   1.0.6
+## v tidyr   1.1.3     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#960050;background-color:#1e0010">##</span> <span style="color:#a6e22e">Warning</span>: <span style="color:#f92672">package</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">readr</span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#a6e22e">was</span> <span style="color:#a6e22e">built</span> <span style="color:#a6e22e">under</span> <span style="color:#a6e22e">R</span> <span style="color:#a6e22e">version</span> <span style="color:#ae81ff">4.0.5</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#960050;background-color:#1e0010">##</span> <span style="color:#a6e22e">Warning</span>: <span style="color:#f92672">package</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">dplyr</span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#a6e22e">was</span> <span style="color:#a6e22e">built</span> <span style="color:#a6e22e">under</span> <span style="color:#a6e22e">R</span> <span style="color:#a6e22e">version</span> <span style="color:#ae81ff">4.0.5</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+</code></pre></div><p>Ahora, intentemos ocupar la función <code>frq()</code> del paquete <code>sjmisc()</code>  para ver la distribución de equipo dentro de la base <em>datos</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">frq</span>(datos<span style="color:#f92672">$</span>equipo)
+</code></pre></div><p>Sí, no es un error del sitio web. Aparecerá el siguiente error:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># &gt; Error in frq(datos$equipo) : could not find function &#34;frq&#34;</span>
+</code></pre></div><p>Tal como dice, no se puede encontrar la función <code>frq()</code>. Por eso, no deben olvidar <strong>llamar</strong> a los paquetes, que como vimos en la sesión, es como &ldquo;encender&rdquo; el interruptor</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(sjmisc)
+</code></pre></div><p>También existe la opción de indicar desde qué paquete proviene la función, y eso automáticamente los llama pero **solo en el momento en que se ocupa la función (<code>paquete::funcion()</code>)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sjmisc<span style="color:#f92672">::</span><span style="color:#a6e22e">frq</span>(datos<span style="color:#f92672">$</span>equipo)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## x &lt;character&gt;
+## # total N=3  valid N=3  mean=2.00  sd=1.00
+## 
+## Value     | N | Raw % | Valid % | Cum. %
+## ----------------------------------------
+## Dafne     | 1 | 33.33 |   33.33 |  33.33
+## Nicolás   | 1 | 33.33 |   33.33 |  66.67
+## Valentina | 1 | 33.33 |   33.33 | 100.00
+## &lt;NA&gt;      | 0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+</code></pre></div><p>Esto será muy útil cuando existan paquetes que tengan funciones que están en conflicto.</p>
+<h3 id="una-forma-fácil-de-cargar-paquetes-pacman">Una forma fácil de cargar paquetes: <code>pacman</code></h3>
+<p><code>pacman</code> es un paquete que <em>literalmente</em> se comió procesos de R <code>base</code> y las simplificó en funciones únicas y más intuitivas.</p>
+<p>Para comentar utilizándolo hay que hacer instalación tradicional</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;pacman&#34;</span>)
+<span style="color:#a6e22e">library</span>(pacman)
+</code></pre></div><p>Luego, la función que utilizaremos con frecuencia será <code>p_load()</code> que es una función que permite cargar librerías e instalarlas en caso de que estas no hayan sido descargadas. Básicamente <code>p_load()</code> resume las funciones <code>library()</code> e <code>install.packages()</code>, y optimiza esta relación entre ambas pues solo las aplica cuando son necesarias (if `requiere()``), es decir, <strong>¡no te reinicia R si ya está instalada la librería!</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pacman<span style="color:#f92672">::</span><span style="color:#a6e22e">p_load</span>(tidyverse,
+               sjPlot,
+               sjmisc)
+</code></pre></div><p>Por último, muchas veces ocurrirá que hay paquetes que dependen de otros, pues dada su complejidad, requieren de otras funcionalidades que ya han sido desarrolladas en otras extensiones. Esto, las <strong>dependencias</strong> no será un tema del cuál preocuparte pues <code>pacman::p_load()</code> lo hace solito.</p>
+<h1 id="reporte-de-progreso">Reporte de progreso</h1>
+<p>¡Recuerda rellenar tu <a href="https://learn-r.formr.org/" target="_blank" rel="noopener">reporte de progreso</a>. En tu correo electrónico está disponible el código mediante al cuál debes acceder para actualizar tu estado de avance del curso.</p>
+<h1 id="recomendaciones">Recomendaciones</h1>
+<p>El contenido de estos primers es libre y gratis, y provienen del libro de Hadley Wickham y Garrett Grolemund <a href="https://r4ds.had.co.nz/" target="_blank" rel="noopener"><em>R for Data Science</em></a>.</p>
 <ul>
-<li><a href="/resource/markdown/">Using Markdown</a></li>
-<li><a href="/resource/rmarkdown/">Using R Markdown</a></li>
-<li><a href="http://rmarkdown.rstudio.com/lesson-2.html" target="_blank" rel="noopener">How it Works</a></li>
-<li><a href="http://rmarkdown.rstudio.com/lesson-3.html" target="_blank" rel="noopener">Code Chunks</a></li>
-<li><a href="http://rmarkdown.rstudio.com/lesson-4.html" target="_blank" rel="noopener">Inline Code</a></li>
-<li><a href="http://rmarkdown.rstudio.com/lesson-8.html" target="_blank" rel="noopener">Markdown Basics</a> (The <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" target="_blank" rel="noopener">R Markdown Reference Guide</a> is super useful here.)</li>
-<li><a href="http://rmarkdown.rstudio.com/lesson-9.html" target="_blank" rel="noopener">Output Formats</a></li>
+<li><a href="https://r4ds.had.co.nz/workflow-projects.html#rstudio-projects" target="_blank" rel="noopener">RProjects</a>
+<ul>
+<li><a href="https://rstudio.cloud/learn/primers/1.2" target="_blank" rel="noopener">Programming Basics</a></li>
+<li><a href="https://rstudio.cloud/learn/primers/2.1" target="_blank" rel="noopener">Working with Tibbles</a></li>
 </ul>
 </li>
-<li>
-<p>Watch this video (again, it&rsquo;s from PMAP 8921, but the content works for this class):</p>
- <div class="embed-responsive embed-responsive-16by9">
- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/fT5xI1cmE2c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
- </div>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Aquí luego aparecerá la parte del video que tiene que ver con <strong>RStudio</strong> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>El signo <code>~</code> (tilde) indica en Windows <code>C:\Users\your_user_name\</code> y en macOS <code>/Users/your_user_name/</code>. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
+</section>
 
                     </div>
 
@@ -794,6 +941,13 @@ Recent versions of <strong>tidyr</strong> have renamed these core functions: <co
                     <div class="article-widget">
                         
 <div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/example/03-practico/" rel="next">Transformar y seleccionar variables</a>
+  </div>
   
   
   
