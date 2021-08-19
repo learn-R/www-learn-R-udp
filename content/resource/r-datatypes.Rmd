@@ -12,7 +12,7 @@ toc: true
 
 La presente entrada es una traducción del artículo [**Data types in R**](https://statsandr.com/blog/data-types-in-r/) elaborado por _Antoine Soetewey_ (2019).
 
-Este artículo presenta los diferentes tipos de datos (_data types_) en R. Para aprender sobre diferentes tipos de variables desde un punto de vista estadístico, diríjanse a la entrada [Tipos de variables y ejemplos](link de página web UDP), disponible en la sección **Recursos**.
+Este artículo presenta los diferentes tipos de datos (_data types_) en R. Para aprender sobre diferentes tipos de variables desde un punto de vista estadístico, diríjanse a la entrada [Tipos de variables y ejemplos](https://learn-r-udp.netlify.app/resource/r-datatypes-examples/), disponible en la sección **Recursos**.
 
 # ¿Qué tipos de datos existen en R?
 
@@ -48,7 +48,7 @@ En otras palabras, si se asigna uno o varios números a un objeto en R, este se 
 
 # Integer
 
-Los datos de tipo **Integer** son, de hecho, un tipo particular de datos numericos. Los Integer (_enteros_) son datos numéricos sin decimales. Pueden ser utilizados si es que estás seguro/a de que los números almacenados **nunca** incorporarán decimales. Por ejemplo, digamos que estás interesada/o en el número de hijas/os en una muestra de 10 familias. Esta variable es discreta (para repasar estos contenidos, diríjanse a la entrada [Tipos de variables y ejemplos](link de página web UDP)), y nunca tendrá decimales. De estemodo, estos datos pueden almacenarse como integer gracias a la función `as.integer()`:
+Los datos de tipo **Integer** son, de hecho, un tipo particular de datos numericos. Los Integer (_enteros_) son datos numéricos sin decimales. Pueden ser utilizados si es que estás seguro/a de que los números almacenados **nunca** incorporarán decimales. Por ejemplo, digamos que estás interesada/o en el número de hijas/os en una muestra de 10 familias. Esta variable es discreta (para repasar estos contenidos, diríjanse a la entrada [Tipos de variables y ejemplos](https://learn-r-udp.netlify.app/resource/r-datatypes-examples/)), y nunca tendrá decimales. De estemodo, estos datos pueden almacenarse como integer gracias a la función `as.integer()`:
 
 ```{r, echo = FALSE}
 set.seed(30 / 12)
@@ -114,7 +114,7 @@ Como pueden ver en los resultados anteriores, un espacio en datos de tipo charac
 
 # Factor
 
-Las variables **Factor** son un caso especial de variables character, en el sentido de que también contienen texto.Sin embargo, las variables factor son utilizadas cuando existe un número limitado de strings character únicas. Usualmente representan una [variable categórica](link de página web UDP). Por ejemplo, el _sexo_ usualmente toma sólo dos valores, "masculino" y "femenino" (y será considerado una variable factor), mientras que el _nombre_ generalmente presentará montones de posibilidades (de modo que será considerado una variable character). Para crear un factor, empleamos la función `factor()` :
+Las variables **Factor** son un caso especial de variables character, en el sentido de que también contienen texto.Sin embargo, las variables factor son utilizadas cuando existe un número limitado de strings character únicas. Usualmente representan una [variable categórica](https://learn-r-udp.netlify.app/resource/r-datatypes-examples/). Por ejemplo, el _sexo_ usualmente toma sólo dos valores, "masculino" y "femenino" (y será considerado una variable factor), mientras que el _nombre_ generalmente presentará montones de posibilidades (de modo que será considerado una variable character). Para crear un factor, empleamos la función `factor()` :
 
 ```{r}
 gender <- factor(c("female", "female", "male", "female", "male"))
@@ -180,6 +180,6 @@ y <- 5
 as.logical(y)
 ```
 
-¡Gracias por leer! Esperamos que este artículo les ayude a entender los tipos básicos de datos en R y sus particularidades. Si desean aprender más sobre diferentes tipos de variables desde un puntos de vista estadístico, lean [Tipos de variables y ejemplos](link de página web UDP).
+¡Gracias por leer! Esperamos que este artículo les ayude a entender los tipos básicos de datos en R y sus particularidades. Si desean aprender más sobre diferentes tipos de variables desde un puntos de vista estadístico, lean [Tipos de variables y ejemplos](https://learn-r-udp.netlify.app/resource/r-datatypes-examples/).
 
 Como siempre, si tienen alguna pregunta o sugerencia relacionada con el tópico cubierto en este artículo, por favor coméntenlo por los canales de comunicación del curso, para que otras/os lectoras/es puedan beneficiarse de la discusión. 

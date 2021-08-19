@@ -13,7 +13,7 @@ toc: true
 La presente entrada es una traducción del artículo [**Variable types and examples
 **](https://statsandr.com/blog/variable-types-and-examples/) elaborado por _Antoine Soetewey_ (2019).
 
-Este artículo presenta los diferentes tipos de variables desde un punto de vista estadístico. Para aprender sobre los diferentes tipos de datos en R, revisen [Tipos de datos en R](página web UDP).
+Este artículo presenta los diferentes tipos de variables desde un punto de vista estadístico. Para aprender sobre los diferentes tipos de datos en R, revisen [Tipos de datos en R](https://learn-r-udp.netlify.app/resource/r-datatypes/).
 
 # Imágen panorámica 
 
@@ -64,7 +64,7 @@ Para todas las mediciones, usualmente nos detenemos en un nivel estándar de gra
 
 # Cualitativas
 
-En oposición a las variables cuantitativas, las variables **qualitativas** (también referidas como variables categóricas o [factores](link página UDP) en R) son variables que **no son numéricas** y cuyos **valores encajan en categorías**.
+En oposición a las variables cuantitativas, las variables **cualitativas** (también referidas como variables categóricas o [factores](link página UDP) en R) son variables que **no son numéricas** y cuyos **valores encajan en categorías**.
 
 En otras palabras, una variable **cualitativa** es aquella que toma como valores modalidades, **categorías** o incluso niveles, en contraste con variables **cuantitativas** que miden una **cantidad** en cada individuo. 
 
@@ -115,6 +115,6 @@ Por último, pero no menos importante, es usual que en algunos set de datos se e
 
 Si te enfrentas a este tipo de configuración, no olvides **transformar** la variable en el tipo correcto antes de realizar análisis estadísticos. Usualmente, un **análisis descriptivo** básico (y el conocimiento sobre las variable que han sido medidas) previo a los análisis estadísticos principales basta para identificar si el tipo de las variables es correcto. 
 
-Gracias por leer. Esperamos que este artículo les ayude a comprender los diferentes tipos de variables. Si desean aprender más sobre los distintos tipos de datos en R, lean la entrada [Tipos de datos en R](página web UDP).
+Gracias por leer. Esperamos que este artículo les ayude a comprender los diferentes tipos de variables. Si desean aprender más sobre los distintos tipos de datos en R, lean la entrada [Tipos de datos en R](https://learn-r-udp.netlify.app/resource/r-datatypes/).
 
 Como siempre, si tienen alguna pregunta o sugerencia relacionada con el tópico cubierto en este artículo, por favor coméntenlo por los canales de comunicación del curso, para que otras/os lectoras/es puedan beneficiarse de la discusión. 

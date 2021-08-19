@@ -140,7 +140,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;La presente entrada es una traducción del artículo &lt;a href=&#34;https://statsandr.com/blog/data-types-in-r/&#34;&gt;&lt;strong&gt;Data types in R&lt;/strong&gt;&lt;/a&gt; elaborado por &lt;em&gt;Antoine Soetewey&lt;/em&gt; (2019).&lt;/p&gt;
-&lt;p&gt;Este artículo presenta los diferentes tipos de datos (&lt;em&gt;data types&lt;/em&gt;) en R. Para aprender sobre diferentes tipos de variables desde un punto de vista estadístico, diríjanse a la entrada &lt;a href=&#34;link%20de%20página%20web%20UDP&#34;&gt;Tipos de variables y ejemplos&lt;/a&gt;, disponible en la sección &lt;strong&gt;Recursos&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Este artículo presenta los diferentes tipos de datos (&lt;em&gt;data types&lt;/em&gt;) en R. Para aprender sobre diferentes tipos de variables desde un punto de vista estadístico, diríjanse a la entrada &lt;a href=&#34;https://learn-r-udp.netlify.app/resource/r-datatypes-examples/&#34;&gt;Tipos de variables y ejemplos&lt;/a&gt;, disponible en la sección &lt;strong&gt;Recursos&lt;/strong&gt;.&lt;/p&gt;
 &lt;div id=&#34;qué-tipos-de-datos-existen-en-r&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;¿Qué tipos de datos existen en R?&lt;/h1&gt;
 &lt;p&gt;Los 6 tipos de datos más comunes en R son:&lt;/p&gt;
@@ -176,7 +176,7 @@ str(num_data_dec)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;integer&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Integer&lt;/h1&gt;
-&lt;p&gt;Los datos de tipo &lt;strong&gt;Integer&lt;/strong&gt; son, de hecho, un tipo particular de datos numericos. Los Integer (&lt;em&gt;enteros&lt;/em&gt;) son datos numéricos sin decimales. Pueden ser utilizados si es que estás seguro/a de que los números almacenados &lt;strong&gt;nunca&lt;/strong&gt; incorporarán decimales. Por ejemplo, digamos que estás interesada/o en el número de hijas/os en una muestra de 10 familias. Esta variable es discreta (para repasar estos contenidos, diríjanse a la entrada &lt;a href=&#34;link%20de%20página%20web%20UDP&#34;&gt;Tipos de variables y ejemplos&lt;/a&gt;), y nunca tendrá decimales. De estemodo, estos datos pueden almacenarse como integer gracias a la función &lt;code&gt;as.integer()&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Los datos de tipo &lt;strong&gt;Integer&lt;/strong&gt; son, de hecho, un tipo particular de datos numericos. Los Integer (&lt;em&gt;enteros&lt;/em&gt;) son datos numéricos sin decimales. Pueden ser utilizados si es que estás seguro/a de que los números almacenados &lt;strong&gt;nunca&lt;/strong&gt; incorporarán decimales. Por ejemplo, digamos que estás interesada/o en el número de hijas/os en una muestra de 10 familias. Esta variable es discreta (para repasar estos contenidos, diríjanse a la entrada &lt;a href=&#34;https://learn-r-udp.netlify.app/resource/r-datatypes-examples/&#34;&gt;Tipos de variables y ejemplos&lt;/a&gt;), y nunca tendrá decimales. De estemodo, estos datos pueden almacenarse como integer gracias a la función &lt;code&gt;as.integer()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;children&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  [1] 1 3 2 2 4 4 1 1 1 4&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;children &amp;lt;- as.integer(children)
@@ -225,7 +225,7 @@ char_space == char_nospace&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;factor&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Factor&lt;/h1&gt;
-&lt;p&gt;Las variables &lt;strong&gt;Factor&lt;/strong&gt; son un caso especial de variables character, en el sentido de que también contienen texto.Sin embargo, las variables factor son utilizadas cuando existe un número limitado de strings character únicas. Usualmente representan una &lt;a href=&#34;link%20de%20página%20web%20UDP&#34;&gt;variable categórica&lt;/a&gt;. Por ejemplo, el &lt;em&gt;sexo&lt;/em&gt; usualmente toma sólo dos valores, “masculino” y “femenino” (y será considerado una variable factor), mientras que el &lt;em&gt;nombre&lt;/em&gt; generalmente presentará montones de posibilidades (de modo que será considerado una variable character). Para crear un factor, empleamos la función &lt;code&gt;factor()&lt;/code&gt; :&lt;/p&gt;
+&lt;p&gt;Las variables &lt;strong&gt;Factor&lt;/strong&gt; son un caso especial de variables character, en el sentido de que también contienen texto.Sin embargo, las variables factor son utilizadas cuando existe un número limitado de strings character únicas. Usualmente representan una &lt;a href=&#34;https://learn-r-udp.netlify.app/resource/r-datatypes-examples/&#34;&gt;variable categórica&lt;/a&gt;. Por ejemplo, el &lt;em&gt;sexo&lt;/em&gt; usualmente toma sólo dos valores, “masculino” y “femenino” (y será considerado una variable factor), mientras que el &lt;em&gt;nombre&lt;/em&gt; generalmente presentará montones de posibilidades (de modo que será considerado una variable character). Para crear un factor, empleamos la función &lt;code&gt;factor()&lt;/code&gt; :&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gender &amp;lt;- factor(c(&amp;quot;female&amp;quot;, &amp;quot;female&amp;quot;, &amp;quot;male&amp;quot;, &amp;quot;female&amp;quot;, &amp;quot;male&amp;quot;))
 gender&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] female female male   female male  
@@ -277,7 +277,7 @@ as.logical(x)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y &amp;lt;- 5
 as.logical(y)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;¡Gracias por leer! Esperamos que este artículo les ayude a entender los tipos básicos de datos en R y sus particularidades. Si desean aprender más sobre diferentes tipos de variables desde un puntos de vista estadístico, lean &lt;a href=&#34;link%20de%20página%20web%20UDP&#34;&gt;Tipos de variables y ejemplos&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;¡Gracias por leer! Esperamos que este artículo les ayude a entender los tipos básicos de datos en R y sus particularidades. Si desean aprender más sobre diferentes tipos de variables desde un puntos de vista estadístico, lean &lt;a href=&#34;https://learn-r-udp.netlify.app/resource/r-datatypes-examples/&#34;&gt;Tipos de variables y ejemplos&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Como siempre, si tienen alguna pregunta o sugerencia relacionada con el tópico cubierto en este artículo, por favor coméntenlo por los canales de comunicación del curso, para que otras/os lectoras/es puedan beneficiarse de la discusión.&lt;/p&gt;
 &lt;/div&gt;
 </description>
@@ -301,7 +301,7 @@ as.logical(y)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;La presente entrada es una traducción del artículo &lt;a href=&#34;https://statsandr.com/blog/variable-types-and-examples/&#34;&gt;&lt;strong&gt;Variable types and examples
 &lt;/strong&gt;&lt;/a&gt; elaborado por &lt;em&gt;Antoine Soetewey&lt;/em&gt; (2019).&lt;/p&gt;
-&lt;p&gt;Este artículo presenta los diferentes tipos de variables desde un punto de vista estadístico. Para aprender sobre los diferentes tipos de datos en R, revisen &lt;a href=&#34;página%20web%20UDP&#34;&gt;Tipos de datos en R&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Este artículo presenta los diferentes tipos de variables desde un punto de vista estadístico. Para aprender sobre los diferentes tipos de datos en R, revisen &lt;a href=&#34;https://learn-r-udp.netlify.app/resource/r-datatypes/&#34;&gt;Tipos de datos en R&lt;/a&gt;.&lt;/p&gt;
 &lt;div id=&#34;imágen-panorámica&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Imágen panorámica&lt;/h1&gt;
 &lt;p&gt;En estadística, las variables son clasificadas en 4 tipos diferentes:&lt;/p&gt;
@@ -336,7 +336,7 @@ as.logical(y)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;cualitativas&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Cualitativas&lt;/h1&gt;
-&lt;p&gt;En oposición a las variables cuantitativas, las variables &lt;strong&gt;qualitativas&lt;/strong&gt; (también referidas como variables categóricas o &lt;a href=&#34;link%20página%20UDP&#34;&gt;factores&lt;/a&gt; en R) son variables que &lt;strong&gt;no son numéricas&lt;/strong&gt; y cuyos &lt;strong&gt;valores encajan en categorías&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;En oposición a las variables cuantitativas, las variables &lt;strong&gt;cualitativas&lt;/strong&gt; (también referidas como variables categóricas o &lt;a href=&#34;link%20página%20UDP&#34;&gt;factores&lt;/a&gt; en R) son variables que &lt;strong&gt;no son numéricas&lt;/strong&gt; y cuyos &lt;strong&gt;valores encajan en categorías&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;En otras palabras, una variable &lt;strong&gt;cualitativa&lt;/strong&gt; es aquella que toma como valores modalidades, &lt;strong&gt;categorías&lt;/strong&gt; o incluso niveles, en contraste con variables &lt;strong&gt;cuantitativas&lt;/strong&gt; que miden una &lt;strong&gt;cantidad&lt;/strong&gt; en cada individuo.&lt;/p&gt;
 &lt;p&gt;Las variables cualitativas se dividen en dos tipos: &lt;strong&gt;nominales&lt;/strong&gt; y &lt;strong&gt;ordinales&lt;/strong&gt;.&lt;/p&gt;
 &lt;div id=&#34;nominales&#34; class=&#34;section level2&#34;&gt;
@@ -379,7 +379,7 @@ as.logical(y)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;Codificación engañosa de datos&lt;/h2&gt;
 &lt;p&gt;Por último, pero no menos importante, es usual que en algunos set de datos se empleen números para variables cualitativas. Por ejemplo, un/a investigador/a puede asignar el número “1” a mujer y el número “2” a hombre (o “0” a la respuesta “No” y “1” a la respuesta “Sí). Pese a la clasificación numérica, la variable género sigue siendo una variable cualitativa, y no una discreta, como pareciera. La clasficación numérica sólo es utilizada para facilitar la recolección y tratamiento de datos. Es, de hecho, más sencillo escribir”1&#34; o “2” en lugar de “mujer” y “hombre”, disminuyendo la posibilidad de errores de codificación.&lt;/p&gt;
 &lt;p&gt;Si te enfrentas a este tipo de configuración, no olvides &lt;strong&gt;transformar&lt;/strong&gt; la variable en el tipo correcto antes de realizar análisis estadísticos. Usualmente, un &lt;strong&gt;análisis descriptivo&lt;/strong&gt; básico (y el conocimiento sobre las variable que han sido medidas) previo a los análisis estadísticos principales basta para identificar si el tipo de las variables es correcto.&lt;/p&gt;
-&lt;p&gt;Gracias por leer. Esperamos que este artículo les ayude a comprender los diferentes tipos de variables. Si desean aprender más sobre los distintos tipos de datos en R, lean la entrada &lt;a href=&#34;página%20web%20UDP&#34;&gt;Tipos de datos en R&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Gracias por leer. Esperamos que este artículo les ayude a comprender los diferentes tipos de variables. Si desean aprender más sobre los distintos tipos de datos en R, lean la entrada &lt;a href=&#34;https://learn-r-udp.netlify.app/resource/r-datatypes/&#34;&gt;Tipos de datos en R&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Como siempre, si tienen alguna pregunta o sugerencia relacionada con el tópico cubierto en este artículo, por favor coméntenlo por los canales de comunicación del curso, para que otras/os lectoras/es puedan beneficiarse de la discusión.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;

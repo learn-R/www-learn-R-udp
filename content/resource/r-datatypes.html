@@ -17,7 +17,7 @@ toc: true
 </div>
 
 <p>La presente entrada es una traducción del artículo <a href="https://statsandr.com/blog/data-types-in-r/"><strong>Data types in R</strong></a> elaborado por <em>Antoine Soetewey</em> (2019).</p>
-<p>Este artículo presenta los diferentes tipos de datos (<em>data types</em>) en R. Para aprender sobre diferentes tipos de variables desde un punto de vista estadístico, diríjanse a la entrada <a href="link%20de%20página%20web%20UDP">Tipos de variables y ejemplos</a>, disponible en la sección <strong>Recursos</strong>.</p>
+<p>Este artículo presenta los diferentes tipos de datos (<em>data types</em>) en R. Para aprender sobre diferentes tipos de variables desde un punto de vista estadístico, diríjanse a la entrada <a href="https://learn-r-udp.netlify.app/resource/r-datatypes-examples/">Tipos de variables y ejemplos</a>, disponible en la sección <strong>Recursos</strong>.</p>
 <div id="qué-tipos-de-datos-existen-en-r" class="section level1">
 <h1>¿Qué tipos de datos existen en R?</h1>
 <p>Los 6 tipos de datos más comunes en R son:</p>
@@ -53,7 +53,7 @@ str(num_data_dec)</code></pre>
 </div>
 <div id="integer" class="section level1">
 <h1>Integer</h1>
-<p>Los datos de tipo <strong>Integer</strong> son, de hecho, un tipo particular de datos numericos. Los Integer (<em>enteros</em>) son datos numéricos sin decimales. Pueden ser utilizados si es que estás seguro/a de que los números almacenados <strong>nunca</strong> incorporarán decimales. Por ejemplo, digamos que estás interesada/o en el número de hijas/os en una muestra de 10 familias. Esta variable es discreta (para repasar estos contenidos, diríjanse a la entrada <a href="link%20de%20página%20web%20UDP">Tipos de variables y ejemplos</a>), y nunca tendrá decimales. De estemodo, estos datos pueden almacenarse como integer gracias a la función <code>as.integer()</code>:</p>
+<p>Los datos de tipo <strong>Integer</strong> son, de hecho, un tipo particular de datos numericos. Los Integer (<em>enteros</em>) son datos numéricos sin decimales. Pueden ser utilizados si es que estás seguro/a de que los números almacenados <strong>nunca</strong> incorporarán decimales. Por ejemplo, digamos que estás interesada/o en el número de hijas/os en una muestra de 10 familias. Esta variable es discreta (para repasar estos contenidos, diríjanse a la entrada <a href="https://learn-r-udp.netlify.app/resource/r-datatypes-examples/">Tipos de variables y ejemplos</a>), y nunca tendrá decimales. De estemodo, estos datos pueden almacenarse como integer gracias a la función <code>as.integer()</code>:</p>
 <pre class="r"><code>children</code></pre>
 <pre><code>##  [1] 1 3 2 2 4 4 1 1 1 4</code></pre>
 <pre class="r"><code>children &lt;- as.integer(children)
@@ -102,7 +102,7 @@ char_space == char_nospace</code></pre>
 </div>
 <div id="factor" class="section level1">
 <h1>Factor</h1>
-<p>Las variables <strong>Factor</strong> son un caso especial de variables character, en el sentido de que también contienen texto.Sin embargo, las variables factor son utilizadas cuando existe un número limitado de strings character únicas. Usualmente representan una <a href="link%20de%20página%20web%20UDP">variable categórica</a>. Por ejemplo, el <em>sexo</em> usualmente toma sólo dos valores, “masculino” y “femenino” (y será considerado una variable factor), mientras que el <em>nombre</em> generalmente presentará montones de posibilidades (de modo que será considerado una variable character). Para crear un factor, empleamos la función <code>factor()</code> :</p>
+<p>Las variables <strong>Factor</strong> son un caso especial de variables character, en el sentido de que también contienen texto.Sin embargo, las variables factor son utilizadas cuando existe un número limitado de strings character únicas. Usualmente representan una <a href="https://learn-r-udp.netlify.app/resource/r-datatypes-examples/">variable categórica</a>. Por ejemplo, el <em>sexo</em> usualmente toma sólo dos valores, “masculino” y “femenino” (y será considerado una variable factor), mientras que el <em>nombre</em> generalmente presentará montones de posibilidades (de modo que será considerado una variable character). Para crear un factor, empleamos la función <code>factor()</code> :</p>
 <pre class="r"><code>gender &lt;- factor(c(&quot;female&quot;, &quot;female&quot;, &quot;male&quot;, &quot;female&quot;, &quot;male&quot;))
 gender</code></pre>
 <pre><code>## [1] female female male   female male  
@@ -154,6 +154,6 @@ as.logical(x)</code></pre>
 <pre class="r"><code>y &lt;- 5
 as.logical(y)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<p>¡Gracias por leer! Esperamos que este artículo les ayude a entender los tipos básicos de datos en R y sus particularidades. Si desean aprender más sobre diferentes tipos de variables desde un puntos de vista estadístico, lean <a href="link%20de%20página%20web%20UDP">Tipos de variables y ejemplos</a>.</p>
+<p>¡Gracias por leer! Esperamos que este artículo les ayude a entender los tipos básicos de datos en R y sus particularidades. Si desean aprender más sobre diferentes tipos de variables desde un puntos de vista estadístico, lean <a href="https://learn-r-udp.netlify.app/resource/r-datatypes-examples/">Tipos de variables y ejemplos</a>.</p>
 <p>Como siempre, si tienen alguna pregunta o sugerencia relacionada con el tópico cubierto en este artículo, por favor coméntenlo por los canales de comunicación del curso, para que otras/os lectoras/es puedan beneficiarse de la discusión.</p>
 </div>
