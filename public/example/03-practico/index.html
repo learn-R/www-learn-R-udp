@@ -1352,8 +1352,8 @@ mutate(datos, nueva_variable = cálculo o condición)
 </code></pre></div><p>¿Qué pasa si queremos, luego de calcular nuestras nuevas variables, filtrar un ingreso per cápita menor o igual a $1.000.000</p>
 <p><strong>¡Ahora entra en escena nuestro operador estrella <code>%&gt;%</code>!</strong></p>
 <div class="note">
-datos %&gt;% 
-mutate(., nueva_variable = calculo ) %&gt;% 
+datos %&gt;%
+mutate(., nueva_variable = calculo ) %&gt;%
 filter(., nueva_variable &lt;= valor)
 </div>
 
@@ -1397,7 +1397,7 @@ filter(., nueva_variable &lt;= valor)
 </code></pre></div><p>El problema de <code>recode()</code> que se utiliza dentro de <code>dplyr</code> es que si recodifico se pierde la etiqueta anterior. Esto es un problema a si por ejemplo, solo quiero recodificar casos perdidos.</p>
 <p>Frente a ello, con el tiempo nos hemos convencido de que la mejor solución hasta ahora es ocupar <code>recode()</code> del paquete <code>car</code>. Si recuerdan, dos funciones con el mismo nombre podrían producir <em>conflictos</em>, y por ello, especificaremos con <code>car::recode()</code> que la función <code>recode()</code> que ocupamos proviene de <code>car</code></p>
 <div class="note">
-<p>datos %$% 
+<p>datos %$%
 car::recode(.$variable, c(&lsquo;valor_orig1=nuevo_valor1;valor_org2=nuevo_valor2&rsquo;))</p>
 <p><em>Ojo: %$% es el primo hermano de %&gt;% (básicamente funcionan igual, pero este es necesario para car)</em></p>
 
@@ -1708,7 +1708,7 @@ TRUE ~ NA_real)</p>
     
 
     
-    <script src="/js/bootstrap.bundle.min.8b7df62fd2da18ce73e29c13cc0a6198.js"></script>
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
 
     
     

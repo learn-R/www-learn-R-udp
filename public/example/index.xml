@@ -621,8 +621,8 @@ mutate(datos, nueva_variable = cálculo o condición)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;¿Qué pasa si queremos, luego de calcular nuestras nuevas variables, filtrar un ingreso per cápita menor o igual a $1.000.000&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;¡Ahora entra en escena nuestro operador estrella &lt;code&gt;%&amp;gt;%&lt;/code&gt;!&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;note&#34;&gt;
-datos %&amp;gt;% 
-mutate(., nueva_variable = calculo ) %&amp;gt;% 
+datos %&amp;gt;%
+mutate(., nueva_variable = calculo ) %&amp;gt;%
 filter(., nueva_variable &amp;lt;= valor)
 &lt;/div&gt;
 
@@ -666,7 +666,7 @@ filter(., nueva_variable &amp;lt;= valor)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;El problema de &lt;code&gt;recode()&lt;/code&gt; que se utiliza dentro de &lt;code&gt;dplyr&lt;/code&gt; es que si recodifico se pierde la etiqueta anterior. Esto es un problema a si por ejemplo, solo quiero recodificar casos perdidos.&lt;/p&gt;
 &lt;p&gt;Frente a ello, con el tiempo nos hemos convencido de que la mejor solución hasta ahora es ocupar &lt;code&gt;recode()&lt;/code&gt; del paquete &lt;code&gt;car&lt;/code&gt;. Si recuerdan, dos funciones con el mismo nombre podrían producir &lt;em&gt;conflictos&lt;/em&gt;, y por ello, especificaremos con &lt;code&gt;car::recode()&lt;/code&gt; que la función &lt;code&gt;recode()&lt;/code&gt; que ocupamos proviene de &lt;code&gt;car&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;note&#34;&gt;
-&lt;p&gt;datos %$% 
+&lt;p&gt;datos %$%
 car::recode(.$variable, c(&amp;lsquo;valor_orig1=nuevo_valor1;valor_org2=nuevo_valor2&amp;rsquo;))&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Ojo: %$% es el primo hermano de %&amp;gt;% (básicamente funcionan igual, pero este es necesario para car)&lt;/em&gt;&lt;/p&gt;
 
