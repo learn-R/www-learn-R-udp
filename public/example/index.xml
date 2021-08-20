@@ -184,9 +184,8 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;/img/example/02-practico/01operad.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/example/02-practico/01operad.png&#34; width=&#34;60%&#34; /&gt;
-Figura 1: Resumen de operadores&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/learn-R/slides/raw/main/img/02/01operad.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Figura 1: Resumen de operadores&lt;/p&gt;
 &lt;h3 id=&#34;operador-pipeline-&#34;&gt;Operador pipeline %&amp;gt;%&lt;/h3&gt;
 &lt;p&gt;¡Aquí mucha atención! Este operador &lt;code&gt;%&amp;gt;%&lt;/code&gt; (llamado &lt;code&gt;pipe&lt;/code&gt;) no es un operador que este contenido en las funciones base del lenguaje R. Este operador proviene de la función &lt;code&gt;magrittr&lt;/code&gt; de &lt;code&gt;tidyverse&lt;/code&gt;, y es de los operadores más útiles y utilizados en R.&lt;/p&gt;
 &lt;p&gt;¿Para qué sirve? Para concatenar múltiples funciones y procesos. &lt;em&gt;Imagina que quieres filtrar una base de datos a partir de tramos etarios. Pero no tienes esa variable creada. ¿Que hacer? La respuesta: concatenar el proceso de creación de variables y luego filtrar.&lt;/em&gt; Eso se puede hacer gracias a &lt;code&gt;%&amp;gt;%&lt;/code&gt; (ya mostraremos como utilizar esta herramienta), que por lo demás es muy fácil de ejecutar.&lt;/p&gt;
@@ -621,8 +620,8 @@ mutate(datos, nueva_variable = cálculo o condición)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;¿Qué pasa si queremos, luego de calcular nuestras nuevas variables, filtrar un ingreso per cápita menor o igual a $1.000.000&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;¡Ahora entra en escena nuestro operador estrella &lt;code&gt;%&amp;gt;%&lt;/code&gt;!&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;note&#34;&gt;
-datos %&amp;gt;%
-mutate(., nueva_variable = calculo ) %&amp;gt;%
+datos %&amp;gt;% 
+mutate(., nueva_variable = calculo ) %&amp;gt;% 
 filter(., nueva_variable &amp;lt;= valor)
 &lt;/div&gt;
 
@@ -666,7 +665,7 @@ filter(., nueva_variable &amp;lt;= valor)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;El problema de &lt;code&gt;recode()&lt;/code&gt; que se utiliza dentro de &lt;code&gt;dplyr&lt;/code&gt; es que si recodifico se pierde la etiqueta anterior. Esto es un problema a si por ejemplo, solo quiero recodificar casos perdidos.&lt;/p&gt;
 &lt;p&gt;Frente a ello, con el tiempo nos hemos convencido de que la mejor solución hasta ahora es ocupar &lt;code&gt;recode()&lt;/code&gt; del paquete &lt;code&gt;car&lt;/code&gt;. Si recuerdan, dos funciones con el mismo nombre podrían producir &lt;em&gt;conflictos&lt;/em&gt;, y por ello, especificaremos con &lt;code&gt;car::recode()&lt;/code&gt; que la función &lt;code&gt;recode()&lt;/code&gt; que ocupamos proviene de &lt;code&gt;car&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;note&#34;&gt;
-&lt;p&gt;datos %$%
+&lt;p&gt;datos %$% 
 car::recode(.$variable, c(&amp;lsquo;valor_orig1=nuevo_valor1;valor_org2=nuevo_valor2&amp;rsquo;))&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Ojo: %$% es el primo hermano de %&amp;gt;% (básicamente funcionan igual, pero este es necesario para car)&lt;/em&gt;&lt;/p&gt;
 

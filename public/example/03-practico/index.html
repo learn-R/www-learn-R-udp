@@ -915,9 +915,8 @@
 </tr>
 </tbody>
 </table>
-<p><img src="/img/example/02-practico/01operad.png" alt=""></p>
-<p><img src="/img/example/02-practico/01operad.png" width="60%" />
-Figura 1: Resumen de operadores</p>
+<p><img src="https://github.com/learn-R/slides/raw/main/img/02/01operad.png" alt=""></p>
+<p>Figura 1: Resumen de operadores</p>
 <h3 id="operador-pipeline-">Operador pipeline %&gt;%</h3>
 <p>¡Aquí mucha atención! Este operador <code>%&gt;%</code> (llamado <code>pipe</code>) no es un operador que este contenido en las funciones base del lenguaje R. Este operador proviene de la función <code>magrittr</code> de <code>tidyverse</code>, y es de los operadores más útiles y utilizados en R.</p>
 <p>¿Para qué sirve? Para concatenar múltiples funciones y procesos. <em>Imagina que quieres filtrar una base de datos a partir de tramos etarios. Pero no tienes esa variable creada. ¿Que hacer? La respuesta: concatenar el proceso de creación de variables y luego filtrar.</em> Eso se puede hacer gracias a <code>%&gt;%</code> (ya mostraremos como utilizar esta herramienta), que por lo demás es muy fácil de ejecutar.</p>
@@ -1352,8 +1351,8 @@ mutate(datos, nueva_variable = cálculo o condición)
 </code></pre></div><p>¿Qué pasa si queremos, luego de calcular nuestras nuevas variables, filtrar un ingreso per cápita menor o igual a $1.000.000</p>
 <p><strong>¡Ahora entra en escena nuestro operador estrella <code>%&gt;%</code>!</strong></p>
 <div class="note">
-datos %&gt;%
-mutate(., nueva_variable = calculo ) %&gt;%
+datos %&gt;% 
+mutate(., nueva_variable = calculo ) %&gt;% 
 filter(., nueva_variable &lt;= valor)
 </div>
 
@@ -1397,7 +1396,7 @@ filter(., nueva_variable &lt;= valor)
 </code></pre></div><p>El problema de <code>recode()</code> que se utiliza dentro de <code>dplyr</code> es que si recodifico se pierde la etiqueta anterior. Esto es un problema a si por ejemplo, solo quiero recodificar casos perdidos.</p>
 <p>Frente a ello, con el tiempo nos hemos convencido de que la mejor solución hasta ahora es ocupar <code>recode()</code> del paquete <code>car</code>. Si recuerdan, dos funciones con el mismo nombre podrían producir <em>conflictos</em>, y por ello, especificaremos con <code>car::recode()</code> que la función <code>recode()</code> que ocupamos proviene de <code>car</code></p>
 <div class="note">
-<p>datos %$%
+<p>datos %$% 
 car::recode(.$variable, c(&lsquo;valor_orig1=nuevo_valor1;valor_org2=nuevo_valor2&rsquo;))</p>
 <p><em>Ojo: %$% es el primo hermano de %&gt;% (básicamente funcionan igual, pero este es necesario para car)</em></p>
 
@@ -1708,7 +1707,7 @@ TRUE ~ NA_real)</p>
     
 
     
-    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
+    <script src="/js/bootstrap.bundle.min.8b7df62fd2da18ce73e29c13cc0a6198.js"></script>
 
     
     

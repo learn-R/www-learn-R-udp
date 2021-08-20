@@ -1,597 +1,998 @@
 ---
-title: "Theories of change"
-author: "Andrew Heiss"
+title: "Análisis de datos estadísticos en R"
+author: "Valentina Andrade"
 date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
+    self_contained: true
     lib_dir: "libs"
     chakra: "libs/remark-latest.min.js"
     css: ["default", "css/ath-slides.css", "css/ath-inferno-fonts.css", "css/animate.css"]
     seal: false
+    includes:
+      after_body: "html/insert-logo.html"
     anchor_sections: false
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
+      beforeInit: "libs/macros.js"
       navigation:
         scroll: false
 editor_options: 
   chunk_output_type: console
 ---
 
+```{r packages-data, include=FALSE}
+pacman::p_load(tidyverse, sjPlot, ggsci, wordcloud2)
+theme_set(theme_sjplot2())
+
+```
+```{r xaringanExtra, echo=FALSE}
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "share_again", "scribble", "frezeeframe", "editable", "progress_bar"))
+
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
+
+
+```{r xaringanExtra-clipboard, echo=FALSE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\">Copiar código</i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\">¡Listo!</i>",
+    error_text = "<i class=\"fa fa-times-circle\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, eval = F, 
                       fig.retina = 3, fig.align = "center")
 ```
 
-```{r packages-data, include=FALSE}
-#
-```
+class: center middle main-title section-title-1 top-logo
 
-```{r xaringanExtra, echo=FALSE}
-xaringanExtra::use_xaringan_extra(c("tile_view"))
-```
-
-class: center middle main-title section-title-7
-
-# Theories<br>of change
+.small[
+# Transformar y seleccionar variables
+]
 
 .class-info[
+<br>
+**Bloque N° 3**<br>
+`r format(Sys.Date(), '%d %B %Y')`<br>
+**Análisis de datos estadísticos en R**
+<br>
 
-**Session 3**
-
-.light[PMAP 8521: Program evaluation<br>
-Andrew Young School of Policy Studies
+.pull-right.small[
+**Profesora** Valentina Andrade de la Horra <br>
+**Ayudantes** Dafne Jaime y Nicolás Godoy
+.tiny[Universidad Diego Portales<br>
+]
 ]
 
 ]
 
 ---
+class: title title-inv-1
 
-name: outline
-class: title title-inv-8
-
-# Plan for today
+# Contenidos Bloque 3
 
 --
 
-.box-1.medium.sp-after-half[Reproducibility]
+.box-2.medium.sp-after-half[**Básicos en manipulación**]
+.small.box-2[Operadores y tipos de datos]
 
 --
 
-.box-2.medium.sp-after-half[Program theories]
+.box-3.medium.sp-after-half[**Seleccionar variables**]
 
 --
 
-.box-6.medium[Logic models & results chains]
+.box-4.medium.sp-after-half[**Filtrar**]
+
+--
+
+.box-5.medium.sp-after-half[**Crear variables**]
+
+???
+
+- basics
+- select
+- filter
+- create
 
 ---
+class: center middle main-title section-title-1 top-logo
+name: basics
 
-name: reproducibility
-class: center middle section-title section-title-1 animated fadeIn
-
-# Reproducibility
+# 1: Flujo del Rproject
 
 ---
+class: title title-inv-1
 
+# Etapas del flujo
+
+.center[
+![:scale 70%](https://github.com/learn-R/slides/raw/main/img/01/flow-rproject.png)]
+
+--
+
+- *Hoy* nosotras/os finalizaremos la parte de **procesamiento**.
+
+---
+class: title title-inv-1
+
+# Orden de un script de procesamiento
+
+
+.center[
+![:scale 80%](https://github.com/learn-R/slides/raw/main/img/02/orden-sintaxis.png)]
+
+---
+.center[
+![](https://media2.giphy.com/media/ule4vhcY1xEKQ/giphy.gif)]
+
+Figura 1: Estudiantes de Análisis de datos en R haciendo el **paso 1 y 2.**
+---
+class: center middle main-title section-title-1 top-logo
+
+# Paso 1: Cargar paquetes
+
+---
 layout: true
 class: title title-1
+---
+# Paso 1: Cargar paquetes
+
+```{r}
+pacman::p_load(tidyverse, #<<
+               magrittr,
+               car,
+               sjmisc)
+```
 
 ---
-
-# Why am I making you learn R?
-
-&nbsp;
-
---
-
-.box-inv-1.medium[More powerful]
-
---
-
-.box-inv-1.medium[Free and open source]
-
---
-
-.box-inv-1.medium.sp-after[Reproducibility]
-
----
-
-# Austerity and Excel
-
-.pull-left[
-
-<figure>
-  <img src="img/03/rr-abstract.png" alt="Reinhart and Rogoff abstract" title="Reinhart and Rogoff abstract" width="100%">
-</figure>
-
-.box-inv-1[Debt:GDP ratio<br>90%+ → −0.1% growth]
-
-]
-
---
-
-.pull-right.center[
-
-<figure>
-  <img src="img/03/path-to-prosperity.jpg" alt="The Path to Prosperity 2013 house budget" title="The Path to Prosperity 2013 house budget" width="65%">
-  <figcaption>Paul Ryan's 2013 House budget resolution</figcaption>
-</figure>
-
-]
-
-???
-
-[2013 House Budget Resolution](https://republicans-budget.house.gov/uploadedfiles/pathtoprosperity2013.pdf)
-
----
-
-# Austerity and Excel
-
-.pull-left.center[
-
-<figure>
-  <img src="img/03/thomas-herndon.jpg" alt="Thomas Herndon" title="Thomas Herndon" width="55%">
-  <figcaption>Thomas Herndon</figcaption>
-</figure>
-
-]
-
---
-
-.pull-right.center[
-
-<figure>
-  <img src="img/03/krugman-allowed.png" alt="Paul Krugman on Excel and reproducibility" title="Paul Krugman on Excel and reproducibility" width="100%">
-  <figcaption>From <a href="https://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html" target="_blank">Paul Krugman, "The Excel Depression"</a></figcaption>
-</figure>
-
-]
-
-???
-
-[Paul Krugman on the reproducibility crisis](https://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html)
-
----
-
-# Austerity and Excel
-
-.center[
-<figure>
-  <img src="img/03/rr-table1.png" alt="Reinhart Rogoff Table 1" title="Reinhart Rogoff Table 1" width="47%">
-</figure>
-]
-
---
-
-.box-inv-1[Debt:GDP ratio = 90%+ → 2.2% growth (!!)]
-
----
-
-# Genes and Excel
-
-.pull-left-3[
-.box-inv-1[Septin 2]
-]
-
-.pull-middle-3[
-.box-inv-1[Membrane-Associated Ring Finger (C3HC4) 1]
-]
-
-.pull-right-3[
-.box-inv-1[2310009E13]
-]
-
---
-
-.center.sp-after[
-<figure>
-  <img src="img/03/excel-numbers.png" alt="Numbers in Excel" title="Numbers in Excel" width="40%">
-</figure>
-]
-
---
-
-.center[
-.box-1[20% of genetics papers between 2005–2015 (!!!)]
-]
-
----
-
-# General guidelines
-
-.box-inv-1.medium[Don't touch the raw data]
-
-.box-1[If you do, explain what you did!]
-
---
-
-.box-inv-1.medium[Use self-documenting, reproducible code]
-
-.box-1[R Markdown!]
-
---
-
-.box-inv-1.medium[Use open formats]
-
-.box-1[Use .csv, not .xlsx]
-
----
-
-# R Markdown in real life
-
-.pull-left.center[
-
-<figure>
-  <img src="img/03/airbnb.png" alt="Airbnb's data science tools" title="Airbnb's data science tools" width="100%">
-  <figcaption><a href="https://peerj.com/preprints/3182.pdf" target="_blank">Airbnb, ggplot, and rmarkdown</a></figcaption>
-</figure>
-
-]
-
---
-
-.pull-right.center[
-
-&nbsp;
-
-<figure>
-  <img src="img/03/uk-long.png" alt="UK Statistics pipeline" title="UK Statistics pipeline" width="100%">
-</figure>
-
-<figure>
-  <img src="img/03/uk-short.png" alt="UK Statistics pipeline, short" title="UK Statistics pipeline, short" width="55%">
-  <figcaption><a href="https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/" target="_blank">The UK's reproducible analysis pipeline</a></figcaption>
-</figure>
-
-]
-
-???
-
-https://peerj.com/preprints/3182.pdf + https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/ 
-
----
-
 layout: false
-name: program-theories
-class: center middle section-title section-title-6 animated fadeIn
+class: center middle section-title section-title-1 animated fadeIn
 
-# Program theories
-
----
-
-layout: true
-class: title title-6
+# Paso 2: Importar datos
 
 ---
+# Consideraciones antes de importar datos 
 
-# Elements of a program
+Para **importar** los datos en R debemos tener en consideración tres cosas:
 
-.pull-left[
-.box-inv-6[Inputs]
-
-.box-6.smaller.sp-after[Things that go into an activity; money, people, time, etc.]
-
-.box-inv-6[Activities]
-
-.box-6.smaller.sp-after[Actions that convert inputs to outputs; things that the program does]
-]
-
---
-
-.pull-right[
-.box-inv-6[Outputs]
-
-.box-6.smaller.sp-after[Tangible goods and services produced by activities; you have control over these]
-
-.box-inv-6[Outcomes]
-
-.box-6.smaller.sp-after[What happens when the target population uses the outputs; you don't have control over these]
-]
-
---
-
-.center[<br>**Inputs → Activities → Outputs → Outcomes**]
-
-
----
-
-# Program theory
-
-.box-inv-6.medium[How and why an<br>intervention causes change]
-
---
-
-.box-6[A sequence of events that connects inputs to<br>activities to outputs to outcomes]
-
---
-
-.box-6[Why you think inputs → activities → outputs → outcomes]
-
----
-
-# Impact theory
-
-.box-inv-6.medium.sp-after[Causes (activities) linked to effects (outcomes)]
-
---
-
-.center[
-<figure>
-  <img src="img/01/psd-impact-theory.png" alt="PSD impact theory" title="PSD impact theory" width="100%">
-</figure>
+.can-edit.key-likes[
+1.
+2.
+3.
 ]
 
 ---
+# Consideraciones antes de importar datos 
 
-# One Laptop Per Child (OLPC)
+Para **importar** los datos en R debemos tener en consideración tres cosas:
 
-.center[
-<figure>
-  <img src="img/03/olpc.jpg" alt="OLPC XO" title="OLPC XO" width="50%">
-</figure>
-]
+1. Cómo se llaman los datos (en nuestro caso Casen en Pandemia 2020 STATA)
 
-???
+2. El formato de nuestros datos (en nuestro caso .sav)
 
-Nicholas Negroponte from MIT, started the Media Lab there
-
-Draw impact theory: access to computers → 21st century skills, access to global marketplace, reduction of poverty, growth of local businesses
-
-https://www.theverge.com/2018/4/16/17233946/olpcs-100-laptop-education-where-is-it-now
-
-https://en.wikipedia.org/wiki/OLPC_XO#/media/File:XO-Beta1-mikemcgregor-2.jpg
+3. El lugar de donde están alojados nuestros datos. 
 
 ---
+# Paso 2: Importar datos
 
-# OLPC
-
-&nbsp;
-
-.pull-left-narrow[
-<iframe width="560" height="315" src="https://www.youtube.com/embed/H4F_0sshG28?start=704" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-]
-
---
-
-.pull-right-wide[
-<figure>
-  <img src="img/03/olpc-screenshot.png" alt="The Verge on the OLPC project" title="The Verge on the OLPC project" width="100%">
-  <figcaption><small>Adi Robertson, <a href="https://www.theverge.com/2018/4/16/17233946/olpcs-100-laptop-education-where-is-it-now">"OLPC's $100 laptop was going to change the world—then it all went wrong"</a></small></figcaption>
-</figure>
-]
-
-???
-
-Everything fell apart though. It wasn’t ready—it had unrealistic expectations and was too utopian. It also didn’t take local conditions into account
-
-https://www.youtube.com/watch?v=H4F_0sshG28
+```{r eval=FALSE, include=TRUE}
+datos <- read_dta("../Rproject/input/Casen en Pandemia 2020 STATA.dta") 
+```
 
 ---
+class: center middle main-title section-title-1 top-logo
 
-# PlayPumps
+# Como resultado
 
-.pull-left[
-<figure>
-  <img src="img/03/playpump-diagram.jpg" alt="PlayPump diagram" title="PlayPump diagram" width="100%">
-</figure>
-]
+.box-inv-1[Nuevo objeto en el Enviroment]
 
-.pull-right.center[
-<figure>
-  <img src="img/03/playpump-photo.jpg" alt="PlayPump" title="PlayPump" width="60%">
-</figure>
-]
-
-???
-
-Improved access to water → better health, better education, reduction in poverty
-
-> The Guardian calculated in 2009 that children would have to "play" for 27 hours every day to meet PlayPumps' stated targets of providing 2,500 people per pump with their daily water needs. (https://en.wikipedia.org/wiki/Roundabout_PlayPump)
-
-Have kids play to get water out. Led to overuse – main problem in many areas isn’t access to water, but scarcity of water – only works in locations with lots of good water that’s not too deep and where infrastructure is lacking
-
-Is children playing is an appropriate source of energy for water? The line between work and play isn’t as clear-cut as one would think. – can lead to exploitation
-
-https://blogs.ei.columbia.edu/2010/07/01/the-playpump-what-went-wrong/
-
-http://docan.jp/idea-source/playpumps/?lang=en
 
 ---
-
-# Why theorize?
-
-.pull-left[
-.box-6[Implicit theory]
-
-.box-inv-6.small[What program designers think or assume is going to happen, and why]
-
-.box-inv-6[Assumed]
-]
-
---
-
-.pull-right[
-.box-6[Articulated theory]
-
-.box-inv-6.small[What program designers officially claim and predict, and why]
-
-.box-inv-6.sp-after[Written down]
-
-]
-
---
-
-.box-inv-6.medium[Should all social programs be<br>rooted in explicit articulated theory?]
-
-
-???
-
-What difference does articulation make?
-
----
-
-layout: false
-
-.center[
-<figure>
-  <img src="img/03/lhi-map.jpg" alt="LHI locations" title="LHI locations" width="70%">
-</figure>
-]
-
-.pull-left.center[
-<figure>
-  <img src="img/03/lhi-serres.jpg" alt="LHI Serres" title="LHI Serres" width="90%">
-</figure>
-]
-
-.pull-right.center[
-<figure>
-  <img src="img/03/lhi-serres-kids.jpg" alt="Kids at LHI Serres" title="Kids at LHI Serres" width="85%">
-</figure>
-]
-
----
-
-.center[
-<figure>
-  <img src="img/03/plot-dist-age-1.png" alt="Serres distribution preferences by age" title="Serres distribution preferences by age" width="80%">
-</figure>
-]
-
---
-
-.center[
-<figure>
-  <img src="img/03/plot-programs-overall-1.png" alt="Serres program preferences" title="Serres program preferences" width="55%">
-</figure>
-]
-
----
-
-class: title title-6
-
-# Impact theory
-
-.box-inv-6[Ensure that the theory linking activities to the outcomes is sound!]
-
-.center[
-<figure>
-  <img src="img/03/psd-impact-theory-arrow.png" alt="PSD impact theory" title="PSD impact theory" width="100%">
-</figure>
-]
-
----
-
-layout: false
-name: logic-models
 class: center middle section-title section-title-2 animated fadeIn
 
-# Logic models<br>& results chains
+# Paso 3: Procesar datos
+
+---
+class: center title title-3
+
+# Procesar datos
+
+Es un proceso **iterativo**
+
+.box-inv-1[explorar⏩ transformar ]
+
+--
+
+.box-inv-8[transformar ⏩explorar]
+
+
+--
+
+Por ello, si bien para manipular datos estaremos utilizando constantemente paquetes de `tidyverse`, también utilizaremos el paquete `base` y `sjmisc` para explorar nuestros datos
+---
+# Explorar datos para procesar
+
+```{r eval=FALSE, include=TRUE}
+# 1. Base
+
+dim(datos) # Nos entrega las dimensiones, es decir el numero de observaciones y el número de variables
+View(datos) # Visualizar objetos
+names(datos) # entrega los nombres de las variables que componen el dataset
+head(datos) # muestra las primeras filas presentes en el marco de datos
+
+# 2. sjmisc
+
+find_var(datos, "concepto") # Encontrar variables
+
+```
+---
+layout: false
+class: center middle main-title section-title-2 top-logo
+
+# ¡Partamos el **paso 3**: procesar datos!
 
 ---
 
-class: bg-full
-background-image: url("img/03/wb-results-chain.png")
+# ¿Dónde?
 
-???
+.box-inv-1[[Descargar el zip del bloque 3 el sitio del curso](https://learn-r-udp.netlify.app/content/03-content/)]
 
-p. 39 in *Impact Evaluation in Practice*, The World Bank
+---
+class: title title-2
+
+# 1. Recursos de la práctica
+
+- Datos: *Encuesta de Caracterización Socioeconómica (CASEN)* (2020).
+
+- Para ello, deben dirigirse al [siguiente enlace](https://drive.google.com/drive/folders/1Orgb3Qb9LcjTfjYMdIdy7SWd3xDMrTbG?usp=sharing) y descargar los zip.
+
+
+- [**Libro de códigos**](http://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2020/Libro_de_codigos_Base_de_Datos_Casen_en_Pandemia_2020.pdf) antes de trabajar una base de datos.
+
+---
+layout: false
+class: center middle section-title-2 top-logo
+
+# Al explorar nuestros datos
+
+--
+
+# Pudimos notar cierta información sobre las columnas que de a poco debemos asimilar
+
+---
+layout: true
+class: title title-2
+---
+
+# Tipos de datos
+
+--
+
+- Las que principalmente nos interesarán son los "vectores"
+
+--
+
+- En nuestro "idioma", son las **variables**.
+--
+
+- En general, una combinación de vectores da origen a una matriz (o **data frame** o "base de datos" [^1])
+
+[^1]: *Un error omitido por muchas/os* 
+
+---
+# Tipos de datos: columnas
+
+Relación entre clase y nivel de medición de la variable
+
+- `numeric`
+
+- `character`
+
+- `factor`
+
+- hay varios más...
+
+---
+# Operadores
+
+- Símbolos que no son de uso exclusivo en R ¡probablemente los conoces desde tus cursos de matemática! (*la suma, la resta*)
+
+- Ahora bien, no todos tienen el mismo significado que en otros softwares.
+
+- Tendrán distintos objetivos: relacionar, condicionar, excluir, repetir etc. Lo importante: buscan darle un **sentido** a la "orden" que le estamos dando a R.
+
+- Los utilizaremos cuando **filtremos** nuestros datos para personas de ciertas categorías, cuando **calculemos variables** nuevas (de manera aritmética o condicional) o, simplemente, cuando queramos hacer procesos "concatenados".
+
+---
+class: title title-2
+
+# Operadores relacionales 
+
+Se usan para hacer comparaciones. Cuando en la *Tabla 1* nos referimos a `un valor`, esto refiere tambien a `variables`
+
+| Símbolo  | Función |
+|---------:|:--------|
+| `<`      |  Un valor es menor que otro |
+| `>`      |  Un valor es mayor que otro |
+| `==`     |  Un valor es igual que otro [^1] |
+| `<=`     |  Un valor es menor o igual que otro |
+| `>=`     |  Un valor es mayor o igual que otro |
+| `!=`     |  Un valor es distinto o diferente que otro|
+| `%in%`   |  Un valor pertenece al conjunto designado [^2] |
+| `is.na()`|  El valor es perdido o `NA` |
+| `!is.na()`| El valor es distinto de  `NA` |
+
+---
+# Tips
+
+- ¡Atención! Fíjate bien que `==` y `=` son distintos. En R `==` es indicar *"igual a"*, mientras que  `=` es *asignar* (sinónimo de `<-`)
+
+- El operador `%in%` es **muy utilizado**, sirve para indicar que algo está dentro de una cadena de valores. 
+
+---
+# Operadores aritméticos
+
+Realizan operaciones, como la suma, resta, división, entre otros.
+
+| Símbolo  | Función |
+|---------:|:--------|
+| `+`      |  Suma |
+| `-`      |  Resta|
+| `*`     |  Multiplicación |
+| `/`     |  División |
+| `^`     |  Elevado |
 
 ---
 
-.center[
-<figure>
-  <img src="img/01/psd-logic-model.png" alt="PSD logic model" title="PSD logic model" width="70%">
-</figure>
-]
+# Operadores de asignación
+
+Hay dos formas de asignar:
+
+- `objetoA <- objetoB`
+- `objetoA = objetoB`.
+
+Ambas implican que lo que se este realizando en el *objetoB* implica que eso va a producir o generar al *objetoA*.
+
+La diferencia está en que la segunda opción es más utilizada dentro de las funciones pues su significado más bien es *"es"*
 
 ---
 
+# Operadores booleanos
+
+Describen relaciones **lógicas** o **condicionales**
+
+| Símbolo  | Función |
+|---------:|:--------|
+| `&`      |  Indica un *y* lógico |
+| `"|"`      |  Indica un *o* lógico |
+| `xor()`  |  Excluye la condición  |
+| `!`      |  Distinto de ... |
+| `any`    |  Ninguna de las condiciones serán utilizadas |
+| `all`    |  Todas las condiciones serán ocupadas |
+
+
+---
+
+# Resumen
+
+![](https://github.com/learn-R/slides/raw/main/img/02/01operad.png)
+
+Figura 1: Resumen de operadores
+
+---
+layout: false
+class: center middle section-title-2 top-logo
+
+# Redoble de tambores, el más importante de la fiesta 🥁
+
+---
 layout: true
 class: title title-2
 
 ---
+# Operador pipeline %>% 
 
-# Impact theory vs. logic model
+- `%>%` (llamado `pipe`) no es un operador que esté contenido en las funciones base del lenguaje R (origen `magrittr` de `tidyverse`)
 
-.pull-left[
-&nbsp;
+- Es de los operadores **más útiles y utilizados** en R.
 
-<figure>
-  <img src="img/01/psd-impact-theory.png" alt="PSD impact theory" title="PSD impact theory" width="100%">
-</figure>
-]
+--
 
-.pull-right[
-<figure>
-  <img src="img/01/psd-logic-model.png" alt="PSD logic model" title="PSD logic model" width="100%">
-</figure>
-]
+**En el teclado**
+
+- `Ctrl + shift + M` Para Windows
+- `⌘ + shift + M` Para Mac
+
+
+---
+# Operador pipeline %>% 
+
+- Función: **concatenar** múltiples funciones y procesos.
+
+--
+
+- ¿Cómo es eso? 🤨
+
+--
+- ¡Tranquila/o! Ya lo veremos 🧘🏽‍♂️
 
 ---
 
-# MPA/MPP at GSU
+# ¡Ya queremos ir a practicar! 🏃🏽‍♀️🏃🏽
 
-.pull-left[
-<figure>
-  <img src="img/03/mpp-mission@4x.png" alt="MPP mission" title="MPP mission" width="130%">
-</figure>
+---
+
+# Transformación y selección de variables con `dplyr()`
+
+--
+
+1.  `select()` para seleccionar variables
+
+--
+
+2.  `filter()` para filtrar observaciones
+
+--
+
+3. `mutate()` crear nuevas variables
+  
+  -  `recode()`, `if_else()`, `case_when()`
+
+---
+
+# `select()` para manipular variables
+
+- Para **seleccionar variables** ocuparemos `select()`.
+
+--
+
+Si queremos incluir las variables `variable1`, `variable2` y `variable3`
+```{r, eval = F}
+select(datos, variable1, variable2, variable3)
+```
+
+--
+Si queremos excluir anteponemos un menos `-variable1`
+
+```{r, eval = F}
+select(datos, -variable1)
+```
+
+---
+# Formas de hacer `select()`
+
+1. Por indexación
+
+```{r}
+select(datos, 1,2) # la primera y la segunda columna
+select(datos, 1:4) # la primera hasta la cuarta columna
+
+```
+
+2. por nombre de columna
+
+```{r}
+select(datos, edad, sexo, o1)
+```
+
+---
+# Trucos de `select()`
+
+1. Renombrar en el mismo proceso de selección indicando `nuevo_nombre = nombre_original` en el proceso de selección
+
+```{r}
+select(datos, edad, sexo, ocupacion = o1)
+```
+
+2. Reordenar variables
+
+- `everything()` nos indica que ponga "todo el resto".
+
+```{r}
+select(datos, id_persona, sexo, edad, everything())
+```
+
+---
+
+# Formas de hacer `select()`
+
+3. Con patrones de texto: prefijos, sufijos o partes de *cómo están nombradas las variables*.
+
+- Poner textos y expresiones regulares entre **comillas**.
+
+- `starts_with()`: prefijo 
+- `ends_with() `:  sufijo
+- `contains()` : contiene una cadena de texto literal
+- `matches()` : coincide con una expresión regular
+
+---
+# Formas de hacer `select()`
+
+```{r}
+select(datos, starts_with("a"), ends_with("preg"))
+
+# También se pueden combinar con operadores logicos
+
+select(datos, starts_with("y1")&ends_with("preg")) 
+select(datos, contains("pobre")|contains("vivienda"))
+select(datos, matches("pobreza_|vivienda"))
+```
+
+---
+# Formas de hacer `select()`
+
+4. Con condiciones lógicas
+
+- `select()` + `where()`:  *"seleciona donde"*, ese *donde* responde a una condición que cumple cierta variable.
+
+- Por ejemplo, queremos seleccionar todas las variables que son carácteres (`is.character`):
+
+```{r}
+select(datos, where(is.character))
+```
+
+---
+layout: false
+
+- Luego de la exploración de datos mediante a funciones como `find_var()` de `sjmisc` decidimos trabajar con las siguientes variables.
+
+- `edad`
+- `sexo`
+- `s13`: previsión de salud
+- `tot_per`: número de personas en el hogar
+- `ytoth`: ingresos totales del hogar
+- `o1`: ocupación
+- `y26d_total`: Monto del IFE
+- `y26d_hog`: ¿Alguien recibió el IFE?
+
+¡Apliquémos conocimientos!
+
+```{r}
+select(datos, edad, sexo, prev =592, ocupacion = o1, tot_per, ytoth, starts_with("y26d_")&matches("total|hog"))
+```
+
+---
+layout: true
+class: title title-4
+---
+# Nuevo data set
+
+- Buena práctica trabajar solo con las columnas que utilizaremos para el análisis, principalmente pues disminuye el *uso de memoria*
+
+```{r}
+datos_proc <- select(datos, edad, sexo, prev = 592, ocupacion = o1, tot_per, ytoth, starts_with("y26d_")&matches("total|hog"))
+```
+
+---
+
+# ¡Ejercicio en grupos!
+
+--
+
+- Seleccionen una variable de nivel educacional, region, sexo, la variable 700 y todas las que refieran a ingresos.
+
+- Indiquen cómo hicieron ese procedimiento
+
+- Con estos cambios, creen un nuevo objeto llamado `ejercicio`
+
+---
+
+
+# ¿Qué pasa si quiero trabajar con un *subset* de casos?
+
+--
+
+# La respuesta es `filter()`
+
+---
+
+# `filter()` para manipular observaciones
+
+- La función `filter()` de `dplyr` escoge o extrae filas basados en sus valores, subdivide un data frame (*subset*)
+
+- Uso de los **operadores**
+
+--
+
+```{r, eval = F}
+filter(datos, condicion_para filtrar)
+```
+
+Imaginemos que queremos filtrar valores mayores o iguales 3 **respecto a la variable1**
+
+```{r, eval = F}
+filter(datos, variable1 >= 3)
+```
+
+---
+# Formas de `filter()`
+
+1. Con números
+
+Imaginémos que queremos una base con las personas mayores de 15 años. 
+```{r}
+filter(datos_proc, edad >= 15)
+filter(datos_proc, edad >= 15 & tot_per <7)
+```
+
+--
+
+Pero también que pertenezcan a hogares con menos de 7 personas. 
+```{r}
+filter(datos_proc, edad >= 15 & tot_per <7)
+```
+
+---
+# Formas de `filter()`
+
+2. Con carácteres
+
+- Importancia de explorar los datos
+  1. Fijarse bien cómo están escritos
+  2. Clase (ver si efectivamente son carácteres)
+
+- R es *sensible* a cómo está escrito el texto (*key sensitive*)
+
+---
+# Truco
+
+- Cuando haya problemas aplicar `as_factor()` que permite conservar los niveles pero definiendo sus categorías de respuesta en base a la etiqueta que traen (el `lbl`)
+
+- Consejo útil sobre todo en bases que provienen de SPSS y STATA
+
+---
+# Formas de `filter()`
+
+```{r}
+datos_proc$sexo <- as_factor(datos_proc$sexo)
+```
+
+```{r}
+filter(datos_proc, sexo == "Mujer")
+filter(datos_proc, sexo != "Hombre")
+```
+
+---
+# Un clásico, y la solución: %in%
+
+- ¿Cómo se seleccionan dos condiciones en carácter? Con el operador `%in%`
+
+```{r}
+datos_proc$prev <- as_factor(datos_proc$prev)
+
+filter(datos_proc, prev %in% c("Sistema Público FONASA", "ISAPRE"))
+```
+
+---
+# Ejercicio
+
+- Con su data frame `ejercicio` filtren
+  - Excluyan a las personas sin estudios
+  - Filtren a la persona con máximos ingresos del hogar
+  - Conserven a las personas de la RM y Valparaíso. 
+
+---
+class: center middle section-title-4 top-logo
+
+# ¿Y si quiero crear variables nuevas?
+
+--
+
+.box-5[`mutate()`]
+---
+
+# `mutate()` para transformación de  variables
+
+- `mutate()` permite hacer operaciones para crear nuevas variables o transformar las ya existentes. 
+
+```{r, eval = F}
+mutate(datos, nueva_variable = cálculo o condición)
+```
+
+---
+# Formas de hacer `mutate()`
+
+1. En base a cálculo
+
+```{r echo=TRUE}
+mutate(datos_proc, nueva_variable = 3+2)
+mutate(datos_proc, nueva_variable = 3+2,
+       ingreso_percapita = ytoth/tot_per)
+```
+
+---
+class: center middle section-title-4 top-logo
+
+# Aquí mucha mucha atención...
+
+--
+
+# Viene la aplicación de  %>%
+
+.box-inv-4[¿Qué pasa si queremos, luego de calcular nuestras nuevas variables, filtrar un ingreso per cápita menor o igual a $1.000.000]
+
+---
+# `%>%`
+
+```{r}
+datos %>% 
+  mutate(., nueva_variable = calculo ) %>% 
+  filter(., nueva_variable <= valor)
+
+```
+
+--
+
+- Básicamente, el ` %>% ` permite "ingresar" nuestra base de datos como argumento para cada función e ir operándola en proceso
+
+---
+# `%>%` 
+
+```{r}
+datos_proc %>%
+  mutate(ingreso_percapita = ytoth/tot_per) %>% 
+  filter(ingreso_percapita <= 1000000)
+```
+--
+ 
+**En el teclado**
+
+- `Ctrl + shift + M` Para Windows
+- `⌘ + shift + M` Para Mac
+
+---
+layout: false
+class: center middle section-title-5 top-logo
+
+# Crear nuevas variables utilizando *además* otras funciones
+
+--
+
+## mutate(variable_nueva = alguna_funcion_genial)
+
+
+---
+layout: true
+class: title title-5
+
+# Opciones para recodificar.
+
+- `dplyr::recode()` y  `car::recode()` 
+
+- Con `dplyr::recode()`: recodificamos las categorías de respuesta de Mujer a Femenino y de Hombre a Masculino
+
+```{r}
+datos_proc %>% 
+  mutate(sexo = dplyr::recode(sexo, "Mujer" = "Femenino", "Hombre" = "Masculino"))
+```
+
+- El problema de `recode()` que se utiliza dentro de `dplyr` es que si recodifico se pierde la etiqueta anterior.
+
+---
+# Mi elección: `car::recode()`
+
+- **No olviden** los `::` por los posibles conflictos
+
+```{r}
+car::recode(datos$variable, c('valor_orig1=nuevo_valor1;valor_org2=nuevo_valor2'))
+```
+
+---
+# Mi elección: `car::recode()`
+
+```{r}
+datos_proc %$% 
+  car::recode(.$y26d_hog, c('9=NA')) %>% head(.)
+```
+
+Aquí una versión de si la recodificación es hacia carácteres (mismo ejemplo que con `recode()` de `dplyr`)
+
+```{r}
+datos_proc %$% 
+  car::recode(.$sexo,
+              c('"Mujer"="Femenino";"Hombre"= "Masculino"'),
+              as.factor = T) %>% head(.)
+```
+
+---
+.small[
+# `if_else()` variables condicionales
 ]
 
-.pull-right[
-<figure>
-  <img src="img/03/mpa-mission@4x.png" alt="MPA mission" title="MPA mission" width="100%">
-</figure>
+La función `if_else()` permite construir variables en base a condiciones lógicas. Su estructura es la siguiente
+
+```{r}
+if_else(condición,TRUE,FALSE)
+
+```
+
+
+---
+.small[
+# `if_else()`  variables condicionales
+]
+Crearemos una variable que *dummy* que indica si el respondente es *FONASA* o no lo es. 
+
+```{r eval=FALSE, include=TRUE}
+datos_proc %>% 
+ 		 mutate(fonasa = if_else(prev == "Sistema Público FONASA", 1, 0))
+```
+
+---
+.small[
+# `if_else()` variables condicionales
+]
+- Uno/a puede ser *ingenioso* y ocuparla como **validador**
+
+```{r echo=TRUE}
+datos_proc %>% 
+  mutate(validador_ingreso = if_else(is.na(ytoth), FALSE, TRUE))
+```
+
+- También para *imputar valores* ¿cómo sería?
+
+---
+.small[
+# `case_when()`  variables con múltiples condiciones
+]
+- Para *colapsar* categorías o construir categorías en base a varias condiciones es `case_when()` por lo lógico y *fácil* que es de entender
+
+```{r}
+case_when(variable == condicion ~ valor1,
+          variable == condicion ~ valor2,
+          TRUE ~ NA_real)
+```
+
+- Donde, TRUE indica "todo el resto", y el NA dependerá de la clase del valor de recodificación
+
+---
+.small[
+# `case_when()` variables con múltiples condiciones
+]
+Un ejemplo claro es cuando queremos construir *categorías de edad*
+
+```{r}
+datos_proc %>% 
+  mutate(edad_tramo = case_when(edad <=39 ~  "Joven",
+                                edad > 39 & edad <=59 ~ "Adulto",
+                                edad > 59 ~ "Adulto mayor",
+                                TRUE ~ NA_character_)) %>% 
+  select(edad, edad_tramo)
+```
+
+- ¡Utilizamos operadores lógicos (`&`)!
+
+
+---
+# ¡Resumen!
+```{r}
+datos_proc %>% 
+ filter(edad >= 15 & tot_per <7) %>%
+    mutate(ingreso_percapita = ytoth/tot_per,
+           edad_tramo = case_when(edad <=39 ~  "Joven",
+                                edad > 39 & edad <=59 ~ "Adulto",
+                                edad > 59 ~ "Adulto mayor",
+                                TRUE ~ NA_character_),
+           fonasa = if_else(prev == "Sistema Público FONASA", 1, 0),
+           ocupacion = as_factor(ocupacion)) %>%
+  select(sexo, edad_tramo, ocupacion, ingreso_percapita, ife = y26d_hog)
+```
+
+---
+# ¡Resumen!
+¡Ahora que estamos seguras/os sobre-escribimos la base!
+```{r}
+datos_proc <- datos_proc %>% 
+ filter(edad >= 15 & tot_per <7) %>%
+    mutate(ingreso_percapita = ytoth/tot_per,
+           edad_tramo = case_when(edad <=39 ~  "Joven",
+                                edad > 39 & edad <=59 ~ "Adulto",
+                                edad > 59 ~ "Adulto mayor",
+                                TRUE ~ NA_character_),
+           fonasa = if_else(prev == "Sistema Público FONASA", 1, 0),
+           ocupacion = as_factor(ocupacion)) %>%
+  select(sexo, edad_tramo, ocupacion, ingreso_percapita, ife = y26d_hog)
+```
+
+---
+# Antes de guardar
+
+Podemos visualizar la base resultante a partir de `view_df()` de `sjPlot`
+```{r, message= F, error= F, cache.comments= F}
+sjPlot::view_df(datos_proc)
+```
+
+---
+# Paso 4: Guardar datos
+
+Para guardar la base de datos procesada, debes dirigir la ruta hacia tu Rproject
+
+```{r eval=FALSE, include=TRUE}
+saveRDS(datos_proc, file = "../nombre_project/output/datos_proc.rds")
+```
+
+- Recuerda revisar el [practico N°2](example/02-practico) si no recuerdas como expoertar datos.
+
+---
+layout: false
+class: center section-title section-title-5 animated fadeIn
+
+# En síntesis
+
+.box-2.medium.sp-after-half[**Básicos en manipulación**]
+.small.box-2[Operadores y tipos de datos]
+
+--
+
+.box-3.medium.sp-after-half[**Seleccionar variables**]
+
+--
+
+.box-4.medium.sp-after-half[**Filtrar**]
+
+--
+
+.box-5.medium.sp-after-half[**Crear variables**]
+
+---
+class: center middle main-title section-title-4 top-logo
+
+# ¡Y a no olvidar el flujo para el análisis!
+
+--
+
+## Nos permite hacernos amigas/os más rápido del programa
+---
+
+.center[
+![:scale 80%](img/01/flow-rproject.png)]
+
+---
+layout: false
+
+.box-1[¿Y eso era?]
+
+--
+
+.box-inv-1[¡Ahora si que si! Nos vemos el próximo viernes en la última sesión]
+
+.center[
+![](img/01/monster-inc-2.gif)]
+---
+layout: false
+class: center middle main-title section-title-1 top-logo
+
+.small[
+# Transformar y seleccionar variables
+]
+
+.class-info[
+<br>
+**Bloque N° 3**<br>
+`r format(Sys.Date(), '%d %B %Y')`<br>
+**Análisis de datos estadísticos en R**
+<br>
+
+.pull-right.small[
+**Profesora** Valentina Andrade de la Horra <br>
+**Ayudantes** Dafne Jaime y Nicolás Godoy
+.tiny[Universidad Diego Portales<br>
+]
+]
+
 ]
 
 ???
-
-Inputs:
-
-- Students
-- Curriculum
-- Money (grants, tuition)
-- AYSPS itself
-- Faculty, staff
-- Technology (iCollege, PAWS)
-- Infrastructure
-- Transportation
-- State regulations
-- National accreditation standards
-- Faculty research
-
-Activities:
-
-- Classes
-- Group work
-- Exams
-- Internships
-- Job fairs
-- Commencement
-- Studying
-- Tutoring
-- Office hours
-- Advising
-- Attendance
-
-Outputs:
-
-- Assignments and projects
-- Grades
-- Degree
-- Jobs
-- Awards
-- Network
-- Debt
-
-Outcomes:
-
-- Leadership
-- AYS national ranking
-- Public service motivation
-- Critical thinking
-- Efficient workforce
-- Income
-- Better society
+https://c.tenor.com/7mxJp29REVkAAAAC/scaryfeet-monstersinc.gif
