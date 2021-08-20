@@ -144,9 +144,9 @@ Describen relaciones **lógicas** o **condicionales**
 | `all`    |  Todas las condiciones serán ocupadas |
 
 
-![](/img/example/02-practico/01operad.png)
 
-<img src="/img/example/02-practico/01operad.png" width="60%" />
+![](https://github.com/learn-R/slides/raw/main/img/02/01operad.png)
+
 Figura 1: Resumen de operadores
 
 ### Operador pipeline %>% 

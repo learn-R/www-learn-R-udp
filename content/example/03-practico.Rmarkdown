@@ -146,11 +146,9 @@ Describen relaciones **lógicas** o **condicionales**
 | `all`    |  Todas las condiciones serán ocupadas |
 
 
-![](/img/example/02-practico/01operad.png)
 
-```{r, echo=FALSE, out.width="60%"}
-knitr::include_graphics("/img/example/02-practico/01operad.png", error = FALSE)
-```
+![](https://github.com/learn-R/slides/raw/main/img/02/01operad.png)
+
 Figura 1: Resumen de operadores
 
 ### Operador pipeline %>% 
