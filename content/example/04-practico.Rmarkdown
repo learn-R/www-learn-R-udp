@@ -1,7 +1,7 @@
 ---
-title: "Transformar y seleccionar variables"
-linktitle: "4: Transformar y seleccionar variables"
-date: "2021-08-13"
+title: "Análisis Descriptivo"
+linktitle: "4: Descriptivos"
+date: "2021-08-23"
 menu:
   example:
     parent: Ejemplos
@@ -12,492 +12,478 @@ editor_options:
   chunk_output_type: console
 ---
 
-## 0. Objetivo de la práctica
+# 0. Objetivo del práctico
 
-El objetivo del práctico, es avanzar en el procesamiento de los datos a través de la transformación de las variables a utilizar. Para ello revisaremos procedimientos básicos para el manejo de datos con Rstudio.
+El objetivo del práctico, es avanzar en el análisis de los datos a través del uso de **estadísticos descriptivos**. Para esto ya debemos contar con datos previamente [procesados del práctico N°3](/example/03-practico). Recordemos en qué parte del proceso estamos
 
-
-## 1. Recursos de la práctica
-
-En este práctico utilizaremos la base de datos de la [**Encuesta de Caracterización Socioeconómica (CASEN)**](http://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-en-pandemia-2020), la cual fue procesada en el [Práctico anterior]().Recuerden siempre consultar el [**manual/libro de códigos**](http://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2020/Libro_de_codigos_Base_de_Datos_Casen_en_Pandemia_2020.pdf) antes de trabajar una base de datos.
+![](https://github.com/learn-R/slides/raw/main/img/01/flow-rproject.png)
 
 
-## 2. Librerias a utilizar
-
-En este práctico utilizaremos cuatro paquetes
-
-1. `pacman`: este facilita y agiliza la lectura de los paquetes a utilizar en R
-
-2. `sjmisc`: explorar datos
-
-3. `car()`: recodificar manteniendo las etiquetas
-
-4. `tidyverse`: colección de paquetes, del cuál utilizaremos `dplyr`  `forcast`
-
-5. `magrittr`: nos permitirá ocupar dos operadores que en R son **muy** utilizados
+En este práctico veremos tanto la _estimación puntual_ de estadísticos descriptivos, como su _visualización_ para reportes, ya sea a través de tablas o de gráficos. 
 
 
-# Pasos del procesamiento
+##  Recursos del práctico
 
-## 1. Cargar librerías
+En este práctico utilizamos los **datos** procesados *CASEN 2020*, que proviene de los datos originales de [**Encuesta de Caracterización Socioeconómica (CASEN)**](http://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-en-pandemia-2020).Recuerden _**siempre**_ consultar el [**libro códigos**](http://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2020/Libro_de_codigos_Base_de_Datos_Casen_en_Pandemia_2020.pdf) antes de trabajar datos.
 
-Primero instalamos `pacman` por única vez
+- [<i class="fas fa-file-archive"></i> `04-bloque.zip`](https://github.com/learn-R/06-class/raw/main/04-bloque.zip)
 
-```{r eval=FALSE, include=TRUE}
-install.packages("pacman")
-library (pacman)
+
+# 1. Paquetes a utilizar
+
+Para este práctico utilizaremos principalmente, las librerías `sjmisc` y `sjPlot`. 
+
+`sjmisc`: esta paquete tiene múltiples funciones, desde la transformación de datos y variables. Este paquete suele complementar a  `dplyr` de `tidyverse` en sus funciones. 
+
+`sjPlot`: su principal función es la visualización de datos para estadística en ciencias sociales mediante tablas y gráficos.
+
+Cargaremos los paquetes con `pacman` [revisar práctico anterior](https://learn-r-udp.netlify.app/example/03-practico/)
+
+```{r librerias, echo=TRUE, results='hide'}
+pacman::p_load(sjmisc,
+               sjPlot,
+               tidyverse,
+               magrittr)
+theme_set(theme_sjplot2())
 ```
 
-Luego cargaremos así los paquetes. Les recordamos que cuando luego de un paquete ponemos `::` esto se refiere a que se *"fuerza"* que esa función provenga de *ese paquete*
+# 2. Importar datos
 
-```{r, include=TRUE}
-pacman::p_load(tidyverse,
-               magrittr,
-               car,
-               sjmisc)
+Una vez cargado los paquetes a utilizar, debemos pasar al segundo paso: cargar los datos. Como indicamos al inicio, seguiremos utilizando los datos **CASEN* que fue procesada en el práctico anterior, pero le añadimos una variable.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+load(url("https://github.com/learn-R/06-class/raw/main/06-clase/output/data/datos_proc.RData"))
 ```
 
-
-## 2. Cargar base de datos
-
-```{r include=FALSE, warning= FALSE , message = F}
-temp <- tempfile()
-download.file("http://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2020/Casen_en_Pandemia_2020_STATA.dta.zip",temp)
-datos <- haven::read_dta(unz(temp, "Casen en Pandemia 2020 STATA.dta"))
-unlink(temp); remove(temp)
+```{r, eval = F }
+load("output/data/datos_proc.RData")
 ```
 
-```{r eval=FALSE, include=TRUE}
-datos <- read_dta("../Rproject/input/Casen en Pandemia 2020 STATA.dta") 
+# 3. Explorar datos
+
+Pero ¿cómo sabremos cuales son las variables que componen la base de datos procesada?, para ello usaremos dos códigos para conocer la **base procesada** que usaremos:
+
+el código `names`, nos entrega los nombres de las variables que componen el data set
+
+```{r names, echo=TRUE, results='markup'}
+names(datos_proc)
 ```
 
-En el panel **Environment**, visualizamos el nuevo objeto, que posee `r format( nrow(datos), decimal.mark="," , big.mark = ".")` observaciones (o filas), y `r format(ncol(datos), decimal.mark="," , big.mark = ".")` variables (columnas)
+Mientras que la función `head` nos entrega el nombre y las primeras 10 filas que la componen.
 
-Recordemos que también podemos explorar la base de datos con las siguientes funciones.
-
-```{r eval=FALSE, include=TRUE}
-# De paquete base
-dim(datos) # nos entrega las dimensiones, es decir el numero de observaciones y el número de variables
-View(datos) # se usa para visualizar la base de datos
-names(datos) # entrega los nombres de las variables que componen el dataset
-head(datos) # muestra las primeras filas presentes en el marco de datos
-
-# De sjmisc
-
-find_var(datos, "concepto") # se utiliza para encontrar variables
-
+```{r head, echo=TRUE, results='markup'}
+head(datos_proc)
 ```
 
-## 4. Un aspecto clave antes de comenzar: los operadoresAspectos claves antes de comenzar 
+Gracias a estos códigos sabemos que tenemos una aproximación de las variables que podríamos utilizar. Por el práctico anterior sabemos que podemos explorar nuestros datos con `sjPlot::view_df()`
 
-Previo a trabajar con la base de datos, debemos repasemos el concepto de **operadores**. Estos símbolos no son de uso exclusivo en R ¡probablemente los conoces desde tus cursos de matemática! Ahora bien, no todos tienen el mismo significado que en otros softwares.
-
-Los **operadores** serán símbolos que permitirán, en los distintos procedimientos de procesamiento, simplificar procesos. Por ejemplo, serán útilizados cuando filtremos nuestros datos para personas de ciertas categorías, cuando calculemos variables nuevas (de manera aritmética o condicional) o, simplemente, cuando queramos hacer procesos "concatenados".
-
-
-#### Operadores relacionales 
-
-Se usan para hacer comparaciones. Cuando en la *Tabla 1* nos referimos a `un valor`, esto refiere tambien a `variables`
-
-| Símbolo  | Función |
-|---------:|:--------|
-| `<`      |  Un valor es menor que otro |
-| `>`      |  Un valor es mayor que otro |
-| `==`     |  Un valor es igual que otro [^1] |
-| `<=`     |  Un valor es menor o igual que otro |
-| `>=`     |  Un valor es mayor o igual que otro |
-| `!=`     |  Un valor es distinto o diferente que otro|
-| `%in%`   |  Un valor pertenece al conjunto designado [^2] |
-| `is.na()`|  El valor es perdido o `NA` |
-| `!is.na()`| El valor es distinto de  `NA` |
-
-[^1]: ¡Atención! Fíjate bien que `==` y `=` son distintos. En R `==` es indicar *"igual a"*, mientras que  `=` es *asignar* (sinónimo de `<-`)
-
-[^2]: Este operador es **muy utilizado**, sirve para indicar que algo está dentro de una cadena de valores. 
-
-#### Operadores aritméticos
-
-Realizan operaciones, como la suma, resta, división, entre otros.
-
-| Símbolo  | Función |
-|---------:|:--------|
-| `+`      |  Suma |
-| `-`      |  Resta|
-| `*`     |  Multiplicación |
-| `/`     |  División |
-| `^`     |  Elevado |
-
-#### Operadores de asignación
-
-Hay dos formas de asignar `objetoA <- objetoB` o `objetoA = objetoB`. Ambas implican que lo que se este realizando en el *objetoB* implica que eso va a producir o generar al *objetoA*
-
-#### Operadores booleanos
-
-Describen relaciones **lógicas** o **condicionales**
-
-| Símbolo  | Función |
-|---------:|:--------|
-| `&`      |  Indica un *y* lógico |
-| `|`      |  Indica un *o* lógico |
-| `xor()`  |  Excluye la condición  |
-| `!`      |  Distinto de ... |
-| `any`    |  Ninguna de las condiciones serán utilizadas |
-| `all`    |  Todas las condiciones serán ocupadas |
-
-
-```{r, echo=FALSE, out.width="60%"}
-knitr::include_graphics("/img/example/operad.png", error = FALSE)
-```
-Figura 1: Resumen de operadores
-
-### Operador pipeline %>% 
-
-¡Aquí mucha atención! Este operador `%>%` (llamado `pipe`) no es un operador que este contenido en las funciones base del lenguaje R. Este operador proviene de la función `magrittr` de `tidyverse`, y es de los operadores más útiles y utilizados en R.
-
-¿Para qué sirve? Para concatenar múltiples funciones y procesos. *Imagina que quieres filtrar una base de datos a partir de tramos etarios. Pero no tienes esa variable creada. ¿Que hacer? La respuesta: concatenar el proceso de creación de variables y luego filtrar.* Eso se puede hacer gracias a ` %>% ` (ya mostraremos como utilizar esta herramienta), que por lo demás es muy fácil de ejecutar.
-
-- `Ctrl + shift + M` Para Windows
-- `⌘ + shift + M` Para Mac
-
-
-## 5. Transformación y selección de variables con `dplyr()`
-
-`dplyr()`es un paquete de `tidyverse` que proporciona una base para la manipulación de datos, principalmente a partir de funciones que permiten operar las columnas (o variables)
-
-### 5.1 `select()` para manipular variables
-
-Para **seleccionar variables** ocuparemos `select()`. Existen diversos enfoques para realizarlo. Primero, debemos conocer su estructura
-
-Si queremos incluir las variables `variable1`, `variable2` y `variable3`
-{{< div "note" >}}
-select(datos, variable1, variable2, variable3)
-{{< /div >}}
-
-Si queremos excluir anteponemos un menos `-variable1`
-{{< div "note" >}}
-select(datos, -variable1)
-{{< /div >}}
-
-
-#### `select()` por indexación
-
-La indexación refiere al orden que tiene la columna o variable dentro de los datos. Imaginemos que queremos seleccionar:
-
-```{r}
-select(datos, 1, 2) # la primera y la segunda columna
-
-select(datos, 1:4) # la primera hasta la cuarta columna
-
-select(datos, c(1,4)) # la primera y la cuarta columna
+```{r, echo=F}
+sjPlot::view_df(datos_proc,
+                encoding = "UTF-8")
 ```
 
-#### `select()` por nombre de columna
+# 4. Descripción de variables
 
-Si conocemos el nombre de la variable simplemente lo podemos poner y se seleccionará.
+Una vez conocidas las variables que incluye nuestros datos procesados, ¿cómo podemos realizar un análisis descriptivo para algún informe o reporte? Veamos algunas de las más comunes
 
-```{r}
-select(datos, edad, sexo, o1)
-```
+## 4.1. Medidas de tendencia central
 
-También puedo renombrar en el mismo proceso de selección indicando `nuevo_nombre = nombre_original` en el proceso de selección
+Para conocer las medidas de tendencia central de las variables hay dos opciones. En la **primera** se puede pedir el estadístico manualmente, en la **segunda** se puede pedir una tabla resumen. 
 
-```{r}
-select(datos, edad, sexo, ocupacion = o1)
-```
+### Media
 
-#### `select()` para reordenar variables
+Para conocer la media de una variable se utiliza la función `mean()`, su estructura es:
 
-Podemos seleccionar variables y luego indicar que queremos todo el resto de las variables (`everythin()`). Solo por una cosa de orden. Esto será útil sobre todo cuando tengamos identificadores
-
-```{r}
-select(datos, id_persona, sexo, edad, everything())
-```
-
-#### `select()` con patrones de texto
-
-Podemos seleccionar variables considerando los prefijos, sufijos o partes de *cómo están nombradas las variables*. Independiente de qué tipo de patrón estes buscando, como todo texto y expresión regular en R (y gran parte de los carácteres) este texto debe venir entre **comillas**. Algunas de las funciones que posibilitan este proceso son:
-
-- `starts_with()`: prefijo 
-- `ends_with() `:  sufijo
-- `contains()` : contiene una cadena de texto literal
-- `matches()` : coincide con una expresión regular
-
-```{r}
-select(datos, starts_with("a"), ends_with("preg"))
-
-# También se pueden combinar con operadores logicos
-
-select(datos, starts_with("y1")&ends_with("preg")) 
-select(datos, contains("pobre")|contains("vivienda"))
-select(datos, matches("pobreza_|vivienda"))
+```{r ejemplo mean, eval=FALSE, include=TRUE}
+mean(datos$variable, na.rm=TRUE)
 ```
 
 
-#### `select()` y condiciones lógicas
+El argumento `na.rm=TRUE` excluye del cálculo a los casos perdidos. Esto aplicado a nuestra variable `ingreso_percapita` se ve así:
 
-Si combinamos `select()` con `where()` obtendremos algo así como una frase *"seleciona donde"*, ese *donde* responde a una condición que cumple cierta variable. Por ejemplo, queremos seleccionar todas las variables que son carácteres (`is.character`):
-
-```{r}
-select(datos, where(is.character))
+```{r casen mean, echo=TRUE, results='markup'}
+mean(datos_proc$ingreso_percapita, na.rm=TRUE)
 ```
 
-Luego de la revisión del libro de códigos y la exploración de datos mediante a funciones como `find_var()` de `sjmisc` decidimos trabajar con las siguientes variables.
+### Media recortada
 
-- `edad`
-- `sexo`
-- `s13`: previsión de salud
-- `tot_per`: número de personas en el hogar
-- `ytoth`: ingresos totales del hogar
-- `o1`: ocupación
-- `y26d_total`: Monto del IFE
-- `y26d_hog`: ¿Alguien recibió el IFE?
+Pero, ¿qué pasa si la variable `ingreso_percapita` esta influenciada por casos influyentes? Para eso puedo pedir la media recortada agregando el argumento `trim` para excluir al 5% de cada extremo
 
-¡Apliquémos conocimientos!
-
-```{r}
-select(datos, edad, sexo, prev =592, ocupacion = o1, tot_per, ytoth, starts_with("y26d_")&matches("total|hog"))
+```{r casen mean trim, echo=TRUE, results='markup'}
+mean(datos_proc$ingreso_percapita, na.rm=TRUE, trim = 0.025)
 ```
 
-Es una buena práctica trabajar solo con las columnas que utilizaremos para el análisis, principalmente pues disminuye el *uso de memoria*
+Aquí podemos ver que el valor es distinto. 
 
-```{r}
-datos_proc <- select(datos, edad, sexo, prev = 592, ocupacion = o1, tot_per, ytoth, starts_with("y26d_")&matches("total|hog"))
+Ya conocimos el promedio de la variable `ingreso_percapita` podemos informar cuanto es el promedio del ingreso en el hogar en Chile, pero antes de eso queremos saber ¿cuánto gana el 50% de los hogares? Para eso calcularemos la **mediana**
+
+### Mediana
+
+Para el cálculo de la mediana se utiliza el comando median, su estructura es similar a la `mean()`:
+
+```{r ejemplo median, eval=FALSE, include=TRUE}
+median(datos$variable, na.rm =TRUE)
 ```
 
-El nuevo objeto posee`r format(ncol(datos), decimal.mark="," , big.mark = ".")` variables (columnas), pero conserva las filas `r format( nrow(datos), decimal.mark="," , big.mark = ".")` (u observaciones) ¿Qué pasa si quiero trabajar con un *subset* de casos? La respuesta es `filter()`
-
-### 5.2 `filter()` para manipular observaciones
-
-La función `filter()` de `dplyr` escoge o extrae filas basados en sus valores, subdivide un data frame (*subset*), reteniendo todas las filas que satisfacen sus condiciones.
-
-Con `filter()` será esencial el uso de los **operadores** que ya vimos, dado que las observaciones que preservarán en nuestros datos (y aquellas que no), están definidas por condiciones lógicas (relacionales o booleanas)
-
-{{< div "note" >}}
-filter(datos, condicion_para filtrar)
-Esta condición para filtrar podría ser, por ejemplo
-variable1 >= 3
-{{< /div >}}
-
-#### `filter` con números
-
-Imaginémos que queremos una base con las personas mayores de 15 años. Pero también que pertenezcan a hogares con menos de 7 personas. 
-```{r}
-filter(datos_proc, edad >= 15)
-filter(datos_proc, edad >= 15 & tot_per <7)
+```{r casen median, echo=TRUE, results='markup'}
+median(datos_proc$ingreso_percapita, na.rm =TRUE)
 ```
 
-¿Y si quiero filtrar para saber el valor máximo de ingresos (`ytoth`)?
+Ahora ya sabemos que al menos un 50% de las familias en Chile tienen por ingreso `$229.184`.
 
-```{r}
-filter(datos_proc, ytoth == max(ytoth))
+Ya tenemos los estadísticos principales, pero ¿cómo los reportamos? ¿tenemos que sacar el promedio de cada variable una por una? **¡No!**, para ello `sjmisc` tiene diferentes funciones, que veremos a continuación
+
+## Un resumen
+
+Podemos obtener un resumen de todos estadísticos a partir de la función `summary()`. El argumento puede ser tanto una columna en particular como `ingreso_percapita` 
+
+```{r casen summary, echo=TRUE, results='markup'}
+summary(datos_proc$ingreso_percapita)
 ```
 
-¡Gana \$225.200.000, es Hombre y tiene 41 años! (y vive solo...)
+También podemos hacerlo con todos los datos. Sólo que no tendrá mucho sentido para las variables nominales.
 
-
-#### `filter()` con carácteres
-
-Si queremos filtrar por la variable `sexo` solo a las mujeres, tengo dos opciones: o solo selecciono a las mujeres (`==`) o excluyo a los hombres (`!=`).
-
-Ahora bien, antes hay que hacer una precisión importante: en los datos `sexo` es una variable que está como `dbl` y `lbl` (número etiquetado), por lo que no es que en la base aparezcan "Mujeres" y "Hombres", sino que 2 y 1.
-
-Por ello, con el siguiente código aparecerá un error.
-```{r}
-filter(datos_proc, sexo == "Mujer")
+```{r casen summary base, echo=TRUE, results='markup'}
+summary(datos_proc)
 ```
 
-Una función **muy muy útil** (sobre todo cuando trabajemos con regresiones) es `as_factor()` que permite conservar los niveles pero definiendo sus categorías de respuesta en base a la etiqueta que traen (el `lbl`)
+`summary()` es una función muy potente, dado que no solo permite resúmenes de data.frames (datos), sino que también de otros objetos en R (como los modelos).
 
-```{r}
-datos_proc$sexo <- as_factor(datos_proc$sexo)
+Ahora bien tiene limitantes para interactuar con `dplyr` y generar archivos de salida. Por ello ocuparemos `descr` de `sjmisc`
+
+```{r , eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+sjmisc::descr(datos_proc$ingreso_percapita,
+        show = "all",
+        out = "viewer",
+        encoding = "UTF-8",
+        file = "output/figures/tabla-ingreso.doc")
 ```
 
-¡Ahora si funcionará!
-```{r}
-filter(datos_proc, sexo == "Mujer")
-filter(datos_proc, sexo != "Hombre")
+```{r echo=FALSE}
+sjmisc::descr(datos_proc$ingreso_percapita)
 ```
 
-{{< div "note" >}}
-**Ojo**. R es *sensible* a cómo está escrito el texto. Si pones el mismo código pero sin respetar mayúsuculas y minúsculas el código no funcionará
-{{< /div >}}
 
-¡Por último! ¿Cómo se seleccionan dos condiciones en carácter? Con el operador `%in%`
+De más variables
 
-```{r}
-datos_proc$prev <- as_factor(datos_proc$prev)
-
-filter(datos_proc, prev %in% c("Sistema Público FONASA", "ISAPRE"))
-```
-
-Antes de definir que observaciones vamos a conservar en una base procesada `datos_proc` ¡Creemos transformemos variables con `mutate()`!
-
-### 5.3 `mutate()` para transformación de  variables
-
-La función de `mutate()` permite hacer operaciones para crear nuevas variables o transformar las ya existentes. 
-
-{{< div "note" >}}
-mutate(datos, nueva_variable = cálculo o condición)
-{{< /div >}}
-
-#### `mutate()` en base a cálculo
-
-Calcularemos una nueva variable llamada `nueva_variable` que proviene de la suma de 2+3. También una variable `ingreso_percapita` que proviene de la división del ingreso total del hogar y el número de personas que residen en el hogar 
-
-```{r echo=TRUE}
-mutate(datos_proc, nueva_variable = 3+2)
-mutate(datos_proc, nueva_variable = 3+2,
-       ingreso_percapita = ytoth/tot_per)
-```
-
-¿Qué pasa si queremos, luego de calcular nuestras nuevas variables, filtrar un ingreso per cápita menor o igual a $1.000.000
-
-**¡Ahora entra en escena nuestro operador estrella ` %>% `!**
-
-{{< div "note" >}}
-datos %>% 
-  mutate(., nueva_variable = calculo ) %>% 
-  filter(., nueva_variable <= valor)
-{{< /div >}}
-
-Básicamente, el ` %>% ` permite "ingresar" nuestra base de datos como argumento para cada función e ir operándola en proceso
-
-```{r}
+```{r, , eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
 datos_proc %>%
-  mutate(ingreso_percapita = ytoth/tot_per) %>% 
-  filter(ingreso_percapita <= 1000000)
+select(ingreso_percapita,  horas_mens) %>% 
+sjmisc::descr(
+  show = "all",
+  out = "viewer",
+  encoding = "UTF-8",
+  file = "output/figures/tabla1.doc")
 ```
 
-#### `recode()``
-
-La función denominada *recode* puede reemplazar valores numéricos en base a su posición o su nombre, y valores de carácteres o factores sólo por su nombre. 
-
-En el siguiente ejemplo recodificamos las categorías de respuesta de Mujer a Femenino y de Hombre a Masculino
-
-```{r}
-datos_proc %>% 
-  mutate(sexo = recode(sexo, "Mujer" = "Femenino", "Hombre" = "Masculino"))
-```
-
-El problema de `recode()` que se utiliza dentro de `dplyr` es que si recodifico se pierde la etiqueta anterior. Esto es un problema a si por ejemplo, solo quiero recodificar casos perdidos. 
-
-Frente a ello, con el tiempo nos hemos convencido de que la mejor solución hasta ahora es ocupar `recode()` del paquete `car`. Si recuerdan, dos funciones con el mismo nombre podrían producir *conflictos*, y por ello, especificaremos con `car::recode()` que la función `recode()` que ocupamos proviene de `car`
-
-{{< div "note" >}}
-datos %$% 
- car::recode(.$variable, c('valor_orig1=nuevo_valor1;valor_org2=nuevo_valor2'))
- 
-*Ojo: %$% es el primo hermano de %>% (básicamente funcionan igual, pero este es necesario para car)*
-{{< /div >}}
-
-```{r}
-datos_proc %$% 
-  car::recode(.$y26d_hog, c('9=NA'))
-```
-
-Aquí una versión de si la recodificación es hacia carácteres (mismo ejemplo que con `recode()` de `dplyr`)
-
-```{r}
-datos_proc %$% 
-  car::recode(.$sexo, c('"Mujer"="Femenino";"Hombre"= "Masculino"'), as.factor = T)
+```{r echo=FALSE}
+datos_proc %>%
+select(ingreso_percapita, horas_mens) %>% 
+sjmisc::descr()
 ```
 
 
-### 5.3.2 `if_else()` para construir variables condicionales
+Aquí podemos ver la variable `var`, el tipo de variable `type`, su etiqueta `label`, los casos válidos `n`, los casos perdidos `NA.prc`, las medidas de tendencia central y las de dispersión. `sjmisc` tiene muchos beneficios, ya que cómo interactúa con el mundo `tidyverse` es fácil de complementar con funciones como `select` de `dplyr`. Además con la función `file` se puede exportar automáticamente la tabla para los reportes.
 
-La función `if_else()` permite construir variables en base a condiciones lógicas. Su estructura es la siguiente
 
-{{< div "note" >}}
-if_else(condición,TRUE,FALSE)
-Donde dice `TRUE` es el valor que se obtiene si la condición es verdadera, mientras que `FALSE` es todo el resto de las opciones (o cuando es FALSA)
-{{< /div >}}
+## 4.3. Frecuencias 
 
-Crearemos una variable que *dummy* que indica si el respondente es *FONASA* o no lo es. 
+### Frecuencias absolutas
 
-```{r eval=FALSE, include=TRUE}
-datos_proc %>% 
- 		 mutate(fonasa = if_else(prev == "Sistema Público FONASA", 1, 0))
+Para conocer las frecuencias absolutas de una variable se podría usar la función `table`, esta nos arroja la frecuencia por cada categoría de respuesta
+
+```{r casen table, echo=TRUE, results='markup'}
+table(datos_proc$sexo) 
 ```
 
-También podemos ocupar esta función como validador, por ejemplo, rellenando con valores lógicos como `FALSE` cuando no hay valores en `ytoth`. Luego esos `FALSE` podrían ser contados en otros procesos estadísticos
+También podríamos usar la función `flat_table`, esta puede agrupar más variables y agruparlas.
 
-```{r echo=TRUE}
-datos_proc %>% 
-  mutate(validador_ingreso = if_else(is.na(ytoth), FALSE, TRUE))
+```{r casen flat_table, echo=TRUE, results='markup'}
+flat_table(datos_proc, sexo, ocupacion, ife)
 ```
 
-### 5.3.2 `case_when()` para construir variable en base a múltiples condiciones
+El problema es ¿cómo podríamos reportarla en nuestros informes? Si queremos una tabla general usaremos la función `frq`. Esta función devuelve una tabla de frecuencias de vectores etiquetados, como marco de datos.
 
-Una función que se utiliza frecuentemente para *colapsar* categorías o construir categorías en base a varias condiciones es `case_when()` por lo lógico y *fácil* que es de entender
-
-{{< div "note" >}}
-case_when(variable == condicion ~ valor1,
-          variable == condicion ~ valor2,
-          TRUE ~ NA_real)
-- Donde, TRUE indica "todo el resto", y el NA dependerá de la clase del valor de recodificación
-{{< /div >}}
-
-Un ejemplo claro es cuando queremos construir *categorías de edad*
-
-```{r}
-datos_proc %>% 
-  mutate(edad_tramo = case_when(edad <=39 ~  "Joven",
-                                edad > 39 & edad <=59 ~ "Adulto",
-                                edad > 59 ~ "Adulto mayor",
-                                TRUE ~ NA_character_)) %>% 
-  select(edad, edad_tramo)
+```{r casen frq error, echo=TRUE, results='markup'}
+sjmisc::frq(datos_proc$sexo,
+        out = "viewer",
+         title = "Frecuencias",
+        encoding = "UTF-8",
+         file = "output/figures/tabla2.doc") 
 ```
 
-Como se puede ver, no solamente indicamos tramos de la variable edad, sino que utilizamos operadores lógicos (`&`). Podríamos ocupar el que necesitemos, y sobre todo, también combinar variables (por ejemplo, crear una variable `sexo-edad`)
 
-## 6. Resumen con procesamiento de las variables
+# 5. Visualización
 
-Hasta ahora, solo hemos creado una base de datos que selecciona variables. Ahora nos resta incorporar en un nuevo objeto los cambios que nos parezcan relevantes para la base de datos procesada que utilizaremos en nuestros análisis. 
+Ahora que ya sabemos como tener todos los estadísticos necesarios para escribir nuestros reportes, viene el segundo paso *visualizar los estadísticos*. Esto lo haremos con `sjPlot`
 
-Como ya conocemos operadores que permiten concatenar procesos ( `%>%`  y `%$%`) este procedimiento será mucho más fácil. 
+Para visualizar las frecuencias usaremos la función `plot_frq`, su estructura es la siguiente:
 
-```{r}
-datos_proc %>% 
- filter(edad >= 15 & tot_per <7) %>%
-    mutate(ingreso_percapita = ytoth/tot_per,
-           edad_tramo = case_when(edad <=39 ~  "Joven",
-                                edad > 39 & edad <=59 ~ "Adulto",
-                                edad > 59 ~ "Adulto mayor",
-                                TRUE ~ NA_character_),
-           fonasa = if_else(prev == "Sistema Público FONASA", 1, 0),
-           ocupacion = as_factor(ocupacion)) %>%
-  select(sexo, edad_tramo, ocupacion, ingreso_percapita, ife = y26d_hog)
-```
-
-¡Ahora que estamos seguras/os sobre-escribimos la base!
-```{r}
-datos_proc <- datos_proc %>% 
- filter(edad >= 15 & tot_per <7) %>%
-    mutate(ingreso_percapita = ytoth/tot_per,
-           edad_tramo = case_when(edad <=39 ~  "Joven",
-                                edad > 39 & edad <=59 ~ "Adulto",
-                                edad > 59 ~ "Adulto mayor",
-                                TRUE ~ NA_character_),
-           fonasa = if_else(prev == "Sistema Público FONASA", 1, 0),
-           ocupacion = as_factor(ocupacion)) %>%
-  select(sexo, edad_tramo, ocupacion, ingreso_percapita, ife = y26d_hog)
-```
-
-Podemos visualizar la base resultante a partir de `view_df()` de `sjPlot`
-```{r}
-sjPlot::view_df(datos_proc)
-```
-
-## 7. Guardar base procesada
-
-Para guardar la base de datos procesada, debes dirigir la ruta hacia tu Rproject
-
-```{r eval=FALSE, include=TRUE}
-saveRDS(datos_proc, file = "../nombre_project/output/datos_proc.rds")
-```
-
-## 8. Reporte de progreso
+```{r ejemplo frecuencias, eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+plot_frq(datos,  #base
+  ...,          #variable
+  title = "",   # título
+  type = c("bar", "dot", "histogram", "line", "density", "boxplot", "violin") #tipo de gráfico
   
-¡Recuerda rellenar tu [reporte de progreso](https://learn-r.formr.org/). En tu correo electrónico está disponible el código mediante al cuál debes acceder para actualizar tu estado de avance del curso.
+```
 
+Para los gráficos, tenemos los siguientes códigos
+
+## 5.1. Gráfico de barras de frecuencias simple
+
+Si quisiéramos presentar gráficos que entreguen la frecuencia de cada categoría de respuesta, podemos presentarla de la siguiente forma:
+
+
+```{r casen barras simple, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+plot_frq(datos_proc, edad_tramo,
+          title = "Gráfico de frecuencias, barras",
+          type = c("bar"))
+```
+
+{{< div "note" >}}
+
+Además de la visualización es importante el guardar los datos que se producen y `sjPlot` tiene su propio código para hacerlo a través de la función `save_plot()`, su estructura es esta:
+
+save_plot(last_plot())  #se deja el formato del archivo (.png, .jpg, .svg o .tif) y la ruta de la carpeta
+{{< /div >}}
+
+Así guardaríamos el gráfico anterior
+
+```{r eval=F, include=TRUE}
+save_plot(last_plot("/output/img/tab.png"))
+```
+
+
+## 5.2. Gráfico de puntos
+
+Si tenemos más categorías y queremos mejorar el reporte, podemos usar este código:
+
+```{r casen puntos simple, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+plot_frq(datos_proc, edad_tramo,
+          title = "Gráfico de frecuencias, puntos",
+          type = c("dot"))
+```
+
+También podemos cambiar el orden del eje x e y
+
+```{r casen puntos cambiados, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+plot_frq(datos_proc$edad_tramo, type = "dot", show.ci = TRUE, sort.frq = "desc",
+  coord.flip = TRUE, expand.grid = TRUE, vjust = "bottom", hjust = "left", title = "Gráfico de frecuencias, puntos cambiado"
+)
+```
+       
+## 5.3 Histogramas        
+       
+Otra función que podemos hacer es graficar histogramas, sin embargo, como ya hemos visto, la variable `ingreso_percapita` tiene casos muy altos que distorsionan la variable. Para solucionar esto, ocuparemos lo aprendido en [el práctico anterior](https://learn-r-udp.netlify.app/example/03-practico/) y filtraremos la variable sacando los ingresos mayores a `$2.000.000`, con la función `filter` de `dplyr`
+
+```{r casen histograma, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+datos_proc %>%  filter(ingreso_percapita <= 2000000) %>% 
+plot_frq(., ingreso_percapita,
+          title = "Histograma",
+          type = c("histogram"))
+```
+
+## 5.4 Densidad
+
+Ahora que vemos la distribución del histograma, ¿cómo podemos ver su densidad?, es muy simple, para ello haremos un gráfico de densidad con el siguiente código
+
+```{r casen densidad, echo=TRUE, results='markup'}
+datos_proc %>%  filter(ingreso_percapita <= 2000000) %>%
+plot_frq(., ingreso_percapita,
+          title = "Gráfico de densidad",
+          type = c("density"))
+```
+
+## 5.5 Gráfico de cajas
+
+Para graficar los estadísticos de una variable, podemos hacerlo a través de un gráfico de cajas, para ello usaremos este código:
+
+```{r casen box, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+datos_proc %>%  filter(ingreso_percapita <= 2000000) %>%
+plot_frq(., ingreso_percapita,
+          title = "Gráfico de caja",
+          type = c("boxplot"))
+```
+
+          
+## 5.6 Gráfico de violín
+
+Finalmente, si queremos presentar gráficos de violín, usamos este código
+          
+```{r casen violin, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+datos_proc %>%  filter(ingreso_percapita <= 2000000) %>%
+    plot_frq(., ingreso_percapita,
+          title = "Gráfico de violín",
+          type = c("violin"))
+```
+          
+Como pueden ver, el único argumento que se modificaba era `type = `, es decir, para hacer diversos gráficos, sólo se debe especificar el tipo de gráfico que queremos.
+
+
+## 5.7 Gráfico de nube de puntos
+
+Ahora, si quisiéramos graficar la distribución de dos variables, podemos hacerlo con la función `plot_scatter`, esta muestra el diagrama de dispersión de dos variables.
+
+```{r casen scatter, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+datos_proc %>%
+  filter(ingreso_percapita <= 2000000, horas_mens <= 600) %>%
+   plot_scatter(., horas_mens, ingreso_percapita)
+```
+
+También es posible agregar una variable de ocupación al diagrama de dispersión.
+
+```{r casen scatter 3 var, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+datos_proc %>%  filter(ingreso_percapita <= 2000000, horas_mens <= 600) %>%
+    plot_scatter(., horas_mens, ingreso_percapita, edad_tramo)
+```
+
+# 6. Visualización bivariada
+
+Ahora que ya hemos graficado las frecuencias de las variables, vamos a graficar frecuencias agrupadas, para ello usaremos la función `plot:grpfrq` de `sjPlot`, su estructura es la siguiente
+
+```{r ejemplo frecuencias agrup, eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+plot_grpfrq(
+  var.cnt,
+  var.grp,
+  type = c("bar", "dot", "line", "boxplot", "violin")
+```
+
+# 6.1 Gráfico de barras
+
+La primera opción que nos entrega este código son los gráficos de barra, para usarlo queremos saber cuantos hombres y mujeres trabajaron al menos una hora la semana pasada, para ello graficaremos la variable `sexo` y `ocupacion`
+
+```{r casen frec agrup barr, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+plot_grpfrq(datos_proc$sexo, datos_proc$ocupacion,
+  type = c("bar"), title = "Gráfico de barras")
+```
+
+Podemos ver que no solo nos muestra la frecuencia absoluta, sino que también la relativa en porcentaje
+
+Pero además podemos ver agregar una tercera categoría, que es el total de ambas categorías. Para este ejercicio conoceremos que tramo de edad trabajo la semana pasada.
+
+Para este ejercicio usaremos la función `plot_xtab`, de la misma librería
+
+```{r casen frec agrup barr 2, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+plot_xtab(datos_proc$edad_tramo, datos_proc$ocupacion, title = "Gráfico de barras")
+```
+
+# 6.2 Gráfico de barras horizontales
+
+Con la misma función podemos graficar mediante barras horizontales
+
+```{r casen frec agrup barr hor, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+plot_xtab(datos_proc$edad_tramo, datos_proc$ocupacion, margin = "row", 
+          bar.pos = "stack",
+          title = "Gráfico de barras horizontales",
+         show.summary = TRUE, coord.flip = TRUE)
+```
+
+
+## 6.3 Gráfico de líneas
+
+Otra opción que tiene esta función, es la creación de gráficos de líneas, para ello conoceremos la relación entre el tramo etario y el recibir el IFE
+
+```{r casen graf lin agrup, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+plot_grpfrq(datos_proc$edad_tramo, datos_proc$ife,
+            title = "Gráfico de línea",
+            type = c("line"))
+  
+```
+
+También podemos ver la relación de el tramo etario y si trabajó la semana pasada
+
+```{r casen graf line agrup 2, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+plot_grpfrq(datos_proc$edad_tramo, datos_proc$ocupacion, 
+            title = "Gráfico de línea",
+            type = "line")
+```
+         
+
+## 6.4 Gráfico de cajas
+
+Ahora si queremos conocer cómo interactúa las horas de trabajo con el tramo etario, podemos visualizarlo mediante un gráfico de cajas
+
+```{r casen graf caj, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+plot_grpfrq(datos_proc$horas_mens, datos_proc$edad_tramo,
+            title = "Gráfico de caja",
+             type = c("boxplot"))
+```
+
+Además, se puede incorporar una tercera variable, en este caso lo haremos con la variable `sexo`
+
+```{r casen box 3 var, echo=TRUE, message=FALSE, warning=FALSE, results='markup'}
+plot_grpfrq(datos_proc$horas_mens, datos_proc$edad_tramo, intr.var = datos_proc$sexo, 
+            title = "Gráfico de cajas",
+            type = "box")
+```
+
+Nuevamente, la función nos permite la creación de múltiples gráficos, sólo se debe cambiar el argumento `type =`
+
+# 7. Tablas de contingencia
+
+¡No podemos terminar sin saber cómo hacer tablas de frecuencias cruzadas!
+
+Por suerte `sjPlot` tiene la función `sjt.xtab`, que nos entrega tablas de frecuencias cruzadas
+
+```{r casen tab cruz, echo=TRUE, results='markup'}
+sjt.xtab(datos_proc$sexo, datos_proc$ife,  title = "Tabla de contingencias",
+         show.col.prc=TRUE,
+         show.summary=FALSE)
+```
+
+¿Qué pasó? ¿por qué salen esos símbolos raros en la tabla? 
+
+¡Es por la codificación!, para ello le agregamos el argumento `encoding = "UTF-8"` y ya tenemos nuestra tabla de frecuencias cruzadas
+
+```{r casen tab cruz encoding, echo=TRUE, results='markup'}
+sjt.xtab(datos_proc$sexo, datos_proc$ife,
+         show.col.prc=TRUE,
+         show.summary=FALSE, 
+         encoding = "UTF-8", 
+         title = "Tabla de contingencia",
+         file = "output/figures/tabla3.doc")
+```
+
+# 8. Correlación
+
+Ahora veremos estadísticos bivariados, como la correlación, en esta ocasión generaremos una tabla de correlación entre las variables `horas_mens` y `ingreso_percapita`, para eso usaremos la función `tab_corr` de `sjPlot`
+
+Previamente debemos seleccionar las variables a utilizar, ya que no tiene sentido incluir en el análisis variables nominales
+
+```{r casen corr, echo=TRUE, results='markup'}
+datos_proc %>%
+select(ingreso_percapita, horas_mens) %>% 
+tab_corr(.,
+         triangle = "lower",   
+         title = "Tabla de correlación",
+         encoding = "UTF-8", 
+         file = "output/figures/tabla4.doc")
+```
+
+
+# 9. Anova
+
+Finalmente, si queremos reportar un análisis de Anova, no podemos dejar de lado este gráfico que nos otorga la función `sjp.aov1` del paquete `sjPlot`
+
+```{r message=FALSE, warning=FALSE}
+sjp.aov1(datos_proc$ingreso_percapita, datos_proc$sexo, title = "Anova")
+```
+
+# 9. Resumen del práctico
+
+¡Eso es todo por este práctico! Hoy aprendimos a:
+
+- Manejar datos descriptivos en Rstudio
+- A obtener tablas descriptivas
+- A visualizar los descriptivos
+- A obtener tablas de contingencia
+- A obtener tablas de correlación
+- A obtener gráficos de Anova
+
+# 7. Reporte de progreso
+
+¡Recuerda rellenar tu [reporte de progreso](https://learn-r.formr.org/). En tu correo electrónico está disponible el código mediante al cuál debes acceder para actualizar tu estado de avance del curso.
 
