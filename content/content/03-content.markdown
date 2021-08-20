@@ -88,7 +88,7 @@ slides: "03-slides"
 
 # Material de la clase
 
--   [<i class="fas fa-file-archive"></i> `03-bloque.zip`](https://github.com/learn-R/03-class/raw/main/03-bloque.zip)
+-   [<i class="fas fa-file-archive"></i> `03-bloque.zip`](https://github.com/learn-R/04-class/raw/main/03-bloque.zip)
 
     -   <small>[<i class="fas fa-file-o"></i>¿Cómo descomprimir archivos?](/resource/unzipping)</small>
 
