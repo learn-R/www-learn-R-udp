@@ -41,7 +41,7 @@ En este práctico utilizaremos cuatro paquetes
 
 ## 1. Cargar librerías
 
-Primero instalamos `pacman` por única vez
+Primero instalamos `pacman`. Si ya lo hicieron **no lo vuelvan a hacer**
 
 
 ```r
@@ -66,7 +66,7 @@ pacman::p_load(tidyverse,
 
 
 ```r
-datos <- read_dta("../Rproject/input/Casen en Pandemia 2020 STATA.dta") 
+datos <- read_dta("input/data/Casen en Pandemia 2020 STATA.dta") 
 ```
 
 En el panel **Environment**, visualizamos el nuevo objeto, que posee 185.437 observaciones (o filas), y 650 variables (columnas)

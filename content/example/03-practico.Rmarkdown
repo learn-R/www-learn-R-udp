@@ -41,7 +41,7 @@ En este práctico utilizaremos cuatro paquetes
 
 ## 1. Cargar librerías
 
-Primero instalamos `pacman` por única vez
+Primero instalamos `pacman`. Si ya lo hicieron **no lo vuelvan a hacer**
 
 ```{r eval=FALSE, include=TRUE}
 install.packages("pacman")
@@ -68,7 +68,7 @@ unlink(temp); remove(temp)
 ```
 
 ```{r eval=FALSE, include=TRUE}
-datos <- read_dta("../Rproject/input/Casen en Pandemia 2020 STATA.dta") 
+datos <- read_dta("input/data/Casen en Pandemia 2020 STATA.dta") 
 ```
 
 En el panel **Environment**, visualizamos el nuevo objeto, que posee `r format( nrow(datos), decimal.mark="," , big.mark = ".")` observaciones (o filas), y `r format(ncol(datos), decimal.mark="," , big.mark = ".")` variables (columnas)
