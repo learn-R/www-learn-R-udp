@@ -24,7 +24,7 @@ Este práctico tiene por objetivo presentar cómo crear modelos de regresión lo
 
 Este práctico fue elaborado con datos de la [**Encuesta Suplementaria de Ingresos (ESI)**](https://www.ine.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos) en su versión 2020. Cuando trabajen con algún set de datos, nunca olviden revisar la documentación metodológica anexa, así como el [libro de códigos](https://www.ine.cl/docs/default-source/encuesta-suplementaria-de-ingresos/bbdd/manual-y-guía-de-variables/2020/personas-esi-2020.pdf?sfvrsn=f196cb4e_4) correspondiente. 
 
-- [<i class="fas fa-file-archive"></i> `06-bloque.zip`](https://github.com/learn-R/09-class/raw/main/06-bloque.zip)
+- [<i class="fas fa-file-archive"></i> `06-bloque.zip`](https://github.com/learn-R/09-class/raw/main/05-bloque.zip)
 
 
 ## 2. Librerías a utilizar
