@@ -1,5 +1,5 @@
 (() => {
-  // ns-hugo:C:\Users\nicol\OneDrive\Documentos\GitHub\www-learn-R-udp\themes\wowchemy-hugo-modules\wowchemy\assets\js\wowchemy-theming.js
+  // ns-hugo:C:\Users\Valentina Andrade\Documents\GitHub\teach-R\teachR_udp\www-learn-R-udp\themes\wowchemy-hugo-modules\wowchemy\assets\js\wowchemy-theming.js
   const body = document.body;
   function getThemeMode() {
     return parseInt(localStorage.getItem("wcTheme") || 2);
