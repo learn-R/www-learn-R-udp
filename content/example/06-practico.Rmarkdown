@@ -1,7 +1,7 @@
 ---
 title: "Regresiones logísticas"
 linktitle: "6: Regresiones logisticas"
-date: "2021-08-13"
+date: "2021-08-27"
 menu:
   example:
     parent: Ejemplos
@@ -12,9 +12,11 @@ editor_options:
   chunk_output_type: console
 ---
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 
 ## 0. Objetivos del práctico
 
@@ -199,3 +201,4 @@ plot_model(modelo,
 ## Resumen
 
 En este práctico, aprendimos a generar modelos de regresión logística, presentando los coeficientes en Log-Odds y Odds-ratio, y a graficar la significación estadística de tales coeficientes. 
+
