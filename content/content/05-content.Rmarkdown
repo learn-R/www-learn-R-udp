@@ -1,90 +1,64 @@
 ---
-title: "Transformación estructura datos"
-linktitle: "5: Transformación estructura datos"
-date: "2021-09-06"
-start_date: "2021-08-23"
-end_date: "2021-09-06"
+title: "Regresiones lineales, predictores categóricos y representación gráfica"
+linktitle: "5: Regresiones lineales, predictores categóricos y representación gráfica"
+date: "2021-09-27"
+start_date: "2021-09-27"
+end_date: "2021-09-27"
 menu:
   content:
     parent: Contenido
-    weight: 5
+    weight: 6
 type: docs
 toc: true
 bibliography: "../../static/bib/references.bib"
 csl: "../../static/bib/chicago-fullnote-bibliography-no-bib.csl"
-slides: "05-slides"
+slides: "06-slides"
 ---
 
 ```{r slides-videos, echo=FALSE, include=FALSE}
 source(here::here("R", "slide-tabs.R"))
-source(here::here("R", "youtube-playlist.R"))
-
-playlist_id <- "PLS6tnpTr39sHwqEeiG5xb3zAHcQCGWZUC"
 
 slide_details <- tibble::tribble(
-  ~youtube_id,   ~title, ~slide, ~active,
-  "6n7Qicffb2k", "Introduction", "1", TRUE,
-  "vARju899D3E", "do()ing observational causal inference", "dag-adjustment", FALSE,
-  "0pOA8y3YASA", "Potential outcomes", "potential-outcomes", FALSE
+  ~title, ~slide, ~active,
+  "Básicos", "1", TRUE,
+   "Seleccionar", "35", FALSE,
+   "Filtrar", "45", FALSE,
+  "Crear", "52", FALSE
 )
 ```
 
-## Readings
-
-- <i class="fas fa-podcast"></i> Prologue and at least one of the four acts from [This American Life, "Gardens of Branching Paths," episode #691, January 10, 2020](https://www.thisamericanlife.org/691/gardens-of-branching-paths)
-- <i class="fas fa-book"></i> Chapter 3 in *Impact Evaluation in Practice* [@wb-eval]
-- <i class="fas fa-book"></i> [Chapter 4, "Potential Outcomes Causal Model"](https://mixtape.scunning.com/ch3.html) in *Causal Inference: The Mixtape* [@mixtape]
-
-### Potential outcomes, ATEs, and CATEs example page
-
-- The [example page on potential outcomes, ATEs, and CATEs](/example/po-ate-cate/) shows how to use R to calculate ATEs and CATEs
-
-
-## Slides
-
-The slides for today's lesson are available online as an HTML file. Use the buttons below to open the slides either as an interactive website or as a static PDF (for printing or storing for later). You can also click in the slides below and navigate through them with your left and right arrow keys.
+# Slides
 
 `r blogdown::shortcode("slide-buttons")`
 
 ```{r show-slide-tabs, echo=FALSE, results="asis"}
-slide_tabs(slide_details, "/slides/05-slides.html")
+slide_tabs(slide_details, "/slides/04-slides.html")
 ```
 
 {{% div fyi %}}
-**Fun fact**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
+**¿Cómo ocupar**: Si presionas <kbd>?</kbd> (o <kbd>shift</kbd> + <kbd>/</kbd>) mientras estas viendo las slides, podrás ver los comandos específicos para navegar en ellas.
 {{% /div %}}
 
+# Material de la clase
 
-## Videos
+- [<i class="fas fa-file-archive"></i> `06-bloque.zip`](https://github.com/learn-R/09-class/raw/main/06-bloque.zip)
 
-```{r show-youtube-list, echo=FALSE, results="asis"}
-youtube_list(slide_details, playlist_id)
-```
+  - <small>[<i class="fas fa-file-o"></i>¿Cómo descomprimir archivos?](/resource/unzipping)</small>
 
+- [<i class="fas fa-laptop-code"></i> Práctico](/example/05-practico/)
 
-```{cat include=FALSE, eval=FALSE}
-Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sHwqEeiG5xb3zAHcQCGWZUC
-
-https://youtu.be/6n7Qicffb2k
-PMAP 8521 • (5) DAGs and potential outcomes: (0) Introduction
-
-Introduction to the class session on DAGs and potential outcomes
-
-Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/05-content/
+- <i class="fas fa-external-link-square-alt"></i> [Contestar reporte de registro](https://learn-r.formr.org)
 
 
-https://youtu.be/vARju899D3E
-PMAP 8521 • (5) DAGs and potential outcomes: (1) do()ing observational causal inference
 
-Discussion of the do-operator, how experiments let you manipulate DAGs, and how do-calculus lets you transform do-based expressions into do-free versions
+# Recomendaciones
 
-Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/05-content/
 
-  
-https://youtu.be/0pOA8y3YASA
-PMAP 8521 • (5) DAGs and potential outcomes: (2) Potential outcomes
+- <i class="fas fa-book"></i> ["Tipos de datos-columnas en R"](https://statsandr.com/blog/data-types-in-r/) 
 
-Discussion and demonstration of how the potential outcomes framework works and how it connects to DAGs
 
-Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/05-content/
-```
+- <i class="fab fa-youtube"></i> Tutoriales, ["Learn-R"](https://www.youtube.com/watch?v=APzU10EMMjg) 
+    - <small>Tutorial de dplyr por profesora Valentina Andrade y ayudante Dafne Jaime</small>
+
+- <i class="fas fa-book"></i> ["Data manipulation in R", (avanzado)](https://statsandr.com/blog/data-manipulation-in-r/) 
+

@@ -1,6 +1,6 @@
 ---
-title: "Análisis descriptivo"
-linktitle: "6: Análisis descriptivo"
+title: "Regresiones lineales, predictores categóricos y representación gráfica"
+linktitle: "6: Regresiones lineales, predictores categóricos y representación gráfica"
 date: "2021-09-13"
 start_date: "2021-09-13"
 end_date: "2021-09-20"
@@ -17,90 +17,48 @@ slides: "06-slides"
 
 ```{r slides-videos, echo=FALSE, include=FALSE}
 source(here::here("R", "slide-tabs.R"))
-source(here::here("R", "youtube-playlist.R"))
-
-playlist_id <- "PLS6tnpTr39sFJtz7egfUASfhhz6zuj7GZ"
 
 slide_details <- tibble::tribble(
-  ~youtube_id,   ~title, ~slide, ~active,
-  "46v8l60nQnI", "Introduction", "1", TRUE,
-  "N4XYXuw_IA0", "Construct validity", "construct-validity", FALSE,
-  "IziQBDzUJ6E", "Statistical conclusion validity", "statistical-conclusion-validity", FALSE,
-  "ssz2DTfrGhw", "Internal validity", "internal-validity", FALSE,
-  "uK7YN6KTRT4", "External validity", "external-validity", FALSE
+  ~title, ~slide, ~active,
+  "Básicos", "1", TRUE,
+   "Seleccionar", "35", FALSE,
+   "Filtrar", "45", FALSE,
+  "Crear", "52", FALSE
 )
 ```
 
-
-## Readings
-
-- <i class="fas fa-external-link-square-alt"></i> Randall Munroe, ["Significant"](https://xkcd.com/882/)
-- <i class="fas fa-external-link-square-alt"></i> Alexander Coppock, ["10 Things to Know About Statistical Power"](https://egap.org/resource/10-things-to-know-about-statistical-power/)
-- <i class="fas fa-trophy"></i> Play around with FiveThirtyEight, ["Hack Your Way To Scientific Glory"](https://projects.fivethirtyeight.com/p-hacking/)
-- <i class="fas fa-book"></i> Chapter 9 in *Impact Evaluation in Practice* [@wb-eval]
-
-
-## Slides
-
-The slides for today's lesson are available online as an HTML file. Use the buttons below to open the slides either as an interactive website or as a static PDF (for printing or storing for later). You can also click in the slides below and navigate through them with your left and right arrow keys.
+# Slides
 
 `r blogdown::shortcode("slide-buttons")`
 
 ```{r show-slide-tabs, echo=FALSE, results="asis"}
-slide_tabs(slide_details, "/slides/06-slides.html")
+slide_tabs(slide_details, "/slides/04-slides.html")
 ```
 
 {{% div fyi %}}
-**Fun fact**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
+**¿Cómo ocupar**: Si presionas <kbd>?</kbd> (o <kbd>shift</kbd> + <kbd>/</kbd>) mientras estas viendo las slides, podrás ver los comandos específicos para navegar en ellas.
 {{% /div %}}
 
+# Material de la clase
 
-## Videos
+- [<i class="fas fa-file-archive"></i> `06-bloque.zip`](https://github.com/learn-R/09-class/raw/main/06-bloque.zip)
 
-```{r show-youtube-list, echo=FALSE, results="asis"}
-youtube_list(slide_details, playlist_id)
-```
+  - <small>[<i class="fas fa-file-o"></i>¿Cómo descomprimir archivos?](/resource/unzipping)</small>
 
+- [<i class="fas fa-laptop-code"></i> Práctico](/example/06-practico/)
 
-```{cat include=FALSE, eval=FALSE}
-Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sFJtz7egfUASfhhz6zuj7GZ
-
-https://youtu.be/46v8l60nQnI
-PMAP 8521 • (6) Threats to validity: (0) Introduction
-
-Introduction to the class session on threats to validity
-
-Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/06-content/
+- <i class="fas fa-external-link-square-alt"></i> [Contestar reporte de registro](https://learn-r.formr.org)
 
 
-https://youtu.be/N4XYXuw_IA0
-PMAP 8521 • (6) Threats to validity: (1) Construct validity
 
-Discussion of threats to construct validity
+# Recomendaciones
 
-Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/06-content/
 
-  
-https://youtu.be/IziQBDzUJ6E
-PMAP 8521 • (6) Threats to validity: (2) Statistical conclusion validity
+- <i class="fas fa-book"></i> ["Tipos de datos-columnas en R"](https://statsandr.com/blog/data-types-in-r/) 
 
-Discussion of threats to statistical conclusion validity
 
-Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/06-content/
-  
-  
-https://youtu.be/ssz2DTfrGhw
-PMAP 8521 • (6) Threats to validity: (3) Internal validity
+- <i class="fab fa-youtube"></i> Tutoriales, ["Learn-R"](https://www.youtube.com/watch?v=APzU10EMMjg) 
+    - <small>Tutorial de dplyr por profesora Valentina Andrade y ayudante Dafne Jaime</small>
 
-Discussion of threats to internal validity
+- <i class="fas fa-book"></i> ["Data manipulation in R", (avanzado)](https://statsandr.com/blog/data-manipulation-in-r/) 
 
-Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/06-content/
-  
-  
-https://youtu.be/uK7YN6KTRT4
-PMAP 8521 • (6) Threats to validity: (4) External validity
-
-Discussion of threats to external validity
-
-Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/06-content/
-```

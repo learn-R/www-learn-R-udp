@@ -658,6 +658,21 @@
       </li>
 
       
+      <li >
+        <a href="/example/04-practico/">4: Descriptivos</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/05-practico/">5: Regresiones lineales, predictores categóricos y representación gráfica</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/06-practico/">6: Regresiones lineales, predictores categóricos y representación gráfica</a>
+      </li>
+
+      
     </ul>
     
 
@@ -773,7 +788,7 @@
 </ol>
 <h1 id="pasos-del-procesamiento">Pasos del procesamiento</h1>
 <h2 id="1-cargar-librerías">1. Cargar librerías</h2>
-<p>Primero instalamos <code>pacman</code> por única vez</p>
+<p>Primero instalamos <code>pacman</code>. Si ya lo hicieron <strong>no lo vuelvan a hacer</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;pacman&#34;</span>)
 <span style="color:#a6e22e">library </span>(pacman)
 </code></pre></div><p>Luego cargaremos así los paquetes. Les recordamos que cuando luego de un paquete ponemos <code>::</code> esto se refiere a que se <em>&ldquo;fuerza&rdquo;</em> que esa función provenga de <em>ese paquete</em></p>
@@ -782,7 +797,7 @@
                car,
                sjmisc)
 </code></pre></div><h2 id="2-cargar-base-de-datos">2. Cargar base de datos</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_dta</span>(<span style="color:#e6db74">&#34;../Rproject/input/Casen en Pandemia 2020 STATA.dta&#34;</span>) 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">datos <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_dta</span>(<span style="color:#e6db74">&#34;input/data/Casen en Pandemia 2020 STATA.dta&#34;</span>) 
 </code></pre></div><p>En el panel <strong>Environment</strong>, visualizamos el nuevo objeto, que posee 185.437 observaciones (o filas), y 650 variables (columnas)</p>
 <p>Recordemos que también podemos explorar la base de datos con las siguientes funciones.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># De paquete base</span>
@@ -1585,6 +1600,13 @@ TRUE ~ NA_real)</p>
                     <div class="article-widget">
                         
 <div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/example/04-practico/" rel="next">Descriptivos</a>
+  </div>
   
   
   
