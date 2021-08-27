@@ -62,12 +62,8 @@ pacman::p_load(sjmisc,
 Como se señaló anteriormente, en este práctico se trabajará con los datos de la **Encuesta Suplementaria de Ingresos (ESI)** en su versión 2020. Esta se encuentra en la carpeta "input/data", en formato .rds, habiendo sido procesada anteriormente. Por ello, empleamos la función `readRDS()` de la librería `base` de R.
 
 ```{r, echo = F }
-load(url("https://github.com/learn-R/09-class/raw/main/output/data/datos_proc.RData"))
+datos <- readRDS(url("https://github.com/learn-R/09-class/raw/main/output/data/datos_proc.rds"))
 
-```
-
-```{r readRDS, echo=TRUE, eval = F}
-datos <- readRDS("../input/data/datos_proc.rds")
 ```
 
 Podemos darnos cuenta de que el set de datos presenta 71.935 observaciones (o filas), y 4 variables (o columnas), que incluyen a las variables `ingresos`, `educacion`, `sexo` y `edad`.
@@ -76,7 +72,7 @@ Podemos darnos cuenta de que el set de datos presenta 71.935 observaciones (o fi
 
 A continuación, usaremos la función `view_df()` del paquete `sjPlot`, que presenta un resumen de las variables contenidas en el set de datos, que nos permitirá identificar la _etiqueta_ de cada variable y de cada una de sus alternativas de respuesta. 
 
-```{r view-df, echo=TRUE, message=FALSE}
+```{r view-df, message=FALSE}
 sjPlot::view_df(datos,
                 encoding = 'UTF-8')
 ```
@@ -87,7 +83,7 @@ Podemos ver que tenemos dos variables cuantitativas (`ingresos` y `edad`), y dos
 
 Primero, debemos cerciorarnos de que el nivel de medición corresponda con el datatype de cada columna. Para ello, emplearemos el comando `class()` del paquete `base` de R.
 
-```{r class, echo=T, include=F}
+```{r class, include=F}
 class(datos$ingresos)
 class(datos$educacion)
 class(datos$sexo)
@@ -96,7 +92,7 @@ class(datos$edad)
 
 Las variables `ingresos` y `edad` presentan un `class()` de tipo `numeric`, por lo cual no es necesario realizar modificaciones. Sin embargo, las variables `educacion` y `sexo` deben ser transformadas en `factor` para trabajar con ellas de manera adecuada. Para ello, empleamos la función `as_factor()` del paquete `haven`. Una de las ventajas de esta función es que nos permite **mantener las etiquetas** de nuestras variables.
 
-```{r factor, echo=T, include=F}
+```{r factor, include=F}
 datos$educacion <- as_factor(datos$educacion)
 class(datos$educacion)
 datos$sexo <- as_factor(datos$sexo)
@@ -107,7 +103,7 @@ class(datos$sexo)
 
 La variable `educacion` presenta la categoría de respuesta `Nivel ignorado`, que realmente presenta casos perdidos. Para ello, usaremos la función `recode()` de la librería `car`, para transformar tales valores en `NA`. Asimismo, se unificarán las categorías `Educación primaria (nivel 1)` y `Educación primaria (nivel 2)`; y renombraremos `Educación técnica (Educación superior no universitaria)` como `Educación técnica` para facilitar el análisis. También nos damos cuenta de que las niveles (`levels`) de la variable no están ordenados de menor a mayor nivel educacional, por lo cual utilizaremos el argumento `levels` de la función `as.factor` del paquete `base` de R, para ordenarlos de forma adecuada. 
 
-```{r recode, echo=T}
+```{r recode}
 datos$educacion <- car::recode(datos$educacion, recodes = c("'Nivel ignorado' = NA; 
                                                   c('Educación primaria (nivel 1)', 'Educación primaria (nivel 2)') = 'Educación primaria'; 
                                                   'Educación técnica (Educación superior no universitaria)' = 'Educación técnica'")) 
@@ -126,7 +122,7 @@ datos$educacion <- factor(datos$educacion, levels = c('Nunca estudió',
 
 Como señalamos al inicio del práctico, la **variable dependiente** de este modelo de regresión logística será una dicotomización de la variable ingresos. Esta se construirá codificando como `1` a todas aquellas personas cuyos ingresos sean mayores a la media de ingresos, y como `0` a todas las otras personas. Para ello, emplearemos la función `ifelse()` del paquete `base` de R, a modo de generar una variable condicional a partir de lo anteriormente. Empleamos la función `factor()` para transformarla en tal tipo de dato.
 
-```{r crear-dependiente, echo=T}
+```{r crear-dependiente}
 datos$ingresos_d <- ifelse(datos$ingresos>mean(datos$ingresos), 1, 0)
 ```
 
@@ -135,7 +131,7 @@ datos$ingresos_d <- ifelse(datos$ingresos>mean(datos$ingresos), 1, 0)
 Una vez realizado lo anterior, es momento de generar nuestro modelo de regresión logística. Emplearemos la función `glm()` del paquete base de `R`, especificando el argumento `family` como `"binomial"`. Lo primero es especificar las variables con las cuales construiremos el modelo: antes de la virgulilla (~) escribiremos nuestra variable dependiente (en este caso, `ingresos_d`), y luego, las variables independientes (aquí, `educacion`, `sexo` y `edad`), separadas con un signo más (+).
 
 
-```{r modelo-log, echo=T, message=F}
+```{r modelo-log, message=F}
 modelo <- glm(ingresos_d~educacion+sexo+edad, data = datos, family = "binomial")
 ```
 
@@ -145,7 +141,7 @@ Como podemos ver, se ha creado en nuestro entorno (Environment) un objeto llamad
 
 A continuación, visualizaremos el modelo con el comando `tab_model()` de la librería `sjPlot`. Por defecto, para las medidas de ajuste, se presenta el R^^2 de Tjur (Pseudo-R^^2)
 
-```{r tabla, results= 'asis', echo=T, message=F}
+```{r tabla, message=F}
 sjPlot::tab_model(modelo, 
                   show.ci=FALSE, 
                   p.style = "stars", 
@@ -156,13 +152,13 @@ sjPlot::tab_model(modelo,
 
 Para el caso de las variables categóricas (que han sido transformadas a tipo `factor`), R toma como categoría de referencia al primer nivel (`level`) de la variable. En el caso de `educacion`, por ejemplo, la categoría de referencia es _Nunca estudió_; y para `sexo`, la categoría de referencia es _Hombre_. Sin embargo, podemos emplear la función `relevel` para establecer una nueva categoría de referencia para una variable en particular. Probemos estableciendo la categoría _Mujer_ como la referencia para la variable `sexo`:
 
-```{r relevel, echo=TRUE}
+```{r relevel}
 datos$sexo <- relevel(datos$sexo, ref = 'Mujer')
 ```
 
 Volvemos a generar y visualizar el modelo, creando un nuevo objeto llamado `modelo_r`, y visualizando ambos con `tab_model()`
 
-```{r modelo-relevel, results= 'asis', echo=T, message=F}
+```{r modelo-relevel, message=F}
 modelo_r <- glm(ingresos_d~educacion+sexo+edad, data = datos, family = "binomial")
 sjPlot::tab_model(list(modelo, modelo_r), 
                   show.ci=FALSE, 
@@ -179,7 +175,7 @@ Podemos darnos cuenta de que el _output_ de este código incluye a ambos modelos
 No obstante, por defecto el comando `tab_model()` arroja los coeficientes como **logaritmos de las chanches** (Log-odds), lo cual dificulta la interpretación de los coeficientes. Para que el output de la tabla se presente como **Odds-ratio**, debemos especificar el argumento `transform = "exp"` 
 
 
-```{r tabla-odds, results= 'asis', echo=T, message=F}
+```{r tabla-odds, message=F}
 sjPlot::tab_model(modelo,
                   transform = "exp",
                   show.ci=FALSE,
@@ -191,7 +187,7 @@ sjPlot::tab_model(modelo,
 
 También podemos graficar la significancia estadística de nuestros coeficientes, con `plot_model()` de `sjPlot`. Por defecto, esta función presenta los coeficientes como Odds-ratio
 
-```{r plot-sig, echo=T}
+```{r plot-sig}
 plot_model(modelo,
            ci.lvl = (0.95),
            title = "Estimación de predictores",
@@ -199,3 +195,7 @@ plot_model(modelo,
            show.values = TRUE)+ 
   theme_sjplot()
 ```
+
+## Resumen
+
+En este práctico, aprendimos a generar modelos de regresión logística, presentando los coeficientes en Log-Odds y Odds-ratio, y a graficar la significación estadística de tales coeficientes. 
