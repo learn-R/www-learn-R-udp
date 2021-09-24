@@ -29,9 +29,7 @@
   
     
   
-  <meta name="description" content="DAGs with dagitty.net The easiest way to quickly build DAGs and find adjustment sets and testable implications is to use dagitty.net.
-This video shows how to use it:
-DAGs with R, ggdag, and dagitty You can use the ggdag and dagitty packages in R to build and work with DAGs too." />
+  <meta name="description" content="0. Objetivo del práctico Este práctico tiene por objetivo introducir el trabajo estadístico con muestras complejas en R, es decir, cuando se trabaja con muestras que busquen ser representativas de la población a estudiar, bajo determinados parámetros." />
 
   
   <link rel="alternate" hreflang="en-us" href="/example/07-practico/" />
@@ -289,19 +287,17 @@ This video shows how to use it:
   
   <meta property="og:site_name" content="Análisis Estadístico en R" />
   <meta property="og:url" content="/example/07-practico/" />
-  <meta property="og:title" content="Muestras complejas | Análisis Estadístico en R" />
-  <meta property="og:description" content="DAGs with dagitty.net The easiest way to quickly build DAGs and find adjustment sets and testable implications is to use dagitty.net.
-This video shows how to use it:
-DAGs with R, ggdag, and dagitty You can use the ggdag and dagitty packages in R to build and work with DAGs too." /><meta property="og:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" />
+  <meta property="og:title" content="Muestras complejas y precisión de inferencia estadística | Análisis Estadístico en R" />
+  <meta property="og:description" content="0. Objetivo del práctico Este práctico tiene por objetivo introducir el trabajo estadístico con muestras complejas en R, es decir, cuando se trabaja con muestras que busquen ser representativas de la población a estudiar, bajo determinados parámetros." /><meta property="og:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" />
     <meta property="twitter:image" content="/media/logo_huf86d8ced048d44efc1d17dd7629eaab0_19307_300x300_fit_lanczos_2.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2021-09-27T00:00:00&#43;00:00"
+        content="2021-09-16T00:00:00&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2021-09-27T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2021-09-16T00:00:00&#43;00:00">
   
 
   
@@ -328,7 +324,7 @@ This video shows how to use it:
   <meta name="msapplication-TileImage" content="/img/mstile-144x144.png" />
 
 
-  <title>Muestras complejas | Análisis Estadístico en R</title>
+  <title>Muestras complejas y precisión de inferencia estadística | Análisis Estadístico en R</title>
 </head>
 
 
@@ -625,21 +621,21 @@ This video shows how to use it:
 
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" >Información general</a>
-
-  </div>
-  
-  <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/example/01-datos/">Datos</a>
+    <a class="docs-toc-link" href="/example/">Información general</a>
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/example/01-datos/">1: Synthetic data</a>
+        <a href="/example/">Prácticos (códigos de ejemplo)</a>
       </li>
 
       
     </ul>
     
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" >Datos</a>
 
   </div>
   
@@ -648,52 +644,37 @@ This video shows how to use it:
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/example/01-practico/">1: R, RStudio y Github</a>
+        <a href="/example/01-practico/">1: R, RStudio e instalar paquetes</a>
       </li>
 
       
       <li >
-        <a href="/example/02-practico/">2: R, RStudio y tidyverse</a>
+        <a href="/example/02-practico/">2: Importar, explorar y limpiar datos</a>
       </li>
 
       
       <li >
-        <a href="/example/03-practico/">3: Importar, explorar y limpiar datos</a>
+        <a href="/example/03-practico/">3: Transformar y seleccionar variables</a>
       </li>
 
       
       <li >
-        <a href="/example/04-practico/">4: Tranformar y seleccionar variables</a>
+        <a href="/example/04-practico/">4: Descriptivos</a>
       </li>
 
       
       <li >
-        <a href="/example/05-practico/">5: Transformación de datos</a>
+        <a href="/example/05-practico/">5: Regresiones lineales, predictores categóricos y representación gráfica</a>
       </li>
 
       
       <li >
-        <a href="/example/06-practico/">6: Análisis descriptivo</a>
+        <a href="/example/06-practico/">6: Regresiones lineales, predictores categóricos y representación gráfica</a>
       </li>
 
       
       <li class="active">
-        <a href="/example/07-practico/">7: Muestras complejas</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/09-practico/">9: Regresiones lineales</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/10-practico/">10: Regresiones logísticas</a>
-      </li>
-
-      
-      <li >
-        <a href="/example/11-practico/">11: Calidad de modelos y otras técnicas de estimación</a>
+        <a href="/example/07-practico/">7: Muestras complejas y precisión de inferencia estadística</a>
       </li>
 
       
@@ -708,43 +689,13 @@ This video shows how to use it:
         </div>
 
         
-        <div class="d-none d-xl-block col-xl-2 docs-toc">
-            <ul class="nav toc-top">
-                <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
-            </ul>
-
-            <nav id="TableOfContents">
-  <ul>
-    <li><a href="#dags-with-dagittynet">DAGs with dagitty.net</a></li>
-    <li><a href="#dags-with-r-ggdag-and-dagitty">DAGs with R, ggdag, and dagitty</a>
-      <ul>
-        <li><a href="#live-coding-example">Live coding example</a></li>
-        <li><a href="#basic-dags">Basic DAGs</a></li>
-        <li><a href="#layouts-and-manual-coordinates">Layouts and manual coordinates</a></li>
-        <li><a href="#node-names-and-labels">Node names and labels</a></li>
-        <li><a href="#paths-and-adjustment-sets">Paths and adjustment sets</a></li>
-        <li><a href="#plot-dag-from-dagittynet-with-ggdag">Plot DAG from dagitty.net with <code>ggdag()</code></a></li>
-      </ul>
-    </li>
-    <li><a href="#mosquito-net-example">Mosquito net example</a>
-      <ul>
-        <li><a href="#conditional-independencies">Conditional independencies</a></li>
-        <li><a href="#mosquito-net-adjustment-sets">Mosquito net adjustment sets</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
- 
-        </div>
-        
 
         <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
 
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Muestras complejas</h1>
+                    <h1>Muestras complejas y precisión de inferencia estadística</h1>
 
                     
 
@@ -753,263 +704,374 @@ This video shows how to use it:
                     
 
                     <div class="article-style">
-                        <h2 id="dags-with-dagittynet">DAGs with dagitty.net</h2>
-<p>The easiest way to quickly build DAGs and find adjustment sets and testable implications is to use <a href="http://dagitty.net/" target="_blank" rel="noopener">dagitty.net</a>.</p>
-<p>This video shows how to use it:</p>
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3euqrnD9w7c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<h2 id="dags-with-r-ggdag-and-dagitty">DAGs with R, ggdag, and dagitty</h2>
-<p>You can use the <a href="https://ggdag.malco.io/" target="_blank" rel="noopener"><strong>ggdag</strong></a> and <a href="http://dagitty.net/primer/" target="_blank" rel="noopener"><strong>dagitty</strong></a> packages in R to build and work with DAGs too. I typically draw an initial DAG in my browser with dagitty.net and then I rewrite it in code in R so that it&rsquo;s more official and formal and reproducible.</p>
-<h3 id="live-coding-example">Live coding example</h3>
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uoAjyyToUTE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<h3 id="basic-dags">Basic DAGs</h3>
-<p><em>(This is a heavily cleaned up and annotated version of the code from the video.)</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Load packages</span>
-<span style="color:#a6e22e">library</span>(tidyverse)  <span style="color:#75715e"># For dplyr, ggplot, and friends</span>
-<span style="color:#a6e22e">library</span>(ggdag)      <span style="color:#75715e"># For plotting DAGs</span>
-<span style="color:#a6e22e">library</span>(dagitty)    <span style="color:#75715e"># For working with DAG logic</span>
-</code></pre></div><p>The general process for making and working with DAGs in R is to create a DAG object with <code>dagify()</code> and then plot it with <code>ggdag()</code>. The documentation for <strong>ggdag</strong> is really good and helpful and full of examples. Check these pages for all sorts of additional details:</p>
-<ul>
-<li><a href="https://ggdag.malco.io/articles/intro-to-ggdag.html" target="_blank" rel="noopener">&ldquo;An introduction to ggdag&rdquo;</a></li>
-<li><a href="https://ggdag.malco.io/articles/intro-to-dags.html" target="_blank" rel="noopener">&ldquo;An introduction to directed acyclic graphs&rdquo;</a></li>
-<li><a href="https://ggdag.malco.io/reference/index.html" target="_blank" rel="noopener">List of all ggdag-related functions</a></li>
-</ul>
-<p>The syntax for <code>dagify()</code> is similar to the formula syntax you&rsquo;ve been using for building regression models with <code>lm()</code>. The formulas you use in <code>dagify()</code> indicate the relationships between nodes.</p>
-<p>For instance, in this DAG, <code>y</code> is caused by <code>x</code>, <code>a</code>, and <code>b</code> (<code>y ~ x + a + b</code>), and <code>x</code> is caused by <code>a</code> and <code>b</code> (<code>x ~ a + b</code>). This means that <code>a</code> and <code>b</code> are confounders. Use the <code>exposure</code> and <code>outcome</code> arguments to specify which nodes are the exposure (or treatment/intervention/program) and the outcome.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Create super basic DAG</span>
-simple_dag <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  y <span style="color:#f92672">~</span> x <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> b,
-  x <span style="color:#f92672">~</span> a <span style="color:#f92672">+</span> b,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>
-)
-
-<span style="color:#75715e"># Adding a theme_dag() layer to the plot makes it have a white background with no axis labels</span>
-<span style="color:#a6e22e">ggdag</span>(simple_dag) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/07-practico_files/figure-html/super-basic-dag-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>If you want to plot which nodes are the exposure and outcome, use <code>ggdag_status()</code> instead:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_status</span>(simple_dag) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/07-practico_files/figure-html/simple-status-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h3 id="layouts-and-manual-coordinates">Layouts and manual coordinates</h3>
-<p>Notice how the layout is different in both of those graphs. By default, <code>ggdag()</code> positions the nodes randomly every time using a network algorithm. You can change the algorithm by using the <code>layout</code> argument: <code>ggdag(simple_dag, layout = &quot;nicely&quot;)</code>. You can see a full list of possible algorithms by running <code>?layout_tbl_graph_igraph</code> in the console.</p>
-<p>Alternatively, you can specify your own coordinates so that the nodes are positioned in the same place every time. Do this with the <code>coords</code> argument in <code>dagify()</code>.</p>
-<p>The best way to figure out what these numbers should be is to draw the DAG on paper or on a whiteboard and add a grid to it and then figure out the coordinates. For instance, in this DAG there are three rows and three columns: <code>x</code> and <code>y</code> go in the middle row (row 2) while <code>a</code> and <code>b</code> go in the middle column (column 2). It can also be helpful to not include <code>theme_dag()</code> at first so you can see the numbers for the underlying grid. Once you have everything positioned correctly, add <code>theme_dag()</code> to clean it up.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">simple_dag_with_coords <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  y <span style="color:#f92672">~</span> x <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> b,
-  x <span style="color:#f92672">~</span> a <span style="color:#f92672">+</span> b,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>,
-  coords <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(x <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>),
-                y <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>))
-)
-
-<span style="color:#a6e22e">ggdag_status</span>(simple_dag_with_coords) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/07-practico_files/figure-html/dag-with-coords-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h3 id="node-names-and-labels">Node names and labels</h3>
-<p>The variable names you use do not have to be limited to just <code>x</code>, <code>y</code>, and other lowercase letters. You can any names you want, as long as there are no spaces.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">dag_with_var_names <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  outcome <span style="color:#f92672">~</span> treatment <span style="color:#f92672">+</span> confounder1 <span style="color:#f92672">+</span> confounder2,
-  treatment <span style="color:#f92672">~</span> confounder1 <span style="color:#f92672">+</span> confounder2,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;treatment&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;outcome&#34;</span>
-)
-
-<span style="color:#a6e22e">ggdag_status</span>(dag_with_var_names) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/07-practico_files/figure-html/dag-with-names-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>However, unless you use very short names, it is likely that the text will not fit inside the nodes. To get around this, you can add labels to the nodes using the <code>labels</code> argument in <code>dagify()</code>. Plot the labels by setting <code>use_labels = &quot;label&quot;</code> in <code>ggdag()</code>. You can turn off the text in the nodes with <code>text = FALSE</code> in <code>ggdag()</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">simple_dag_with_coords_and_labels <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  y <span style="color:#f92672">~</span> x <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> b,
-  x <span style="color:#f92672">~</span> a <span style="color:#f92672">+</span> b,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>,
-  labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Outcome&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Treatment&#34;</span>,
-             a <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Confounder 1&#34;</span>, b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Confounder 2&#34;</span>),
-  coords <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(x <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>),
-                y <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>))
-)
-
-<span style="color:#a6e22e">ggdag_status</span>(simple_dag_with_coords_and_labels,
-             use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;label&#34;</span>, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">guides</span>(fill <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>  <span style="color:#75715e"># Disable the legend</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/07-practico_files/figure-html/dag-with-labels-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h3 id="paths-and-adjustment-sets">Paths and adjustment sets</h3>
-<p>R can also perform analysis on DAG objects. For example, we can find all the testable implications from the DAG using the <code>impliedConditionalIndependencies()</code> function from the <strong>dagitty</strong> package. For this simple DAG, there is only one: <code>a</code> should be independent of <code>b</code>. If we had a dataset with columns for each of these variables, we could check if this is true by running <code>cor(a, b)</code> to see if the two are related.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">impliedConditionalIndependencies</span>(simple_dag)
-<span style="color:#75715e">## a _||_ b</span>
-</code></pre></div><p>We can also find all the paths between <code>x</code> and <code>y</code> using the <code>paths()</code> function from the <strong>dagitty</strong> package. We can see that there are three open paths between <code>x</code> and <code>y</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">paths</span>(simple_dag)
-<span style="color:#75715e">## $paths</span>
-<span style="color:#75715e">## [1] &#34;x -&gt; y&#34;      &#34;x &lt;- a -&gt; y&#34; &#34;x &lt;- b -&gt; y&#34;</span>
-<span style="color:#75715e">## </span>
-<span style="color:#75715e">## $open</span>
-<span style="color:#75715e">## [1] TRUE TRUE TRUE</span>
-</code></pre></div><p>The first open path is fine—we want a single <em>d</em>-connected relationship between treatment and outcome—but the other two indicate that there is confounding from <code>a</code> and <code>b</code>. We can see what each of these paths are with the <code>ggdag_paths()</code> function from the <strong>ggdag</strong> package:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_paths</span>(simple_dag_with_coords) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/07-practico_files/figure-html/plot-dag-paths-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Instead of listing out all the possible paths and identifying backdoors by hand, you can use the <code>adjustmentSets()</code> function in the <strong>dagitty</strong> package to programmatically find all the nodes that need to be adjusted. Here we see that both <code>a</code> and <code>b</code> need to be controlled for to isolate the <code>x -&gt; y</code> relationship.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">adjustmentSets</span>(simple_dag)
-<span style="color:#75715e">## { a, b }</span>
-</code></pre></div><p>You can also visualize the adjustment sets with <code>ggdag_adjustment_set()</code> in the <strong>ggdag</strong> package. Make sure you set <code>shadow = TRUE</code> to draw the arrows coming out of the adjusted nodes—by default, those are not included.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_adjustment_set</span>(simple_dag_with_coords, shadow <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/07-practico_files/figure-html/plot-adjustment-sets-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>R will find minimally sufficient adjustment sets, which includes the fewest number of adjustments needed to close all backdoors between <code>x</code> and <code>y</code>. In this example DAG there was only one set of variables (<code>a</code> and <code>b</code>), but in other situations there could be many possible sets, or none if the causal effect is not identifiable.</p>
-<h3 id="plot-dag-from-dagittynet-with-ggdag">Plot DAG from dagitty.net with <code>ggdag()</code></h3>
-<p>If you use <a href="http://dagitty.net/" target="_blank" rel="noopener">dagitty.net</a> to draw a DAG, you&rsquo;ll notice that it generates some code for you in the model code section:</p>
-<p><img src="/img/example/dagitty-code.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>You can copy that <code>dag{ ... }</code> code and paste it into R to define a DAG object rather than use the <code>dagify()</code> function. To do this, use the <code>dagitty()</code> function from the <strong>dagitty</strong> library and include the whole generated model code in single quotes (<code>''</code>):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">model_from_dagitty <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagitty</span>(<span style="color:#e6db74">&#39;dag {
-</span><span style="color:#e6db74">bb=&#34;0,0,1,1&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; [pos=&#34;0.809,0.306&#34;]
-</span><span style="color:#e6db74">&#34;Another confounder&#34; [pos=&#34;0.810,0.529&#34;]
-</span><span style="color:#e6db74">&#34;Some outcome&#34; [outcome,pos=&#34;0.918,0.432&#34;]
-</span><span style="color:#e6db74">&#34;Some treatment&#34; [exposure,pos=&#34;0.681,0.426&#34;]
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Some treatment&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">}
-</span><span style="color:#e6db74">&#39;</span>)
-
-<span style="color:#a6e22e">ggdag</span>(model_from_dagitty) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/07-practico_files/figure-html/code-from-dagitty-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>By default it&rsquo;s going to look ugly because (1) the node labels don&rsquo;t fit, and (2) slight differences in the coordinates make it so the nodes don&rsquo;t perfectly align with each other. To fix coordinate alignment, you can modify the numbers in the generated DAG code. Here I rounded the numbers so that they&rsquo;re all 0.3, 0.8, etc.</p>
-<p>To fix the label issue, you can add the <code>use_labels</code> argument like normally. Only here, you can&rsquo;t specify <code>use_labels = &quot;label&quot;</code>. Instead, when you specify a DAG using dagitty&rsquo;s code like this, the column in the underlying dataset that contains the labels is named <code>name</code>, so you need to use <code>use_labels = &quot;name&quot;</code>.</p>
-<p>Other <code>ggdag()</code> variations like <code>ggdag_status()</code> will still work fine.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">model_from_dagitty_rounded <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagitty</span>(<span style="color:#e6db74">&#39;dag {
-</span><span style="color:#e6db74">bb=&#34;0,0,1,1&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; [pos=&#34;0.8,0.3&#34;]
-</span><span style="color:#e6db74">&#34;Another confounder&#34; [pos=&#34;0.8,0.5&#34;]
-</span><span style="color:#e6db74">&#34;Some outcome&#34; [outcome,pos=&#34;0.9,0.4&#34;]
-</span><span style="color:#e6db74">&#34;Some treatment&#34; [exposure,pos=&#34;0.7,0.4&#34;]
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;A confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">&#34;Another confounder&#34; -&gt; &#34;Some treatment&#34;
-</span><span style="color:#e6db74">&#34;Some treatment&#34; -&gt; &#34;Some outcome&#34;
-</span><span style="color:#e6db74">}
-</span><span style="color:#e6db74">&#39;</span>)
-
-<span style="color:#a6e22e">ggdag_status</span>(model_from_dagitty_rounded, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">guides</span>(color <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>  <span style="color:#75715e"># Turn off legend</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/07-practico_files/figure-html/code-from-dagitty-better-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<h2 id="mosquito-net-example">Mosquito net example</h2>
-<h3 id="conditional-independencies">Conditional independencies</h3>
-<p>You can test if your stated relationships are correct by looking at the conditional independencies that are implied by the DAG. In dagitty.net, these appear in the sidebar in the &ldquo;Testable implications&rdquo; section. To show how this works, we&rsquo;ll use a simulated dataset that I generated about a fictional mosquito net program. Download the data here if you want to follow along:</p>
-<ul>
-<li><a href="/data/mosquito_nets.csv"><i class="fas fa-table"></i> <code>mosquito_nets.csv</code></a></li>
-</ul>
-<p>Researchers are interested in whether using mosquito nets decreases an individual&rsquo;s risk of contracting malaria. They have collected data from 1,752 households in an unnamed country and have variables related to environmental factors, individual health, and household characteristics. Additionally, this country has a special government program that provides free mosquito nets to households that meet specific requirements: to qualify for the program, there must be more than 4 members of the household, and the household&rsquo;s monthly income must be lower than $700 a month. Households are not automatically enrolled in the program, and many do not use it. The data is not experimental—researchers have no control over who uses mosquito nets, and individual households make their own choices over whether to apply for free nets or buy their own nets, as well as whether they use the nets if they have them.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">mosquito_dag <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dagify</span>(
-  malaria_risk <span style="color:#f92672">~</span> net <span style="color:#f92672">+</span> income <span style="color:#f92672">+</span> health <span style="color:#f92672">+</span> temperature <span style="color:#f92672">+</span> resistance,
-  net <span style="color:#f92672">~</span> income <span style="color:#f92672">+</span> health <span style="color:#f92672">+</span> temperature <span style="color:#f92672">+</span> eligible <span style="color:#f92672">+</span> household,
-  eligible <span style="color:#f92672">~</span> income <span style="color:#f92672">+</span> household,
-  health <span style="color:#f92672">~</span> income,
-  exposure <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;net&#34;</span>,
-  outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;malaria_risk&#34;</span>,
-  coords <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(x <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(malaria_risk <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>, net <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, income <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>, health <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>,
-                      temperature <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>, resistance <span style="color:#f92672">=</span> <span style="color:#ae81ff">8.5</span>, eligible <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, household <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>),
-                y <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(malaria_risk <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, net <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, income <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, health <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>,
-                      temperature <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, resistance <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, eligible <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, household <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)),
-  labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(malaria_risk <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Risk of malaria&#34;</span>, net <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mosquito net&#34;</span>, income <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Income&#34;</span>,
-             health <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Health&#34;</span>, temperature <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Nighttime temperatures&#34;</span>,
-             resistance <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Insecticide resistance&#34;</span>,
-             eligible <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Eligible for program&#34;</span>, household <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number in household&#34;</span>)
-)
-
-<span style="color:#a6e22e">ggdag_status</span>(mosquito_dag, use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;label&#34;</span>, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">guides</span>(fill <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, color <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>  <span style="color:#75715e"># Disable the legend</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/07-practico_files/figure-html/build-mosquito-dag-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>The causal graph above  outlines the complete relationship between mosquito net use and risk of malaria. Each node in the DAG is a column in the dataset collected by the researchers, and includes the following:</p>
-<ul>
-<li>Malaria risk (<code>malaria_risk</code>): The likelihood that someone in the household will be infected with malaria. Measured on a scale of 0–100, with higher values indicating higher risk.</li>
-<li>Mosquito net (<code>net</code> and <code>net_num</code>): A binary variable indicating if the household used mosquito nets.</li>
-<li>Eligible for program (<code>eligible</code>): A binary variable indicating if the household is eligible for the free net program.</li>
-<li>Income (<code>income</code>): The household&rsquo;s monthly income, in US dollars.</li>
-<li>Nighttime temperatures (<code>temperature</code>): The average temperature at night, in Celsius.</li>
-<li>Health (<code>health</code>): Self-reported healthiness in the household. Measured on a scale of 0–100, with higher values indicating better health.</li>
-<li>Number in household (<code>household</code>): Number of people living in the household.</li>
-<li>Insecticide resistance (<code>resistance</code>): Some strains of mosquitoes are more resistant to insecticide and thus pose a higher risk of infecting people with malaria. This is measured on a scale of 0–100, with higher values indicating higher resistance.</li>
-</ul>
-<p>According to the DAG, malaria risk is caused by income, temperatures, health, insecticide resistance, and mosquito net use. People who live in hotter regions, have lower incomes, have worse health, are surrounded by mosquitoes with high resistance to insecticide, and who do not use mosquito nets are at higher risk of contracting malaria than those who do not. Mosquito net use is caused by income, nighttime temperatures, health, the number of people living in the house, and eligibility for the free net program. People who live in areas that are cooler at night, have higher incomes, have better health, have more people in the home, and are eligible for free government nets are more likely to regularly use nets than those who do not. The DAG also shows that eligibility for the free net program is caused by income and household size, since households must meet specific thresholds to qualify.</p>
-<p>First, let&rsquo;s download the dataset, put in a folder named <code>data</code>, and load it:</p>
-<ul>
-<li><a href="/data/mosquito_nets.csv"><i class="fas fa-table"></i> <code>mosquito_nets.csv</code></a></li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Load the data.</span>
-<span style="color:#75715e"># It&#39;d be a good idea to click on the &#34;mosquito_nets.csv&#34; object in the</span>
-<span style="color:#75715e"># Environment panel in RStudio to see what the data looks like after you load it</span>
-mosquito_nets <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;data/mosquito_nets.csv&#34;</span>)
-</code></pre></div><p>We can use this data to check if the relationships defined by our DAG reflect reality. Recall that <em>d</em>-separation implies that nodes are statistically independent of each other and do not transfer associational information. If you draw the mosquito net DAG with dagitty.net, or if you run <code>impliedConditionalIndependencies()</code> in R, you can see a list of all the implied conditional independencies.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">impliedConditionalIndependencies</span>(mosquito_dag)
-<span style="color:#75715e">## elgb _||_ hlth | incm</span>
-<span style="color:#75715e">## elgb _||_ mlr_ | hlth, incm, net, tmpr</span>
-<span style="color:#75715e">## elgb _||_ rsst</span>
-<span style="color:#75715e">## elgb _||_ tmpr</span>
-<span style="color:#75715e">## hlth _||_ hshl</span>
-<span style="color:#75715e">## hlth _||_ rsst</span>
-<span style="color:#75715e">## hlth _||_ tmpr</span>
-<span style="color:#75715e">## hshl _||_ incm</span>
-<span style="color:#75715e">## hshl _||_ mlr_ | hlth, incm, net, tmpr</span>
-<span style="color:#75715e">## hshl _||_ rsst</span>
-<span style="color:#75715e">## hshl _||_ tmpr</span>
-<span style="color:#75715e">## incm _||_ rsst</span>
-<span style="color:#75715e">## incm _||_ tmpr</span>
-<span style="color:#75715e">## net _||_ rsst</span>
-<span style="color:#75715e">## rsst _||_ tmpr</span>
-</code></pre></div><p>The <code>_||_</code> symbol in the output here is the <code>\(\perp\)</code> symbol, which means &ldquo;independent of&rdquo;. The <code>|</code> in the output means &ldquo;given&rdquo;.</p>
-<p>In the interest of space, we will not verify all these implied independencies, but we can test a few of them:</p>
-<ul>
+                        <h2 id="0-objetivo-del-práctico">0. Objetivo del práctico</h2>
+<p>Este práctico tiene por objetivo introducir el trabajo estadístico con <strong>muestras complejas en R</strong>, es decir, cuando se trabaja con muestras que busquen ser representativas de la población a estudiar, bajo determinados parámetros. Buscaremos calcular estimadores puntuales e intervalos de confianza, que nos permiten reportar el error asociado a la inferencia.</p>
+<h2 id="1-recursos-del-práctico">1. Recursos del práctico</h2>
+<p>El presente práctico será realizado con datos de la <em>Encuesta de Caracterización Socioeconómica (CASEN)</em> en su versión 2020. Estos datos ya han sido previamente procesados para su correcta realización, recodificando y eliminando casos perdidos, y renombrando y seleccionando variables. Esto es <strong>muy importante</strong>: para trabajar correctamente con muestreos complejos, <strong>deben</strong> asegurarse de que los datos estén bien preparados para ello.</p>
+<p>Recuerden siempre consultar el <a href="http://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2020/Libro_de_codigos_Base_de_Datos_Casen_en_Pandemia_2020.pdf" target="_blank" rel="noopener"><strong>manual/libro de códigos</strong></a> antes de trabajar una base de datos.</p>
+<h2 id="2-librerías-a-utilizar">2. Librerías a utilizar</h2>
+<p>Utilizaremos las siguientes librerías:</p>
+<ol>
 <li>
-<p><code>\(\text{Health} \perp \text{Household members}\)</code>: (Read as <em>&ldquo;Health is independent of household member count&rdquo;</em>.) Health should be independent of the number of people in each household. In the data, the two variables should not be correlated. This is indeed the case:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">cor</span>(mosquito_nets<span style="color:#f92672">$</span>health, mosquito_nets<span style="color:#f92672">$</span>household)
-<span style="color:#75715e">## [1] 9.8e-05</span>
-</code></pre></div></li>
+<p><code>pacman</code>: para facilitar y agilizar la lectura de los paquetes a utilizar en R</p>
+</li>
 <li>
-<p><code>\(\text{Income} \perp \text{Insecticide resistance}\)</code>: (Read as <em>&ldquo;Income is independent of insecticide resistance&rdquo;</em>.) Income should be independent of insecticide resistance. This is again true:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">cor</span>(mosquito_nets<span style="color:#f92672">$</span>income, mosquito_nets<span style="color:#f92672">$</span>resistance)
-<span style="color:#75715e">## [1] 0.014</span>
-</code></pre></div></li>
+<p><code>sjmisc</code>: para explorar datos</p>
+</li>
 <li>
-<p><code>\(\text{Malaria risk} \perp \text{Household members}\ |\ \text{Health, Income, Bed net use, Temperature}\)</code>: (Read as <em>&ldquo;Malaria risk is independent of house member count given health, income, bed net use, and temperature&rdquo;</em>.) Malaria risk should be independent of the number of household members given similar levels of health, income, mosquito net use, and nighttime temperatures. We cannot use <code>cor()</code> to test this implication, since there are many variables involved, but we can use a regression model to check if the number of household members is significantly related to malaria risk. It is not significant ($t = -0.17$, <code>\(p = 0.863\)</code>), which means the two are independent, as expected.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">lm</span>(malaria_risk <span style="color:#f92672">~</span> household <span style="color:#f92672">+</span> health <span style="color:#f92672">+</span> income <span style="color:#f92672">+</span> net <span style="color:#f92672">+</span> temperature,
-   data <span style="color:#f92672">=</span> mosquito_nets) <span style="color:#f92672">%&gt;%</span>
-  broom<span style="color:#f92672">::</span><span style="color:#a6e22e">tidy</span>()
-<span style="color:#75715e">## # A tibble: 6 x 5</span>
-<span style="color:#75715e">##   term        estimate std.error statistic   p.value</span>
-<span style="color:#75715e">##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;</span>
-<span style="color:#75715e">## 1 (Intercept)  76.2      0.966      78.9   0.       </span>
-<span style="color:#75715e">## 2 household    -0.0155   0.0893     -0.173 8.63e-  1</span>
-<span style="color:#75715e">## 3 health        0.148    0.0107     13.9   9.75e- 42</span>
-<span style="color:#75715e">## 4 income       -0.0751   0.00104   -72.6   0.       </span>
-<span style="color:#75715e">## 5 netTRUE     -10.4      0.266     -39.2   2.63e-241</span>
-<span style="color:#75715e">## 6 temperature   1.01     0.0310     32.5   1.88e-181</span>
-</code></pre></div></li>
-</ul>
-<p>We can check all the other conditional independencies to see if the DAG captures the reality of the full system of factors that influence mosquito net use and malaria risk. If there are substantial and significant correlations between nodes that should be independent, there is likely an issue with the specification of the DAG. Return to the theory of how the phenomena are generated and refine the DAG more.</p>
-<h3 id="mosquito-net-adjustment-sets">Mosquito net adjustment sets</h3>
-<p>There is a direct path between mosquito net use and the risk of malaria, but the effect is not causally identified due to several other open paths. We can either list out all the paths and find which open paths have arrows pointing backwards into the mosquito net node (run <code>paths(mosquito_dag)</code> to see these results), or we can let R find the appropriate adjustment sets automatically:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">adjustmentSets</span>(mosquito_dag)
-<span style="color:#75715e">## { health, income, temperature }</span>
-</code></pre></div><p>Based on the relationships between all the nodes in the DAG, adjusting for health, income, and temperature is enough to close all backdoors and identify the relationship between net use and malaria risk. Importantly, we do not need to worry about any of the nodes related to the government program for free nets, since those nodes are not <em>d</em>-connected to malaria risk. We only need to worry about confounding relationships.</p>
-<p>We can confirm this graphically with <code>ggdag_adjustment_set()</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggdag_adjustment_set</span>(mosquito_dag, shadow <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>,
-                     use_labels <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;label&#34;</span>, text <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>) <span style="color:#f92672">+</span>
-  <span style="color:#a6e22e">theme_dag</span>()
-</code></pre></div><p><img src="/example/07-practico_files/figure-html/plot-mosquito-adjustment-fake-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p><code>srvyr</code>: para trabajar con objetos encuesta, y realizar cálculos en diálogo con <code>dplyr</code></p>
+</li>
+<li>
+<p><code>dplyr</code>: para manipular datos</p>
+</li>
+<li>
+<p><code>tidyr</code>: para pivotear la estructura de los datos</p>
+</li>
+</ol>
+<h1 id="pasos-del-procesamiento">Pasos del procesamiento</h1>
+<h2 id="1-cargar-librerías">1. Cargar librerías</h2>
+<p>Cargamos los paquetes anteriormente señalados:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pacman<span style="color:#f92672">::</span><span style="color:#a6e22e">p_load</span>(tidyverse,
+               sjmisc,
+               srvyr,
+               dplyr,
+               tidyr)
+</code></pre></div><h2 id="2-cargar-datos">2. Cargar datos</h2>
+<p>Como se señaló anteriormente, trabajaremos con datos de CASEN 2020, ya procesados con anterioridad</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">dim</span>(data)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 185339      7
+</code></pre></div><p>Como podemos ver, estos datos tienen 185.339 filas (observaciones), así como 7 columnas. Inspeccionemos:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">head</span>(data)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 6 x 7
+##     exp varunit varstrat region   pobreza   ing_tot_hog sexo  
+##   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;           &lt;dbl&gt; &lt;fct&gt; 
+## 1    67       3        1 Tarapacá No pobres      390833 Mujer 
+## 2    67       3        1 Tarapacá No pobres      390833 Mujer 
+## 3    67       3        1 Tarapacá No pobres      947583 Mujer 
+## 4    67       3        1 Tarapacá No pobres      947583 Hombre
+## 5    67       3        1 Tarapacá No pobres      947583 Mujer 
+## 6    67       3        1 Tarapacá No pobres     3004167 Hombre
+</code></pre></div><p>Tenemos tanto variables numéricas (exp, varunit, varstrat e ing_tot_hog) como factores (region, pobreza y sexo). ¡Explorémoslas!</p>
+<h2 id="3-explorar-datos">3. Explorar datos</h2>
+<p>Con <code>frq()</code> de <code>sjmisc</code>, exploraremos las categorías de las variables factor:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">frq</span>(data<span style="color:#f92672">$</span>region)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## x &lt;categorical&gt;
+## # total N=185339  valid N=185339  mean=8.79  sd=4.23
+## 
+## Value              |     N | Raw % | Valid % | Cum. %
+## -----------------------------------------------------
+## Tarapacá           |  8386 |  4.52 |    4.52 |   4.52
+## Antofagasta        |  7597 |  4.10 |    4.10 |   8.62
+## Atacama            |  7393 |  3.99 |    3.99 |  12.61
+## Coquimbo           |  8159 |  4.40 |    4.40 |  17.01
+## Valparaíso         | 18501 |  9.98 |    9.98 |  27.00
+## OHiggins           | 12346 |  6.66 |    6.66 |  33.66
+## Maule              | 12423 |  6.70 |    6.70 |  40.36
+## Biobío             | 17669 |  9.53 |    9.53 |  49.89
+## La Araucanía       | 11858 |  6.40 |    6.40 |  56.29
+## Los Lagos          | 10511 |  5.67 |    5.67 |  61.96
+## Aysén              |  4579 |  2.47 |    2.47 |  64.43
+## Magallanes         |  5087 |  2.74 |    2.74 |  67.18
+## Metropolitana      | 39266 | 21.19 |   21.19 |  88.37
+## Los Ríos           |  7992 |  4.31 |    4.31 |  92.68
+## Arica y Parinacota |  7224 |  3.90 |    3.90 |  96.57
+## Ñuble              |  6348 |  3.43 |    3.43 | 100.00
+## &lt;NA&gt;               |     0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">frq</span>(data<span style="color:#f92672">$</span>pobreza)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## x &lt;categorical&gt;
+## # total N=185339  valid N=185339  mean=2.84  sd=0.48
+## 
+## Value              |      N | Raw % | Valid % | Cum. %
+## ------------------------------------------------------
+## Pobres extremos    |   8439 |  4.55 |    4.55 |   4.55
+## Pobres no extremos |  12891 |  6.96 |    6.96 |  11.51
+## No pobres          | 164009 | 88.49 |   88.49 | 100.00
+## &lt;NA&gt;               |      0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">frq</span>(data<span style="color:#f92672">$</span>sexo)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## Sexo (x) &lt;categorical&gt;
+## # total N=185339  valid N=185339  mean=1.54  sd=0.50
+## 
+## Value  |     N | Raw % | Valid % | Cum. %
+## -----------------------------------------
+## Hombre | 86091 | 46.45 |   46.45 |  46.45
+## Mujer  | 99248 | 53.55 |   53.55 | 100.00
+## &lt;NA&gt;   |     0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+</code></pre></div><p>Como podemos ver, <em>region</em> provee información sobre la región a la que pertenecen los hogares; <em>pobreza</em> nos provee información respecto de la situación de pobreza por ingresos (o no) de los hogares; y <em>sexo</em>, información sobre el sexo de la persona que responde el cuestionario.</p>
+<p>Ahora vamos con <code>descr()</code> de <code>sjmisc</code> para las variables numéricas</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">descr</span>(data<span style="color:#f92672">$</span>exp) <span style="color:#75715e">#Ponderador regional</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## ## Basic descriptive statistics
+## 
+##  var    type label      n NA.prc   mean     sd   se md trimmed           range
+##   dd numeric    dd 185339      0 105.39 157.05 0.36 79   88.54 19042 (4-19046)
+##  iqr  skew
+##   78 70.57
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">sum</span>(data<span style="color:#f92672">$</span>exp) <span style="color:#75715e">#Total de la población</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## [1] 19532480
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">descr</span>(data<span style="color:#f92672">$</span>varstrat) <span style="color:#75715e">#Estrato de varianza</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## ## Basic descriptive statistics
+## 
+##  var    type label      n NA.prc   mean     sd   se  md trimmed       range iqr
+##   dd numeric    dd 185339      0 294.34 185.06 0.43 319  298.56 587 (1-588) 346
+##   skew
+##  -0.22
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">descr</span>(data<span style="color:#f92672">$</span>varunit) <span style="color:#75715e">#Conglomerado de varianza</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## ## Basic descriptive statistics
+## 
+##  var    type label      n NA.prc   mean     sd   se  md trimmed         range
+##   dd numeric    dd 185339      0 739.42 439.72 1.02 744  739.27 1493 (1-1494)
+##  iqr  skew
+##  778 -0.01
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">descr</span>(data<span style="color:#f92672">$</span>ing_tot_hog)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## 
+## ## Basic descriptive statistics
+## 
+##  var    type label      n NA.prc    mean      sd      se     md trimmed
+##   dd numeric    dd 185339      0 1085076 1574919 3658.26 731009  835756
+##                    range    iqr  skew
+##  225200000 (0-225200000) 785357 27.45
+</code></pre></div><p><em>ing_tot_hog</em> presenta información respecto de los ingresos totales de los hogares; <em>exp</em> es el ponderador regional, cuya suma es el número total de habitantes de la población objetivo; <em>varstrat</em> provee información sobre el estrato de varianza; y <em>varunit</em> sobre el conglomerado de varianza, es decir, la unidad mínima de observación que, en este caso, son los hogares. Estas últimas tres variables serán <strong>sumamente relevantes</strong> para este práctico.</p>
+<h2 id="4-cálculo-con-muestras-complejas">4. Cálculo con muestras complejas</h2>
+<p>Una vez explorados nuestros datos, es hora de empezar a realizar nuestros cálculos con muestras complejas. Para ello, lo primero es crear un <strong>objeto encuesta</strong> de modo que, posteriormente, podamos calcular promedios con nuestras variables cuantitativas, y proporciones para nuestras variables categóricas (entre muchos otros estimadores).</p>
+<h3 id="a-creación-de-objeto-encuesta-srvyr">a) Creación de objeto encuesta (srvyr)</h3>
+<p>Como ya se señaló, lo primero es crear un <strong>objeto encuesta (survey)</strong>. Este corresponde a una lista (<em>List</em>) que nos permitirá realizar los cálculos que deseemos, considerando las varables de diseño (en este caso, varunit, varstrat y exp). Para ello, utilizaremos la función <code>as_survey_design()</code> de la librería <code>srvyr</code>. Sin embargo, primero crearemos la variable <em>stratn</em>, para obtener la cantidad de personas por estrato a nivel poblacional</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">group_by</span>(varstrat) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupando por varstrat</span>
+  <span style="color:#a6e22e">mutate</span>(stratn <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span>(exp)) <span style="color:#75715e">#Calculamos el total de personas por estrato</span>
+</code></pre></div><p>Construimos el objeto encuesta:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Creamos un nuevo objeto llamado casen_regional con la información de data</span>
+  <span style="color:#a6e22e">as_survey_design</span>(ids <span style="color:#f92672">=</span> varunit, <span style="color:#75715e">#Aplicamos diseño muestral, especificando los ids a partir de varunit,</span>
+                   strata <span style="color:#f92672">=</span> varstrat,<span style="color:#75715e">#los estratos a partir de varstrat,</span>
+                   fpc <span style="color:#f92672">=</span> stratn, <span style="color:#75715e">#especificando que la estimación es con una población finita</span>
+                   weights <span style="color:#f92672">=</span> exp) <span style="color:#75715e">#y los ponderadores con exp</span>
+</code></pre></div><p>Fijándonos en nuestro entorno, nos daremos cuenta de que se creó una lista con 9 elementos llamada <strong>casen_regional</strong>. Si bien la información que nos entrega por sí sólo nos resulta algo críptica, este objeto nos permitirá realizar cálculos aplicando las variables de diseño muestral complejo. Algo interesante de los objetos encuesta creados con <code>srvyr</code>, es que podemos interactuar con las funciones de <code>dplyr</code>, como <code>group_by()</code> o <code>summarise()</code>. Es decir, <strong>nos permite trabajar con listas como si fueran un data frame</strong> (datos tabulados) incluyendo, por ejemplo, el uso de <em>metadata</em>.</p>
+<p><img src="https://github.com/learn-R/07-class/raw/main/input/img/img-list.png" alt=""></p>
+<p><em>cluster</em> nos presenta información sobre los conglomerados de varianza, o la unidad mínima de inferencia. <em>strata</em>, sobre los estratos de varianza, unidades que integran a los conglomerados de varianza. <em>prob</em> y <em>allprob</em> proveen información sobre la probabilidad de cada sujeto de ser seleccionado en una muestra al azar. <em>variables</em> nos presenta todas las variables incluidas en la lista. Por último, <em>fpc</em> provee información sobre los tamaños de la población y la muestra.</p>
+<h3 id="b-cálculo-de-medias-para-variables-numéricas">b) Cálculo de medias para variables numéricas</h3>
+<p>Una vez creado nuestro objeto encuesta, podemos realizar diversos tipos de cálculos. Calculemos, por ejemplo, la media de ingresos a nivel poblacional, con la función <code>survey_mean()</code> de <code>srvyr</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">summarise</span>(ing_medio <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_mean</span>(ing_tot_hog, na.rm<span style="color:#f92672">=</span>T)) <span style="color:#75715e">#Calculamos el ingreso medio poblacional</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">##   ing_medio ing_medio_se
+## 1   1156457     17959.72
+</code></pre></div><p>Comparemos con la media calculada a nivel muestral:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">data <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con data</span>
+  <span style="color:#a6e22e">summarise</span>(ing_medio <span style="color:#f92672">=</span> <span style="color:#a6e22e">mean</span>(ing_tot_hog, na.rm<span style="color:#f92672">=</span>T)) <span style="color:#75715e">#Calculamos el ingreso medio poblacional</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 293 x 2
+##    varstrat ing_medio
+##       &lt;dbl&gt;     &lt;dbl&gt;
+##  1        1  1273303.
+##  2        3   887193.
+##  3        4   888278.
+##  4        5   859793.
+##  5       10  1343414.
+##  6       15  1253377.
+##  7       18   955954.
+##  8       19   932739.
+##  9       22  1184469.
+## 10       23   804117.
+## # ... with 283 more rows
+</code></pre></div><p>Efectivamente, la estimación a nivel poblacional (o parámetro) es superior a la estimación muestral. Sin embargo, trabajar con muestras complejas siempre significará considerar un posible <strong>error de medición</strong>. El trabajar con muestras representativas (aunque no sean aleatorias) nos permitirá realizar nuestros cálculos, conociendo la probabilidad de equivocarnos en nuestra estimación. Es decir, podemos conocer el <strong>nivel de confianza</strong> (o el <strong>nivel de error</strong>) de nuestras estimaciones, a partir de ciertas características de la muestra.</p>
+<p>En virtud de ello, <code>survey_mean()</code> también nos permite incorporar los intervalos de confianza, especificando <code>vartype = &quot;ci&quot;</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span><span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">summarise</span>(ing_medio <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_mean</span>(ing_tot_hog, vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm<span style="color:#f92672">=</span>T)) <span style="color:#75715e">#Calculamos el </span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">##   ing_medio ing_medio_low ing_medio_upp
+## 1   1156457       1121220       1191694
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">                                                                           <span style="color:#75715e">#ingreso medio poblacional, </span>
+                                                                           <span style="color:#75715e">#y sus intervalos de confianza</span>
+</code></pre></div><p>El argumento <code>level = </code> nos permite especificar el nivel de confianza que estamos dispuestas/os a aceptar. Comparemos el cálculo de la media de ingresos a un 95% y a un 99% de confianza</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">summarise</span>(ing_medio95 <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_mean</span>(ing_tot_hog, vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, level <span style="color:#f92672">=</span> <span style="color:#ae81ff">.95</span>, na.rm<span style="color:#f92672">=</span>T), <span style="color:#75715e">#Al 95%</span>
+            ing_medio99 <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_mean</span>(ing_tot_hog, vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, level <span style="color:#f92672">=</span> <span style="color:#ae81ff">.99</span>, na.rm<span style="color:#f92672">=</span>T)) <span style="color:#75715e">#Al 99%</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">##   ing_medio95 ing_medio95_low ing_medio95_upp ing_medio99 ing_medio99_low
+## 1     1156457         1121220         1191694     1156457         1110121
+##   ing_medio99_upp
+## 1         1202794
+</code></pre></div><p>Trabajar con un mayor nivel de confianza nos permitirá estar más seguras/os de que nuestra estimación incluirá al parámetro poblacional. Sin embargo, esto no es gratis: un mayor nivel de confianza implica una <strong>pérdida de precisión</strong> en nuestros cálculos; y viceversa. Es decir, un mayor nivel de confianza ampliará los límites inferior y superior de nuestros intervalos de confianza, lo cual hace la estimación menos precisa, mientras que un menor nivel de confianza estrechará tales límites, haciendo la estimación más precisa. Sin embargo, en el primer caso, la probabilidad de contener al parámetro poblacional es mayor que en el segundo. La decisión del nivel de confianza con el cual trabajaremos dependerá de qué es lo que queramos calcular, y no es objeto de este curso.</p>
+<p>También es posible utilizar <code>group_by()</code> para calcular la media de ingresos (y sus intervalos de confianza) según sexo:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">group_by</span>(sexo) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por sexo</span>
+  <span style="color:#a6e22e">summarise</span>(ing_medio <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_mean</span>(ing_tot_hog, vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm<span style="color:#f92672">=</span>T)) <span style="color:#75715e">#Calculamos el ingreso medio </span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 2 x 4
+##   sexo   ing_medio ing_medio_low ing_medio_upp
+##   &lt;fct&gt;      &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+## 1 Hombre  1199636.      1165434.      1233837.
+## 2 Mujer   1119514.      1081919.      1157110.
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">                                                                           <span style="color:#75715e">#poblacional, y sus intervalos de </span>
+                                                                           <span style="color:#75715e">#confianza</span>
+</code></pre></div><p>Asimismo, es posible calcular la media de ingresos agrupando por región:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">group_by</span>(region) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por region</span>
+  <span style="color:#a6e22e">summarise</span>(ing_medio <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_mean</span>(ing_tot_hog, vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm<span style="color:#f92672">=</span>T)) <span style="color:#75715e">#Calculamos el ingreso medio </span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 16 x 4
+##    region             ing_medio ing_medio_low ing_medio_upp
+##    &lt;fct&gt;                  &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+##  1 Tarapacá            1141383.      1035448.      1247318.
+##  2 Antofagasta         1307063.      1187223.      1426903.
+##  3 Atacama             1077501.       995455.      1159547.
+##  4 Coquimbo             921887.       858537.       985238.
+##  5 Valparaíso          1014265.       952490.      1076040.
+##  6 OHiggins             951390.       882157.      1020624.
+##  7 Maule                863768.       801938.       925598.
+##  8 Biobío               945557.       892262.       998852.
+##  9 La Araucanía         836515.       782771.       890260.
+## 10 Los Lagos            967411.       902996.      1031826.
+## 11 Aysén               1252366.      1152001.      1352732.
+## 12 Magallanes          1458963.      1317465.      1600461.
+## 13 Metropolitana       1408060.      1330071.      1486049.
+## 14 Los Ríos             926921.       841025.      1012816.
+## 15 Arica y Parinacota   952832.       897814.      1007851.
+## 16 Ñuble                788551.       716981.       860122.
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">                                                                           <span style="color:#75715e">#poblacional, y sus intervalos de </span>
+                                                                           <span style="color:#75715e">#confianza</span>
+</code></pre></div><p>¿Y si quisiéramos crear una tabla con una columna por región, cuyas observaciones nos indiquen la media de ingreso para cada una de ellas? ¡Simplemente acudimos a <code>pivot_wider()</code> de <code>tidyr</code>!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">ing_region <span style="color:#f92672">&lt;-</span> casen_regional <span style="color:#f92672">%&gt;%</span> 
+  <span style="color:#a6e22e">group_by</span>(sexo) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por region</span>
+  <span style="color:#a6e22e">summarise</span>(ing_medio <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_mean</span>(ing_tot_hog, vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm<span style="color:#f92672">=</span>T)) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Calculamos el ingreso medio poblacional, y sus intervalos de confianza</span>
+  <span style="color:#a6e22e">select</span>(sexo, ing_medio) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Seleccionamos region e ing_medio</span>
+  <span style="color:#a6e22e">pivot_wider</span>(names_from <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sexo&#34;</span>, <span style="color:#75715e">#Pivoteamos, extrayendo los nombres de las columnas desde region</span>
+              values_from <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ing_medio&#34;</span>) <span style="color:#75715e">#Y los valores desde ing_medio</span>
+<span style="color:#a6e22e">head</span>(ing_region) <span style="color:#75715e">#Visualizamos</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 1 x 2
+##     Hombre    Mujer
+##      &lt;dbl&gt;    &lt;dbl&gt;
+## 1 1199636. 1119514.
+</code></pre></div><h3 id="c-cálculo-de-proporciones-para-variables-categóricas">c) Cálculo de proporciones para variables categóricas</h3>
+<p>También podemos utilizar la función <code>survey_prop()</code> de <code>srvyr</code> para calcular proporciones. Sin embargo, el código para calcular proporciones de variables categóricas <strong>no se construye de la misma manera</strong> que el código para calcular medias de variables continuas:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">summarise</span>(prop <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_prop</span>(pobreza, na.rm <span style="color:#f92672">=</span> T)) <span style="color:#75715e">#Y calculamos las proporciones</span>
+</code></pre></div><p>Debemos recurrir a <code>group_by()</code> para especificar nuestra variable categórica, y luego realizar el cálculo en <code>summarise()</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">group_by</span>(pobreza) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por pobreza</span>
+  <span style="color:#a6e22e">summarise</span>(prop <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_prop</span>(na.rm <span style="color:#f92672">=</span> T)) <span style="color:#75715e">#Y calculamos las proporciones</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 3 x 3
+##   pobreza              prop prop_se
+##   &lt;fct&gt;               &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Pobres extremos    0.0426 0.00125
+## 2 Pobres no extremos 0.0656 0.00162
+## 3 No pobres          0.892  0.00215
+</code></pre></div><p>De todos modos, hay que considerar que <code>survey_prop()</code> y <code>survey_mean()</code> son (hasta cierto punto) intercambiables:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">group_by</span>(pobreza) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por pobreza</span>
+  <span style="color:#a6e22e">summarise</span>(prop <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_mean</span>(na.rm <span style="color:#f92672">=</span> T)) <span style="color:#75715e">#Y calculamos las proporciones</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 3 x 3
+##   pobreza              prop prop_se
+##   &lt;fct&gt;               &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Pobres extremos    0.0426 0.00125
+## 2 Pobres no extremos 0.0656 0.00162
+## 3 No pobres          0.892  0.00215
+</code></pre></div><p>Muchas veces nos interesa más trabajar con porcentajes que con proporciones. Con <code>mutate()</code> podemos multiplicar por 100 nuestras proporciones, y así obtener los porcentajes deseados</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">group_by</span>(pobreza) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por pobreza</span>
+  <span style="color:#a6e22e">summarise</span>(prop <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_prop</span>(na.rm <span style="color:#f92672">=</span> T))<span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Calculamos las proporciones</span>
+  <span style="color:#a6e22e">mutate</span>(per <span style="color:#f92672">=</span> prop<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>) <span style="color:#75715e">#Creamos una nueva columna multiplicando las proporciones *100 para obtener porcentajes</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 3 x 4
+##   pobreza              prop prop_se   per
+##   &lt;fct&gt;               &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 Pobres extremos    0.0426 0.00125  4.26
+## 2 Pobres no extremos 0.0656 0.00162  6.56
+## 3 No pobres          0.892  0.00215 89.2
+</code></pre></div><p>La función <code>survey_total()</code> de <code>srvyr</code> nos permite calcular el total de personas en cada categoría a <strong>nivel poblacional</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">group_by</span>(pobreza) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por pobreza</span>
+  <span style="color:#a6e22e">summarise</span>(prop <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_prop</span>(na.rm <span style="color:#f92672">=</span> T), <span style="color:#75715e">#Calculamos las proporciones</span>
+            total <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_total</span>(na.rm<span style="color:#f92672">=</span>T))<span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Y el total por categorías</span>
+  <span style="color:#a6e22e">mutate</span>(per <span style="color:#f92672">=</span> prop<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>) <span style="color:#75715e">#Creamos una nueva columna multiplicando las proporciones *100 para obtener porcentajes</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 3 x 6
+##   pobreza              prop prop_se    total total_se   per
+##   &lt;fct&gt;               &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1 Pobres extremos    0.0426 0.00125   831232   24534.  4.26
+## 2 Pobres no extremos 0.0656 0.00162  1280953   31988.  6.56
+## 3 No pobres          0.892  0.00215 17420295  231034. 89.2
+</code></pre></div><p>Por supuesto, también es posible incorporar intervalos de confianza, tal como cuando calculamos medias</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">group_by</span>(pobreza) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por pobreza</span>
+  <span style="color:#a6e22e">summarise</span>(prop <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_prop</span>(vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm <span style="color:#f92672">=</span> T)) <span style="color:#75715e">#Incorporamos intervalos de confianza</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 3 x 4
+##   pobreza              prop prop_low prop_upp
+##   &lt;fct&gt;               &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Pobres extremos    0.0426   0.0401   0.0450
+## 2 Pobres no extremos 0.0656   0.0624   0.0688
+## 3 No pobres          0.892    0.888    0.896
+</code></pre></div><p>Y, además, podemos convertir en porcentajes nuestros intervalos de confianza, tal como lo hicimos con la estimación puntual</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">group_by</span>(pobreza) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por pobreza</span>
+  <span style="color:#a6e22e">summarise</span>(prop <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_prop</span>(vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm <span style="color:#f92672">=</span> T)) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Incorporamos intervalos de confianza</span>
+  <span style="color:#a6e22e">mutate</span>(prop <span style="color:#f92672">=</span> prop<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>, <span style="color:#75715e">#Multiplicamos las proporciones *100,</span>
+         prop_low <span style="color:#f92672">=</span> prop_low<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>, <span style="color:#75715e">#así como el límite inferior </span>
+         prop_upp <span style="color:#f92672">=</span> prop_upp<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>) <span style="color:#75715e">#y superior, para obtener porcentajes</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 3 x 4
+##   pobreza             prop prop_low prop_upp
+##   &lt;fct&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Pobres extremos     4.26     4.01     4.50
+## 2 Pobres no extremos  6.56     6.24     6.88
+## 3 No pobres          89.2     88.8     89.6
+</code></pre></div><p>Incluimos el total</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Con casen_regional</span>
+  <span style="color:#a6e22e">group_by</span>(pobreza) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por pobreza</span>
+  <span style="color:#a6e22e">summarise</span>(prop <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_prop</span>(vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm <span style="color:#f92672">=</span> T), <span style="color:#75715e">#Calculamos las proporciones con intervalos de confianza</span>
+            total <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_total</span>(vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm<span style="color:#f92672">=</span>T)) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Así como el total por categoría</span>
+  <span style="color:#a6e22e">mutate</span>(prop <span style="color:#f92672">=</span> prop<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>, <span style="color:#75715e">#Multiplicamos las proporciones *100,</span>
+         prop_low <span style="color:#f92672">=</span> prop_low<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>, <span style="color:#75715e">#así como el límite inferior </span>
+         prop_upp <span style="color:#f92672">=</span> prop_upp<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>) <span style="color:#75715e">#y superior, para obtener porcentajes</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 3 x 7
+##   pobreza             prop prop_low prop_upp    total total_low total_upp
+##   &lt;fct&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Pobres extremos     4.26     4.01     4.50   831232   783097.   879367.
+## 2 Pobres no extremos  6.56     6.24     6.88  1280953  1218194.  1343712.
+## 3 No pobres          89.2     88.8     89.6  17420295 16967009. 17873581.
+</code></pre></div><p>También podemos cruzar dos variables. Veamos, por ejemplo, cómo se distribuye la pobreza según sexo</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Creamos un objeto llamado pobreza_reg con datos de casen_regional</span>
+  <span style="color:#a6e22e">group_by</span>(pobreza, sexo) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por pobreza y sexo</span>
+  <span style="color:#a6e22e">summarise</span>(prop <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_prop</span>(vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm <span style="color:#f92672">=</span> T), <span style="color:#75715e">#Calculamos las proporciones con intervalos de confianza</span>
+            total <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_total</span>(vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm<span style="color:#f92672">=</span>T)) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Así como el total por categoría</span>
+  <span style="color:#a6e22e">mutate</span>(prop <span style="color:#f92672">=</span> prop<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 6 x 8
+## # Groups:   pobreza [3]
+##   pobreza            sexo    prop prop_low prop_upp   total total_low total_upp
+##   &lt;fct&gt;              &lt;fct&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Pobres extremos    Hombre  45.4    0.442    0.466  377149   353131.   401167.
+## 2 Pobres extremos    Mujer   54.6    0.534    0.558  454083   425853.   482313.
+## 3 Pobres no extremos Hombre  44.7    0.438    0.457  573200   543298.   603102.
+## 4 Pobres no extremos Mujer   55.3    0.543    0.562  707753   670391.   745115.
+## 5 No pobres          Hombre  46.2    0.459    0.466 8055786  7856474.  8255098.
+## 6 No pobres          Mujer   53.8    0.534    0.541 9364509  9094186.  9634832.
+</code></pre></div><p>Por último, podemos crear una tabla ancha (wide) con <code>pivot_wider()</code> de <code>tidyr</code> para trabajar con nuestros cálculos de forma más cómoda en un data frame</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pobreza_reg <span style="color:#f92672">&lt;-</span> casen_regional <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Creamos un objeto llamado pobreza_reg con datos de casen_regional</span>
+  <span style="color:#a6e22e">group_by</span>(region, pobreza) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Agrupamos por region y pobreza</span>
+  <span style="color:#a6e22e">summarise</span>(prop <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_prop</span>(vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm <span style="color:#f92672">=</span> T), <span style="color:#75715e">#Calculamos las proporciones con intervalos de confianza</span>
+            total <span style="color:#f92672">=</span> <span style="color:#a6e22e">survey_total</span>(vartype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ci&#34;</span>, na.rm<span style="color:#f92672">=</span>T)) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Así como el total por categoría</span>
+  <span style="color:#a6e22e">mutate</span>(per <span style="color:#f92672">=</span> prop<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Multiplicamos las proporciones *100 para obtener porcentajes</span>
+  <span style="color:#a6e22e">select</span>(region, pobreza, per, total) <span style="color:#f92672">%&gt;%</span> <span style="color:#75715e">#Seleccionamos region, pobreza, per y total</span>
+  <span style="color:#a6e22e">pivot_wider</span>(names_from <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;pobreza&#34;</span>, <span style="color:#75715e">#Pivoteamos a lo ancho, extrayendo los nombres de las columnas desde pobreza</span>
+              values_from <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;per&#34;</span>, <span style="color:#e6db74">&#34;total&#34;</span>)) <span style="color:#75715e">#y los valores desde per y total</span>
+<span style="color:#a6e22e">head</span>(pobreza_reg)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">## # A tibble: 6 x 7
+## # Groups:   region [6]
+##   region  `per_Pobres extr~ `per_Pobres no ex~ `per_No pobres` `total_Pobres ex~
+##   &lt;fct&gt;               &lt;dbl&gt;              &lt;dbl&gt;           &lt;dbl&gt;             &lt;dbl&gt;
+## 1 Tarapa~              6.87               7.12            86.0             26508
+## 2 Antofa~              3.70               5.61            90.7             25738
+## 3 Atacama              3.83               5.63            90.5             12091
+## 4 Coquim~              4.03               7.67            88.3             33861
+## 5 Valpar~              4.87               6.47            88.7             95813
+## 6 OHiggi~              4.20               5.77            90.0             41812
+## # ... with 2 more variables: total_Pobres no extremos &lt;dbl&gt;,
+## #   total_No pobres &lt;dbl&gt;
+</code></pre></div><h2 id="5-resumen">5. Resumen</h2>
+<p>¡Y eso es todo! En este práctico aprendimos a:</p>
+<ol>
+<li>Crear un objeto encuesta</li>
+<li>Realizar cálculos de medias a nivel poblacional para variables continuas</li>
+<li>Realizar cálculos de proporciones y cantidades a nivel poblacional para variables categóricas</li>
+<li>Crear una tabla ancha (wide) para trabajar nuestros cálculos.</li>
+</ol>
+<h2 id="6-reporte-de-progreso">6. Reporte de progreso</h2>
+<p>¡Recuerda rellenar tu <a href="https://learn-r.formr.org/" target="_blank" rel="noopener">reporte de progreso</a>. En tu correo electrónico está disponible el código mediante al cuál debes acceder para actualizar tu estado de avance del curso.</p>
 
                     </div>
 
@@ -1025,15 +1087,8 @@ mosquito_nets <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22
   
   
   <div class="post-nav-item">
-    <div class="meta-nav">Previous</div>
-    <a href="/example/09-practico/" rel="next">Regresiones lineales, predictores categóricos y representación gráfica</a>
-  </div>
-  
-  
-  
-  <div class="post-nav-item">
     <div class="meta-nav">Next</div>
-    <a href="/example/06-practico/" rel="prev">Análisis descriptivo</a>
+    <a href="/example/05-practico/" rel="prev">Regresiones lineales, predictores categóricos y representación gráfica</a>
   </div>
   
 </div>
@@ -1043,7 +1098,7 @@ mosquito_nets <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on September 27, 2021</p>
+                    <p>Last updated on September 16, 2021</p>
 
                     
 
