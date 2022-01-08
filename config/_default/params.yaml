@@ -121,11 +121,11 @@ ayudante1:
 
 course:
   number: ""
-  semester: "II° Semestre- 2021"
-  days: "Clases: Viernes 17.30-20.20"
+  semester: "I° Semestre- 2022"
+  days: "Clases: Lunes 10, Martes 11 y Miércoles 13, 16.00-19.00"
   #time: ""
   location: "Online, en link de Zoom"
-  dates: "Agosto"
+  dates: "Enero"
   github: "valentinaandrade"
   copyrightYear: "2021. Web developed by Andrew Heiss and custom by"
   slack: "http://learn-r-udp.slack.com/"

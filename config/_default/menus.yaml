@@ -21,7 +21,7 @@ main:
     url: /resource/
     weight: 6
   - name: '<i class="fab fa-slack"></i>'
-    url: "https://join.slack.com/t/learn-r-udp/shared_invite/zt-t5wu1kxe-ng~ne54VCRbv011lCKMTJg"
+    url: "https://join.slack.com/t/learn-r-udp/shared_invite/zt-11aaxe28l-FLhjoKOLcYrwD0OX0_LnKg"
     weight: 7
   - name: '<i class="fab fa-r-project"></i>'
     url: https://rstudio.cloud/
