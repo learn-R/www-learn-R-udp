@@ -20,7 +20,7 @@ design:
     text_color_light: true
 
 cta_note:
-  label: Profesora Valentina Andrade • II° Semestre 2021<br>Sociología • Universidad Diego Portales
+  label: Profesora Valentina Andrade • I° Semestre 2022<br>Sociología • Universidad Diego Portales
 ---
 
 Talleres: Introducción al procesamiento y análisis para **Ciencias Sociales**
