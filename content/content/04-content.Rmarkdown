@@ -31,9 +31,6 @@ slide_details <- tibble::tribble(
 
 `r blogdown::shortcode("slide-buttons")`
 
-```{r show-slide-tabs, echo=FALSE, results="asis"}
-slide_tabs(slide_details, "/slides/04-slides.html")
-```
 
 {{% div fyi %}}
 **¿Cómo ocupar**: Si presionas <kbd>?</kbd> (o <kbd>shift</kbd> + <kbd>/</kbd>) mientras estas viendo las slides, podrás ver los comandos específicos para navegar en ellas.
@@ -41,7 +38,7 @@ slide_tabs(slide_details, "/slides/04-slides.html")
 
 # Material de la clase
 
-- [<i class="fas fa-file-archive"></i> `04-bloque.zip`](https://github.com/learn-R/0-class/raw/main/04-bloque.zip)
+- [<i class="fas fa-file-archive"></i> `04-bloque.zip`](https://github.com/learn-R/05-class/raw/main/04-bloque.zip)
 
   - <small>[<i class="fas fa-file-o"></i>¿Cómo descomprimir archivos?](/resource/unzipping)</small>
 
